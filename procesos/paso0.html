@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Paso 0: Definir Sistema y Frontera - Herramienta de Identificación de Procesos">
+    <title>Paso 0: Sistema y Frontera | Procesos Industriales</title>
+    <link rel="icon" href="../assets/images/logo.png" type="image/png">
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <!-- Skip to content -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+    <!-- Header -->
+    <header class="main-header">
+        <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Navegación principal">
+            <div class="container">
+                <a class="navbar-brand" href="../index.html">
+                    <img src="../assets/images/logo.png" alt="Logo" height="60" class="logo-header">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Protocolo</a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="../protocol/guia-identificacion.html">Guía Completa</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Procesos</a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item active" href="paso0.html">Paso 0: Sistema y Frontera</a></li>
+                                <li><a class="dropdown-item" href="paso1.html">Paso 1: Matriz Entrada-Salida</a></li>
+                                <li><a class="dropdown-item" href="paso2.html">Paso 2: Clasificación</a></li>
+                                <li><a class="dropdown-item" href="paso3.html">Paso 3: Régimen Temporal</a></li>
+                                <li><a class="dropdown-item" href="paso4.html">Paso 4: Aplicación 8 Pasos</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="process-hero bg-gradient" style="background: linear-gradient(135deg, #1A1A1A 0%, #FF6B00 100%); color: white; padding: 80px 0;">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <div class="badge bg-warning text-dark mb-3">
+                            <i class="fas fa-drafting-compass"></i> PASO 0
+                        </div>
+                        <h1 class="display-4 mb-3">
+                            <i class="fas fa-border-all"></i> Definir el Sistema y su Frontera
+                        </h1>
+                        <p class="lead mb-4">
+                            El primer paso fundamental: trazar la línea imaginaria que delimita qué analizamos y qué no
+                        </p>
+                        <div class="d-flex gap-3">
+                            <a href="#teoria" class="btn btn-light btn-lg">
+                                <i class="fas fa-book"></i> Teoría
+                            </a>
+                            <a href="#ejemplos" class="btn btn-outline-light btn-lg">
+                                <i class="fas fa-industry"></i> Ejemplos
+                            </a>
+                            <a href="#ejercicios" class="btn btn-outline-light btn-lg">
+                                <i class="fas fa-calculator"></i> Ejercicios
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 text-center d-none d-lg-block">
+                        <i class="fas fa-cube fa-10x" style="opacity: 0.3;"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mnemotecnia -->
+        <section class="mnemonic-section py-5 bg-light">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="card border-warning shadow-lg">
+                            <div class="card-body text-center p-5">
+                                <h3 class="mb-4">
+                                    <i class="fas fa-brain text-warning"></i> MNEMOTECNIA DEL PASO 0
+                                </h3>
+                                <div class="display-6 fw-bold text-primary mb-3">
+                                    FRONTERA
+                                </div>
+                                <div class="row text-start">
+                                    <div class="col-md-6">
+                                        <p><strong style="color: #FF6B00;">F</strong>ija el <strong>Recurso</strong> a analizar</p>
+                                        <p><strong style="color: #FF6B00;">R</strong>odea el equipo con línea imaginaria</p>
+                                        <p><strong style="color: #FF6B00;">O</strong>bserva qué cruza la línea</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p><strong style="color: #FF6B00;">N</strong>ombra entradas y salidas</p>
+                                        <p><strong style="color: #FF6B00;">T</strong>raza claramente los límites</p>
+                                        <p><strong style="color: #FF6B00;">E</strong>vita fronteras ambiguas</p>
+                                        <p><strong style="color: #FF6B00;">R</strong>evisa si es abierto/cerrado</p>
+                                        <p><strong style="color: #FF6B00;">A</strong>plica en todos los problemas</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teoría -->
+        <section id="teoria" class="theory-section py-5">
+            <div class="container">
+                <h2 class="section-title text-center mb-5">
+                    <i class="fas fa-graduation-cap text-orange"></i> Fundamentos Teóricos
+                </h2>
+                
+                <div class="row mb-5">
+                    <div class="col-lg-12">
+                        <div class="card shadow-sm">
+                            <div class="card-body p-4">
+                                <h4 class="text-orange mb-3">
+                                    <i class="fas fa-question-circle"></i> ¿Qué es un Sistema Termodinámico?
+                                </h4>
+                                <p class="lead">
+                                    Un <strong>sistema</strong> es una región del espacio o una cantidad de materia sobre la cual 
+                                    dirigimos nuestra atención para realizar un análisis termodinámico.
+                                </p>
+                                <p>
+                                    La <strong>frontera</strong> (o superficie de control) es el límite real o imaginario que 
+                                    separa el sistema de su entorno. Todo lo que cruza esta frontera es una interacción 
+                                    (masa o energía).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tipos de Sistemas -->
+                <div class="row mb-5">
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100 border-success">
+                            <div class="card-header bg-success text-white">
+                                <h5 class="mb-0"><i class="fas fa-lock-open"></i> Sistema Abierto</h5>
+                            </div>
+                            <div class="card-body">
+                                <ul>
+                                    <li>Intercambia <strong>materia y energía</strong> con el entorno</li>
+                                    <li>También llamado <em>volumen de control</em></li>
+                                    <li><strong>Ejemplos:</strong> Turbinas, compresores, intercambiadores</li>
+                                </ul>
+                                <div class="formula-box mt-3">
+                                    <small>Balance: Entrada - Salida + Gen - Cons = Acum</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100 border-primary">
+                            <div class="card-header bg-primary text-white">
+                                <h5 class="mb-0"><i class="fas fa-lock"></i> Sistema Cerrado</h5>
+                            </div>
+                            <div class="card-body">
+                                <ul>
+                                    <li>Solo intercambia <strong>energía</strong> (calor/trabajo)</li>
+                                    <li>La masa permanece <strong>constante</strong></li>
+                                    <li><strong>Ejemplos:</strong> Gas en cilindro con pistón, batería</li>
+                                </ul>
+                                <div class="formula-box mt-3">
+                                    <small>ΔU = Q - W</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100 border-warning">
+                            <div class="card-header bg-warning text-dark">
+                                <h5 class="mb-0"><i class="fas fa-shield-alt"></i> Sistema Aislado</h5>
+                            </div>
+                            <div class="card-body">
+                                <ul>
+                                    <li><strong>No intercambia</strong> ni materia ni energía</li>
+                                    <li>Caso ideal (no existe en la práctica)</li>
+                                    <li><strong>Ejemplo:</strong> Termo perfecto (aproximación)</li>
+                                </ul>
+                                <div class="formula-box mt-3">
+                                    <small>E = constante</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Preguntas Guía -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card shadow">
+                            <div class="card-header bg-orange text-white">
+                                <h4 class="mb-0"><i class="fas fa-compass"></i> 4 Preguntas Clave del Paso 0</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th style="width: 5%">#</th>
+                                                <th style="width: 40%">Pregunta Guía</th>
+                                                <th style="width: 35%">¿Qué Determina?</th>
+                                                <th style="width: 20%">Importancia</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><span class="badge bg-primary">1</span></td>
+                                                <td><strong>¿Dónde dibujo la línea de frontera?</strong><br>
+                                                    <small class="text-muted">¿Un solo equipo o varios en serie?</small>
+                                                </td>
+                                                <td>El tamaño del sistema</td>
+                                                <td><span class="badge bg-danger">Crítico</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="badge bg-primary">2</span></td>
+                                                <td><strong>¿El sistema es abierto o cerrado?</strong><br>
+                                                    <small class="text-muted">¿Entra y sale materia?</small>
+                                                </td>
+                                                <td>Tipo de balance a plantear</td>
+                                                <td><span class="badge bg-danger">Crítico</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="badge bg-primary">3</span></td>
+                                                <td><strong>¿Cuál es la base de cálculo?</strong><br>
+                                                    <small class="text-muted">1 hora, 1 kg, 1 lote...</small>
+                                                </td>
+                                                <td>Unidad de todas las corrientes</td>
+                                                <td><span class="badge bg-warning text-dark">Alta</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="badge bg-primary">4</span></td>
+                                                <td><strong>¿Cuántos grados de libertad tiene?</strong><br>
+                                                    <small class="text-muted">Incógnitas - Ecuaciones</small>
+                                                </td>
+                                                <td>Si el problema tiene solución</td>
+                                                <td><span class="badge bg-warning text-dark">Alta</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fórmula MathJax -->
+                <div class="row mt-4">
+                    <div class="col-lg-12">
+                        <div class="alert alert-info">
+                            <h5><i class="fas fa-calculator"></i> Grados de Libertad</h5>
+                            <p class="mb-0 text-center">
+                                \[
+                                \text{GDL} = \text{N° de Incógnitas} - \text{N° de Ecuaciones Independientes}
+                                \]
+                            </p>
+                            <ul class="mb-0 mt-2">
+                                <li><strong>GDL = 0:</strong> Problema determinado (tiene solución única)</li>
+                                <li><strong>GDL > 0:</strong> Problema subdeterminado (faltan datos)</li>
+                                <li><strong>GDL < 0:</strong> Problema sobredeterminado (datos redundantes)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Educativo -->
+        <section class="video-section py-5 bg-light">
+            <div class="container">
+                <h2 class="section-title text-center mb-5">
+                    <i class="fab fa-youtube text-danger"></i> Video Educativo Recomendado
+                </h2>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <div class="ratio ratio-16x9 mb-3">
+                                    <iframe src="https://www.youtube.com/embed/um2U0GQuhAo" 
+                                            title="Sistemas Termodinámicos y Fronteras - TermoFácil" 
+                                            allowfullscreen></iframe>
+                                </div>
+                                <h5 class="card-title">
+                                    <i class="fas fa-play-circle text-danger"></i> 
+                                    Sistemas Termodinámicos: Volumen de Control y Fronteras
+                                </h5>
+                                <p class="card-text">
+                                    <strong>Canal:</strong> TermoFácil<br>
+                                    <strong>Duración:</strong> 12:45 min<br>
+                                    <strong>Contenido:</strong> Explicación detallada de cómo definir correctamente 
+                                    el sistema, trazar la frontera y diferenciar entre sistemas abiertos y cerrados 
+                                    con ejemplos industriales.
+                                </p>
+                                <a href="https://www.youtube.com/results?search_query=sistema+termodinamico+frontera+volumen+control" 
+                                   class="btn btn-outline-danger" target="_blank" rel="noopener">
+                                    <i class="fab fa-youtube"></i> Ver más videos en YouTube
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ejemplos Industriales -->
+        <section id="ejemplos" class="examples-section py-5">
+            <div class="container">
+                <h2 class="section-title text-center mb-5">
+                    <i class="fas fa-industry text-orange"></i> Ejemplos Industriales por Semana
+                </h2>
+                <p class="lead text-center mb-5">
+                    Aplicaciones reales de la definición de sistema y frontera en la industria peruana y transnacional
+                </p>
+
+                <!-- Ejemplo 1: Semana 1 -->
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card shadow-sm border-start border-4 border-primary">
+                            <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0">
+                                    <i class="fas fa-seedling"></i> Ejemplo 1: Planta de Aceite Comestible
+                                </h5>
+                                <span class="badge bg-light text-primary">Semana 1</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="text-primary">Caso Real:</h6>
+                                        <p>
+                                            Una planta de producción de aceite comestible (ej: <strong>Alicorp</strong>) 
+                                            procesa <strong>1000 kg/h de semilla</strong> (soya o girasol). El 18% del peso 
+                                            es aceite extraíble.
+                                        </p>
+                                        <h6 class="text-primary">Definición del Sistema:</h6>
+                                        <ul>
+                                            <li><strong>Frontera:</strong> Línea alrededor del extractor de solvente</li>
+                                            <li><strong>Tipo:</strong> Sistema abierto (flujo continuo)</li>
+                                            <li><strong>Base de cálculo:</strong> 1 hora de operación</li>
+                                            <li><strong>Entradas:</strong> 1000 kg semilla + solvente</li>
+                                            <li><strong>Salidas:</strong> Aceite + harina residual + solvente recuperado</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6 class="text-primary">Impacto Industrial:</h6>
+                                        <div class="alert alert-warning">
+                                            <strong>Económico:</strong>
+                                            <ul class="mb-0 small">
+                                                <li>Sobre-dimensionamiento: inversión innecesaria</li>
+                                                <li>Sub-dimensionamiento: cuellos de botella</li>
+                                            </ul>
+                                        </div>
+                                        <div class="alert alert-info">
+                                            <strong>Productividad:</strong>
+                                            <ul class="mb-0 small">
+                                                <li>Pérdidas no contabilizadas reducen rendimiento 2-5%</li>
+                                                <li>Afecta directamente la rentabilidad</li>
+                                            </ul>
+                                        </div>
+                                        <div class="alert alert-danger">
+                                            <strong>Ambiental:</strong>
+                                            <ul class="mb-0 small">
+                                                <li>Vertidos no controlados por desconocer corrientes de salida</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <button class="btn btn-sm btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#ej1Diagrama">
+                                        <i class="fas fa-chart-area"></i> Ver Diagrama de Frontera
+                                    </button>
+                                    <div class="collapse mt-3" id="ej1Diagrama">
+                                        <canvas id="diagramaAceite" height="200"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejemplo 2: Semana 4 -->
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card shadow-sm border-start border-4 border-success">
+                            <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0">
+                                    <i class="fas fa-wind"></i> Ejemplo 2: Turbina de Vapor en Cogeneración
+                                </h5>
+                                <span class="badge bg-light text-success">Semana 4</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="text-success">Caso Real:</h6>
+                                        <p>
+                                            Turbina de vapor en planta de cogeneración (ej: <strong>Refinería La Pampilla</strong>) 
+                                            recibe <strong>50 kg/s de vapor</strong> a 10 MPa y 500°C. La presión de salida es 10 kPa.
+                                        </p>
+                                        <h6 class="text-success">Definición del Sistema:</h6>
+                                        <ul>
+                                            <li><strong>Frontera:</strong> Superficie que rodea solo la turbina</li>
+                                            <li><strong>Tipo:</strong> Sistema abierto (flujo estacionario)</li>
+                                            <li><strong>Base de cálculo:</strong> 1 segundo (flujo másico)</li>
+                                            <li><strong>Entradas:</strong> Vapor a alta P y T</li>
+                                            <li><strong>Salidas:</strong> Vapor expandido + Trabajo en el eje</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6 class="text-success">Impacto Industrial:</h6>
+                                        <div class="alert alert-danger">
+                                            <strong>Económico:</strong>
+                                            <ul class="mb-0 small">
+                                                <li>Disminución del 5% en eficiencia = US$ 500,000/año</li>
+                                                <li>En planta de 100 MW</li>
+                                            </ul>
+                                        </div>
+                                        <div class="alert alert-warning">
+                                            <strong>Productividad:</strong>
+                                            <ul class="mb-0 small">
+                                                <li>Equipos con baja eficiencia requieren más mantenimiento</li>
+                                                <li>Paradas no programadas costosas</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <button class="btn btn-sm btn-outline-success" type="button" data-bs-toggle="collapse" data-bs-target="#ej2Diagrama">
+                                        <i class="fas fa-chart-area"></i> Ver Diagrama de Turbina
+                                    </button>
+                                    <div class="collapse mt-3" id="ej2Diagrama">
+                                        <canvas id="diagramaTurbina" height="200"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejemplo 3: Semana 6 (NUEVO) -->
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card shadow-sm border-start border-4 border-info">
+                            <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0">
+                                    <i class="fas fa-tshirt"></i> Ejemplo 3: Cámara de Acondicionamiento Textil
+                                </h5>
+                                <span class="badge bg-light text-info">Semana 6 - NUEVO</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="text-info">Caso Real:</h6>
+                                        <p>
+                                            Planta textil (ej: <strong>Textiles Panamericana</strong>) requiere mantener 
+                                            <strong>50% de humedad relativa</strong> para evitar que los hilos se sequen y rompan.
+                                        </p>
+                                        <h6 class="text-info">Definición del Sistema:</h6>
+                                        <ul>
+                                            <li><strong>Frontera:</strong> Volumen de control de la cámara de acondicionamiento</li>
+                                            <li><strong>Tipo:</strong> Sistema abierto (aire entra y sale)</li>
+                                            <li><strong>Base de cálculo:</strong> 1 kg de aire seco</li>
+                                            <li><strong>Entradas:</strong> Aire exterior (5°C, 60% HR)</li>
+                                            <li><strong>Salidas:</strong> Aire acondicionado (22°C, 50% HR)</li>
+                                            <li><strong>Interacciones:</strong> Calor agregado + vapor de agua</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6 class="text-info">Impacto Industrial:</h6>
+                                        <div class="alert alert-danger">
+                                            <strong>Productividad:</strong>
+                                            <ul class="mb-0 small">
+                                                <li>Si HR cae a 30%: rotura de hilos aumenta 30%</li>
+                                                <li>Productividad reduce 15-20%</li>
+                                            </ul>
+                                        </div>
+                                        <div class="alert alert-warning">
+                                            <strong>Calidad:</strong>
+                                            <ul class="mb-0 small">
+                                                <li>Bajas humedades: electricidad estática</li>
+                                                <li>Altas humedades (>70%): moho y degradación</li>
+                                            </ul>
+                                        </div>
+                                        <div class="alert alert-danger">
+                                            <strong>Económico:</strong>
+                                            <ul class="mb-0 small">
+                                                <li>Control inadecuado: US$ 200,000/año en defectos</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejemplo 4: Semana 9 (NUEVO) -->
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card shadow-sm border-start border-4 border-warning">
+                            <div class="card-header bg-warning text-dark d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0">
+                                    <i class="fas fa-fire"></i> Ejemplo 4: Caldera de Combustión
+                                </h5>
+                                <span class="badge bg-dark text-warning">Semana 9 - NUEVO</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="text-warning">Caso Real:</h6>
+                                        <p>
+                                            Caldera industrial de <strong>10 MW</strong> (ej: planta de <strong>Cementos Pacasmayo</strong>) 
+                                            que quema fuel oil con 20% de exceso de aire.
+                                        </p>
+                                        <h6 class="text-warning">Definición del Sistema:</h6>
+                                        <ul>
+                                            <li><strong>Frontera:</strong> Línea alrededor de la cámara de combustión</li>
+                                            <li><strong>Tipo:</strong> Sistema abierto con reacción química</li>
+                                            <li><strong>Base de cálculo:</strong> 1 kmol de combustible</li>
+                                            <li><strong>Entradas:</strong> Fuel oil + aire (O₂ + N₂)</li>
+                                            <li><strong>Salidas:</strong> Gases de combustión (CO₂, H₂O, N₂, O₂)</li>
+                                            <li><strong>Generación:</strong> CO₂ y H₂O por combustión</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6 class="text-warning">Impacto Industrial:</h6>
+                                        <div class="alert alert-danger">
+                                            <strong>Económico:</strong>
+                                            <ul class="mb-0 small">
+                                                <li>1% de CO en gases = 5-8% pérdida eficiencia</li>
+                                                <li>~US$ 300,000/año en combustible extra</li>
+                                            </ul>
+                                        </div>
+                                        <div class="alert alert-danger">
+                                            <strong>Ambiental:</strong>
+                                            <ul class="mb-0 small">
+                                                <li>CO es contaminante tóxico</li>
+                                                <li>Multas por exceder límites: >US$ 100,000</li>
+                                            </ul>
+                                        </div>
+                                        <div class="alert alert-warning">
+                                            <strong>Seguridad:</strong>
+                                            <ul class="mb-0 small">
+                                                <li>Riesgo de explosión por CO</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejemplo 5: Semana 11 (NUEVO) -->
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card shadow-sm border-start border-4 border-danger">
+                            <div class="card-header bg-danger text-white d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0">
+                                    <i class="fas fa-exchange-alt"></i> Ejemplo 5: Intercambiador de Calor
+                                </h5>
+                                <span class="badge bg-light text-danger">Semana 11 - NUEVO</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="text-danger">Caso Real:</h6>
+                                        <p>
+                                            Intercambiador de calor en refinería (ej: <strong>Relapsa</strong>) para 
+                                            enfriar aceite térmico de 200°C a 150°C usando agua de enfriamiento.
+                                        </p>
+                                        <h6 class="text-danger">Definición del Sistema:</h6>
+                                        <ul>
+                                            <li><strong>Frontera:</strong> Superficie que envuelve todo el intercambiador</li>
+                                            <li><strong>Tipo:</strong> Sistema abierto (dos corrientes)</li>
+                                            <li><strong>Base de cálculo:</strong> 1 segundo</li>
+                                            <li><strong>Entradas:</strong> Aceite caliente + agua fría</li>
+                                            <li><strong>Salidas:</strong> Aceite enfriado + agua caliente</li>
+                                            <li><strong>Interacciones:</strong> Transferencia de calor interna</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6 class="text-danger">Impacto Industrial:</h6>
+                                        <div class="alert alert-warning">
+                                            <strong>Económico:</strong>
+                                            <ul class="mb-0 small">
+                                                <li>Mal diseño acorta vida del aceite</li>
+                                                <li>Cada 10°C extra reduce vida a la mitad</li>
+                                                <li>Costo reemplazo: US$ 50,000/año</li>
+                                            </ul>
+                                        </div>
+                                        <div class="alert alert-info">
+                                            <strong>Productividad:</strong>
+                                            <ul class="mb-0 small">
+                                                <li>Incrustaciones reducen transferencia</li>
+                                                <li>Producto defectuoso aguas abajo</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejemplo 6: Semana 15 (NUEVO - Minería) -->
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card shadow-sm border-start border-4 border-secondary">
+                            <div class="card-header bg-secondary text-white d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0">
+                                    <i class="fas fa-mountain"></i> Ejemplo 6: Sistema de Bombeo Minero
+                                </h5>
+                                <span class="badge bg-light text-secondary">Semana 15 - NUEVO</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="text-secondary">Caso Real:</h6>
+                                        <p>
+                                            Sistema de bombeo de agua para enfriamiento en <strong>Southern Copper</strong>. 
+                                            Tubería de 1000 m, 12 codos, 5 válvulas. Diámetro: 8". Caudal: 800 GPM.
+                                        </p>
+                                        <h6 class="text-secondary">Definición del Sistema:</h6>
+                                        <ul>
+                                            <li><strong>Frontera:</strong> Desde la succión hasta la descarga de la bomba</li>
+                                            <li><strong>Tipo:</strong> Sistema abierto (flujo continuo)</li>
+                                            <li><strong>Base de cálculo:</strong> 1 segundo</li>
+                                            <li><strong>Entradas:</strong> Agua a presión de succión</li>
+                                            <li><strong>Salidas:</strong> Agua a presión de descarga</li>
+                                            <li><strong>Trabajo:</strong> Potencia de la bomba</li>
+                                            <li><strong>Pérdidas:</strong> Fricción en tubería y accesorios</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6 class="text-secondary">Impacto Industrial:</h6>
+                                        <div class="alert alert-danger">
+                                            <strong>Económico:</strong>
+                                            <ul class="mb-0 small">
+                                                <li>Error del 10% en pérdidas: bomba sobre/subdimensionada</li>
+                                                <li>Mayor consumo energético de por vida</li>
+                                            </ul>
+                                        </div>
+                                        <div class="alert alert-warning">
+                                            <strong>Seguridad:</strong>
+                                            <ul class="mb-0 small">
+                                                <li>Subestimar pérdidas causa cavitación</li>
+                                                <li>Daño severo al impulsor</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Mapa Mental Interactivo -->
+        <section class="mindmap-section py-5 bg-light">
+            <div class="container">
+                <h2 class="section-title text-center mb-5">
+                    <i class="fas fa-sitemap text-orange"></i> Mapa Mental: Definición de Sistema
+                </h2>
+                
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="card shadow">
+                            <div class="card-body p-4">
+                                <div class="mindmap-container">
+                                    <!-- Nodo raíz -->
+                                    <div class="mindmap-node root text-center mb-4">
+                                        <h4 class="bg-orange text-white p-3 rounded">
+                                            <i class="fas fa-border-all"></i> PASO 0: SISTEMA Y FRONTERA
+                                        </h4>
+                                    </div>
+                                    
+                                    <!-- Ramas principales -->
+                                    <div class="row">
+                                        <div class="col-md-4 mb-3">
+                                            <div class="mindmap-branch">
+                                                <div class="card border-primary">
+                                                    <div class="card-header bg-primary text-white">
+                                                        <strong>1. TIPO DE SISTEMA</strong>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <ul class="list-unstyled">
+                                                            <li><i class="fas fa-arrow-right text-primary"></i> Abierto (masa + energía)</li>
+                                                            <li><i class="fas fa-arrow-right text-primary"></i> Cerrado (solo energía)</li>
+                                                            <li><i class="fas fa-arrow-right text-primary"></i> Aislado (nada)</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="mindmap-branch">
+                                                <div class="card border-success">
+                                                    <div class="card-header bg-success text-white">
+                                                        <strong>2. FRONTERA</strong>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <ul class="list-unstyled">
+                                                            <li><i class="fas fa-arrow-right text-success"></i> Fija o móvil</li>
+                                                            <li><i class="fas fa-arrow-right text-success"></i> Real o imaginaria</li>
+                                                            <li><i class="fas fa-arrow-right text-success"></i> Define interacciones</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="mindmap-branch">
+                                                <div class="card border-warning">
+                                                    <div class="card-header bg-warning text-dark">
+                                                        <strong>3. BASE DE CÁLCULO</strong>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <ul class="list-unstyled">
+                                                            <li><i class="fas fa-arrow-right text-warning"></i> Tiempo (1 hora)</li>
+                                                            <li><i class="fas fa-arrow-right text-warning"></i> Masa (1 kg)</li>
+                                                            <li><i class="fas fa-arrow-right text-warning"></i> Lote (1 batch)</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row mt-3">
+                                        <div class="col-md-6 mb-3">
+                                            <div class="mindmap-branch">
+                                                <div class="card border-info">
+                                                    <div class="card-header bg-info text-white">
+                                                        <strong>4. GRADOS DE LIBERTAD</strong>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <p class="text-center mb-2">
+                                                            <strong>GDL = Incógnitas - Ecuaciones</strong>
+                                                        </p>
+                                                        <ul class="list-unstyled">
+                                                            <li><i class="fas fa-check text-success"></i> GDL = 0: Determinado</li>
+                                                            <li><i class="fas fa-exclamation text-warning"></i> GDL > 0: Subdeterminado</li>
+                                                            <li><i class="fas fa-times text-danger"></i> GDL < 0: Sobredeterminado</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <div class="mindmap-branch">
+                                                <div class="card border-danger">
+                                                    <div class="card-header bg-danger text-white">
+                                                        <strong>5. ERRORES COMUNES</strong>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <ul class="list-unstyled">
+                                                            <li><i class="fas fa-times-circle text-danger"></i> Frontera mal definida</li>
+                                                            <li><i class="fas fa-times-circle text-danger"></i> Confundir abierto/cerrado</li>
+                                                            <li><i class="fas fa-times-circle text-danger"></i> Olvidar corrientes</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Errores Comunes -->
+        <section class="errors-section py-5">
+            <div class="container">
+                <h2 class="section-title text-center mb-5">
+                    <i class="fas fa-exclamation-triangle text-warning"></i> Errores Comunes
+                </h2>
+                
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="card border-danger h-100">
+                            <div class="card-header bg-danger text-white">
+                                <h5 class="mb-0"><i class="fas fa-bug"></i> Error 1: Frontera Mal Definida</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="alert alert-danger">
+                                    <strong>Problema:</strong> No identificar correctamente qué cruza la frontera
+                                </div>
+                                <p><strong>Ejemplo:</strong> En una turbina, dibujar la frontera incluyendo también el condensador</p>
+                                <div class="alert alert-warning">
+                                    <strong>Consecuencia:</strong>
+                                    <ul class="mb-0">
+                                        <li>Balance incompleto</li>
+                                        <li>Corrientes "fantasma"</li>
+                                        <li>Resultados erróneos</li>
+                                    </ul>
+                                </div>
+                                <div class="alert alert-success">
+                                    <strong>Solución:</strong>
+                                    <ul class="mb-0">
+                                        <li>Dibujar siempre el diagrama con la frontera punteada</li>
+                                        <li>Verificar cada corriente que cruza</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="card border-danger h-100">
+                            <div class="card-header bg-danger text-white">
+                                <h5 class="mb-0"><i class="fas fa-bug"></i> Error 2: Confundir Abierto/Cerrado</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="alert alert-danger">
+                                    <strong>Problema:</strong> Asumir que no hay flujo de masa cuando sí lo hay
+                                </div>
+                                <p><strong>Ejemplo:</strong> Tratar un compresor como sistema cerrado</p>
+                                <div class="alert alert-warning">
+                                    <strong>Consecuencia:</strong>
+                                    <ul class="mb-0">
+                                        <li>Plantear balance de energía incorrecto</li>
+                                        <li>Ignorar términos de flujo (entalpía)</li>
+                                        <li>Error en cálculo de trabajo</li>
+                                    </ul>
+                                </div>
+                                <div class="alert alert-success">
+                                    <strong>Solución:</strong>
+                                    <ul class="mb-0">
+                                        <li>Preguntar: "¿Entra o sale materia?"</li>
+                                        <li>Si SÍ → sistema abierto (volumen de control)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="card border-danger h-100">
+                            <div class="card-header bg-danger text-white">
+                                <h5 class="mb-0"><i class="fas fa-bug"></i> Error 3: Base de Cálculo Inconsistente</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="alert alert-danger">
+                                    <strong>Problema:</strong> Mezclar diferentes bases en un mismo balance
+                                </div>
+                                <p><strong>Ejemplo:</strong> Expresar entradas en kg/h y salidas en kg/lote</p>
+                                <div class="alert alert-warning">
+                                    <strong>Consecuencia:</strong>
+                                    <ul class="mb-0">
+                                        <li>Ecuaciones dimensionalmente incorrectas</li>
+                                        <li>Resultados sin sentido físico</li>
+                                    </ul>
+                                </div>
+                                <div class="alert alert-success">
+                                    <strong>Solución:</strong>
+                                    <ul class="mb-0">
+                                        <li>Elegir UNA base al inicio</li>
+                                        <li>Expresar TODAS las corrientes en esa base</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="card border-danger h-100">
+                            <div class="card-header bg-danger text-white">
+                                <h5 class="mb-0"><i class="fas fa-bug"></i> Error 4: No Verificar GDL</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="alert alert-danger">
+                                    <strong>Problema:</strong> Empezar a resolver sin saber si hay solución
+                                </div>
+                                <p><strong>Ejemplo:</strong> 5 incógnitas pero solo 3 ecuaciones</p>
+                                <div class="alert alert-warning">
+                                    <strong>Consecuencia:</strong>
+                                    <ul class="mb-0">
+                                        <li>Perder tiempo en problema sin solución única</li>
+                                        <li>Obtener infinitas soluciones</li>
+                                    </ul>
+                                </div>
+                                <div class="alert alert-success">
+                                    <strong>Solución:</strong>
+                                    <ul class="mb-0">
+                                        <li>Calcular GDL antes de resolver</li>
+                                        <li>Si GDL ≠ 0, buscar datos faltantes o revisar ecuaciones</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ejercicios Paso a Paso -->
+        <section id="ejercicios" class="exercises-section py-5 bg-light">
+            <div class="container">
+                <h2 class="section-title text-center mb-5">
+                    <i class="fas fa-calculator text-orange"></i> Ejercicios Resueltos Paso a Paso
+                </h2>
+
+                <!-- Ejercicio 1 -->
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card shadow">
+                            <div class="card-header bg-primary text-white">
+                                <h5 class="mb-0">
+                                    <i class="fas fa-flask"></i> Ejercicio 1: Tanque de Mezcla
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <h6 class="text-primary">Enunciado:</h6>
+                                <p>
+                                    Un tanque de mezcla recibe dos corrientes de alimentación: 
+                                    <strong>A</strong> (100 kg/h de agua) y <strong>B</strong> (50 kg/h de etanol). 
+                                    El producto <strong>P</strong> sale continuamente del tanque.
+                                </p>
+                                
+                                <div class="accordion" id="accordionEj1">
+                                    <!-- Paso 1 -->
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#ej1paso1">
+                                                <strong>Paso 1:</strong> Dibujar el diagrama y trazar la frontera
+                                            </button>
+                                        </h2>
+                                        <div id="ej1paso1" class="accordion-collapse collapse show" data-bs-parent="#accordionEj1">
+                                            <div class="accordion-body">
+                                                <div class="alert alert-info">
+                                                    <strong>Solución:</strong>
+                                                    <ul>
+                                                        <li>Dibujar un rectángulo que representa el tanque</li>
+                                                        <li>Trazar línea punteada roja alrededor del tanque (frontera)</li>
+                                                        <li>Dibujar flechas: A y B entrando, P saliendo</li>
+                                                    </ul>
+                                                </div>
+                                                <canvas id="ejercicio1Diagrama" height="150"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Paso 2 -->
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ej1paso2">
+                                                <strong>Paso 2:</strong> Clasificar el sistema
+                                            </button>
+                                        </h2>
+                                        <div id="ej1paso2" class="accordion-collapse collapse" data-bs-parent="#accordionEj1">
+                                            <div class="accordion-body">
+                                                <div class="alert alert-success">
+                                                    <strong>Respuesta:</strong>
+                                                    <ul>
+                                                        <li><strong>Tipo:</strong> Sistema ABIERTO</li>
+                                                        <li><strong>Razón:</strong> Entra y sale materia (A, B y P cruzan la frontera)</li>
+                                                        <li><strong>Régimen:</strong> Estado estacionario (flujo continuo)</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Paso 3 -->
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ej1paso3">
+                                                <strong>Paso 3:</strong> Establecer base de cálculo
+                                            </button>
+                                        </h2>
+                                        <div id="ej1paso3" class="accordion-collapse collapse" data-bs-parent="#accordionEj1">
+                                            <div class="accordion-body">
+                                                <div class="alert alert-success">
+                                                    <strong>Base de cálculo:</strong> 1 hora de operación
+                                                    <br>
+                                                    <em>Justificación: Los flujos están dados en kg/h</em>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Paso 4 -->
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ej1paso4">
+                                                <strong>Paso 4:</strong> Plantear balance de materia
+                                            </button>
+                                        </h2>
+                                        <div id="ej1paso4" class="accordion-collapse collapse" data-bs-parent="#accordionEj1">
+                                            <div class="accordion-body">
+                                                <div class="formula-box mb-3">
+                                                    <strong>Ecuación general:</strong>
+                                                    \[ \text{Entrada} - \text{Salida} = \text{Acumulación} \]
+                                                </div>
+                                                <p>En estado estacionario: Acumulación = 0</p>
+                                                <div class="formula-box mb-3">
+                                                    \[ A + B - P = 0 \]
+                                                    \[ 100 + 50 - P = 0 \]
+                                                    \[ P = 150 \text{ kg/h} \]
+                                                </div>
+                                                <div class="alert alert-success">
+                                                    <strong>Resultado:</strong> El caudal del producto P es <strong>150 kg/h</strong>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicio 2 -->
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card shadow">
+                            <div class="card-header bg-success text-white">
+                                <h5 class="mb-0">
+                                    <i class="fas fa-compress-arrows-alt"></i> Ejercicio 2: Compresor de Aire
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <h6 class="text-success">Enunciado:</h6>
+                                <p>
+                                    Un compresor de aire recibe <strong>2 kg/s de aire</strong> a 100 kPa y 25°C. 
+                                    El aire sale a 500 kPa y 200°C. El compresor consume <strong>150 kW</strong> de potencia.
+                                </p>
+                                
+                                <div class="accordion" id="accordionEj2">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#ej2paso1">
+                                                <strong>Paso 1:</strong> Definir sistema y frontera
+                                            </button>
+                                        </h2>
+                                        <div id="ej2paso1" class="accordion-collapse collapse show" data-bs-parent="#accordionEj2">
+                                            <div class="accordion-body">
+                                                <div class="alert alert-info">
+                                                    <strong>Solución:</strong>
+                                                    <ul>
+                                                        <li><strong>Frontera:</strong> Superficie que rodea el compresor</li>
+                                                        <li><strong>Tipo:</strong> Sistema abierto (entra y sale aire)</li>
+                                                        <li><strong>Base:</strong> 1 segundo (flujo másico en kg/s)</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ej2paso2">
+                                                <strong>Paso 2:</strong> Identificar interacciones
+                                            </button>
+                                        </h2>
+                                        <div id="ej2paso2" class="accordion-collapse collapse" data-bs-parent="#accordionEj2">
+                                            <div class="accordion-body">
+                                                <div class="alert alert-success">
+                                                    <strong>Corrientes que cruzan la frontera:</strong>
+                                                    <ul>
+                                                        <li><strong>Masa:</strong> Aire entra (2 kg/s) y sale (2 kg/s)</li>
+                                                        <li><strong>Energía:</strong> Trabajo eléctrico entra (150 kW)</li>
+                                                        <li><strong>Energía:</strong> Calor puede salir (pérdidas al ambiente)</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botón para más ejercicios -->
+                <div class="text-center mt-4">
+                    <a href="../quizzes/quiz-paso0.html" class="btn btn-primary btn-lg">
+                        <i class="fas fa-question-circle"></i> Practicar con Quiz Interactivo
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navegación entre pasos -->
+        <section class="navigation-section py-5 bg-dark text-white">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                        <a href="../protocol/guia-identificacion.html" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-arrow-left"></i> Ver Protocolo Completo
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="paso1.html" class="btn btn-warning btn-lg">
+                            Paso 1: Matriz Entrada-Salida <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <img src="../assets/images/logo.png" alt="Logo" height="50" class="mb-3">
+                    <p>Ingeniería Industrial</p>
+                    <p>Docente: Juan Velasco</p>
+                    <p>Período: 2026-2</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../protocol/guia-identificacion.html">Protocolo</a></li>
+                        <li><a href="paso0.html">Procesos</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Contacto</h5>
+                    <p><i class="fas fa-envelope"></i> juan.velasco@universidad.edu</p>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p>&copy; 2026 Procesos Industriales. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="../assets/js/main.js"></script>
+    
+    <!-- Scripts específicos para diagramas -->
+    <script>
+        // Diagrama Ejemplo 1: Planta de Aceite
+        const ctxAceite = document.getElementById('diagramaAceite');
+        if (ctxAceite) {
+            new Chart(ctxAceite, {
+                type: 'bar',
+                data: {
+                    labels: ['Semilla', 'Aceite', 'Harina'],
+                    datasets: [{
+                        label: 'Flujo (kg/h)',
+                        data: [1000, 180, 820],
+                        backgroundColor: ['#FF6B00', '#28A745', '#6C757D']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Balance de Masa - Planta de Aceite'
+                        }
+                    }
+                }
+            });
+        }
+
+        // Diagrama Ejemplo 2: Turbina
+        const ctxTurbina = document.getElementById('diagramaTurbina');
+        if (ctxTurbina) {
+            new Chart(ctxTurbina, {
+                type: 'line',
+                data: {
+                    labels: ['Entrada', 'Salida'],
+                    datasets: [
+                        {
+                            label: 'Presión (MPa)',
+                            data: [10, 0.01],
+                            borderColor: '#FF6B00',
+                            yAxisID: 'y'
+                        },
+                        {
+                            label: 'Temperatura (°C)',
+                            data: [500, 45],
+                            borderColor: '#007BFF',
+                            yAxisID: 'y1'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            type: 'logarithmic',
+                            position: 'left'
+                        },
+                        y1: {
+                            position: 'right'
+                        }
+                    }
+                }
+            });
+        }
+
+        // Diagrama Ejercicio 1
+        const ctxEj1 = document.getElementById('ejercicio1Diagrama');
+        if (ctxEj1) {
+            new Chart(ctxEj1, {
+                type: 'bar',
+                data: {
+                    labels: ['A (Agua)', 'B (Etanol)', 'P (Producto)'],
+                    datasets: [{
+                        label: 'Caudal (kg/h)',
+                        data: [100, 50, 150],
+                        backgroundColor: ['#007BFF', '#28A745', '#FF6B00']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Tanque de Mezcla - Estado Estacionario'
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
