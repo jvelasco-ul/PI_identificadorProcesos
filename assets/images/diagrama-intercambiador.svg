@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <rect width="600" height="400" fill="#F5F5F5"/>
+  
+  <!-- Coraza exterior -->
+  <rect x="100" y="80" width="400" height="200" fill="#C0C0C0" stroke="#1A1A1A" stroke-width="3" rx="10"/>
+  <text x="300" y="110" font-family="Arial" font-size="12" font-weight="bold" fill="#1A1A1A" text-anchor="middle">CORAZA (Flujo frío)</text>
+  
+  <!-- Tubos internos -->
+  <g fill="#FF6B00" stroke="#1A1A1A" stroke-width="1">
+    <rect x="130" y="140" width="340" height="20" rx="10"/>
+    <rect x="130" y="170" width="340" height="20" rx="10"/>
+    <rect x="130" y="200" width="340" height="20" rx="10"/>
+    <rect x="130" y="230" width="340" height="20" rx="10"/>
+  </g>
+  <text x="300" y="160" font-family="Arial" font-size="10" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Flujo caliente →</text>
+  <text x="300" y="190" font-family="Arial" font-size="10" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Flujo caliente →</text>
+  <text x="300" y="220" font-family="Arial" font-size="10" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Flujo caliente →</text>
+  <text x="300" y="250" font-family="Arial" font-size="10" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Flujo caliente →</text>
+  
+  <!-- Entrada flujo caliente (izquierda) -->
+  <line x1="30" y1="150" x2="130" y2="150" stroke="#FF6B00" stroke-width="6"/>
+  <polygon points="130,150 120,145 120,155" fill="#FF6B00"/>
+  <text x="80" y="140" font-family="Arial" font-size="10" font-weight="bold" fill="#FF6B00" text-anchor="middle">T_hot,in</text>
+  
+  <!-- Salida flujo caliente (derecha) -->
+  <line x1="470" y1="150" x2="570" y2="150" stroke="#FF6B00" stroke-width="6"/>
+  <polygon points="570,150 560,145 560,155" fill="#FF6B00"/>
+  <text x="520" y="140" font-family="Arial" font-size="10" font-weight="bold" fill="#FF6B00" text-anchor="middle">T_hot,out</text>
+  
+  <!-- Entrada flujo frío (derecha, contracorriente) -->
+  <line x1="570" y1="100" x2="500" y2="100" stroke="#007BFF" stroke-width="6"/>
+  <polygon points="500,100 510,95 510,105" fill="#007BFF"/>
+  <text x="535" y="90" font-family="Arial" font-size="10" font-weight="bold" fill="#007BFF" text-anchor="middle">T_cold,in</text>
+  
+  <!-- Salida flujo frío (izquierda) -->
+  <line x1="100" y1="100" x2="30" y2="100" stroke="#007BFF" stroke-width="6"/>
+  <polygon points="30,100 40,95 40,105" fill="#007BFF"/>
+  <text x="65" y="90" font-family="Arial" font-size="10" font-weight="bold" fill="#007BFF" text-anchor="middle">T_cold,out</text>
+  
+  <!-- Flechas de flujo en coraza -->
+  <line x1="480" y1="130" x2="120" y2="130" stroke="#007BFF" stroke-width="3" stroke-dasharray="5,3"/>
+  <polygon points="120,130 130,125 130,135" fill="#007BFF"/>
+  <text x="300" y="125" font-family="Arial" font-size="9" fill="#007BFF" text-anchor="middle">← Flujo frío (contracorriente)</text>
+  
+  <!-- Título -->
+  <text x="300" y="320" font-family="Arial" font-size="13" font-weight="bold" fill="#1A1A1A" text-anchor="middle">INTERCAMBIADOR TUBO-CORAZA (Contracorriente)</text>
+  <text x="300" y="345" font-family="Arial" font-size="11" fill="#1A1A1A" text-anchor="middle">Q = U · A · ΔT_ml  |  ΔT_ml = (ΔT1 - ΔT2) / ln(ΔT1/ΔT2)</text>
+  <text x="300" y="370" font-family="Arial" font-size="10" fill="#6C757D" text-anchor="middle">Contracorriente: mayor ΔT_ml → menor área requerida vs. paralelo</text>
+</svg>
