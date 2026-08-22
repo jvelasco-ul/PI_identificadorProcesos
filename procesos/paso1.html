@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Paso 1: Matriz Maestra de Balance - Entrada, Salida, Generación, Consumo y Acumulación">
+    <title>Paso 1: Matriz Maestra | Procesos Industriales</title>
+    <link rel="icon" href="../assets/images/logo.png" type="image/png">
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <!-- Skip to content -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+    <!-- Header -->
+    <header class="main-header">
+        <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Navegación principal">
+            <div class="container">
+                <a class="navbar-brand" href="../index.html">
+                    <img src="../assets/images/logo.png" alt="Logo" height="60" class="logo-header">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Protocolo</a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="../protocol/guia-identificacion.html">Guía Completa</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Procesos</a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="paso0.html">Paso 0: Sistema y Frontera</a></li>
+                                <li><a class="dropdown-item active" href="paso1.html">Paso 1: Matriz Entrada-Salida</a></li>
+                                <li><a class="dropdown-item" href="paso2.html">Paso 2: Clasificación</a></li>
+                                <li><a class="dropdown-item" href="paso3.html">Paso 3: Régimen Temporal</a></li>
+                                <li><a class="dropdown-item" href="paso4.html">Paso 4: Aplicación 8 Pasos</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="process-hero bg-gradient" style="background: linear-gradient(135deg, #1A1A1A 0%, #FF6B00 100%); color: white; padding: 80px 0;">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <div class="badge bg-warning text-dark mb-3">
+                            <i class="fas fa-table"></i> PASO 1
+                        </div>
+                        <h1 class="display-4 mb-3">
+                            <i class="fas fa-balance-scale"></i> Matriz Maestra de Balance
+                        </h1>
+                        <p class="lead mb-4">
+                            El corazón de la ingeniería de procesos: Entrada − Salida + Generación − Consumo = Acumulación
+                        </p>
+                        <div class="d-flex gap-3">
+                            <a href="#teoria" class="btn btn-light btn-lg"><i class="fas fa-book"></i> Teoría</a>
+                            <a href="#ejemplos" class="btn btn-outline-light btn-lg"><i class="fas fa-industry"></i> Ejemplos</a>
+                            <a href="#quiz-section" class="btn btn-outline-light btn-lg"><i class="fas fa-question-circle"></i> Quiz</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 text-center d-none d-lg-block">
+                        <i class="fas fa-calculator fa-10x" style="opacity: 0.3;"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mnemotecnia -->
+        <section class="mnemonic-section py-5 bg-light">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="card border-warning shadow-lg">
+                            <div class="card-body text-center p-5">
+                                <h3 class="mb-4"><i class="fas fa-brain text-warning"></i> MNEMOTECNIA DEL PASO 1</h3>
+                                <div class="display-6 fw-bold text-primary mb-3">ESGCA</div>
+                                <p class="lead fst-italic">"Estudia Siempre Generando Conocimiento Avanzado"</p>
+                                <div class="row text-start mt-4">
+                                    <div class="col-md-6">
+                                        <p><strong style="color: #FF6B00;">E</strong> - <strong>Entrada</strong>: Todo lo que cruza la frontera hacia adentro.</p>
+                                        <p><strong style="color: #FF6B00;">S</strong> - <strong>Salida</strong>: Todo lo que cruza la frontera hacia afuera.</p>
+                                        <p><strong style="color: #FF6B00;">G</strong> - <strong>Generación</strong>: Lo que se produce dentro (reacciones/cambios de fase).</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p><strong style="color: #FF6B00;">C</strong> - <strong>Consumo</strong>: Lo que se agota o transforma dentro.</p>
+                                        <p><strong style="color: #FF6B00;">A</strong> - <strong>Acumulación</strong>: Lo que se guarda o pierde en el sistema (cambio en el tiempo).</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teoría -->
+        <section id="teoria" class="theory-section py-5">
+            <div class="container">
+                <h2 class="section-title text-center mb-5"><i class="fas fa-graduation-cap text-orange"></i> Fundamentos Teóricos</h2>
+                
+                <div class="row mb-5">
+                    <div class="col-lg-12">
+                        <div class="card shadow-sm">
+                            <div class="card-body p-4">
+                                <h4 class="text-orange mb-3"><i class="fas fa-square-root-alt"></i> La Ecuación Universal</h4>
+                                <p class="lead text-center my-4">
+                                    \[ \text{Entrada} - \text{Salida} + \text{Generación} - \text{Consumo} = \text{Acumulación} \]
+                                </p>
+                                <p>Esta ecuación es la <strong>ley de conservación</strong> aplicada a cualquier propiedad extensiva (masa, energía, momentum). Se aplica por separado a la <strong>materia total</strong>, a cada <strong>componente químico</strong> y a la <strong>energía</strong>.</p>
+                                
+                                <div class="alert alert-info mt-4">
+                                    <h5><i class="fas fa-lightbulb"></i> Simplificaciones Clave:</h5>
+                                    <ul class="mb-0">
+                                        <li><strong>Sin reacción química:</strong> Generación = 0, Consumo = 0 → <em>Entrada - Salida = Acumulación</em></li>
+                                        <li><strong>Estado Estacionario:</strong> Acumulación = 0 → <em>Entrada - Salida + Gen - Cons = 0</em></li>
+                                        <li><strong>Sistema Cerrado:</strong> No hay flujo de masa → <em>Entrada = 0, Salida = 0</em> (para balances de materia)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Matriz Interactiva -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card shadow">
+                            <div class="card-header bg-orange text-white">
+                                <h4 class="mb-0"><i class="fas fa-th"></i> La Matriz Maestra: Materia vs. Energía</h4>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover mb-0">
+                                        <thead class="table-dark">
+                                            <tr>
+                                                <th style="width: 15%;">Término</th>
+                                                <th style="width: 42.5%;"><i class="fas fa-cube text-primary"></i> BALANCE DE MATERIA</th>
+                                                <th style="width: 42.5%;"><i class="fas fa-bolt text-warning"></i> BALANCE DE ENERGÍA</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="fw-bold bg-light">ENTRADA</td>
+                                                <td>Materias primas, corrientes de alimentación, aire de combustión, agua de reposición.</td>
+                                                <td>Calor ($\dot{Q}$) suministrado, trabajo ($\dot{W}$) de bombas/compresores, entalpía de entrada, energía cinética/potencial.</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-bold bg-light">SALIDA</td>
+                                                <td>Productos, subproductos, residuos, purgas, gases de escape, agua evaporada/condensada.</td>
+                                                <td>Calor ($\dot{Q}$) cedido al ambiente, trabajo ($\dot{W}$) entregado (turbina), entalpía de salida.</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-bold bg-light">GENERACIÓN</td>
+                                                <td>Solo si hay <strong>reacción química</strong> (se produce una especie) o <strong>cambio de fase</strong> (ej. líquido a vapor).</td>
+                                                <td><strong>No se genera energía</strong> (1ª Ley). En combustión, la energía química liberada se contabiliza como calor de reacción.</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-bold bg-light">CONSUMO</td>
+                                                <td>Solo si hay <strong>reacción química</strong> (se agota un reactivo) o <strong>cambio de fase</strong> (ej. vapor a líquido).</td>
+                                                <td><strong>No se consume energía</strong> (1ª Ley). Se transforma de una forma a otra (ej. química a térmica).</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-bold bg-light">ACUMULACIÓN</td>
+                                                <td><strong>0</strong> en estado estacionario (continuo). <strong>≠ 0</strong> en procesos por lotes (batch) o transitorios.</td>
+                                                <td><strong>0</strong> en equipos de flujo estacionario. <strong>≠ 0</strong> al arrancar/parar un equipo o durante un ciclo batch.</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Educativo -->
+        <section class="video-section py-5 bg-light">
+            <div class="container">
+                <h2 class="section-title text-center mb-5"><i class="fab fa-youtube text-danger"></i> Video Educativo Recomendado</h2>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <div class="ratio ratio-16x9 mb-3">
+                                    <iframe src="https://www.youtube.com/embed/5yJ1wXyQ2yA" title="Balance de Masa y Energía - Ecuación General" allowfullscreen></iframe>
+                                </div>
+                                <h5 class="card-title"><i class="fas fa-play-circle text-danger"></i> Balances de Materia y Energía: La Ecuación General</h5>
+                                <p class="card-text">
+                                    <strong>Canal:</strong> Ingeniería Industrial / TermoFácil<br>
+                                    <strong>Duración:</strong> 15:20 min<br>
+                                    <strong>Contenido:</strong> Explicación detallada de cómo aplicar la ecuación Entrada-Salida+Gen-Cons=Acum en sistemas reales, diferenciando balances de materia y energía.
+                                </p>
+                                <a href="https://www.youtube.com/results?search_query=balance+materia+energia+ecuacion+general+ingenieria" class="btn btn-outline-danger" target="_blank" rel="noopener">
+                                    <i class="fab fa-youtube"></i> Ver más videos en YouTube
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ejemplos Industriales -->
+        <section id="ejemplos" class="examples-section py-5">
+            <div class="container">
+                <h2 class="section-title text-center mb-5"><i class="fas fa-industry text-orange"></i> Ejemplos Industriales por Semana</h2>
+                <p class="lead text-center mb-5">Aplicaciones reales en la industria peruana y transnacional</p>
+
+                <!-- Ejemplo 1: Semana 2 -->
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card shadow-sm border-start border-4 border-primary">
+                            <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0"><i class="fas fa-wind"></i> Ejemplo 1: Turbina de Vapor (Cogeneración)</h5>
+                                <span class="badge bg-light text-primary">Semana 2</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="text-primary">Caso Real: Refinería La Pampilla</h6>
+                                        <p>Turbina recibe 50 kg/s de vapor a 10 MPa y 500°C. Sale a 10 kPa. Genera trabajo eléctrico.</p>
+                                        <h6 class="text-primary">Matriz ESGCA (Energía):</h6>
+                                        <ul>
+                                            <li><strong>E:</strong> Entalpía del vapor de entrada ($\dot{m} \cdot h_{in}$)</li>
+                                            <li><strong>S:</strong> Entalpía del vapor de salida + Trabajo de eje ($\dot{W}$)</li>
+                                            <li><strong>G/C:</strong> 0 (No hay reacción, solo transformación)</li>
+                                            <li><strong>A:</strong> 0 (Estado estacionario)</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6 class="text-primary">Impacto Industrial:</h6>
+                                        <div class="alert alert-danger small">
+                                            <strong>Económico:</strong> Una caída del 5% en eficiencia = US$ 500,000/año en combustible extra (planta 100 MW).
+                                        </div>
+                                        <div class="alert alert-warning small">
+                                            <strong>Productividad:</strong> Equipos con baja eficiencia requieren más mantenimiento y paradas no programadas.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejemplo 2: Semana 7 (NUEVO) -->
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card shadow-sm border-start border-4 border-success">
+                            <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0"><i class="fas fa-mountain"></i> Ejemplo 2: Secador Rotatorio de Mineral</h5>
+                                <span class="badge bg-light text-success">Semana 7 - NUEVO</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="text-success">Caso Real: Southern Copper / Antamina</h6>
+                                        <p>Secador rotatorio recibe 100 ton/h de mineral de cobre con 20% humedad. Sale con 5% humedad. Usa gas natural.</p>
+                                        <h6 class="text-success">Matriz ESGCA (Materia - Agua):</h6>
+                                        <ul>
+                                            <li><strong>E:</strong> Agua en el mineral húmedo + Humedad del aire de entrada</li>
+                                            <li><strong>S:</strong> Agua en el mineral seco + Humedad del aire de salida</li>
+                                            <li><strong>G/C:</strong> 0 (Solo cambio de fase física, no reacción química)</li>
+                                            <li><strong>A:</strong> 0 (Operación continua)</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6 class="text-success">Impacto Industrial:</h6>
+                                        <div class="alert alert-danger small">
+                                            <strong>Económico:</strong> El secado consume 15-25% de la energía total minera. Ineficiencia del 10% = US$ 1-2 millones/año en gas natural.
+                                        </div>
+                                        <div class="alert alert-warning small">
+                                            <strong>Productividad:</strong> Mineral con exceso de humedad tapa los molinos posteriores, causando paradas de planta.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejemplo 3: Semana 9 (NUEVO) -->
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card shadow-sm border-start border-4 border-danger">
+                            <div class="card-header bg-danger text-white d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0"><i class="fas fa-fire"></i> Ejemplo 3: Combustión de Gas Natural</h5>
+                                <span class="badge bg-light text-danger">Semana 9 - NUEVO</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="text-danger">Caso Real: Backus / Planta de Cemento</h6>
+                                        <p>Caldera de 10 MW quema metano (CH₄) con 20% exceso de aire. Produce CO₂ y H₂O.</p>
+                                        <h6 class="text-danger">Matriz ESGCA (Materia - Especies):</h6>
+                                        <ul>
+                                            <li><strong>E:</strong> CH₄ + O₂ + N₂ (del aire)</li>
+                                            <li><strong>S:</strong> CO₂ + H₂O + O₂ (exceso) + N₂</li>
+                                            <li><strong>G:</strong> CO₂ y H₂O (se generan por reacción)</li>
+                                            <li><strong>C:</strong> CH₄ y O₂ (se consumen por reacción)</li>
+                                            <li><strong>A:</strong> 0 (Estado estacionario)</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6 class="text-danger">Impacto Industrial:</h6>
+                                        <div class="alert alert-danger small">
+                                            <strong>Económico:</strong> Cada 1% de CO en gases = 5-8% pérdida de eficiencia (~US$ 300,000/año en combustible).
+                                        </div>
+                                        <div class="alert alert-warning small">
+                                            <strong>Ambiental:</strong> CO es contaminante tóxico. Multas por exceder límites > US$ 100,000.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejemplo 4: Semana 10 (NUEVO) -->
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card shadow-sm border-start border-4 border-info">
+                            <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0"><i class="fas fa-wine-bottle"></i> Ejemplo 4: Fermentación de Etanol</h5>
+                                <span class="badge bg-light text-info">Semana 10 - NUEVO</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="text-info">Caso Real: Backus (Cervecería) / Destilería Artesanal</h6>
+                                        <p>Fermentador batch: Glucosa (C₆H₁₂O₆) se transforma en Etanol (C₂H₅OH) y CO₂ por levaduras.</p>
+                                        <h6 class="text-info">Matriz ESGCA (Materia - Glucosa):</h6>
+                                        <ul>
+                                            <li><strong>E:</strong> Glucosa inicial cargada al tanque</li>
+                                            <li><strong>S:</strong> 0 (No sale nada durante la fermentación)</li>
+                                            <li><strong>G:</strong> 0</li>
+                                            <li><strong>C:</strong> Glucosa consumida por levaduras</li>
+                                            <li><strong>A:</strong> ≠ 0 (La masa de glucosa disminuye con el tiempo - Batch)</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6 class="text-info">Impacto Industrial:</h6>
+                                        <div class="alert alert-danger small">
+                                            <strong>Productividad:</strong> Fermentación incompleta reduce el rendimiento alcohólico y genera subproductos no deseados (ácidos).
+                                        </div>
+                                        <div class="alert alert-warning small">
+                                            <strong>Calidad:</strong> Control de temperatura crítico. Exceso de calor mata levaduras y arruina el lote (pérdidas de US$ 50,000).
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejemplo 5: Semana 15 (NUEVO) -->
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card shadow-sm border-start border-4 border-secondary">
+                            <div class="card-header bg-secondary text-white d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0"><i class="fas fa-tint"></i> Ejemplo 5: Sistema de Bombeo de Agua</h5>
+                                <span class="badge bg-light text-secondary">Semana 15 - NUEVO</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="text-secondary">Caso Real: Minera Las Bambas / Otumgo</h6>
+                                        <p>Bomba transporta 800 GPM de agua por 1000 m de tubería con 12 codos y 5 válvulas. Elevación de 50 m.</p>
+                                        <h6 class="text-secondary">Matriz ESGCA (Energía Mecánica):</h6>
+                                        <ul>
+                                            <li><strong>E:</strong> Trabajo de la bomba ($\dot{W}_{bomba}$) + Energía potencial/cinética de entrada</li>
+                                            <li><strong>S:</strong> Energía potencial/cinética de salida</li>
+                                            <li><strong>G:</strong> 0</li>
+                                            <li><strong>C:</strong> Pérdidas por fricción en tubería y accesorios ($h_f$)</li>
+                                            <li><strong>A:</strong> 0 (Flujo continuo)</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6 class="text-secondary">Impacto Industrial:</h6>
+                                        <div class="alert alert-danger small">
+                                            <strong>Económico:</strong> Error del 10% en pérdidas = bomba sobre/subdimensionada. Mayor consumo energético de por vida.
+                                        </div>
+                                        <div class="alert alert-warning small">
+                                            <strong>Seguridad:</strong> Subestimar pérdidas causa cavitación (daño severo al impulsor) o falta de presión en puntos críticos.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejemplo 6: Semana 4 -->
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card shadow-sm border-start border-4 border-warning">
+                            <div class="card-header bg-warning text-dark d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0"><i class="fas fa-burn"></i> Ejemplo 6: Caldera del Ciclo Rankine</h5>
+                                <span class="badge bg-dark text-warning">Semana 4</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="text-warning">Caso Real: Central Térmica 500 MW</h6>
+                                        <p>Caldera calienta agua líquida a 200°C hasta vapor sobrecalentado a 500°C usando carbón.</p>
+                                        <h6 class="text-warning">Matriz ESGCA (Energía):</h6>
+                                        <ul>
+                                            <li><strong>E:</strong> Entalpía del agua líquida + Calor de combustión ($\dot{Q}_{in}$)</li>
+                                            <li><strong>S:</strong> Entalpía del vapor sobrecalentado</li>
+                                            <li><strong>G/C:</strong> 0 (Solo transferencia de calor, no reacción dentro del tubo)</li>
+                                            <li><strong>A:</strong> 0 (Estado estacionario)</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6 class="text-warning">Impacto Industrial:</h6>
+                                        <div class="alert alert-danger small">
+                                            <strong>Económico:</strong> Cada 1°C de aumento en T° de condensación reduce eficiencia ~0.5% (~US$ 1.5 millones/año).
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mapa Mental -->
+        <section class="mindmap-section py-5 bg-light">
+            <div class="container">
+                <h2 class="section-title text-center mb-5"><i class="fas fa-sitemap text-orange"></i> Mapa Mental: Matriz Maestra</h2>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="card shadow">
+                            <div class="card-body p-4">
+                                <div class="mindmap-container">
+                                    <div class="mindmap-node root text-center mb-4">
+                                        <h4 class="bg-orange text-white p-3 rounded"><i class="fas fa-balance-scale"></i> PASO 1: MATRIZ ESGCA</h4>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card border-primary h-100">
+                                                <div class="card-header bg-primary text-white"><strong>MATERIA</strong></div>
+                                                <div class="card-body">
+                                                    <ul class="list-unstyled small">
+                                                        <li><i class="fas fa-arrow-right text-primary"></i> E: Alimentación</li>
+                                                        <li><i class="fas fa-arrow-right text-primary"></i> S: Productos/Residuos</li>
+                                                        <li><i class="fas fa-arrow-right text-primary"></i> G/C: Solo si hay reacción química</li>
+                                                        <li><i class="fas fa-arrow-right text-primary"></i> A: 0 si es continuo</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card border-warning h-100">
+                                                <div class="card-header bg-warning text-dark"><strong>ENERGÍA</strong></div>
+                                                <div class="card-body">
+                                                    <ul class="list-unstyled small">
+                                                        <li><i class="fas fa-arrow-right text-warning"></i> E: Calor/Trabajo/Entalpía</li>
+                                                        <li><i class="fas fa-arrow-right text-warning"></i> S: Calor/Trabajo/Entalpía</li>
+                                                        <li><i class="fas fa-arrow-right text-warning"></i> G/C: 0 (1ª Ley, solo se transforma)</li>
+                                                        <li><i class="fas fa-arrow-right text-warning"></i> A: 0 si es estacionario</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card border-danger h-100">
+                                                <div class="card-header bg-danger text-white"><strong>ERRORES</strong></div>
+                                                <div class="card-body">
+                                                    <ul class="list-unstyled small">
+                                                        <li><i class="fas fa-times-circle text-danger"></i> Olvidar G/C en reacciones</li>
+                                                        <li><i class="fas fa-times-circle text-danger"></i> Asumir A=0 en batch</li>
+                                                        <li><i class="fas fa-times-circle text-danger"></i> Mezclar bases de cálculo</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Errores Comunes -->
+        <section class="errors-section py-5">
+            <div class="container">
+                <h2 class="section-title text-center mb-5"><i class="fas fa-exclamation-triangle text-warning"></i> Errores Comunes</h2>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="card border-danger h-100">
+                            <div class="card-header bg-danger text-white"><h5 class="mb-0"><i class="fas fa-bug"></i> Error 1: Olvidar Generación/Consumo</h5></div>
+                            <div class="card-body">
+                                <div class="alert alert-danger"><strong>Problema:</strong> Aplicar E - S = A en un reactor químico.</div>
+                                <div class="alert alert-warning"><strong>Consecuencia:</strong> Viola la conservación de masa. Los átomos no desaparecen, se reorganizan.</div>
+                                <div class="alert alert-success"><strong>Solución:</strong> Si hay reacción, SIEMPRE incluir G y C por componente.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card border-danger h-100">
+                            <div class="card-header bg-danger text-white"><h5 class="mb-0"><i class="fas fa-bug"></i> Error 2: Asumir Acumulación = 0 en Batch</h5></div>
+                            <div class="card-body">
+                                <div class="alert alert-danger"><strong>Problema:</strong> Tratar un fermentador o tanque de llenado como estacionario.</div>
+                                <div class="alert alert-warning"><strong>Consecuencia:</strong> E - S = 0, pero la masa dentro cambia. Resultados completamente erróneos.</div>
+                                <div class="alert alert-success"><strong>Solución:</strong> Preguntar: "¿Las propiedades cambian con el tiempo?" Si SÍ, A ≠ 0.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card border-danger h-100">
+                            <div class="card-header bg-danger text-white"><h5 class="mb-0"><i class="fas fa-bug"></i> Error 3: Mezclar Bases de Cálculo</h5></div>
+                            <div class="card-body">
+                                <div class="alert alert-danger"><strong>Problema:</strong> Entradas en kg/h, salidas en kg/lote, acumulación en kg.</div>
+                                <div class="alert alert-warning"><strong>Consecuencia:</strong> Ecuación dimensionalmente incorrecta. Imposible resolver.</div>
+                                <div class="alert alert-success"><strong>Solución:</strong> Unificar TODAS las corrientes a la misma base (ej. kg/h o kg/lote) antes de plantear.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card border-danger h-100">
+                            <div class="card-header bg-danger text-white"><h5 class="mb-0"><i class="fas fa-bug"></i> Error 4: Confundir Cambio de Fase con Reacción</h5></div>
+                            <div class="card-body">
+                                <div class="alert alert-danger"><strong>Problema:</strong> Poner "Generación de vapor" en un evaporador como si fuera reacción química.</div>
+                                <div class="alert alert-warning"><strong>Consecuencia:</strong> Error conceptual. En balance de masa total, G=C=0. Solo aplica G/C por componente (agua líquida → agua vapor).</div>
+                                <div class="alert alert-success"><strong>Solution:</strong> En operaciones unitarias (sin reacción), balance de masa total: E = S (si A=0).</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ejercicios Paso a Paso -->
+        <section class="exercises-section py-5 bg-light">
+            <div class="container">
+                <h2 class="section-title text-center mb-5"><i class="fas fa-calculator text-orange"></i> Ejercicios Resueltos</h2>
+
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card shadow">
+                            <div class="card-header bg-primary text-white"><h5 class="mb-0"><i class="fas fa-flask"></i> Ejercicio 1: Mezclador en Estado Estacionario</h5></div>
+                            <div class="card-body">
+                                <p><strong>Enunciado:</strong> Se mezclan 100 kg/h de agua (A) y 50 kg/h de etanol (B) en un tanque. El producto (P) sale continuamente. Calcular P.</p>
+                                <div class="accordion" id="accEj1">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#ej1p1"><strong>Paso 1:</strong> Matriz ESGCA</button></h2>
+                                        <div id="ej1p1" class="accordion-collapse collapse show" data-bs-parent="#accEj1">
+                                            <div class="accordion-body">
+                                                <div class="alert alert-info">
+                                                    <strong>E:</strong> A (100) + B (50) | <strong>S:</strong> P | <strong>G/C:</strong> 0 (sin reacción) | <strong>A:</strong> 0 (estacionario)
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ej1p2"><strong>Paso 2:</strong> Ecuación y Resultado</button></h2>
+                                        <div id="ej1p2" class="accordion-collapse collapse" data-bs-parent="#accEj1">
+                                            <div class="accordion-body">
+                                                <div class="formula-box">\[ E - S = A \implies (100 + 50) - P = 0 \implies P = 150 \text{ kg/h} \]</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card shadow">
+                            <div class="card-header bg-success text-white"><h5 class="mb-0"><i class="fas fa-fire"></i> Ejercicio 2: Combustión de Metano</h5></div>
+                            <div class="card-body">
+                                <p><strong>Enunciado:</strong> Se queman 10 kmol/h de CH₄ con aire estequiométrico. Reacción: CH + 2O₂ → CO₂ + 2H₂O. Calcular CO₂ generado.</p>
+                                <div class="accordion" id="accEj2">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#ej2p1"><strong>Paso 1:</strong> Matriz ESGCA (para CO₂)</button></h2>
+                                        <div id="ej2p1" class="accordion-collapse collapse show" data-bs-parent="#accEj2">
+                                            <div class="accordion-body">
+                                                <div class="alert alert-info">
+                                                    <strong>E:</strong> 0 (no entra CO₂) | <strong>S:</strong> CO₂_salida | <strong>G:</strong> CO₂_generado | <strong>C:</strong> 0 | <strong>A:</strong> 0
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ej2p2"><strong>Paso 2:</strong> Estequiometría y Resultado</button></h2>
+                                        <div id="ej2p2" class="accordion-collapse collapse" data-bs-parent="#accEj2">
+                                            <div class="accordion-body">
+                                                <div class="formula-box">\[ 0 - S + G - 0 = 0 \implies S = G \]
+                                                <br>Por estequiometría: 1 mol CH₄ → 1 mol CO₂. 
+                                                <br>\[ G = 10 \text{ kmol/h CH}_4 \times \frac{1 \text{ kmol CO}_2}{1 \text{ kmol CH}_4} = 10 \text{ kmol/h CO}_2 \]</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUIZ INTERACTIVO -->
+        <section id="quiz-section" class="quiz-section py-5">
+            <div class="container">
+                <h2 class="section-title text-center mb-5"><i class="fas fa-question-circle text-orange"></i> Quiz Interactivo: Paso 1</h2>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="card shadow-lg border-0">
+                            <div class="card-header bg-orange text-white text-center">
+                                <h4 class="mb-0"><i class="fas fa-brain"></i> Evalúa tu Conocimiento</h4>
+                                <p class="mb-0 small mt-2">Se presentarán 3 preguntas aleatorias de un banco de 10. ¡Buena suerte!</p>
+                            </div>
+                            <div class="card-body p-4">
+                                <div id="quiz-container">
+                                    <div id="quiz-start" class="text-center">
+                                        <i class="fas fa-clipboard-list fa-4x text-orange mb-3"></i>
+                                        <h5>¿Listo para el desafío?</h5>
+                                        <p class="text-muted">Responde 3 preguntas al azar sobre la Matriz Maestra.</p>
+                                        <button class="btn btn-primary btn-lg" onclick="startQuiz()"><i class="fas fa-play"></i> Iniciar Quiz</button>
+                                    </div>
+                                    
+                                    <div id="quiz-questions" style="display: none;">
+                                        <div class="progress mb-4" style="height: 10px;">
+                                            <div id="quiz-progress" class="progress-bar bg-orange" role="progressbar" style="width: 0%"></div>
+                                        </div>
+                                        <div id="question-container"></div>
+                                        <div id="feedback-container" class="mt-3"></div>
+                                        <div class="d-flex justify-content-between mt-4">
+                                            <button id="btn-next" class="btn btn-primary" onclick="nextQuestion()" style="display: none;">Siguiente <i class="fas fa-arrow-right"></i></button>
+                                        </div>
+                                    </div>
+
+                                    <div id="quiz-results" style="display: none;" class="text-center">
+                                        <div id="result-icon" class="mb-3"></div>
+                                        <h4 id="result-title"></h4>
+                                        <p id="result-score" class="lead"></p>
+                                        <div id="result-details" class="text-start mt-4"></div>
+                                        <button class="btn btn-warning btn-lg mt-4" onclick="resetQuiz()"><i class="fas fa-redo"></i> Intentar de Nuevo</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navegación -->
+        <section class="navigation-section py-5 bg-dark text-white">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                        <a href="paso0.html" class="btn btn-outline-light btn-lg"><i class="fas fa-arrow-left"></i> Paso 0: Sistema y Frontera</a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="paso2.html" class="btn btn-warning btn-lg">Paso 2: Clasificación <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <img src="../assets/images/logo.png" alt="Logo" height="50" class="mb-3">
+                    <p>Ingeniería Industrial</p>
+                    <p>Docente: Juan Velasco</p>
+                    <p>Período: 2026-2</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../protocol/guia-identificacion.html">Protocolo</a></li>
+                        <li><a href="paso1.html">Procesos</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Contacto</h5>
+                    <p><i class="fas fa-envelope"></i> juan.velasco@universidad.edu</p>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center"><p>&copy; 2026 Procesos Industriales. Todos los derechos reservados.</p></div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="../assets/js/main.js"></script>
+    
+    <!-- Quiz Logic for Paso 1 -->
+    <script>
+        const quizDataPaso1 = [
+            {
+                question: "En un secador continuo operando en estado estacionario, ¿cuál es el valor de la acumulación (A) en el balance de materia?",
+                options: ["Diferente de cero y positiva", "Cero", "Diferente de cero y negativa", "Depende de la humedad del sólido"],
+                correct: 1,
+                explanation: "En estado estacionario, las propiedades no cambian con el tiempo, por lo tanto la acumulación es siempre cero (A=0)."
+            },
+            {
+                question: "En la combustión de metano (CH₄ + 2O₂ → CO₂ + 2H₂O), el CO₂ en los gases de salida representa una corriente de:",
+                options: ["Solo Salida", "Salida y Generación", "Solo Generación", "Consumo"],
+                correct: 1,
+                explanation: "El CO₂ sale del sistema (Salida) y además se produce dentro del reactor por la reacción química (Generación)."
+            },
+            {
+                question: "¿Cuál es la ecuación general de balance aplicada en este curso?",
+                options: ["Entrada + Salida = Generación + Consumo", "Entrada - Salida + Generación - Consumo = Acumulación", "Entrada + Generación = Salida + Consumo", "Entrada - Salida = Acumulación + Generación"],
+                correct: 1,
+                explanation: "La ecuación universal es: E - S + G - C = A. Es la base para todos los balances de materia y energía."
+            },
+            {
+                question: "En un tanque que se está llenando con agua (sin salida), la acumulación es:",
+                options: ["Cero", "Negativa", "Diferente de cero (positiva)", "Igual a la salida"],
+                correct: 2,
+                explanation: "Al estar llenándose, la masa dentro del sistema aumenta con el tiempo, por lo tanto la acumulación es distinta de cero y positiva."
+            },
+            {
+                question: "Para un sistema cerrado (sin flujo de masa), el balance de materia indica que:",
+                options: ["Entrada = Salida", "Generación = Consumo", "No hay corrientes de entrada ni salida de materia", "La acumulación es siempre cero"],
+                correct: 2,
+                explanation: "En un sistema cerrado, la frontera no permite el paso de masa, por lo que las corrientes de entrada y salida de materia son cero."
+            },
+            {
+                question: "En una turbina ideal operando en estado estacionario, la generación de energía es:",
+                options: ["Igual al trabajo de salida", "Cero (la energía solo se transforma)", "Positiva", "Depende de la eficiencia"],
+                correct: 1,
+                explanation: "Por la 1ª Ley de la Termodinámica, la energía no se genera ni se consume, solo se transforma. G=0 y C=0 para energía."
+            },
+            {
+                question: "Si en un mezclador entran 100 kg/h y salen 80 kg/h en estado estacionario (sin reacción), esto implica que:",
+                options: ["El balance es correcto", "Hay una pérdida no contabilizada (error)", "La acumulación es 20 kg/h", "Se generaron 20 kg/h"],
+                correct: 1,
+                explanation: "En estado estacionario sin reacción, E debe ser igual a S. Si E ≠ S, hay un error en la medición o una corriente no identificada (fuga)."
+            },
+            {
+                question: "El término 'Generación' en un balance de materia por componente es distinto de cero SOLO si:",
+                options: ["Hay cambio de temperatura", "Hay reacción química o bioquímica", "El sistema es abierto", "Hay flujo de masa"],
+                correct: 1,
+                explanation: "En balances de materia, la generación/consumo de una especie específica solo ocurre si hay una reacción química que la produzca o la consuma."
+            },
+            {
+                question: "En un evaporador de efecto simple, el vapor de agua que sale proviene de:",
+                options: ["Una reacción química", "Un cambio de fase físico (evaporación)", "Generación química de agua", "Consumo de vapor"],
+                correct: 1,
+                explanation: "En operaciones unitarias como la evaporación, no hay reacción química. El vapor se genera por cambio de fase físico (líquido a vapor)."
+            },
+            {
+                question: "La base de cálculo en un balance de materia y energía debe ser:",
+                options: ["Diferente para cada corriente", "Consistente y unificada para todas las corrientes", "Siempre 1 hora", "Siempre 1 kg"],
+                correct: 1,
+                explanation: "Todas las corrientes deben expresarse en la misma base (ej. kg/h, kmol/h, kg/lote) para que la ecuación de balance sea dimensionalmente correcta."
+            }
+        ];
+
+        let currentQuizQuestions = [];
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let userAnswers = [];
+
+        function startQuiz() {
+            // Shuffle and pick 3
+            const shuffled = [...quizDataPaso1].sort(() => 0.5 - Math.random());
+            currentQuizQuestions = shuffled.slice(0, 3);
+            currentQuestionIndex = 0;
+            score = 0;
+            userAnswers = [];
+            
+            document.getElementById('quiz-start').style.display = 'none';
+            document.getElementById('quiz-results').style.display = 'none';
+            document.getElementById('quiz-questions').style.display = 'block';
+            
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            const q = currentQuizQuestions[currentQuestionIndex];
+            const progress = ((currentQuestionIndex) / currentQuizQuestions.length) * 100;
+            document.getElementById('quiz-progress').style.width = `${progress}%`;
+            document.getElementById('btn-next').style.display = 'none';
+            document.getElementById('feedback-container').innerHTML = '';
+            
+            let html = `<h5 class="mb-3">Pregunta ${currentQuestionIndex + 1} de ${currentQuizQuestions.length}:</h5>`;
+            html += `<p class="lead">${q.question}</p>`;
+            html += `<div class="list-group">`;
+            q.options.forEach((opt, idx) => {
+                html += `<button class="list-group-item list-group-item-action" onclick="selectAnswer(${idx})" id="opt-${idx}">${opt}</button>`;
+            });
+            html += `</div>`;
+            
+            document.getElementById('question-container').innerHTML = html;
+        }
+
+        function selectAnswer(idx) {
+            const q = currentQuizQuestions[currentQuestionIndex];
+            const isCorrect = idx === q.correct;
+            
+            // Disable all buttons
+            q.options.forEach((_, i) => {
+                document.getElementById(`opt-${i}`).disabled = true;
+                if (i === q.correct) {
+                    document.getElementById(`opt-${i}`).classList.add('list-group-item-success');
+                } else if (i === idx && !isCorrect) {
+                    document.getElementById(`opt-${i}`).classList.add('list-group-item-danger');
+                }
+            });
+
+            if (isCorrect) score++;
+            userAnswers.push({ qIndex: currentQuestionIndex, selected: idx, isCorrect });
+
+            // Show feedback
+            const feedbackClass = isCorrect ? 'alert-success' : 'alert-danger';
+            const feedbackIcon = isCorrect ? 'fa-check-circle' : 'fa-times-circle';
+            document.getElementById('feedback-container').innerHTML = `
+                <div class="alert ${feedbackClass}">
+                    <i class="fas ${feedbackIcon}"></i> <strong>${isCorrect ? '¡Correcto!' : 'Incorrecto.'}</strong> ${q.explanation}
+                </div>
+            `;
+            
+            document.getElementById('btn-next').style.display = 'block';
+            document.getElementById('btn-next').textContent = currentQuestionIndex === currentQuizQuestions.length - 1 ? 'Ver Resultados' : 'Siguiente';
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < currentQuizQuestions.length) {
+                renderQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            document.getElementById('quiz-questions').style.display = 'none';
+            document.getElementById('quiz-results').style.display = 'block';
+            
+            const percentage = (score / currentQuizQuestions.length) * 100;
+            let icon, title, color;
+            
+            if (percentage === 100) { icon = 'fa-trophy'; title = '¡Excelente! Dominas la Matriz Maestra.'; color = 'text-success'; }
+            else if (percentage >= 66) { icon = 'fa-thumbs-up'; title = '¡Buen trabajo! Sigue practicando.'; color = 'text-warning'; }
+            else { icon = 'fa-book-open'; title = 'Necesitas repasar los conceptos.'; color = 'text-danger'; }
+            
+            document.getElementById('result-icon').innerHTML = `<i class="fas ${icon} fa-4x ${color}"></i>`;
+            document.getElementById('result-title').className = color;
+            document.getElementById('result-title').textContent = title;
+            document.getElementById('result-score').textContent = `Puntuación: ${score} de ${currentQuizQuestions.length} (${percentage}%)`;
+            
+            let detailsHtml = '<h5>Detalle de respuestas:</h5><ul class="list-group">';
+            userAnswers.forEach((ans, i) => {
+                const q = currentQuizQuestions[ans.qIndex];
+                const statusClass = ans.isCorrect ? 'list-group-item-success' : 'list-group-item-danger';
+                const statusIcon = ans.isCorrect ? 'fa-check' : 'fa-times';
+                detailsHtml += `<li class="list-group-item ${statusClass}"><i class="fas ${statusIcon}"></i> <strong>P${i+1}:</strong> ${q.question.substring(0, 50)}...</li>`;
+            });
+            detailsHtml += '</ul>';
+            document.getElementById('result-details').innerHTML = detailsHtml;
+        }
+
+        function resetQuiz() {
+            document.getElementById('quiz-results').style.display = 'none';
+            document.getElementById('quiz-start').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
