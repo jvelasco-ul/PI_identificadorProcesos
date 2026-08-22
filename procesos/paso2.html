@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Paso 2: Clasificación por Modo de Operación - Continuo, Batch, Semicontinuo">
+    <title>Paso 2: Clasificación por Modo de Operación | Procesos Industriales</title>
+    <link rel="icon" href="../assets/images/logo.png" type="image/png">
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <!-- Skip to content -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+    <!-- Header -->
+    <header class="main-header">
+        <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Navegación principal">
+            <div class="container">
+                <a class="navbar-brand" href="../index.html">
+                    <img src="../assets/images/logo.png" alt="Logo" height="60" class="logo-header">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Protocolo</a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="../protocol/guia-identificacion.html">Guía Completa</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Procesos</a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="paso0.html">Paso 0: Sistema y Frontera</a></li>
+                                <li><a class="dropdown-item" href="paso1.html">Paso 1: Matriz Entrada-Salida</a></li>
+                                <li><a class="dropdown-item active" href="paso2.html">Paso 2: Clasificación</a></li>
+                                <li><a class="dropdown-item" href="paso3.html">Paso 3: Régimen Temporal</a></li>
+                                <li><a class="dropdown-item" href="paso4.html">Paso 4: Aplicación 8 Pasos</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="process-hero bg-gradient" style="background: linear-gradient(135deg, #1A1A1A 0%, #FF6B00 100%); color: white; padding: 80px 0;">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <div class="badge bg-warning text-dark mb-3">
+                            <i class="fas fa-sort-amount-down"></i> PASO 2
+                        </div>
+                        <h1 class="display-4 mb-3">
+                            <i class="fas fa-random"></i> Clasificación por Modo de Operación
+                        </h1>
+                        <p class="lead mb-4">
+                            ¿Cómo entra y sale la materia? Continuo, Batch o Semicontinuo — la clave para plantear el balance correcto
+                        </p>
+                        <div class="d-flex gap-3">
+                            <a href="#teoria" class="btn btn-light btn-lg"><i class="fas fa-book"></i> Teoría</a>
+                            <a href="#ejemplos" class="btn btn-outline-light btn-lg"><i class="fas fa-industry"></i> Ejemplos</a>
+                            <a href="#quiz-section" class="btn btn-outline-light btn-lg"><i class="fas fa-question-circle"></i> Quiz</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 text-center d-none d-lg-block">
+                        <i class="fas fa-exchange-alt fa-10x" style="opacity: 0.3;"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mnemotecnia -->
+        <section class="mnemonic-section py-5 bg-light">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="card border-warning shadow-lg">
+                            <div class="card-body text-center p-5">
+                                <h3 class="mb-4"><i class="fas fa-brain text-warning"></i> MNEMOTECNIA DEL PASO 2</h3>
+                                <div class="display-6 fw-bold text-primary mb-3">CBS</div>
+                                <p class="lead fst-italic">"Continuo, Batch, Semicontinuo"</p>
+                                <div class="row text-start mt-4">
+                                    <div class="col-md-4">
+                                        <div class="card bg-success text-white p-3 mb-3">
+                                            <h5><i class="fas fa-stream"></i> CONTINUO</h5>
+                                            <p class="small mb-0">Entra y sale simultáneamente sin interrupción. Propiedades constantes en el tiempo. Acumulación = 0.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card bg-primary text-white p-3 mb-3">
+                                            <h5><i class="fas fa-box"></i> BATCH</h5>
+                                            <p class="small mb-0">Carga → Proceso → Descarga. Propiedades cambian. Acumulación ≠ 0.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card bg-info text-white p-3 mb-3">
+                                            <h5><i class="fas fa-random"></i> SEMICONTINUO</h5>
+                                            <p class="small mb-0">Una corriente continua, otra por lotes. Híbrido de ambos.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teoría -->
+        <section id="teoria" class="theory-section py-5">
+            <div class="container">
+                <h2 class="section-title text-center mb-5"><i class="fas fa-graduation-cap text-orange"></i> Fundamentos Teóricos</h2>
+                
+                <div class="row mb-5">
+                    <div class="col-lg-12">
+                        <div class="card shadow-sm">
+                            <div class="card-body p-4">
+                                <h4 class="text-orange mb-3"><i class="fas fa-question-circle"></i> ¿Por qué es crucial esta clasificación?</h4>
+                                <p class="lead">
+                                    El modo de operación determina <strong>la forma de la ecuación de balance</strong>. 
+                                    Un error en esta clasificación lleva a plantear mal TODO el balance.
+                                </p>
+                                <div class="alert alert-info mt-3">
+                                    <i class="fas fa-lightbulb"></i>
+                                    <strong>Pregunta clave:</strong> ¿Las propiedades (T, P, composición, flujo) en un punto fijo del equipo cambian con el tiempo?
+                                    <ul class="mb-0 mt-2">
+                                        <li><strong>NO</strong> → Estado estacionario (Continuo)</li>
+                                        <li><strong>SÍ</strong> → Estado transitorio (Batch o Semicontinuo)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabla Comparativa Interactiva -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card shadow">
+                            <div class="card-header bg-orange text-white">
+                                <h4 class="mb-0"><i class="fas fa-table"></i> Tabla Comparativa: Los 3 Modos de Operación</h4>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover mb-0">
+                                        <thead class="table-dark">
+                                            <tr>
+                                                <th style="width: 20%;">Criterio</th>
+                                                <th style="width: 27%;" class="bg-success bg-opacity-25"><i class="fas fa-stream"></i> CONTINUO</th>
+                                                <th style="width: 27%;" class="bg-primary bg-opacity-25"><i class="fas fa-box"></i> BATCH (Discontinuo)</th>
+                                                <th style="width: 26%;" class="bg-info bg-opacity-25"><i class="fas fa-random"></i> SEMICONTINUO</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="fw-bold">¿Cómo entra y sale la materia?</td>
+                                                <td>Entra y sale de forma <strong>simultánea e ininterrumpida</strong>. Flujo constante.</td>
+                                                <td>Se <strong>carga todo al inicio</strong> y se <strong>descarga todo al final</strong>. No entra ni sale durante la operación.</td>
+                                                <td><strong>Una corriente es continua</strong> y <strong>otra es por lotes</strong>. Ej: se carga un reactivo una vez, pero un gas fluye continuamente.</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-bold">¿Cambian las propiedades con el tiempo?</td>
+                                                <td><strong>NO</strong> (en estado estacionario). T, P, composición permanecen constantes en cada punto.</td>
+                                                <td><strong>SÍ</strong>. Cambian todo el tiempo dentro del lote (composición, temperatura, presión).</td>
+                                                <td><strong>Parcialmente</strong>. Constante en la parte continua, variable en la parte por lotes.</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-bold">¿Hay acumulación de materia?</td>
+                                                <td><strong>NO</strong> (Acumulación = 0)</td>
+                                                <td><strong>SÍ</strong>. Entre la carga y la descarga hay acumulación.</td>
+                                                <td><strong>SÍ</strong>. En la fracción discontinua del proceso.</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-bold">Ecuación de balance típica</td>
+                                                <td class="formula-box">\[ \text{Entrada} = \text{Salida} \pm \text{Reacción} \]</td>
+                                                <td class="formula-box">\[ \text{Acumulación} = \text{Entrada} - \text{Salida} \pm \text{Reacción} \]</td>
+                                                <td class="formula-box">\[ \text{Balance diferencial integrado} \]</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-bold">Ejemplos del curso</td>
+                                                <td>
+                                                    <ul class="mb-0 small">
+                                                        <li>Destilación de petróleo</li>
+                                                        <li>Turbina de vapor</li>
+                                                        <li>Evaporador múltiple efecto</li>
+                                                        <li>Tubería con bombeo</li>
+                                                    </ul>
+                                                </td>
+                                                <td>
+                                                    <ul class="mb-0 small">
+                                                        <li>Fermentación</li>
+                                                        <li>Cristalización de sales</li>
+                                                        <li>Secador de bandejas</li>
+                                                        <li>Reactor batch</li>
+                                                    </ul>
+                                                </td>
+                                                <td>
+                                                    <ul class="mb-0 small">
+                                                        <li>Reactor semicontinuo</li>
+                                                        <li>Secado por rociado</li>
+                                                        <li>Llenado de tanque</li>
+                                                        <li>Extracción sólido-líquido</li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-bold">Ventajas</td>
+                                                <td>
+                                                    <ul class="mb-0 small">
+                                                        <li>Alta productividad</li>
+                                                        <li>Control automático</li>
+                                                        <li>Menor mano de obra</li>
+                                                        <li>Calidad uniforme</li>
+                                                    </ul>
+                                                </td>
+                                                <td>
+                                                    <ul class="mb-0 small">
+                                                        <li>Flexibilidad</li>
+                                                        <li>Ideal para lotes pequeños</li>
+                                                        <li>Fácil limpieza entre lotes</li>
+                                                        <li>Menor inversión inicial</li>
+                                                    </ul>
+                                                </td>
+                                                <td>
+                                                    <ul class="mb-0 small">
+                                                        <li>Combina ventajas de ambos</li>
+                                                        <li>Control de reacción</li>
+                                                        <li>Seguridad en procesos exotérmicos</li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-bold">Desventajas</td>
+                                                <td>
+                                                    <ul class="mb-0 small">
+                                                        <li>Alta inversión inicial</li>
+                                                        <li>Poca flexibilidad</li>
+                                                        <li>Parada = gran pérdida</li>
+                                                    </ul>
+                                                </td>
+                                                <td>
+                                                    <ul class="mb-0 small">
+                                                        <li>Baja productividad</li>
+                                                        <li>Más mano de obra</li>
+                                                        <li>Variabilidad entre lotes</li>
+                                                    </ul>
+                                                </td>
+                                                <td>
+                                                    <ul class="mb-0 small">
+                                                        <li>Complejidad de control</li>
+                                                        <li>Diseño más complejo</li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Diagrama de Decisión -->
+                <div class="row mt-5">
+                    <div class="col-lg-12">
+                        <div class="card shadow">
+                            <div class="card-header bg-warning text-dark">
+                                <h4 class="mb-0"><i class="fas fa-project-diagram"></i> Diagrama de Decisión: ¿Qué modo de operación es?</h4>
+                            </div>
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <div class="alert alert-primary d-inline-block p-3 mb-3">
+                                        <strong>INICIO:</strong> Observa el proceso
+                                    </div>
+                                    <br>
+                                    <i class="fas fa-arrow-down fa-2x text-muted my-2"></i>
+                                    <br>
+                                    <div class="alert alert-success d-inline-block p-3 mb-3">
+                                        <strong>Pregunta 1:</strong> ¿Entra y sale materia simultáneamente?
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="alert alert-danger">
+                                                <strong>NO</strong><br>
+                                                ↓<br>
+                                                <strong>Pregunta 2:</strong> ¿Se carga todo al inicio y se descarga al final?<br>
+                                                ↓<br>
+                                                <strong>SÍ</strong> → <span class="badge bg-primary fs-6">BATCH</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="alert alert-success">
+                                                <strong>SÍ</strong><br>
+                                                ↓<br>
+                                                <strong>Pregunta 3:</strong> ¿Ambas corrientes son continuas?<br>
+                                                ↓<br>
+                                                <strong>SÍ</strong> → <span class="badge bg-success fs-6">CONTINUO</span><br>
+                                                <strong>NO</strong> → <span class="badge bg-info fs-6">SEMICONTINUO</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Educativo -->
+        <section class="video-section py-5 bg-light">
+            <div class="container">
+                <h2 class="section-title text-center mb-5"><i class="fab fa-youtube text-danger"></i> Video Educativo Recomendado</h2>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <div class="ratio ratio-16x9 mb-3">
+                                    <iframe src="https://www.youtube.com/embed/5yJ1wXyQ2yA" title="Procesos Continuos vs Batch - Ingeniería de Procesos" allowfullscreen></iframe>
+                                </div>
+                                <h5 class="card-title"><i class="fas fa-play-circle text-danger"></i> Clasificación de Procesos: Continuo, Batch y Semicontinuo</h5>
+                                <p class="card-text">
+                                    <strong>Canal:</strong> Ingeniería Industrial / Procesos Unitarios<br>
+                                    <strong>Duración:</strong> 14:30 min<br>
+                                    <strong>Contenido:</strong> Diferencias fundamentales entre procesos continuos y discontinuos, ejemplos industriales de cada tipo, y cómo identificar el modo de operación en plantas reales.
+                                </p>
+                                <a href="https://www.youtube.com/results?search_query=procesos+continuos+batch+semicontinuos+ingenieria" class="btn btn-outline-danger" target="_blank" rel="noopener">
+                                    <i class="fab fa-youtube"></i> Ver más videos en YouTube
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ejemplos Industriales -->
+        <section id="ejemplos" class="examples-section py-5">
+            <div class="container">
+                <h2 class="section-title text-center mb-5"><i class="fas fa-industry text-orange"></i> Ejemplos Industriales por Semana</h2>
+                <p class="lead text-center mb-5">Aplicaciones reales en la industria peruana y transnacional</p>
+
+                <!-- Ejemplo 1: Semana 1 (Continuo) -->
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card shadow-sm border-start border-4 border-success">
+                            <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0"><i class="fas fa-oil-well"></i> Ejemplo 1: Destilación de Petróleo (Continuo)</h5>
+                                <span class="badge bg-light text-success">Semana 1</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="text-success">Caso Real: Refinería La Pampilla (REPSEL)</h6>
+                                        <p>Columna de destilación atmosférica procesa <strong>100,000 barriles/día</strong> de crudo. El petróleo entra continuamente por el fondo y las fracciones (nafta, kerosene, diésel) salen continuamente por diferentes niveles.</p>
+                                        <h6 class="text-success">Clasificación:</h6>
+                                        <ul>
+                                            <li><strong>Modo:</strong> CONTINUO</li>
+                                            <li><strong>Evidencia:</strong> Entra crudo y salen productos simultáneamente 24/7</li>
+                                            <li><strong>Acumulación:</strong> 0 (estado estacionario)</li>
+                                            <li><strong>Balance:</strong> Entrada = Salida (por cada fracción)</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6 class="text-success">Impacto Industrial:</h6>
+                                        <div class="alert alert-success small">
+                                            <strong>Económico:</strong> Operación continua maximiza la capacidad. Una parada no programada de 24h = pérdida de US$ 2-5 millones.
+                                        </div>
+                                        <div class="alert alert-warning small">
+                                            <strong>Productividad:</strong> Control automático mantiene calidad uniforme. Variaciones en temperatura de ±5°C afectan la especificación de productos.
+                                        </div>
+                                        <div class="alert alert-info small">
+                                            <strong>Ambiental:</strong> Emisiones continuas requieren monitoreo constante. Multas por exceder límites: >US$ 100,000.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejemplo 2: Semana 7 (Batch - NUEVO) -->
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card shadow-sm border-start border-4 border-primary">
+                            <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0"><i class="fas fa-wine-bottle"></i> Ejemplo 2: Fermentación de Cerveza (Batch)</h5>
+                                <span class="badge bg-light text-primary">Semana 7 - NUEVO</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="text-primary">Caso Real: Backus (Cervecería)</h6>
+                                        <p>Tanque fermentador de <strong>500 hL</strong>. Se carga mosto (azúcar + levadura), se fermenta 7-10 días, y se descarga cerveza. No entra ni sale nada durante la fermentación.</p>
+                                        <h6 class="text-primary">Clasificación:</h6>
+                                        <ul>
+                                            <li><strong>Modo:</strong> BATCH (Discontinuo)</li>
+                                            <li><strong>Evidencia:</strong> Carga → Fermentación (tiempo) → Descarga</li>
+                                            <li><strong>Acumulación:</strong> ≠ 0 (la glucosa disminuye, el etanol aumenta)</li>
+                                            <li><strong>Balance:</strong> Acumulación = -Consumo (glucosa) / +Generación (etanol)</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6 class="text-primary">Impacto Industrial:</h6>
+                                        <div class="alert alert-danger small">
+                                            <strong>Productividad:</strong> Tiempo de fermentación limita la producción. Un tanque de 500 hL produce ~500 hL/semana. Para aumentar producción, se necesitan MÁS tanques (inversión).
+                                        </div>
+                                        <div class="alert alert-warning small">
+                                            <strong>Calidad:</strong> Cada lote puede variar. Control estricto de temperatura (±0.5°C) es crítico. Desviación = lote defectuoso (pérdida de US$ 50,000).
+                                        </div>
+                                        <div class="alert alert-info small">
+                                            <strong>Flexibilidad:</strong> Se puede cambiar de receta entre lotes (Pilsen → Cristal → Arequipeña). Ventaja sobre procesos continuos.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejemplo 3: Semana 10 (Semicontinuo - NUEVO) -->
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card shadow-sm border-start border-4 border-info">
+                            <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0"><i class="fas fa-spray-can"></i> Ejemplo 3: Secado por Rociado (Semicontinuo)</h5>
+                                <span class="badge bg-light text-info">Semana 10 - NUEVO</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="text-info">Caso Real: Nestlé / Gloria (Lácteos)</h6>
+                                        <p>Secador spray para producir leche en polvo. La solución líquida (leche concentrada) se carga continuamente y se atomiza. El aire caliente fluye continuamente. El polvo se recoge continuamente.</p>
+                                        <h6 class="text-info">Clasificación:</h6>
+                                        <ul>
+                                            <li><strong>Modo:</strong> SEMICONTINUO</li>
+                                            <li><strong>Evidencia:</strong> Líquido entra continuamente, aire entra continuamente, polvo sale continuamente</li>
+                                            <li><strong>Acumulación:</strong> 0 en estado estacionario (pero el diseño es híbrido)</li>
+                                            <li><strong>Balance:</strong> Balance diferencial integrado</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6 class="text-info">Impacto Industrial:</h6>
+                                        <div class="alert alert-success small">
+                                            <strong>Productividad:</strong> Alta capacidad (10-50 ton/h de polvo). Operación 24/7 posible. Menor costo unitario que batch.
+                                        </div>
+                                        <div class="alert alert-warning small">
+                                            <strong>Calidad:</strong> Control de temperatura de salida crítico. Si T > 80°C, hay degradación de proteínas (pérdida de calidad nutricional).
+                                        </div>
+                                        <div class="alert alert-danger small">
+                                            <strong>Económico:</strong> Inversión alta (US$ 5-10 millones). Requiere volumen alto para ser rentable.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejemplo 4: Semana 8 (Continuo - Evaporación) -->
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card shadow-sm border-start border-4 border-warning">
+                            <div class="card-header bg-warning text-dark d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0"><i class="fas fa-cube"></i> Ejemplo 4: Evaporador Triple Efecto (Continuo)</h5>
+                                <span class="badge bg-dark text-warning">Semana 8</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="text-warning">Caso Real: Planta Azucarera (Casa Grande)</h6>
+                                        <p>Evaporador de triple efecto concentra jugo de caña de 15°Brix a 65°Brix. El jugo entra continuamente al 1er efecto, pasa al 2do y 3er efecto, y sale jarabe concentrado continuamente.</p>
+                                        <h6 class="text-warning">Clasificación:</h6>
+                                        <ul>
+                                            <li><strong>Modo:</strong> CONTINUO</li>
+                                            <li><strong>Evidencia:</strong> Flujo continuo de jugo y vapor a través de los 3 efectos</li>
+                                            <li><strong>Acumulación:</strong> 0 (estado estacionario)</li>
+                                            <li><strong>Balance:</strong> Entrada = Salida (soluto constante, agua se evapora)</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6 class="text-warning">Impacto Industrial:</h6>
+                                        <div class="alert alert-success small">
+                                            <strong>Económico:</strong> Triple efecto reduce consumo de vapor de 10 ton/h a 3.5 ton/h vs. efecto simple. Ahorro: ~US$ 1.5 millones/año en combustible.
+                                        </div>
+                                        <div class="alert alert-warning small">
+                                            <strong>Productividad:</strong> Incrustaciones reducen transferencia de calor. Limpieza cada 6 meses (US$ 50,000) pero evita paradas no programadas.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejemplo 5: Semana 13 (Semicontinuo - NUEVO) -->
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card shadow-sm border-start border-4 border-secondary">
+                            <div class="card-header bg-secondary text-white d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0"><i class="fas fa-flask"></i> Ejemplo 5: Reactor Semicontinuo (Semicontinuo)</h5>
+                                <span class="badge bg-light text-secondary">Semana 13 - NUEVO</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="text-secondary">Caso Real: Planta Petroquímica (Dow Chemical)</h6>
+                                        <p>Reactor de polimerización. Se carga el catalizador al inicio (batch), pero el monómero (etileno) se alimenta continuamente para controlar la reacción exotérmica. El polímero sale continuamente.</p>
+                                        <h6 class="text-secondary">Clasificación:</h6>
+                                        <ul>
+                                            <li><strong>Modo:</strong> SEMICONTINUO</li>
+                                            <li><strong>Evidencia:</strong> Catalizador (batch) + Monómero (continuo) → Polímero (continuo)</li>
+                                            <li><strong>Acumulación:</strong> ≠ 0 en el catalizador, 0 en el monómero/polímero</li>
+                                            <li><strong>Balance:</strong> Diferencial para el catalizador, estacionario para el resto</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6 class="text-secondary">Impacto Industrial:</h6>
+                                        <div class="alert alert-success small">
+                                            <strong>Seguridad:</strong> Alimentación semicontinua controla la reacción exotérmica. Evita "runaway" (descontrol térmico) que podría causar explosión.
+                                        </div>
+                                        <div class="alert alert-warning small">
+                                            <strong>Calidad:</strong> Control preciso de la tasa de alimentación determina el peso molecular del polímero. Variación = producto fuera de especificación.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejemplo 6: Semana 15 (Continuo - Bombeo) -->
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card shadow-sm border-start border-4 border-danger">
+                            <div class="card-header bg-danger text-white d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0"><i class="fas fa-tint"></i> Ejemplo 6: Sistema de Bombeo (Continuo)</h5>
+                                <span class="badge bg-light text-danger">Semana 15</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="text-danger">Caso Real: Minera Southern Copper</h6>
+                                        <p>Sistema de bombeo de agua de enfriamiento. Tubería de 1000 m, 8" de diámetro, 800 GPM. La bomba opera 24/7 moviendo agua continuamente desde el pozo hasta la planta.</p>
+                                        <h6 class="text-danger">Clasificación:</h6>
+                                        <ul>
+                                            <li><strong>Modo:</strong> CONTINUO</li>
+                                            <li><strong>Evidencia:</strong> Agua entra y sale continuamente. Flujo constante (800 GPM)</li>
+                                            <li><strong>Acumulación:</strong> 0 (estado estacionario)</li>
+                                            <li><strong>Balance:</strong> Ecuación de Bernoulli generalizada (continuidad)</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6 class="text-danger">Impacto Industrial:</h6>
+                                        <div class="alert alert-danger small">
+                                            <strong>Económico:</strong> Error del 10% en cálculo de pérdidas = bomba sobre/subdimensionada. Sobre-dimensionamiento: mayor consumo eléctrico de por vida (US$ 50,000/año extra).
+                                        </div>
+                                        <div class="alert alert-warning small">
+                                            <strong>Seguridad:</strong> Sub-dimensionamiento causa cavitación (daño al impulsor) o falta de presión en puntos críticos (riesgo de incendio en torres de enfriamiento).
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Mapa Mental -->
+        <section class="mindmap-section py-5 bg-light">
+            <div class="container">
+                <h2 class="section-title text-center mb-5"><i class="fas fa-sitemap text-orange"></i> Mapa Mental: Modos de Operación</h2>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="card shadow">
+                            <div class="card-body p-4">
+                                <div class="mindmap-container">
+                                    <div class="mindmap-node root text-center mb-4">
+                                        <h4 class="bg-orange text-white p-3 rounded"><i class="fas fa-random"></i> PASO 2: CLASIFICACIÓN</h4>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card border-success h-100">
+                                                <div class="card-header bg-success text-white"><strong>CONTINUO</strong></div>
+                                                <div class="card-body">
+                                                    <ul class="list-unstyled small">
+                                                        <li><i class="fas fa-check text-success"></i> Entra y sale simultáneo</li>
+                                                        <li><i class="fas fa-check text-success"></i> Propiedades constantes</li>
+                                                        <li><i class="fas fa-check text-success"></i> Acumulación = 0</li>
+                                                        <li><i class="fas fa-check text-success"></i> Balance: E = S</li>
+                                                        <li><i class="fas fa-times text-danger"></i> Alta inversión</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card border-primary h-100">
+                                                <div class="card-header bg-primary text-white"><strong>BATCH</strong></div>
+                                                <div class="card-body">
+                                                    <ul class="list-unstyled small">
+                                                        <li><i class="fas fa-check text-primary"></i> Carga → Proceso → Descarga</li>
+                                                        <li><i class="fas fa-check text-primary"></i> Propiedades cambian</li>
+                                                        <li><i class="fas fa-check text-primary"></i> Acumulación ≠ 0</li>
+                                                        <li><i class="fas fa-check text-primary"></i> Balance: A = E - S</li>
+                                                        <li><i class="fas fa-times text-danger"></i> Baja productividad</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card border-info h-100">
+                                                <div class="card-header bg-info text-white"><strong>SEMICONTINUO</strong></div>
+                                                <div class="card-body">
+                                                    <ul class="list-unstyled small">
+                                                        <li><i class="fas fa-check text-info"></i> Híbrido (1 continua + 1 batch)</li>
+                                                        <li><i class="fas fa-check text-info"></i> Control de reacción</li>
+                                                        <li><i class="fas fa-check text-info"></i> Acumulación parcial</li>
+                                                        <li><i class="fas fa-check text-info"></i> Balance diferencial</li>
+                                                        <li><i class="fas fa-times text-danger"></i> Complejidad</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Errores Comunes -->
+        <section class="errors-section py-5">
+            <div class="container">
+                <h2 class="section-title text-center mb-5"><i class="fas fa-exclamation-triangle text-warning"></i> Errores Comunes</h2>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="card border-danger h-100">
+                            <div class="card-header bg-danger text-white"><h5 class="mb-0"><i class="fas fa-bug"></i> Error 1: Confundir Batch con Continuo</h5></div>
+                            <div class="card-body">
+                                <div class="alert alert-danger"><strong>Problema:</strong> Asumir que un fermentador es continuo porque "siempre hay producción".</div>
+                                <div class="alert alert-warning"><strong>Consecuencia:</strong> Plantear balance E = S cuando en realidad es A = E - S ± R. Resultados completamente erróneos.</div>
+                                <div class="alert alert-success"><strong>Solución:</strong> Preguntar: "¿Entra y sale materia SIMULTÁNEAMENTE?" Si NO → es batch.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card border-danger h-100">
+                            <div class="card-header bg-danger text-white"><h5 class="mb-0"><i class="fas fa-bug"></i> Error 2: Asumir Acumulación = 0 en Batch</h5></div>
+                            <div class="card-body">
+                                <div class="alert alert-danger"><strong>Problema:</strong> Aplicar balance de estado estacionario a un proceso por lotes.</div>
+                                <div class="alert alert-warning"><strong>Consecuencia:</strong> Ignorar que la masa dentro del sistema cambia con el tiempo. Imposible resolver correctamente.</div>
+                                <div class="alert alert-success"><strong>Solución:</strong> En batch, la acumulación es la diferencia entre carga inicial y descarga final.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card border-danger h-100">
+                            <div class="card-header bg-danger text-white"><h5 class="mb-0"><i class="fas fa-bug"></i> Error 3: No Identificar Semicontinuo</h5></div>
+                            <div class="card-body">
+                                <div class="alert alert-danger"><strong>Problema:</strong> Clasificar como "continuo" un proceso donde una corriente es batch.</div>
+                                <div class="alert alert-warning"><strong>Consecuencia:</strong> Balance incompleto. No se considera la acumulación en la parte discontinua.</div>
+                                <div class="alert alert-success"><strong>Solución:</strong> Verificar CADA corriente. Si UNA es batch → semicontinuo.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card border-danger h-100">
+                            <div class="card-header bg-danger text-white"><h5 class="mb-0"><i class="fas fa-bug"></i> Error 4: Confundir "Producción Continua" con "Proceso Continuo"</h5></div>
+                            <div class="card-body">
+                                <div class="alert alert-danger"><strong>Problema:</strong> Una planta puede operar 24/7 (producción continua) pero tener procesos batch (ej: fermentadores en paralelo).</div>
+                                <div class="alert alert-warning"><strong>Consecuencia:</strong> Error conceptual grave. Cada equipo individual se clasifica, no la planta completa.</div>
+                                <div class="alert alert-success"><strong>Solución:</strong> Analizar cada EQUIPO por separado. La planta puede tener equipos continuos Y batch operando simultáneamente.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ejercicios Paso a Paso -->
+        <section class="exercises-section py-5 bg-light">
+            <div class="container">
+                <h2 class="section-title text-center mb-5"><i class="fas fa-calculator text-orange"></i> Ejercicios Resueltos</h2>
+
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card shadow">
+                            <div class="card-header bg-success text-white"><h5 class="mb-0"><i class="fas fa-stream"></i> Ejercicio 1: Identificar Modo de Operación</h5></div>
+                            <div class="card-body">
+                                <p><strong>Enunciado:</strong> Un tanque recibe 100 kg/h de agua continuamente y descarga 100 kg/h continuamente. La temperatura se mantiene constante a 25°C.</p>
+                                <div class="accordion" id="accEj1">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#ej1p1"><strong>Paso 1:</strong> Analizar entradas y salidas</button></h2>
+                                        <div id="ej1p1" class="accordion-collapse collapse show" data-bs-parent="#accEj1">
+                                            <div class="accordion-body">
+                                                <div class="alert alert-info">
+                                                    <strong>Observación:</strong> El agua ENTRA (100 kg/h) y SALE (100 kg/h) simultáneamente. Ambas corrientes son continuas.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ej1p2"><strong>Paso 2:</strong> Verificar si las propiedades cambian</button></h2>
+                                        <div id="ej1p2" class="accordion-collapse collapse" data-bs-parent="#accEj1">
+                                            <div class="accordion-body">
+                                                <div class="alert alert-info">
+                                                    <strong>Observación:</strong> La temperatura es constante (25°C). El flujo es constante (100 kg/h). Las propiedades NO cambian con el tiempo.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ej1p3"><strong>Paso 3:</strong> Clasificar</button></h2>
+                                        <div id="ej1p3" class="accordion-collapse collapse" data-bs-parent="#accEj1">
+                                            <div class="accordion-body">
+                                                <div class="alert alert-success">
+                                                    <strong>Respuesta:</strong> PROCESO CONTINUO<br>
+                                                    <strong>Razón:</strong> Entra y sale simultáneamente + propiedades constantes → Acumulación = 0<br>
+                                                    <strong>Balance:</strong> Entrada = Salida → 100 kg/h = 100 kg/h ✓
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card shadow">
+                            <div class="card-header bg-primary text-white"><h5 class="mb-0"><i class="fas fa-box"></i> Ejercicio 2: Balance en Batch</h5></div>
+                            <div class="card-body">
+                                <p><strong>Enunciado:</strong> Un tanque se carga con 500 kg de solución de glucosa al 10%. Después de 8 horas de fermentación, se descarga 480 kg de producto. Calcular la acumulación.</p>
+                                <div class="accordion" id="accEj2">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#ej2p1"><strong>Paso 1:</strong> Identificar el modo</button></h2>
+                                        <div id="ej2p1" class="accordion-collapse collapse show" data-bs-parent="#accEj2">
+                                            <div class="accordion-body">
+                                                <div class="alert alert-info">
+                                                    <strong>Análisis:</strong> Se CARGA todo al inicio → Proceso (8h) → Se DESCARGA todo al final.<br>
+                                                    <strong>Clasificación:</strong> BATCH (no entra ni sale durante la operación)
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ej2p2"><strong>Paso 2:</strong> Plantear balance</button></h2>
+                                        <div id="ej2p2" class="accordion-collapse collapse" data-bs-parent="#accEj2">
+                                            <div class="accordion-body">
+                                                <div class="formula-box">
+                                                    Para batch: Acumulación = Entrada - Salida<br>
+                                                    Entrada = 500 kg (carga inicial)<br>
+                                                    Salida = 480 kg (descarga final)<br>
+                                                    Acumulación = 500 - 480 = <strong>20 kg</strong>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ej2p3"><strong>Paso 3:</strong> Interpretar</button></h2>
+                                        <div id="ej2p3" class="accordion-collapse collapse" data-bs-parent="#accEj2">
+                                            <div class="accordion-body">
+                                                <div class="alert alert-warning">
+                                                    <strong>Interpretación:</strong> Los 20 kg perdidos son probablemente CO₂ liberado durante la fermentación (reacción: glucosa → etanol + CO₂).<br>
+                                                    Esto confirma que es un proceso batch con reacción química.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUIZ INTERACTIVO -->
+        <section id="quiz-section" class="quiz-section py-5">
+            <div class="container">
+                <h2 class="section-title text-center mb-5"><i class="fas fa-question-circle text-orange"></i> Quiz Interactivo: Paso 2</h2>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="card shadow-lg border-0">
+                            <div class="card-header bg-orange text-white text-center">
+                                <h4 class="mb-0"><i class="fas fa-brain"></i> Evalúa tu Conocimiento</h4>
+                                <p class="mb-0 small mt-2">Se presentarán 3 preguntas aleatorias de un banco de 10. ¡Buena suerte!</p>
+                            </div>
+                            <div class="card-body p-4">
+                                <div id="quiz-container">
+                                    <div id="quiz-start" class="text-center">
+                                        <i class="fas fa-clipboard-list fa-4x text-orange mb-3"></i>
+                                        <h5>¿Listo para el desafío?</h5>
+                                        <p class="text-muted">Responde 3 preguntas al azar sobre Clasificación por Modo de Operación.</p>
+                                        <button class="btn btn-primary btn-lg" onclick="startQuiz()"><i class="fas fa-play"></i> Iniciar Quiz</button>
+                                    </div>
+                                    
+                                    <div id="quiz-questions" style="display: none;">
+                                        <div class="progress mb-4" style="height: 10px;">
+                                            <div id="quiz-progress" class="progress-bar bg-orange" role="progressbar" style="width: 0%"></div>
+                                        </div>
+                                        <div id="question-container"></div>
+                                        <div id="feedback-container" class="mt-3"></div>
+                                        <div class="d-flex justify-content-between mt-4">
+                                            <button id="btn-next" class="btn btn-primary" onclick="nextQuestion()" style="display: none;">Siguiente <i class="fas fa-arrow-right"></i></button>
+                                        </div>
+                                    </div>
+
+                                    <div id="quiz-results" style="display: none;" class="text-center">
+                                        <div id="result-icon" class="mb-3"></div>
+                                        <h4 id="result-title"></h4>
+                                        <p id="result-score" class="lead"></p>
+                                        <div id="result-details" class="text-start mt-4"></div>
+                                        <button class="btn btn-warning btn-lg mt-4" onclick="resetQuiz()"><i class="fas fa-redo"></i> Intentar de Nuevo</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navegación -->
+        <section class="navigation-section py-5 bg-dark text-white">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                        <a href="paso1.html" class="btn btn-outline-light btn-lg"><i class="fas fa-arrow-left"></i> Paso 1: Matriz Maestra</a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="paso3.html" class="btn btn-warning btn-lg">Paso 3: Régimen Temporal <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <img src="../assets/images/logo.png" alt="Logo" height="50" class="mb-3">
+                    <p>Ingeniería Industrial</p>
+                    <p>Docente: Juan Velasco</p>
+                    <p>Período: 2026-2</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../protocol/guia-identificacion.html">Protocolo</a></li>
+                        <li><a href="paso2.html">Procesos</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Contacto</h5>
+                    <p><i class="fas fa-envelope"></i> juan.velasco@universidad.edu</p>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center"><p>&copy; 2026 Procesos Industriales. Todos los derechos reservados.</p></div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="../assets/js/main.js"></script>
+    
+    <!-- Quiz Logic for Paso 2 -->
+    <script>
+        const quizDataPaso2 = [
+            {
+                question: "Un tanque fermentador de cerveza se carga con mosto, se deja fermentar 7 días y luego se descarga. ¿Qué modo de operación es?",
+                options: ["Continuo", "Batch (Discontinuo)", "Semicontinuo", "Ninguno de los anteriores"],
+                correct: 1,
+                explanation: "Es BATCH porque se carga todo al inicio, no entra ni sale nada durante la fermentación, y se descarga todo al final."
+            },
+            {
+                question: "En un proceso continuo operando en estado estacionario, ¿cuál es el valor de la acumulación?",
+                options: ["Diferente de cero", "Cero", "Depende del flujo", "Positiva"],
+                correct: 1,
+                explanation: "En estado estacionario (continuo), las propiedades no cambian con el tiempo, por lo tanto la acumulación es SIEMPRE cero."
+            },
+            {
+                question: "Una columna de destilación de petróleo recibe crudo continuamente y produce nafta, kerosene y diésel continuamente. ¿Qué modo es?",
+                options: ["Batch", "Semicontinuo", "Continuo", "Transitorio"],
+                correct: 2,
+                explanation: "Es CONTINUO porque entra materia (crudo) y sale materia (productos) simultáneamente de forma ininterrumpida."
+            },
+            {
+                question: "Un secador por rociado (spray) recibe solución líquida continuamente y aire caliente continuamente, produciendo polvo continuamente. ¿Qué modo es?",
+                options: ["Batch", "Continuo", "Semicontinuo", "Estático"],
+                correct: 1,
+                explanation: "Es CONTINUO porque todas las corrientes (líquido, aire, polvo) fluyen de manera simultánea e ininterrumpida."
+            },
+            {
+                question: "En un reactor semicontinuo, se carga el catalizador al inicio (batch) pero el monómero se alimenta continuamente. ¿Por qué se usa este modo?",
+                options: ["Porque es más barato", "Para controlar reacciones exotérmicas peligrosas", "Porque no hay otra opción", "Para aumentar la acumulación"],
+                correct: 1,
+                explanation: "El modo semicontinuo permite controlar reacciones exotérmicas peligrosas alimentando el reactivo gradualmente, evitando el 'runaway' térmico."
+            },
+            {
+                question: "¿Cuál es la principal diferencia entre un proceso continuo y uno batch?",
+                options: ["El continuo es más caro", "En el continuo entra y sale materia simultáneamente; en batch se carga y descarga por lotes", "El batch es más eficiente", "No hay diferencia"],
+                correct: 1,
+                explanation: "La diferencia FUNDAMENTAL es el flujo de materia: continuo = entrada y salida simultáneas; batch = carga → proceso → descarga."
+            },
+            {
+                question: "Un evaporador de triple efecto en una planta azucarera opera 24/7 recibiendo jugo y produciendo jarabe continuamente. ¿Qué modo es?",
+                options: ["Batch", "Semicontinuo", "Continuo", "Discontinuo"],
+                correct: 2,
+                explanation: "Es CONTINUO. Aunque la planta opere 24/7, lo importante es que el jugo ENTRA y el jarabe SALE simultáneamente sin interrupción."
+            },
+            {
+                question: "En un proceso batch, ¿cuándo ocurre la acumulación?",
+                options: ["Nunca", "Solo al inicio", "Durante todo el proceso (entre carga y descarga)", "Solo al final"],
+                correct: 2,
+                explanation: "En batch, hay acumulación durante TODO el proceso porque la masa dentro del sistema cambia entre la carga inicial y la descarga final."
+            },
+            {
+                question: "¿Por qué un proceso batch tiene menor productividad que uno continuo?",
+                options: ["Porque usa más energía", "Porque requiere tiempo de carga, proceso y descarga (tiempos muertos)", "Porque es más pequeño", "Porque es más viejo"],
+                correct: 1,
+                explanation: "El batch tiene 'tiempos muertos' (carga, limpieza, descarga) donde no se produce. El continuo produce 24/7 sin interrupciones."
+            },
+            {
+                question: "Un sistema de bombeo que mueve 800 GPM de agua continuamente por una tubería de 1000 m. ¿Qué modo de operación es?",
+                options: ["Batch", "Semicontinuo", "Continuo", "Transitorio"],
+                correct: 2,
+                explanation: "Es CONTINUO. El agua entra y sale de la tubería simultáneamente con flujo constante (800 GPM). Estado estacionario, acumulación = 0."
+            }
+        ];
+
+        let currentQuizQuestions = [];
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let userAnswers = [];
+
+        function startQuiz() {
+            const shuffled = [...quizDataPaso2].sort(() => 0.5 - Math.random());
+            currentQuizQuestions = shuffled.slice(0, 3);
+            currentQuestionIndex = 0;
+            score = 0;
+            userAnswers = [];
+            
+            document.getElementById('quiz-start').style.display = 'none';
+            document.getElementById('quiz-results').style.display = 'none';
+            document.getElementById('quiz-questions').style.display = 'block';
+            
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            const q = currentQuizQuestions[currentQuestionIndex];
+            const progress = ((currentQuestionIndex) / currentQuizQuestions.length) * 100;
+            document.getElementById('quiz-progress').style.width = `${progress}%`;
+            document.getElementById('btn-next').style.display = 'none';
+            document.getElementById('feedback-container').innerHTML = '';
+            
+            let html = `<h5 class="mb-3">Pregunta ${currentQuestionIndex + 1} de ${currentQuizQuestions.length}:</h5>`;
+            html += `<p class="lead">${q.question}</p>`;
+            html += `<div class="list-group">`;
+            q.options.forEach((opt, idx) => {
+                html += `<button class="list-group-item list-group-item-action" onclick="selectAnswer(${idx})" id="opt-${idx}">${opt}</button>`;
+            });
+            html += `</div>`;
+            
+            document.getElementById('question-container').innerHTML = html;
+        }
+
+        function selectAnswer(idx) {
+            const q = currentQuizQuestions[currentQuestionIndex];
+            const isCorrect = idx === q.correct;
+            
+            q.options.forEach((_, i) => {
+                document.getElementById(`opt-${i}`).disabled = true;
+                if (i === q.correct) {
+                    document.getElementById(`opt-${i}`).classList.add('list-group-item-success');
+                } else if (i === idx && !isCorrect) {
+                    document.getElementById(`opt-${i}`).classList.add('list-group-item-danger');
+                }
+            });
+
+            if (isCorrect) score++;
+            userAnswers.push({ qIndex: currentQuestionIndex, selected: idx, isCorrect });
+
+            const feedbackClass = isCorrect ? 'alert-success' : 'alert-danger';
+            const feedbackIcon = isCorrect ? 'fa-check-circle' : 'fa-times-circle';
+            document.getElementById('feedback-container').innerHTML = `
+                <div class="alert ${feedbackClass}">
+                    <i class="fas ${feedbackIcon}"></i> <strong>${isCorrect ? '¡Correcto!' : 'Incorrecto.'}</strong> ${q.explanation}
+                </div>
+            `;
+            
+            document.getElementById('btn-next').style.display = 'block';
+            document.getElementById('btn-next').textContent = currentQuestionIndex === currentQuizQuestions.length - 1 ? 'Ver Resultados' : 'Siguiente';
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < currentQuizQuestions.length) {
+                renderQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            document.getElementById('quiz-questions').style.display = 'none';
+            document.getElementById('quiz-results').style.display = 'block';
+            
+            const percentage = (score / currentQuizQuestions.length) * 100;
+            let icon, title, color;
+            
+            if (percentage === 100) { icon = 'fa-trophy'; title = '¡Excelente! Dominas la Clasificación.'; color = 'text-success'; }
+            else if (percentage >= 66) { icon = 'fa-thumbs-up'; title = '¡Buen trabajo! Sigue practicando.'; color = 'text-warning'; }
+            else { icon = 'fa-book-open'; title = 'Necesitas repasar los conceptos.'; color = 'text-danger'; }
+            
+            document.getElementById('result-icon').innerHTML = `<i class="fas ${icon} fa-4x ${color}"></i>`;
+            document.getElementById('result-title').className = color;
+            document.getElementById('result-title').textContent = title;
+            document.getElementById('result-score').textContent = `Puntuación: ${score} de ${currentQuizQuestions.length} (${percentage}%)`;
+            
+            let detailsHtml = '<h5>Detalle de respuestas:</h5><ul class="list-group">';
+            userAnswers.forEach((ans, i) => {
+                const q = currentQuizQuestions[ans.qIndex];
+                const statusClass = ans.isCorrect ? 'list-group-item-success' : 'list-group-item-danger';
+                const statusIcon = ans.isCorrect ? 'fa-check' : 'fa-times';
+                detailsHtml += `<li class="list-group-item ${statusClass}"><i class="fas ${statusIcon}"></i> <strong>P${i+1}:</strong> ${q.question.substring(0, 50)}...</li>`;
+            });
+            detailsHtml += '</ul>';
+            document.getElementById('result-details').innerHTML = detailsHtml;
+        }
+
+        function resetQuiz() {
+            document.getElementById('quiz-results').style.display = 'none';
+            document.getElementById('quiz-start').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
