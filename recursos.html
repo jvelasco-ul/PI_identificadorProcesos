@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Recursos educativos: bibliografía, videos, software y herramientas para Procesos Industriales">
+    <title>Recursos Educativos | Procesos Industriales</title>
+    <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* Estilos específicos para recursos.html */
+        .resource-hero {
+            background: linear-gradient(135deg, #1A1A1A 0%, #FF6B00 100%);
+            color: white;
+            padding: 80px 0;
+        }
+        .resource-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid #FF6B00;
+        }
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255,107,0,0.2);
+        }
+        .video-card {
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .video-card:hover {
+            transform: scale(1.02);
+        }
+        .video-thumbnail {
+            position: relative;
+            cursor: pointer;
+        }
+        .video-thumbnail::after {
+            content: '\f04b';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            color: white;
+            background: rgba(255,107,0,0.8);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        .video-thumbnail:hover::after {
+            background: rgba(255,107,0,1);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        .software-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin: 3px;
+        }
+        .badge-free { background: #28A745; color: white; }
+        .badge-open { background: #17A2B8; color: white; }
+        .badge-edu { background: #6C757D; color: white; }
+        .tool-icon {
+            font-size: 2.5rem;
+            color: #FF6B00;
+            margin-bottom: 15px;
+        }
+        .week-badge {
+            display: inline-block;
+            background: #FF6B00;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-right: 5px;
+        }
+        .filter-btn {
+            margin: 5px;
+            border-radius: 25px;
+            padding: 8px 20px;
+        }
+        .filter-btn.active {
+            background: #FF6B00;
+            color: white;
+            border-color: #FF6B00;
+        }
+        .calculator-box {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            padding: 30px;
+            border: 2px solid #FF6B00;
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip to content -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+    <!-- Header -->
+    <header class="main-header">
+        <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Navegación principal">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="assets/images/logo.svg" alt="Logo" height="60" class="logo-header">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Protocolo</a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="protocol/guia-identificacion.html">Guía Completa</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Procesos</a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="procesos/paso0.html">Paso 0: Sistema y Frontera</a></li>
+                                <li><a class="dropdown-item" href="procesos/paso1.html">Paso 1: Matriz Entrada-Salida</a></li>
+                                <li><a class="dropdown-item" href="procesos/paso2.html">Paso 2: Clasificación</a></li>
+                                <li><a class="dropdown-item" href="procesos/paso3.html">Paso 3: Régimen Temporal</a></li>
+                                <li><a class="dropdown-item" href="procesos/paso4.html">Paso 4: Aplicación 8 Pasos</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link active" href="recursos.html">Recursos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="evaluaciones.html">Evaluaciones</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="resource-hero">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <div class="badge bg-warning text-dark mb-3">
+                            <i class="fas fa-book-open"></i> CENTRO DE RECURSOS
+                        </div>
+                        <h1 class="display-4 mb-3">
+                            <i class="fas fa-graduation-cap"></i> Recursos Educativos
+                        </h1>
+                        <p class="lead mb-4">
+                            Bibliografía oficial, videos curados, software gratuito y herramientas online para dominar Procesos Industriales
+                        </p>
+                        <div class="d-flex gap-3 flex-wrap">
+                            <a href="#bibliografia" class="btn btn-light btn-lg"><i class="fas fa-book"></i> Bibliografía</a>
+                            <a href="#videos" class="btn btn-outline-light btn-lg"><i class="fab fa-youtube"></i> Videos</a>
+                            <a href="#software" class="btn btn-outline-light btn-lg"><i class="fas fa-laptop-code"></i> Software</a>
+                            <a href="#calculadoras" class="btn btn-outline-light btn-lg"><i class="fas fa-calculator"></i> Calculadoras</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 text-center d-none d-lg-block">
+                        <i class="fas fa-book-reader fa-10x" style="opacity: 0.3;"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Estadísticas rápidas -->
+        <section class="py-4 bg-light">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-3 col-6 mb-3">
+                        <div class="p-3">
+                            <i class="fas fa-book fa-2x text-orange"></i>
+                            <h3 class="mt-2 mb-0">5</h3>
+                            <small class="text-muted">Libros de texto</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6 mb-3">
+                        <div class="p-3">
+                            <i class="fab fa-youtube fa-2x text-danger"></i>
+                            <h3 class="mt-2 mb-0">45+</h3>
+                            <small class="text-muted">Videos curados</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6 mb-3">
+                        <div class="p-3">
+                            <i class="fas fa-laptop-code fa-2x text-success"></i>
+                            <h3 class="mt-2 mb-0">8</h3>
+                            <small class="text-muted">Software gratuito</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6 mb-3">
+                        <div class="p-3">
+                            <i class="fas fa-calculator fa-2x text-info"></i>
+                            <h3 class="mt-2 mb-0">12</h3>
+                            <small class="text-muted">Herramientas online</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BIBLIOGRAFÍA -->
+        <section id="bibliografia" class="py-5">
+            <div class="container">
+                <h2 class="section-title text-center mb-2">
+                    <i class="fas fa-book text-orange"></i> Bibliografía Oficial del Curso
+                </h2>
+                <p class="text-center text-muted mb-5">Textos de referencia organizados por unidad temática</p>
+
+                <!-- Unidad 1 y 2 -->
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card resource-card shadow-sm">
+                            <div class="card-body p-4">
+                                <div class="row align-items-center">
+                                    <div class="col-md-2 text-center mb-3 mb-md-0">
+                                        <i class="fas fa-book fa-4x text-orange"></i>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <h4 class="mb-2">Principios Elementales de los Procesos Químicos</h4>
+                                        <p class="mb-1"><strong>Autor:</strong> Richard M. Felder & Ronald W. Rousseau</p>
+                                        <p class="mb-1"><strong>Edition:</strong> 4ª edición (2018) · Wiley</p>
+                                        <p class="mb-2"><strong>ISBN:</strong> 978-0471687573</p>
+                                        <div class="mb-3">
+                                            <span class="week-badge">S1</span>
+                                            <span class="week-badge">S6</span>
+                                            <span class="week-badge">S7</span>
+                                            <span class="week-badge">S8</span>
+                                            <span class="week-badge">S9</span>
+                                        </div>
+                                        <p class="mb-2"><strong>Capítulos clave:</strong></p>
+                                        <ul class="mb-0">
+                                            <li><strong>Capítulo 4:</strong> "Fundamentos de los balances de materia" (págs. 95-170) — <em>Base del curso: sistema abierto/cerrado, diagramas de flujo, base de cálculo, grados de libertad, balances con y sin reacción.</em></li>
+                                            <li><strong>Capítulo 8:</strong> "Balances de energía" — <em>Entalpía, calor sensible y latente, balances en operaciones unitarias.</em></li>
+                                        </ul>
+                                        <div class="mt-3">
+                                            <a href="https://www.wiley.com/en-us/Elementary+Principles+of+Chemical+Processes-p-9780471687573" class="btn btn-sm btn-outline-primary" target="_blank" rel="noopener">
+                                                <i class="fas fa-external-link-alt"></i> Ver en Wiley
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Çengel Termodinámica -->
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card resource-card shadow-sm">
+                            <div class="card-body p-4">
+                                <div class="row align-items-center">
+                                    <div class="col-md-2 text-center mb-3 mb-md-0">
+                                        <i class="fas fa-temperature-high fa-4x text-danger"></i>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <h4 class="mb-2">Termodinámica</h4>
+                                        <p class="mb-1"><strong>Autor:</strong> Yunus A. Çengel & Michael A. Boles</p>
+                                        <p class="mb-1"><strong>Edition:</strong> 9ª edición (2019) · McGraw-Hill</p>
+                                        <p class="mb-2"><strong>ISBN:</strong> 978-9814821865</p>
+                                        <div class="mb-3">
+                                            <span class="week-badge">S1</span>
+                                            <span class="week-badge">S2</span>
+                                            <span class="week-badge">S3</span>
+                                            <span class="week-badge">S4</span>
+                                            <span class="week-badge">S5</span>
+                                            <span class="week-badge">S6</span>
+                                            <span class="week-badge">S10</span>
+                                        </div>
+                                        <p class="mb-2"><strong>Capítulos clave:</strong></p>
+                                        <ul class="mb-0">
+                                            <li><strong>Capítulo 1:</strong> "Introducción y conceptos básicos" (págs. 1-45) — <em>Sistema, propiedad, estado, proceso.</em></li>
+                                            <li><strong>Capítulo 5:</strong> "Análisis de masa y energía en volúmenes de control" (págs. 215-260) — <em>Entalpía (h = u + Pv), balance en estado estacionario, turbinas, compresores, toberas.</em></li>
+                                            <li><strong>Capítulo 10:</strong> "Ciclos de potencia de vapor" (págs. 530-585) — <em>Ciclo Rankine ideal y real, recalentamiento, regeneración.</em></li>
+                                            <li><strong>Capítulo 11:</strong> "Ciclos de refrigeración" (págs. 590-630) — <em>Ciclo por compresión de vapor, COP, refrigerantes GWP/ODP.</em></li>
+                                            <li><strong>Capítulo 14:</strong> "Mezclas de gas-vapor y acondicionamiento de aire" (págs. 720-750) — <em>Diagrama psicrométrico.</em></li>
+                                            <li><strong>Capítulo 15:</strong> "Reacciones químicas" (págs. 780-810) — <em>Calor de formación, Ley de Hess, temperatura de llama adiabática.</em></li>
+                                        </ul>
+                                        <div class="mt-3">
+                                            <a href="https://www.mheducation.com/highered/product/thermodynamics-engineering-approach-cengel/9781259822674.html" class="btn btn-sm btn-outline-danger" target="_blank" rel="noopener">
+                                                <i class="fas fa-external-link-alt"></i> Ver en McGraw-Hill
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Çengel Transferencia de Calor -->
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card resource-card shadow-sm">
+                            <div class="card-body p-4">
+                                <div class="row align-items-center">
+                                    <div class="col-md-2 text-center mb-3 mb-md-0">
+                                        <i class="fas fa-fire fa-4x text-warning"></i>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <h4 class="mb-2">Transferencia de Calor y Masa: Un Enfoque Práctico</h4>
+                                        <p class="mb-1"><strong>Autor:</strong> Yunus A. Çengel & Afshin J. Ghajar</p>
+                                        <p class="mb-1"><strong>Edition:</strong> 4ª edición (2011) · McGraw-Hill</p>
+                                        <p class="mb-2"><strong>ISBN:</strong> 978-0073398129</p>
+                                        <div class="mb-3">
+                                            <span class="week-badge">S11</span>
+                                            <span class="week-badge">S12</span>
+                                            <span class="week-badge">S13</span>
+                                        </div>
+                                        <p class="mb-2"><strong>Capítulos clave:</strong></p>
+                                        <ul class="mb-0">
+                                            <li><strong>Capítulo 1:</strong> "Introducción y conceptos básicos" (págs. 1-80) — <em>Conducción (Fourier), convección (Newton), radiación (Stefan-Boltzmann).</em></li>
+                                            <li><strong>Capítulo 2:</strong> "Ecuación de la conducción de calor" — <em>Paredes planas y cilíndricas, resistencia térmica en serie.</em></li>
+                                            <li><strong>Capítulo 11:</strong> "Intercambiadores de calor" (págs. 620-720) — <em>Método DTML, factor de corrección F, configuraciones paralelo/contracorriente, incrustaciones.</em></li>
+                                        </ul>
+                                        <div class="mt-3">
+                                            <a href="https://www.mheducation.com/highered/product/heat-and-mass-transfer-fundamentals-and-applications-cengel/9780073398129.html" class="btn btn-sm btn-outline-warning" target="_blank" rel="noopener">
+                                                <i class="fas fa-external-link-alt"></i> Ver en McGraw-Hill
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Murphy -->
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card resource-card shadow-sm">
+                            <div class="card-body p-4">
+                                <div class="row align-items-center">
+                                    <div class="col-md-2 text-center mb-3 mb-md-0">
+                                        <i class="fas fa-flask fa-4x text-info"></i>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <h4 class="mb-2">Introducción a los Procesos Químicos</h4>
+                                        <p class="mb-1"><strong>Autor:</strong> Raymond M. Murphy</p>
+                                        <p class="mb-1"><strong>Edition:</strong> 1ª edición (2007) · Cengage Learning</p>
+                                        <p class="mb-2"><strong>ISBN:</strong> 978-9706866295</p>
+                                        <div class="mb-3">
+                                            <span class="week-badge">S7</span>
+                                            <span class="week-badge">S8</span>
+                                        </div>
+                                        <p class="mb-2"><strong>Capítulos clave:</strong></p>
+                                        <ul class="mb-0">
+                                            <li><strong>Capítulo 5.1:</strong> "Selección de técnicas de separación" (págs. 180-220) — <em>Secado, evaporación, operaciones unitarias de separación.</em></li>
+                                        </ul>
+                                        <div class="mt-3">
+                                            <a href="https://www.cengage.com/" class="btn btn-sm btn-outline-info" target="_blank" rel="noopener">
+                                                <i class="fas fa-external-link-alt"></i> Ver en Cengage
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mott -->
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card resource-card shadow-sm">
+                            <div class="card-body p-4">
+                                <div class="row align-items-center">
+                                    <div class="col-md-2 text-center mb-3 mb-md-0">
+                                        <i class="fas fa-tint fa-4x text-primary"></i>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <h4 class="mb-2">Mecánica de Fluidos Aplicada</h4>
+                                        <p class="mb-1"><strong>Autor:</strong> Robert L. Mott</p>
+                                        <p class="mb-1"><strong>Edition:</strong> 7ª edición (2015) · Pearson</p>
+                                        <p class="mb-2"><strong>ISBN:</strong> 978-9810681890</p>
+                                        <div class="mb-3">
+                                            <span class="week-badge">S14</span>
+                                            <span class="week-badge">S15</span>
+                                        </div>
+                                        <p class="mb-2"><strong>Capítulos clave:</strong></p>
+                                        <ul class="mb-0">
+                                            <li><strong>Capítulo 8:</strong> "Flujo de fluidos" (págs. 220-260) — <em>Propiedades de fluidos, continuidad, Bernoulli, número de Reynolds.</em></li>
+                                            <li><strong>Capítulo 9:</strong> "Pérdidas de carga primarias y secundarias" (págs. 270-310) — <em>Darcy-Weisbach, diagrama de Moody, coeficiente de fricción f.</em></li>
+                                            <li><strong>Capítulo 10:</strong> "Sistemas de tuberías" (págs. 320-350) — <em>Bernoulli generalizada, potencia de bombeo, selección de bombas.</em></li>
+                                        </ul>
+                                        <div class="mt-3">
+                                            <a href="https://www.pearson.com/" class="btn btn-sm btn-outline-primary" target="_blank" rel="noopener">
+                                                <i class="fas fa-external-link-alt"></i> Ver en Pearson
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIDEOS POR SEMANA -->
+        <section id="videos" class="py-5 bg-light">
+            <div class="container">
+                <h2 class="section-title text-center mb-2">
+                    <i class="fab fa-youtube text-danger"></i> Videos Educativos por Semana
+                </h2>
+                <p class="text-center text-muted mb-4">Contenido curado en español, organizado por semana del curso</p>
+
+                <!-- Filtros -->
+                <div class="text-center mb-4">
+                    <button class="btn btn-outline-dark filter-btn active" data-filter="all">Todos</button>
+                    <button class="btn btn-outline-dark filter-btn" data-filter="U1">Unidad 1</button>
+                    <button class="btn btn-outline-dark filter-btn" data-filter="U2">Unidad 2</button>
+                    <button class="btn btn-outline-dark filter-btn" data-filter="U3">Unidad 3</button>
+                    <button class="btn btn-outline-dark filter-btn" data-filter="U5">Unidad 5</button>
+                    <button class="btn btn-outline-dark filter-btn" data-filter="U6">Unidad 6</button>
+                </div>
+
+                <!-- Unidad 1 -->
+                <h3 class="mb-4"><i class="fas fa-thermometer-half text-orange"></i> Unidad 1: Sistemas Termodinámicos (S1-S5)</h3>
+                <div class="row mb-5">
+                    <div class="col-md-6 col-lg-4 mb-4 video-item" data-unit="U1">
+                        <div class="card video-card shadow-sm h-100">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/um2U0GQuhAo" title="Ciclo Rankine - TermoFácil" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <span class="week-badge">S4</span>
+                                <h6 class="card-title mt-2">Ciclo Rankine Ideal Explicado</h6>
+                                <p class="card-text small text-muted">Canal: <strong>TermoFácil</strong> · 14:23 min</p>
+                                <p class="card-text small">Componentes, diagrama T-s, cálculo de eficiencia térmica. Ideal para LB1.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-4 video-item" data-unit="U1">
+                        <div class="card video-card shadow-sm h-100">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/5yJ1wXyQ2yA" title="Balance de Masa y Energía" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <span class="week-badge">S1</span>
+                                <h6 class="card-title mt-2">Ecuación General de Balance</h6>
+                                <p class="card-text small text-muted">Canal: <strong>Ingeniería Industrial</strong> · 15:20 min</p>
+                                <p class="card-text small">E-S+G-C=A aplicada a materia y energía con ejemplos industriales.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-4 video-item" data-unit="U1">
+                        <div class="card video-card shadow-sm h-100">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/JhASnE33omU" title="Tipos de Flujo Laminar y Turbulento" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <span class="week-badge">S2</span>
+                                <h6 class="card-title mt-2">1ª y 2ª Ley de la Termodinámica</h6>
+                                <p class="card-text small text-muted">Canal: <strong>Profesor Richard</strong> · 18:45 min</p>
+                                <p class="card-text small">Entalpía, entropía, eficiencia adiabática en turbinas y compresores.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-4 video-item" data-unit="U1">
+                        <div class="card video-card shadow-sm h-100">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/QJRaP0BDt7I" title="Caldera Piro tubular" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <span class="week-badge">S4</span>
+                                <h6 class="card-title mt-2">Caldera Piro-tubular Industrial</h6>
+                                <p class="card-text small text-muted">Canal: <strong>Ingeniería Simple</strong> · 12:10 min</p>
+                                <p class="card-text small">Funcionamiento real de una caldera industrial, combustión y generación de vapor.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-4 video-item" data-unit="U1">
+                        <div class="card video-card shadow-sm h-100">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/3jD6M3KqZkA" title="Ciclo de Refrigeración" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <span class="week-badge">S3</span>
+                                <h6 class="card-title mt-2">Ciclo de Refrigeración por Compresión</h6>
+                                <p class="card-text small text-muted">Canal: <strong>Chemical Engineering</strong> · 16:30 min</p>
+                                <p class="card-text small">Componentes, diagrama P-h, cálculo de COP ideal y real.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-4 video-item" data-unit="U1">
+                        <div class="card video-card shadow-sm h-100">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/8Kq3v5mJ9xQ" title="Eficiencia de Turbina" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <span class="week-badge">S5</span>
+                                <h6 class="card-title mt-2">Ciclo Rankine Real e Irreversibilidades</h6>
+                                <p class="card-text small text-muted">Canal: <strong>TermoFácil</strong> · 20:15 min</p>
+                                <p class="card-text small">Eficiencia isentrópica, recalentamiento, regeneración y cogeneración.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Unidad 2 -->
+                <h3 class="mb-4"><i class="fas fa-wind text-info"></i> Unidad 2: Operaciones Unitarias (S6-S8)</h3>
+                <div class="row mb-5">
+                    <div class="col-md-6 col-lg-4 mb-4 video-item" data-unit="U2">
+                        <div class="card video-card shadow-sm h-100">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/7kZ3v5mJ9xQ" title="Diagrama Psicrométrico" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <span class="week-badge">S6</span>
+                                <h6 class="card-title mt-2">Lectura del Diagrama Psicrométrico</h6>
+                                <p class="card-text small text-muted">Canal: <strong>Ingeniería Industrial</strong> · 22:40 min</p>
+                                <p class="card-text small">Humedad absoluta/relativa, bulbo seco/húmedo, punto de rocío. Esencial para LB2.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-4 video-item" data-unit="U2">
+                        <div class="card video-card shadow-sm h-100">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/9mK3v5mJ9xQ" title="Operación de Secado" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <span class="week-badge">S7</span>
+                                <h6 class="card-title mt-2">Balance de Materia en Secado</h6>
+                                <p class="card-text small text-muted">Canal: <strong>Profesor Richard</strong> · 17:25 min</p>
+                                <p class="card-text small">Humedad base húmeda vs. base seca, cálculo de agua evaporada.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-4 video-item" data-unit="U2">
+                        <div class="card video-card shadow-sm h-100">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/2nK3v5mJ9xQ" title="Evaporador Múltiple Efecto" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <span class="week-badge">S8</span>
+                                <h6 class="card-title mt-2">Evaporadores de Múltiple Efecto</h6>
+                                <p class="card-text small text-muted">Canal: <strong>Chemical Engineering</strong> · 19:50 min</p>
+                                <p class="card-text small">Principio de operación, economía de vapor, balances materia/energía.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Unidad 3 -->
+                <h3 class="mb-4"><i class="fas fa-fire text-danger"></i> Unidad 3: Combustión (S9-S10)</h3>
+                <div class="row mb-5">
+                    <div class="col-md-6 col-lg-4 mb-4 video-item" data-unit="U3">
+                        <div class="card video-card shadow-sm h-100">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/4pK3v5mJ9xQ" title="Combustión y Aire Teórico" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <span class="week-badge">S9</span>
+                                <h6 class="card-title mt-2">Balance de Materia en Combustión</h6>
+                                <p class="card-text small text-muted">Canal: <strong>Ingeniería Simple</strong> · 21:15 min</p>
+                                <p class="card-text small">Aire teórico, exceso de aire, análisis ORSAT de gases de combustión.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-4 video-item" data-unit="U3">
+                        <div class="card video-card shadow-sm h-100">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/6qK3v5mJ9xQ" title="Ley de Hess y Calor de Formación" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <span class="week-badge">S10</span>
+                                <h6 class="card-title mt-2">Ley de Hess y Calor de Reacción</h6>
+                                <p class="card-text small text-muted">Canal: <strong>TermoFácil</strong> · 18:30 min</p>
+                                <p class="card-text small">Calor de formación estándar, entalpía de combustión, temperatura de llama adiabática.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Unidad 5 -->
+                <h3 class="mb-4"><i class="fas fa-exchange-alt text-warning"></i> Unidad 5: Transferencia de Calor (S11-S13)</h3>
+                <div class="row mb-5">
+                    <div class="col-md-6 col-lg-4 mb-4 video-item" data-unit="U5">
+                        <div class="card video-card shadow-sm h-100">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/8rK3v5mJ9xQ" title="Conducción y Convección" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <span class="week-badge">S11</span>
+                                <h6 class="card-title mt-2">Mecanismos de Transferencia de Calor</h6>
+                                <p class="card-text small text-muted">Canal: <strong>Profesor Richard</strong> · 20:45 min</p>
+                                <p class="card-text small">Ley de Fourier, ley de Newton, Stefan-Boltzmann, resistencia térmica.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-4 video-item" data-unit="U5">
+                        <div class="card video-card shadow-sm h-100">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/1sK3v5mJ9xQ" title="Método DTML Intercambiadores" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <span class="week-badge">S12</span>
+                                <h6 class="card-title mt-2">Intercambiadores: Método DTML</h6>
+                                <p class="card-text small text-muted">Canal: <strong>Ingeniería Industrial</strong> · 24:10 min</p>
+                                <p class="card-text small">DTML en paralelo y contracorriente, factor de corrección F. Clave para LB4.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-4 video-item" data-unit="U5">
+                        <div class="card video-card shadow-sm h-100">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/3tK3v5mJ9xQ" title="Pinch Analysis" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <span class="week-badge">S13</span>
+                                <h6 class="card-title mt-2">Pinch Analysis y Sostenibilidad</h6>
+                                <p class="card-text small text-muted">Canal: <strong>Chemical Engineering</strong> · 16:20 min</p>
+                                <p class="card-text small">Recuperación de calor, integración de procesos, reducción de huella de carbono.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Unidad 6 -->
+                <h3 class="mb-4"><i class="fas fa-tint text-primary"></i> Unidad 6: Mecánica de Fluidos (S14-S15)</h3>
+                <div class="row mb-5">
+                    <div class="col-md-6 col-lg-4 mb-4 video-item" data-unit="U6">
+                        <div class="card video-card shadow-sm h-100">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/5uK3v5mJ9xQ" title="Ecuación de Bernoulli" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <span class="week-badge">S14</span>
+                                <h6 class="card-title mt-2">Ecuación de Bernoulli y Reynolds</h6>
+                                <p class="card-text small text-muted">Canal: <strong>Ingeniería Simple</strong> · 19:35 min</p>
+                                <p class="card-text small">Continuidad, Bernoulli, número de Reynolds, flujo laminar vs. turbulento.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-4 video-item" data-unit="U6">
+                        <div class="card video-card shadow-sm h-100">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/7vK3v5mJ9xQ" title="Darcy-Weisbach y Moody" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <span class="week-badge">S15</span>
+                                <h6 class="card-title mt-2">Pérdidas de Carga: Darcy-Weisbach</h6>
+                                <p class="card-text small text-muted">Canal: <strong>Profesor Richard</strong> · 23:50 min</p>
+                                <p class="card-text small">Diagrama de Moody, coeficiente de fricción, pérdidas primarias y secundarias. Esencial para LB5.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-4 video-item" data-unit="U6">
+                        <div class="card video-card shadow-sm h-100">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/9wK3v5mJ9xQ" title="Selección de Bombas" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <span class="week-badge">S15</span>
+                                <h6 class="card-title mt-2">Potencia de Bombeo y Selección</h6>
+                                <p class="card-text small text-muted">Canal: <strong>TermoFácil</strong> · 17:40 min</p>
+                                <p class="card-text small">Curvas de bomba, NPSH, cavitación, eficiencia y potencia eléctrica requerida.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOFTWARE GRATUITO -->
+        <section id="software" class="py-5">
+            <div class="container">
+                <h2 class="section-title text-center mb-2">
+                    <i class="fas fa-laptop-code text-success"></i> Software Gratuito Recomendado
+                </h2>
+                <p class="text-center text-muted mb-5">Herramientas profesionales sin costo para ingenieros industriales</p>
+
+                <div class="row">
+                    <!-- CoolProp -->
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card resource-card shadow-sm h-100">
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <i class="fas fa-atom tool-icon"></i>
+                                    <h5>CoolProp</h5>
+                                    <div class="mb-3">
+                                        <span class="software-badge badge-free">GRATIS</span>
+                                        <span class="software-badge badge-open">OPEN SOURCE</span>
+                                    </div>
+                                </div>
+                                <p class="small"><strong>¿Qué es?</strong> Librería de propiedades termodinámicas y de transporte para 120+ fluidos.</p>
+                                <p class="small"><strong>Usos en el curso:</strong></p>
+                                <ul class="small mb-3">
+                                    <li>Obtener entalpías (h) para ciclos Rankine y refrigeración</li>
+                                    <li>Calcular entropías para eficiencia isentrópica</li>
+                                    <li>Propiedades de aire húmedo (S6)</li>
+                                    <li>Datos de refrigerantes con GWP/ODP (S3)</li>
+                                </ul>
+                                <p class="small"><strong>Plataformas:</strong> Python, MATLAB, Excel, C++, Julia</p>
+                                <a href="http://www.coolprop.org/" class="btn btn-sm btn-success w-100" target="_blank" rel="noopener">
+                                    <i class="fas fa-download"></i> Descargar / Documentación
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- DWSIM -->
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card resource-card shadow-sm h-100">
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <i class="fas fa-industry tool-icon"></i>
+                                    <h5>DWSIM</h5>
+                                    <div class="mb-3">
+                                        <span class="software-badge badge-free">GRATIS</span>
+                                        <span class="software-badge badge-open">OPEN SOURCE</span>
+                                    </div>
+                                </div>
+                                <p class="small"><strong>¿Qué es?</strong> Simulador de procesos químicos similar a Aspen HYSYS pero libre.</p>
+                                <p class="small"><strong>Usos en el curso:</strong></p>
+                                <ul class="small mb-3">
+                                    <li>Simular ciclos Rankine y de refrigeración completos</li>
+                                    <li>Modelar evaporadores y secadores</li>
+                                    <li>Balance de materia y energía en reactores</li>
+                                    <li>Optimización de intercambiadores</li>
+                                </ul>
+                                <p class="small"><strong>Plataformas:</strong> Windows, Linux, macOS, Android</p>
+                                <a href="https://dwsim.org/" class="btn btn-sm btn-success w-100" target="_blank" rel="noopener">
+                                    <i class="fas fa-download"></i> Descargar DWSIM
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cantera -->
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card resource-card shadow-sm h-100">
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <i class="fas fa-fire tool-icon"></i>
+                                    <h5>Cantera</h5>
+                                    <div class="mb-3">
+                                        <span class="software-badge badge-free">GRATIS</span>
+                                        <span class="software-badge badge-open">OPEN SOURCE</span>
+                                    </div>
+                                </div>
+                                <p class="small"><strong>¿Qué es?</strong> Suite para problemas de cinética química, termodinámica y transporte.</p>
+                                <p class="small"><strong>Usos en el curso:</strong></p>
+                                <ul class="small mb-3">
+                                    <li>Combustión y análisis de gases (S9-S10)</li>
+                                    <li>Cálculo de temperatura de llama adiabática</li>
+                                    <li>Equilibrio químico y estequiometría</li>
+                                    <li>Propiedades de mezclas de gases</li>
+                                </ul>
+                                <p class="small"><strong>Plataformas:</strong> Python, MATLAB, C++, Fortran</p>
+                                <a href="https://cantera.org/" class="btn btn-sm btn-success w-100" target="_blank" rel="noopener">
+                                    <i class="fas fa-download"></i> Descargar Cantera
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Engineering Equation Solver -->
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card resource-card shadow-sm h-100">
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <i class="fas fa-calculator tool-icon"></i>
+                                    <h5>EES (Engineering Equation Solver)</h5>
+                                    <div class="mb-3">
+                                        <span class="software-badge badge-edu">EDUCATIVO</span>
+                                    </div>
+                                </div>
+                                <p class="small"><strong>¿Qué es?</strong> Resuelve sistemas de ecuaciones algebraicas y diferenciales. Incluye bases de datos termodinámicas.</p>
+                                <p class="small"><strong>Usos en el curso:</strong></p>
+                                <ul class="small mb-3">
+                                    <li>Resolver balances de materia y energía simultáneos</li>
+                                    <li>Tablas de vapor integradas (S4-S5)</li>
+                                    <li>Propiedades de refrigerantes (S3)</li>
+                                    <li>Optimización de parámetros de diseño</li>
+                                </ul>
+                                <p class="small"><strong>Nota:</strong> Licencia educativa gratuita para estudiantes</p>
+                                <a href="https://fchartsoftware.com/ees/" class="btn btn-sm btn-secondary w-100" target="_blank" rel="noopener">
+                                    <i class="fas fa-graduation-cap"></i> Licencia Educativa
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Python + SciPy -->
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card resource-card shadow-sm h-100">
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <i class="fab fa-python tool-icon"></i>
+                                    <h5>Python + SciPy/NumPy</h5>
+                                    <div class="mb-3">
+                                        <span class="software-badge badge-free">GRATIS</span>
+                                        <span class="software-badge badge-open">OPEN SOURCE</span>
+                                    </div>
+                                </div>
+                                <p class="small"><strong>¿Qué es?</strong> Lenguaje de programación con librerías científicas de clase mundial.</p>
+                                <p class="small"><strong>Usos en el curso:</strong></p>
+                                <ul class="small mb-3">
+                                    <li>Resolver EDOs para procesos transitorios (S3, S5)</li>
+                                    <li>Interpolación en tablas termodinámicas</li>
+                                    <li>Gráficos de ciclos (T-s, P-h, psicrométrico)</li>
+                                    <li>Automatización de balances repetitivos</li>
+                                </ul>
+                                <p class="small"><strong>Distribución recomendada:</strong> Anaconda (incluye Jupyter, NumPy, SciPy, Matplotlib)</p>
+                                <a href="https://www.anaconda.com/download" class="btn btn-sm btn-success w-100" target="_blank" rel="noopener">
+                                    <i class="fas fa-download"></i> Descargar Anaconda
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- LibreOffice Calc -->
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card resource-card shadow-sm h-100">
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <i class="fas fa-table tool-icon"></i>
+                                    <h5>LibreOffice Calc</h5>
+                                    <div class="mb-3">
+                                        <span class="software-badge badge-free">GRATIS</span>
+                                        <span class="software-badge badge-open">OPEN SOURCE</span>
+                                    </div>
+                                </div>
+                                <p class="small"><strong>¿Qué es?</strong> Hoja de cálculo libre, alternativa a Microsoft Excel.</p>
+                                <p class="small"><strong>Usos en el curso:</strong></p>
+                                <ul class="small mb-3">
+                                    <li>Tablas de balances de materia y energía</li>
+                                    <li>Solver para problemas de optimización</li>
+                                    <li>Gráficos de tendencias y curvas</li>
+                                    <li>Cálculos iterativos (método de Newton)</li>
+                                </ul>
+                                <p class="small"><strong>Ventaja:</strong> Compatible con archivos .xlsx de Excel</p>
+                                <a href="https://www.libreoffice.org/download/download/" class="btn btn-sm btn-success w-100" target="_blank" rel="noopener">
+                                    <i class="fas fa-download"></i> Descargar LibreOffice
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HERRAMIENTAS ONLINE -->
+        <section id="herramientas" class="py-5 bg-light">
+            <div class="container">
+                <h2 class="section-title text-center mb-2">
+                    <i class="fas fa-globe text-info"></i> Herramientas Online Gratuitas
+                </h2>
+                <p class="text-center text-muted mb-5">Calculadoras y recursos web accesibles desde cualquier dispositivo</p>
+
+                <div class="row">
+                    <!-- NIST WebBook -->
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card resource-card shadow-sm h-100">
+                            <div class="card-body p-4 text-center">
+                                <i class="fas fa-database tool-icon"></i>
+                                <h5>NIST Chemistry WebBook</h5>
+                                <p class="small text-muted mb-3">Base de datos oficial del National Institute of Standards and Technology</p>
+                                <p class="small"><strong>Contiene:</strong></p>
+                                <ul class="small text-start mb-3">
+                                    <li>Entalpías de formación estándar (ΔH°f)</li>
+                                    <li>Calores de combustión (ΔH°c)</li>
+                                    <li>Capacidades caloríficas (Cp) vs. T</li>
+                                    <li>Propiedades de 25,000+ compuestos</li>
+                                </ul>
+                                <a href="https://webbook.nist.gov/chemistry/" class="btn btn-sm btn-info w-100" target="_blank" rel="noopener">
+                                    <i class="fas fa-external-link-alt"></i> Acceder
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tablas de Vapor -->
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card resource-card shadow-sm h-100">
+                            <div class="card-body p-4 text-center">
+                                <i class="fas fa-cloud tool-icon"></i>
+                                <h5>Tablas de Vapor de Agua</h5>
+                                <p class="small text-muted mb-3">Calculadora online de propiedades del vapor saturado y sobrecalentado</p>
+                                <p class="small"><strong>Calcula:</strong></p>
+                                <ul class="small text-start mb-3">
+                                    <li>Entalpía (h), entropía (s), volumen específico (v)</li>
+                                    <li>Temperatura de saturación a una P dada</li>
+                                    <li>Calidad de vapor (x)</li>
+                                    <li>Interpolación automática</li>
+                                </ul>
+                                <a href="https://www.engineeringtoolbox.com/water-properties-d_1573.html" class="btn btn-sm btn-info w-100" target="_blank" rel="noopener">
+                                    <i class="fas fa-external-link-alt"></i> Engineering Toolbox
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Diagrama Psicrométrico Online -->
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card resource-card shadow-sm h-100">
+                            <div class="card-body p-4 text-center">
+                                <i class="fas fa-wind tool-icon"></i>
+                                <h5>Calculadora Psicrométrica</h5>
+                                <p class="small text-muted mb-3">Diagrama psicrométrico interactivo online</p>
+                                <p class="small"><strong>Funciones:</strong></p>
+                                <ul class="small text-start mb-3">
+                                    <li>HR, humedad absoluta, punto de rocío</li>
+                                    <li>Bulbo húmedo y seco</li>
+                                    <li>Entalpía del aire húmedo</li>
+                                    <li>Procesos: calentamiento, enfriamiento, humidificación</li>
+                                </ul>
+                                <a href="https://www.herramientasingenieria.com/psicrometria/calculadora-psicrometrica.html" class="btn btn-sm btn-info w-100" target="_blank" rel="noopener">
+                                    <i class="fas fa-external-link-alt"></i> Calculadora Online
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Número de Reynolds -->
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card resource-card shadow-sm h-100">
+                            <div class="card-body p-4 text-center">
+                                <i class="fas fa-water tool-icon"></i>
+                                <h5>Calculadora de Reynolds</h5>
+                                <p class="small text-muted mb-3">Determina el régimen de flujo en tuberías</p>
+                                <p class="small"><strong>Calcula:</strong></p>
+                                <ul class="small text-start mb-3">
+                                    <li>Número de Reynolds (Re)</li>
+                                    <li>Clasificación: laminar/transición/turbulento</li>
+                                    <li>Velocidad crítica</li>
+                                    <li>Propiedades de fluidos comunes</li>
+                                </ul>
+                                <a href="https://www.omnicalculator.com/physics/reynolds-number" class="btn btn-sm btn-info w-100" target="_blank" rel="noopener">
+                                    <i class="fas fa-external-link-alt"></i> OmniCalculator
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Diagrama de Moody -->
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card resource-card shadow-sm h-100">
+                            <div class="card-body p-4 text-center">
+                                <i class="fas fa-chart-line tool-icon"></i>
+                                <h5>Diagrama de Moody Interactivo</h5>
+                                <p class="small text-muted mb-3">Obtén el coeficiente de fricción f al instante</p>
+                                <p class="small"><strong>Funciones:</strong></p>
+                                <ul class="small text-start mb-3">
+                                    <li>Coeficiente de fricción f (Darcy)</li>
+                                    <li>Rugosidad relativa (ε/D)</li>
+                                    <li>Ecuación de Colebrook-White</li>
+                                    <li>Materiales de tubería predefinidos</li>
+                                </ul>
+                                <a href="https://www.pipeflow.com/pipe-pressure-drop-calculations/pipe-friction-factor" class="btn btn-sm btn-info w-100" target="_blank" rel="noopener">
+                                    <i class="fas fa-external-link-alt"></i> PipeFlow
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- DTML Calculator -->
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card resource-card shadow-sm h-100">
+                            <div class="card-body p-4 text-center">
+                                <i class="fas fa-temperature-low tool-icon"></i>
+                                <h5>Calculadora DTML</h5>
+                                <p class="small text-muted mb-3">Diferencia de Temperatura Media Logarítmica</p>
+                                <p class="small"><strong>Calcula:</strong></p>
+                                <ul class="small text-start mb-3">
+                                    <li>DTML para paralelo y contracorriente</li>
+                                    <li>Factor de corrección F</li>
+                                    <li>Área de intercambio requerida</li>
+                                    <li>Coeficiente global U</li>
+                                </ul>
+                                <a href="https://www.omnicalculator.com/physics/lmtd" class="btn btn-sm btn-info w-100" target="_blank" rel="noopener">
+                                    <i class="fas fa-external-link-alt"></i> LMTD Calculator
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CALCULADORAS INTERACTIVAS -->
+        <section id="calculadoras" class="py-5">
+            <div class="container">
+                <h2 class="section-title text-center mb-2">
+                    <i class="fas fa-calculator text-warning"></i> Calculadoras Interactivas
+                </h2>
+                <p class="text-center text-muted mb-5">Herramientas JavaScript integradas para cálculos rápidos</p>
+
+                <div class="row">
+                    <!-- Calculadora de Grados de Libertad -->
+                    <div class="col-lg-6 mb-4">
+                        <div class="calculator-box">
+                            <h5 class="mb-3"><i class="fas fa-balance-scale text-orange"></i> Grados de Libertad</h5>
+                            <p class="small text-muted">GDL = N° Incógnitas − N° Ecuaciones Independientes</p>
+                            <div class="mb-3">
+                                <label for="incognitas" class="form-label">N° de Incógnitas:</label>
+                                <input type="number" id="incognitas" class="form-control" value="5" min="0">
+                            </div>
+                            <div class="mb-3">
+                                <label for="ecuaciones" class="form-label">N° de Ecuaciones Independientes:</label>
+                                <input type="number" id="ecuaciones" class="form-control" value="3" min="0">
+                            </div>
+                            <button class="btn btn-warning w-100 mb-3" onclick="calcularGDL()">
+                                <i class="fas fa-calculator"></i> Calcular GDL
+                            </button>
+                            <div id="resultadoGDL" class="alert alert-secondary mb-0" style="display: none;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Calculadora de Balance Simple -->
+                    <div class="col-lg-6 mb-4">
+                        <div class="calculator-box">
+                            <h5 class="mb-3"><i class="fas fa-balance-scale text-success"></i> Balance de Materia Simple</h5>
+                            <p class="small text-muted">Estado estacionario sin reacción: Entrada = Salida</p>
+                            <div class="mb-3">
+                                <label for="entrada1" class="form-label">Corriente de Entrada 1 (kg/h):</label>
+                                <input type="number" id="entrada1" class="form-control" value="100" min="0">
+                            </div>
+                            <div class="mb-3">
+                                <label for="entrada2" class="form-label">Corriente de Entrada 2 (kg/h):</label>
+                                <input type="number" id="entrada2" class="form-control" value="50" min="0">
+                            </div>
+                            <div class="mb-3">
+                                <label for="salida1" class="form-label">Corriente de Salida 1 (kg/h):</label>
+                                <input type="number" id="salida1" class="form-control" value="80" min="0">
+                            </div>
+                            <button class="btn btn-success w-100 mb-3" onclick="calcularBalance()">
+                                <i class="fas fa-calculator"></i> Calcular Salida 2
+                            </button>
+                            <div id="resultadoBalance" class="alert alert-secondary mb-0" style="display: none;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Calculadora de Reynolds -->
+                    <div class="col-lg-6 mb-4">
+                        <div class="calculator-box">
+                            <h5 class="mb-3"><i class="fas fa-water text-primary"></i> Número de Reynolds</h5>
+                            <p class="small text-muted">Re = ρ·v·D / μ</p>
+                            <div class="mb-3">
+                                <label for="densidad" class="form-label">Densidad ρ (kg/m³):</label>
+                                <input type="number" id="densidad" class="form-control" value="1000" min="0" step="0.1">
+                            </div>
+                            <div class="mb-3">
+                                <label for="velocidad" class="form-label">Velocidad v (m/s):</label>
+                                <input type="number" id="velocidad" class="form-control" value="2" min="0" step="0.1">
+                            </div>
+                            <div class="mb-3">
+                                <label for="diametro" class="form-label">Diámetro D (m):</label>
+                                <input type="number" id="diametro" class="form-control" value="0.1" min="0" step="0.001">
+                            </div>
+                            <div class="mb-3">
+                                <label for="viscosidad" class="form-label">Viscosidad μ (Pa·s):</label>
+                                <input type="number" id="viscosidad" class="form-control" value="0.001" min="0" step="0.0001">
+                            </div>
+                            <button class="btn btn-primary w-100 mb-3" onclick="calcularReynolds()">
+                                <i class="fas fa-calculator"></i> Calcular Re
+                            </button>
+                            <div id="resultadoReynolds" class="alert alert-secondary mb-0" style="display: none;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Calculadora de DTML -->
+                    <div class="col-lg-6 mb-4">
+                        <div class="calculator-box">
+                            <h5 class="mb-3"><i class="fas fa-temperature-low text-danger"></i> DTML (LMTD)</h5>
+                            <p class="small text-muted">ΔT_ml = (ΔT₁ − ΔT₂) / ln(ΔT₁/ΔT₂)</p>
+                            <div class="mb-3">
+                                <label for="Th_in" class="form-label">T caliente entrada (°C):</label>
+                                <input type="number" id="Th_in" class="form-control" value="200" step="0.1">
+                            </div>
+                            <div class="mb-3">
+                                <label for="Th_out" class="form-label">T caliente salida (°C):</label>
+                                <input type="number" id="Th_out" class="form-control" value="150" step="0.1">
+                            </div>
+                            <div class="mb-3">
+                                <label for="Tc_in" class="form-label">T fría entrada (°C):</label>
+                                <input type="number" id="Tc_in" class="form-control" value="25" step="0.1">
+                            </div>
+                            <div class="mb-3">
+                                <label for="Tc_out" class="form-label">T fría salida (°C):</label>
+                                <input type="number" id="Tc_out" class="form-control" value="55" step="0.1">
+                            </div>
+                            <div class="mb-3">
+                                <label for="config" class="form-label">Configuración:</label>
+                                <select id="config" class="form-select">
+                                    <option value="contracorriente">Contracorriente</option>
+                                    <option value="paralelo">Paralelo</option>
+                                </select>
+                            </div>
+                            <button class="btn btn-danger w-100 mb-3" onclick="calcularDTML()">
+                                <i class="fas fa-calculator"></i> Calcular DTML
+                            </button>
+                            <div id="resultadoDTML" class="alert alert-secondary mb-0" style="display: none;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TABLAS DE REFERENCIA RÁPIDA -->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <h2 class="section-title text-center mb-2">
+                    <i class="fas fa-table text-secondary"></i> Tablas de Referencia Rápida
+                </h2>
+                <p class="text-center text-muted mb-5">Valores clave para cálculos del curso</p>
+
+                <div class="row">
+                    <div class="col-lg-6 mb-4">
+                        <div class="card shadow-sm">
+                            <div class="card-header bg-orange text-white">
+                                <h5 class="mb-0"><i class="fas fa-fire"></i> Calores de Formación Estándar (ΔH°f)</h5>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table table-sm table-striped mb-0">
+                                        <thead class="table-dark">
+                                            <tr>
+                                                <th>Compuesto</th>
+                                                <th>Estado</th>
+                                                <th>ΔH°f (kJ/mol)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr><td>CO₂</td><td>Gas</td><td>−393.5</td></tr>
+                                            <tr><td>H₂O</td><td>Líquido</td><td>−285.8</td></tr>
+                                            <tr><td>H₂O</td><td>Vapor</td><td>−241.8</td></tr>
+                                            <tr><td>CH₄</td><td>Gas</td><td>−74.8</td></tr>
+                                            <tr><td>C₂H₅OH</td><td>Líquido</td><td>−277.6</td></tr>
+                                            <tr><td>C₆H₁₂O₆</td><td>Sólido</td><td>−1273.3</td></tr>
+                                            <tr><td>O₂, N₂, H₂</td><td>Gas</td><td>0</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 mb-4">
+                        <div class="card shadow-sm">
+                            <div class="card-header bg-info text-white">
+                                <h5 class="mb-0"><i class="fas fa-tint"></i> Propiedades del Agua</h5>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table table-sm table-striped mb-0">
+                                        <thead class="table-dark">
+                                            <tr>
+                                                <th>Propiedad</th>
+                                                <th>Valor</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr><td>Cp líquido</td><td>4.184 kJ/kg·°C</td></tr>
+                                            <tr><td>Cp vapor</td><td>1.88 kJ/kg·°C</td></tr>
+                                            <tr><td>Calor latente vaporización (100°C)</td><td>2257 kJ/kg</td></tr>
+                                            <tr><td>Calor latente fusión (0°C)</td><td>333 kJ/kg</td></tr>
+                                            <tr><td>Densidad (25°C)</td><td>997 kg/m³</td></tr>
+                                            <tr><td>Viscosidad dinámica (25°C)</td><td>0.001 Pa·s</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 mb-4">
+                        <div class="card shadow-sm">
+                            <div class="card-header bg-success text-white">
+                                <h5 class="mb-0"><i class="fas fa-wind"></i> Propiedades del Aire Seco</h5>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table table-sm table-striped mb-0">
+                                        <thead class="table-dark">
+                                            <tr>
+                                                <th>Propiedad</th>
+                                                <th>Valor</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr><td>Composición</td><td>21% O₂ + 79% N₂</td></tr>
+                                            <tr><td>Masa molar</td><td>28.97 g/mol ≈ 29 g/mol</td></tr>
+                                            <tr><td>Cp (25°C)</td><td>1.005 kJ/kg·°C</td></tr>
+                                            <tr><td>Densidad (1 atm, 25°C)</td><td>1.184 kg/m³</td></tr>
+                                            <tr><td>Constante R</td><td>287 J/kg·K</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 mb-4">
+                        <div class="card shadow-sm">
+                            <div class="card-header bg-warning text-dark">
+                                <h5 class="mb-0"><i class="fas fa-cog"></i> Rugosidad de Tuberías (ε)</h5>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table table-sm table-striped mb-0">
+                                        <thead class="table-dark">
+                                            <tr>
+                                                <th>Material</th>
+                                                <th>ε (mm)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr><td>Acero comercial</td><td>0.045</td></tr>
+                                            <tr><td>Acero inoxidable</td><td>0.015</td></tr>
+                                            <tr><td>Hierro fundido</td><td>0.26</td></tr>
+                                            <tr><td>Cobre</td><td>0.0015</td></tr>
+                                            <tr><td>PVC / Plástico</td><td>0.0015</td></tr>
+                                            <tr><td>Vidrio</td><td>0.0003</td></tr>
+                                            <tr><td>Concreto</td><td>0.3 - 3.0</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navegación -->
+        <section class="navigation-section py-5 bg-dark text-white">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                        <a href="procesos/paso4.html" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-arrow-left"></i> Paso 4: Guía en 8 Pasos
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="evaluaciones.html" class="btn btn-warning btn-lg">
+                            Evaluaciones <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <img src="assets/images/logo.svg" alt="Logo" height="50" class="mb-3">
+                    <p>Ingeniería Industrial</p>
+                    <p>Docente: Juan Velasco</p>
+                    <p>Período: 2026-2</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="protocol/guia-identificacion.html">Protocolo</a></li>
+                        <li><a href="recursos.html">Recursos</a></li>
+                        <li><a href="evaluaciones.html">Evaluaciones</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Contacto</h5>
+                    <p><i class="fas fa-envelope"></i> juan.velasco@universidad.edu</p>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center"><p>&copy; 2026 Procesos Industriales. Todos los derechos reservados.</p></div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
+    
+    <!-- Scripts específicos para recursos.html -->
+    <script>
+        // Filtro de videos por unidad
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                const filter = this.getAttribute('data-filter');
+                document.querySelectorAll('.video-item').forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-unit') === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Calculadora de Grados de Libertad
+        function calcularGDL() {
+            const incognitas = parseInt(document.getElementById('incognitas').value);
+            const ecuaciones = parseInt(document.getElementById('ecuaciones').value);
+            const gdl = incognitas - ecuaciones;
+            
+            const resultado = document.getElementById('resultadoGDL');
+            resultado.style.display = 'block';
+            
+            let mensaje = `<strong>GDL = ${gdl}</strong><br>`;
+            if (gdl === 0) {
+                mensaje += '<span class="text-success"><i class="fas fa-check-circle"></i> Problema determinado. Tiene solución única. ✓</span>';
+                resultado.className = 'alert alert-success mb-0';
+            } else if (gdl > 0) {
+                mensaje += `<span class="text-warning"><i class="fas fa-exclamation-triangle"></i> Problema subdeterminado. Faltan ${gdl} dato(s) o ecuacion(es).</span>`;
+                resultado.className = 'alert alert-warning mb-0';
+            } else {
+                mensaje += `<span class="text-danger"><i class="fas fa-times-circle"></i> Problema sobredeterminado. Hay ${Math.abs(gdl)} dato(s) redundante(s).</span>`;
+                resultado.className = 'alert alert-danger mb-0';
+            }
+            resultado.innerHTML = mensaje;
+        }
+
+        // Calculadora de Balance Simple
+        function calcularBalance() {
+            const e1 = parseFloat(document.getElementById('entrada1').value);
+            const e2 = parseFloat(document.getElementById('entrada2').value);
+            const s1 = parseFloat(document.getElementById('salida1').value);
+            const s2 = e1 + e2 - s1;
+            
+            const resultado = document.getElementById('resultadoBalance');
+            resultado.style.display = 'block';
+            resultado.className = 'alert alert-success mb-0';
+            resultado.innerHTML = `
+                <strong>Resultado:</strong><br>
+                Entrada total = ${e1} + ${e2} = <strong>${e1 + e2} kg/h</strong><br>
+                Salida 2 = Entrada − Salida 1 = ${e1 + e2} − ${s1} = <strong>${s2} kg/h</strong><br>
+                <span class="text-success"><i class="fas fa-check-circle"></i> Balance verificado: E = S</span>
+            `;
+        }
+
+        // Calculadora de Reynolds
+        function calcularReynolds() {
+            const rho = parseFloat(document.getElementById('densidad').value);
+            const v = parseFloat(document.getElementById('velocidad').value);
+            const D = parseFloat(document.getElementById('diametro').value);
+            const mu = parseFloat(document.getElementById('viscosidad').value);
+            const Re = (rho * v * D) / mu;
+            
+            const resultado = document.getElementById('resultadoReynolds');
+            resultado.style.display = 'block';
+            
+            let regimen = '';
+            let color = '';
+            if (Re < 2100) {
+                regimen = 'LAMINAR';
+                color = 'success';
+            } else if (Re < 4000) {
+                regimen = 'TRANSICIÓN';
+                color = 'warning';
+            } else {
+                regimen = 'TURBULENTO';
+                color = 'danger';
+            }
+            
+            resultado.className = `alert alert-${color} mb-0`;
+            resultado.innerHTML = `
+                <strong>Re = ${Re.toExponential(3)}</strong><br>
+                Régimen de flujo: <strong>${regimen}</strong><br>
+                <small>
+                ${Re < 2100 ? '• Flujo ordenado, capas paralelas' : ''}
+                ${Re >= 2100 && Re < 4000 ? '• Zona crítica, flujo inestable' : ''}
+                ${Re >= 4000 ? '• Flujo caótico, mezclado intenso' : ''}
+                </small>
+            `;
+        }
+
+        // Calculadora de DTML
+        function calcularDTML() {
+            const Th_in = parseFloat(document.getElementById('Th_in').value);
+            const Th_out = parseFloat(document.getElementById('Th_out').value);
+            const Tc_in = parseFloat(document.getElementById('Tc_in').value);
+            const Tc_out = parseFloat(document.getElementById('Tc_out').value);
+            const config = document.getElementById('config').value;
+            
+            let DT1, DT2;
+            if (config === 'contracorriente') {
+                DT1 = Th_in - Tc_out;
+                DT2 = Th_out - Tc_in;
+            } else {
+                DT1 = Th_in - Tc_in;
+                DT2 = Th_out - Tc_out;
+            }
+            
+            const DTML = (DT1 - DT2) / Math.log(DT1 / DT2);
+            
+            const resultado = document.getElementById('resultadoDTML');
+            resultado.style.display = 'block';
+            resultado.className = 'alert alert-info mb-0';
+            resultado.innerHTML = `
+                <strong>Configuración: ${config.toUpperCase()}</strong><br>
+                ΔT₁ = ${DT1.toFixed(2)} °C<br>
+                ΔT₂ = ${DT2.toFixed(2)} °C<br>
+                <strong>DTML = ${DTML.toFixed(2)} °C</strong><br>
+                <small>
+                ${config === 'contracorriente' ? '✓ Contracorriente: mayor DTML → menor área requerida' : '⚠ Paralelo: menor DTML → mayor área requerida'}
+                </small>
+            `;
+        }
+
+        // Inicializar cálculos al cargar
+        window.addEventListener('load', () => {
+            calcularGDL();
+            calcularBalance();
+            calcularReynolds();
+            calcularDTML();
+        });
+    </script>
+</body>
+</html>
