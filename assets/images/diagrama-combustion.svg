@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <rect width="600" height="400" fill="#F5F5F5"/>
+  
+  <!-- Cámara de combustión -->
+  <rect x="150" y="100" width="300" height="200" fill="#2C2C2C" stroke="#FF6B00" stroke-width="4" rx="10"/>
+  <text x="300" y="130" font-family="Arial" font-size="14" font-weight="bold" fill="#FF6B00" text-anchor="middle">CÁMARA DE COMBUSTIÓN</text>
+  
+  <!-- Llamas internas -->
+  <g fill="#FF6B00" opacity="0.8">
+    <path d="M 250 250 Q 260 200 270 250 Q 280 180 290 250 Q 300 190 310 250 Q 320 200 330 250 Z"/>
+  </g>
+  <g fill="#FFD700" opacity="0.9">
+    <path d="M 260 250 Q 270 220 280 250 Q 290 210 300 250 Q 310 220 320 250 Z"/>
+  </g>
+  
+  <!-- Entrada combustible (izquierda) -->
+  <line x1="30" y1="150" x2="150" y2="180" stroke="#8B4513" stroke-width="8"/>
+  <polygon points="150,180 140,175 140,185" fill="#8B4513"/>
+  <text x="90" y="140" font-family="Arial" font-size="11" font-weight="bold" fill="#8B4513" text-anchor="middle">COMBUSTIBLE</text>
+  <text x="90" y="155" font-family="Arial" font-size="10" fill="#1A1A1A" text-anchor="middle">CH₄ / Fuel Oil</text>
+  <text x="90" y="170" font-family="Arial" font-size="10" fill="#1A1A1A" text-anchor="middle">/ Biomasa</text>
+  
+  <!-- Entrada aire (abajo izquierda) -->
+  <line x1="50" y1="320" x2="180" y2="280" stroke="#007BFF" stroke-width="8"/>
+  <polygon points="180,280 170,285 175,275" fill="#007BFF"/>
+  <text x="110" y="340" font-family="Arial" font-size="11" font-weight="bold" fill="#007BFF" text-anchor="middle">AIRE</text>
+  <text x="110" y="355" font-family="Arial" font-size="10" fill="#1A1A1A" text-anchor="middle">O₂ + N₂</text>
+  <text x="110" y="370" font-family="Arial" font-size="10" fill="#1A1A1A" text-anchor="middle">(+20% exceso)</text>
+  
+  <!-- Salida gases (derecha) -->
+  <line x1="450" y1="180" x2="570" y2="150" stroke="#6C757D" stroke-width="8"/>
+  <polygon points="570,150 560,155 565,145" fill="#6C757D"/>
+  <text x="520" y="130" font-family="Arial" font-size="11" font-weight="bold" fill="#6C757D" text-anchor="middle">GASES</text>
+  <text x="520" y="145" font-family="Arial" font-size="10" fill="#1A1A1A" text-anchor="middle">CO₂, H₂O, O₂, N₂</text>
+  <text x="520" y="160" font-family="Arial" font-size="10" fill="#DC3545" text-anchor="middle">(¡Cuidado con CO!)</text>
+  
+  <!-- Salida calor (arriba) -->
+  <line x1="300" y1="100" x2="300" y2="40" stroke="#DC3545" stroke-width="6"/>
+  <polygon points="300,40 295,50 305,50" fill="#DC3545"/>
+  <text x="380" y="50" font-family="Arial" font-size="11" font-weight="bold" fill="#DC3545" text-anchor="middle">Q̇_proceso</text>
+  <text x="380" y="65" font-family="Arial" font-size="10" fill="#1A1A1A" text-anchor="middle">(calor útil)</text>
+  
+  <!-- Reacción química -->
+  <text x="300" y="220" font-family="Arial" font-size="12" font-weight="bold" fill="#FFFFFF" text-anchor="middle">CH₄ + 2O₂ → CO₂ + 2H₂O</text>
+  <text x="300" y="240" font-family="Arial" font-size="11" fill="#FFD700" text-anchor="middle">ΔH° = -890 kJ/mol</text>
+  
+  <!-- Título -->
+  <text x="300" y="395" font-family="Arial" font-size="12" font-weight="bold" fill="#1A1A1A" text-anchor="middle">COMBUSTIÓN - Balance: E - S + G - C = A (con G/C ≠ 0 por reacción)</text>
+</svg>
