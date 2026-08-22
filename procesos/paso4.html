@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Paso 4: Guía en 8 Pasos - Aplicación Integradora para Procesos Industriales">
+    <title>Paso 4: Guía en 8 Pasos | Procesos Industriales</title>
+    <link rel="icon" href="../assets/images/logo.png" type="image/png">
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <!-- Skip to content -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+    <!-- Header -->
+    <header class="main-header">
+        <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Navegación principal">
+            <div class="container">
+                <a class="navbar-brand" href="../index.html">
+                    <img src="../assets/images/logo.png" alt="Logo" height="60" class="logo-header">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Protocolo</a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="../protocol/guia-identificacion.html">Guía Completa</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Procesos</a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="paso0.html">Paso 0: Sistema y Frontera</a></li>
+                                <li><a class="dropdown-item" href="paso1.html">Paso 1: Matriz Entrada-Salida</a></li>
+                                <li><a class="dropdown-item" href="paso2.html">Paso 2: Clasificación</a></li>
+                                <li><a class="dropdown-item" href="paso3.html">Paso 3: Régimen Temporal</a></li>
+                                <li><a class="dropdown-item active" href="paso4.html">Paso 4: Aplicación 8 Pasos</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="process-hero bg-gradient" style="background: linear-gradient(135deg, #1A1A1A 0%, #FF6B00 100%); color: white; padding: 80px 0;">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <div class="badge bg-warning text-dark mb-3">
+                            <i class="fas fa-flag-checkered"></i> PASO 4
+                        </div>
+                        <h1 class="display-4 mb-3">
+                            <i class="fas fa-route"></i> Guía en 8 Pasos Integradora
+                        </h1>
+                        <p class="lead mb-4">
+                            La metodología sistemática para resolver CUALQUIER problema del curso, desde la semana 1 hasta la 15.
+                        </p>
+                        <div class="d-flex gap-3">
+                            <a href="#teoria" class="btn btn-light btn-lg"><i class="fas fa-book"></i> Metodología</a>
+                            <a href="#ejemplos" class="btn btn-outline-light btn-lg"><i class="fas fa-industry"></i> Casos Reales</a>
+                            <a href="#quiz-section" class="btn btn-outline-light btn-lg"><i class="fas fa-question-circle"></i> Quiz</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 text-center d-none d-lg-block">
+                        <i class="fas fa-tasks fa-10x" style="opacity: 0.3;"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mnemotecnia -->
+        <section class="mnemonic-section py-5 bg-light">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="card border-warning shadow-lg">
+                            <div class="card-body text-center p-5">
+                                <h3 class="mb-4"><i class="fas fa-brain text-warning"></i> MNEMOTECNIA MAESTRA: "PROCESOS"</h3>
+                                <p class="lead fst-italic">8 letras, 8 pasos. Nunca olvides el método.</p>
+                                <div class="row text-start mt-4 g-3">
+                                    <div class="col-md-6">
+                                        <div class="p-3 border rounded bg-white h-100">
+                                            <p><strong style="color: #FF6B00; font-size: 1.2rem;">P</strong> - <strong>Plantea</strong> el sistema y traza la frontera.</p>
+                                            <p><strong style="color: #FF6B00; font-size: 1.2rem;">R</strong> - <strong>Recuenta</strong> todas las corrientes de materia.</p>
+                                            <p><strong style="color: #FF6B00; font-size: 1.2rem;">O</strong> - <strong>Orbita</strong> las corrientes de energía (Q, W).</p>
+                                            <p><strong style="color: #FF6B00; font-size: 1.2rem;">C</strong> - <strong>Confirma</strong> si hay reacción o cambio de fase.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="p-3 border rounded bg-white h-100">
+                                            <p><strong style="color: #FF6B00; font-size: 1.2rem;">E</strong> - <strong>Evalúa</strong> la acumulación (¿Cambia con el tiempo?).</p>
+                                            <p><strong style="color: #FF6B00; font-size: 1.2rem;">S</strong> - <strong>Selecciona</strong> el modo de operación.</p>
+                                            <p><strong style="color: #FF6B00; font-size: 1.2rem;">O</strong> - <strong>Opta</strong> por la ecuación de balance específica.</p>
+                                            <p><strong style="color: #FF6B00; font-size: 1.2rem;">S</strong> - <strong>Soluciona</strong> y valida el impacto industrial.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teoría / Metodología -->
+        <section id="teoria" class="theory-section py-5">
+            <div class="container">
+                <h2 class="section-title text-center mb-5"><i class="fas fa-graduation-cap text-orange"></i> Los 8 Pasos Detallados</h2>
+                
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="accordion" id="accordion8Pasos">
+                            <!-- Paso 1 -->
+                            <div class="accordion-item border-start border-4 border-primary mb-3">
+                                <h2 class="accordion-header"><button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#paso1"><i class="fas fa-drafting-compass me-2 text-primary"></i> PASO 1: Definir el sistema y trazar la frontera</button></h2>
+                                <div id="paso1" class="accordion-collapse collapse show" data-bs-parent="#accordion8Pasos">
+                                    <div class="accordion-body">
+                                        <p><strong>Pregunta:</strong> ¿Qué queda dentro y qué queda fuera de la línea?</p>
+                                        <p>Dibuja un rectángulo o círculo punteado alrededor del equipo. Todo lo que cruza la línea es una interacción. <em>Ejemplo: En una turbina, la frontera rodea solo la turbina, no la caldera ni el condensador.</em></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Paso 2 -->
+                            <div class="accordion-item border-start border-4 border-success mb-3">
+                                <h2 class="accordion-header"><button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#paso2"><i class="fas fa-cubes me-2 text-success"></i> PASO 2: Listar TODAS las corrientes de materia</button></h2>
+                                <div id="paso2" class="accordion-collapse collapse" data-bs-parent="#accordion8Pasos">
+                                    <div class="accordion-body">
+                                        <p><strong>Pregunta:</strong> ¿Qué entra y qué sale?</p>
+                                        <p>Separa entradas de salidas. Identifica componentes si hay más de una especie. <em>Ejemplo: Entra aire (O₂, N₂) y combustible (CH₄). Sale CO₂, H₂O, O₂ exceso, N₂.</em></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Paso 3 -->
+                            <div class="accordion-item border-start border-4 border-warning mb-3">
+                                <h2 class="accordion-header"><button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#paso3"><i class="fas fa-bolt me-2 text-warning"></i> PASO 3: Listar TODAS las corrientes de energía</button></h2>
+                                <div id="paso3" class="accordion-collapse collapse" data-bs-parent="#accordion8Pasos">
+                                    <div class="accordion-body">
+                                        <p><strong>Pregunta:</strong> ¿Entra calor (Q̇)? ¿Sale trabajo (Ẇ)? ¿Hay energía cinética/potencial relevante?</p>
+                                        <p><em>Ejemplo: En una bomba, entra trabajo eléctrico (Ẇ). En un intercambiador, sale calor (Q̇) al fluido frío.</em></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Paso 4 -->
+                            <div class="accordion-item border-start border-4 border-danger mb-3">
+                                <h2 class="accordion-header"><button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#paso4"><i class="fas fa-flask me-2 text-danger"></i> PASO 4: Verificar reacción química o cambio de fase</button></h2>
+                                <div id="paso4" class="accordion-collapse collapse" data-bs-parent="#accordion8Pasos">
+                                    <div class="accordion-body">
+                                        <p><strong>Pregunta:</strong> ¿Ocurre una transformación química o física dentro de la frontera?</p>
+                                        <p>Si SÍ → hay generación/consumo de especies (Unidad 3) o de fases (evaporación). Si NO → G=0, C=0 para balance de masa total.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Paso 5 -->
+                            <div class="accordion-item border-start border-4 border-info mb-3">
+                                <h2 class="accordion-header"><button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#paso5"><i class="fas fa-hourglass-half me-2 text-info"></i> PASO 5: Determinar si hay acumulación</button></h2>
+                                <div id="paso5" class="accordion-collapse collapse" data-bs-parent="#accordion8Pasos">
+                                    <div class="accordion-body">
+                                        <p><strong>Pregunta:</strong> ¿El sistema opera en un punto fijo o cambia con el tiempo?</p>
+                                        <p>Si es continuo y estable → Acumulación = 0. Si es batch o transitorio → Acumulación ≠ 0.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Paso 6 -->
+                            <div class="accordion-item border-start border-4 border-secondary mb-3">
+                                <h2 class="accordion-header"><button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#paso6"><i class="fas fa-random me-2 text-secondary"></i> PASO 6: Clasificar el modo de operación</button></h2>
+                                <div id="paso6" class="accordion-collapse collapse" data-bs-parent="#accordion8Pasos">
+                                    <div class="accordion-body">
+                                        <p><strong>Pregunta:</strong> ¿Es continuo, discontinuo (batch) o semicontinuo?</p>
+                                        <p>Usa la tabla del Paso 2. Esto define la forma matemática de la ecuación de balance.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Paso 7 -->
+                            <div class="accordion-item border-start border-4 border-dark mb-3">
+                                <h2 class="accordion-header"><button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#paso7"><i class="fas fa-calculator me-2 text-dark"></i> PASO 7: Elegir la ecuación de balance aplicable</button></h2>
+                                <div id="paso7" class="accordion-collapse collapse" data-bs-parent="#accordion8Pasos">
+                                    <div class="accordion-body">
+                                        <p><strong>Pregunta:</strong> ¿Qué herramienta específica de la unidad debo usar?</p>
+                                        <p>Ejemplos: COP (S3), DTML (S12), Darcy-Weisbach (S15), Balance de ORSAT (S9). Aquí aplicas la teoría específica de cada semana.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Paso 8 -->
+                            <div class="accordion-item border-start border-4 border-orange mb-3">
+                                <h2 class="accordion-header"><button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#paso8"><i class="fas fa-check-double me-2 text-orange"></i> PASO 8: Resolver, verificar y contrastar</button></h2>
+                                <div id="paso8" class="accordion-collapse collapse" data-bs-parent="#accordion8Pasos">
+                                    <div class="accordion-body">
+                                        <p><strong>Pregunta:</strong> ¿El resultado es físicamente razonable? ¿Qué impacto tendría si el equipo estuviera mal dimensionado?</p>
+                                        <p>Verifica unidades. Compara con datos industriales. <em>Ejemplo: Si calculas una eficiencia del 120%, hay un error. Si calculas una pérdida de carga de 1000 m para una tubería de 10 m, revisa la fórmula.</em></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gráfico Chart.js -->
+                <div class="row mt-5">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="card shadow">
+                            <div class="card-header bg-orange text-white">
+                                <h5 class="mb-0"><i class="fas fa-chart-bar"></i> Distribución del Tiempo de Análisis por Paso</h5>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="tiempoPasosChart" height="100"></canvas>
+                                <p class="text-muted small mt-2 text-center">* Datos basados en el rendimiento promedio de estudiantes en laboratorios. Los pasos 1, 4 y 7 son donde más errores se cometen.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Educativo -->
+        <section class="video-section py-5 bg-light">
+            <div class="container">
+                <h2 class="section-title text-center mb-5"><i class="fab fa-youtube text-danger"></i> Video Educativo Recomendado</h2>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <div class="ratio ratio-16x9 mb-3">
+                                    <iframe src="https://www.youtube.com/embed/5yJ1wXyQ2yA" title="Resolución de Problemas de Balances de Materia y Energía" allowfullscreen></iframe>
+                                </div>
+                                <h5 class="card-title"><i class="fas fa-play-circle text-danger"></i> Metodología de Resolución: Balances de Materia y Energía Paso a Paso</h5>
+                                <p class="card-text">
+                                    <strong>Canal:</strong> Ingeniería Industrial / ChemEng<br>
+                                    <strong>Duración:</strong> 18:45 min<br>
+                                    <strong>Contenido:</strong> Aplicación práctica de una metodología sistemática (similar a los 8 pasos) para resolver problemas complejos de balances en equipos industriales reales.
+                                </p>
+                                <a href="https://www.youtube.com/results?search_query=balances+materia+energia+paso+a+paso+resolucion+problemas" class="btn btn-outline-danger" target="_blank" rel="noopener">
+                                    <i class="fab fa-youtube"></i> Ver más videos en YouTube
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ejemplos Industriales -->
+        <section id="ejemplos" class="examples-section py-5">
+            <div class="container">
+                <h2 class="section-title text-center mb-5"><i class="fas fa-industry text-orange"></i> Casos Integradores por Semana</h2>
+                <p class="lead text-center mb-5">Aplicación completa de los 8 pasos en la industria peruana y transnacional</p>
+
+                <!-- Ejemplo 1: Semana 1 -->
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card shadow-sm border-start border-4 border-primary">
+                            <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0"><i class="fas fa-seedling"></i> Caso 1: Planta de Aceite Comestible</h5>
+                                <span class="badge bg-light text-primary">Semana 1</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="text-primary">Caso Real: Alicorp (Planta de Aceites)</h6>
+                                        <p>Procesa 1000 kg/h de semilla de soya (18% aceite). El solvente (hexano) se recupera en un 95%.</p>
+                                        <h6 class="text-primary">Aplicación de los 8 Pasos:</h6>
+                                        <ol class="small">
+                                            <li><strong>Frontera:</strong> Extractor + recuperador de solvente.</li>
+                                            <li><strong>Materia:</strong> E: Semilla, Hexano. S: Aceite, Harina, Hexano perdido.</li>
+                                            <li><strong>Energía:</strong> Calor para evaporar hexano (Q̇).</li>
+                                            <li><strong>Reacción:</strong> NO (solo extracción física).</li>
+                                            <li><strong>Acumulación:</strong> 0 (continuo).</li>
+                                            <li><strong>Modo:</strong> Continuo.</li>
+                                            <li><strong>Ecuación:</strong> Balance de masa global y por componente.</li>
+                                            <li><strong>Validar:</strong> El hexano perdido (5%) representa un costo ambiental y económico.</li>
+                                        </ol>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6 class="text-primary">Impacto Industrial:</h6>
+                                        <div class="alert alert-warning small">
+                                            <strong>Económico:</strong> Pérdida de solvente = US$ 50,000/año. Recuperar el 95% es vital.
+                                        </div>
+                                        <div class="alert alert-danger small">
+                                            <strong>Ambiental:</strong> Hexano es VOC. Emisiones no controladas generan multas >US$ 100,000.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejemplo 2: Semana 4 -->
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card shadow-sm border-start border-4 border-success">
+                            <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0"><i class="fas fa-wind"></i> Caso 2: Ciclo Rankine Central Térmica</h5>
+                                <span class="badge bg-light text-success">Semana 4</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="text-success">Caso Real: Kallpa Generación (Central de Ciclo Combinado)</h6>
+                                        <p>Turbina de vapor recibe 50 kg/s a 10 MPa/500°C. Condensador opera a 10 kPa. Eficiencia isentrópica 85%.</p>
+                                        <h6 class="text-success">Aplicación de los 8 Pasos:</h6>
+                                        <ol class="small">
+                                            <li><strong>Frontera:</strong> Solo la turbina (para calcular trabajo).</li>
+                                            <li><strong>Materia:</strong> E: Vapor alta P. S: Vapor baja P. (ṁ constante).</li>
+                                            <li><strong>Energía:</strong> Sale trabajo de eje (Ẇ). Q̇ ≈ 0 (adiabática).</li>
+                                            <li><strong>Reacción:</strong> NO.</li>
+                                            <li><strong>Acumulación:</strong> 0 (estacionario).</li>
+                                            <li><strong>Modo:</strong> Continuo.</li>
+                                            <li><strong>Ecuación:</strong> Ẇ = ṁ(h_entrada - h_salida_real).</li>
+                                            <li><strong>Validar:</strong> Si h_salida_real > h_salida_ideal, es correcto (irreversibilidades).</li>
+                                        </ol>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6 class="text-success">Impacto Industrial:</h6>
+                                        <div class="alert alert-danger small">
+                                            <strong>Económico:</strong> Caída del 5% en eficiencia = US$ 500,000/año en combustible extra.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejemplo 3: Semana 8 -->
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card shadow-sm border-start border-4 border-warning">
+                            <div class="card-header bg-warning text-dark d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0"><i class="fas fa-cube"></i> Caso 3: Evaporador Triple Efecto</h5>
+                                <span class="badge bg-dark text-warning">Semana 8</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="text-warning">Caso Real: Casa Grande (Planta Azucarera)</h6>
+                                        <p>Concentra jugo de caña de 15°Brix a 65°Brix. Produce 50 ton/h de jarabe. Vapor de caldero a 3 bar.</p>
+                                        <h6 class="text-warning">Aplicación de los 8 Pasos:</h6>
+                                        <ol class="small">
+                                            <li><strong>Frontera:</strong> Los 3 efectos en conjunto.</li>
+                                            <li><strong>Materia:</strong> E: Jugo diluido. S: Jarabe + Vapor secundario total.</li>
+                                            <li><strong>Energía:</strong> Entra calor del vapor de caldero (Q̇_in).</li>
+                                            <li><strong>Reacción:</strong> NO (cambio de fase físico).</li>
+                                            <li><strong>Acumulación:</strong> 0.</li>
+                                            <li><strong>Modo:</strong> Continuo.</li>
+                                            <li><strong>Ecuación:</strong> Balance de soluto (no volátil) + Balance de energía.</li>
+                                            <li><strong>Validar:</strong> Economía de vapor debe ser ~2.5-3.0 para triple efecto.</li>
+                                        </ol>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6 class="text-warning">Impacto Industrial:</h6>
+                                        <div class="alert alert-success small">
+                                            <strong>Económico:</strong> Triple efecto reduce consumo de vapor de 10 a 3.5 ton/h. Ahorro: ~US$ 1.5 millones/año.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejemplo 4: Semana 10 (NUEVO) -->
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card shadow-sm border-start border-4 border-danger">
+                            <div class="card-header bg-danger text-white d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0"><i class="fas fa-fire"></i> Caso 4: Combustión de Biomasa en Cementera</h5>
+                                <span class="badge bg-light text-danger">Semana 10 - NUEVO</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="text-danger">Caso Real: UNACEM (Planta Cementera)</h6>
+                                        <p>Sustitución de 30% de carbón por biomasa (cascarilla de arroz). Calor de combustión biomasa: 15 MJ/kg. Exceso de aire: 20%.</p>
+                                        <h6 class="text-danger">Aplicación de los 8 Pasos:</h6>
+                                        <ol class="small">
+                                            <li><strong>Frontera:</strong> Cámara de combustión del horno.</li>
+                                            <li><strong>Materia:</strong> E: Carbón, Biomasa, Aire (O₂, N₂). S: Gases (CO₂, H₂O, O₂, N₂), Cenizas.</li>
+                                            <li><strong>Energía:</strong> Sale calor para clinkerización (Q̇_proceso).</li>
+                                            <li><strong>Reacción:</strong> SÍ (Combustión C + O₂ → CO₂).</li>
+                                            <li><strong>Acumulación:</strong> 0.</li>
+                                            <li><strong>Modo:</strong> Continuo.</li>
+                                            <li><strong>Ecuación:</strong> Balance de moles por especie + Ley de Hess (ΔH_reacción).</li>
+                                            <li><strong>Validar:</strong> Verificar que O₂ en gases de salida sea ~3-5% (indica 20% exceso).</li>
+                                        </ol>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6 class="text-danger">Impacto Industrial:</h6>
+                                        <div class="alert alert-success small">
+                                            <strong>Ambiental:</strong> Biomasa es carbono neutro. Reduce huella de CO₂ en 30% (~50,000 ton/año). Genera créditos de carbono.
+                                        </div>
+                                        <div class="alert alert-warning small">
+                                            <strong>Productividad:</strong> Menor poder calorífico requiere mayor volumen de combustible. Modificar quemadores.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejemplo 5: Semana 13 -->
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card shadow-sm border-start border-4 border-info">
+                            <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0"><i class="fas fa-exchange-alt"></i> Caso 5: Intercambiador con Incrustaciones</h5>
+                                <span class="badge bg-light text-info">Semana 13</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="text-info">Caso Real: Relapsa (Refinería La Pampilla)</h6>
+                                        <p>Pre-calentador de crudo. Eficiencia cayó de 85% a 65% en 6 meses por incrustaciones de asfaltenos. Crudo: 100,000 bpd.</p>
+                                        <h6 class="text-info">Aplicación de los 8 Pasos:</h6>
+                                        <ol class="small">
+                                            <li><strong>Frontera:</strong> Intercambiador de calor (tubo y coraza).</li>
+                                            <li><strong>Materia:</strong> E: Crudo frío, Flujo caliente. S: Crudo caliente, Flujo frío.</li>
+                                            <li><strong>Energía:</strong> Q̇_transferido = U·A·DTML.</li>
+                                            <li><strong>Reacción:</strong> NO.</li>
+                                            <li><strong>Acumulación:</strong> 0.</li>
+                                            <li><strong>Modo:</strong> Continuo.</li>
+                                            <li><strong>Ecuación:</strong> Q = m·Cp·ΔT y Q = U·A·DTML.</li>
+                                            <li><strong>Validar:</strong> Si U disminuye (incrustaciones), ΔT debe aumentar o Q disminuye. Impacto en horno aguas arriba.</li>
+                                        </ol>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6 class="text-info">Impacto Industrial:</h6>
+                                        <div class="alert alert-danger small">
+                                            <strong>Económico:</strong> Caída de 20% en eficiencia = mayor consumo de combustible en horno. ~US$ 3-5 millones/año. Costo de limpieza: US$ 50,000 cada 6 meses.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejemplo 6: Semana 15 -->
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card shadow-sm border-start border-4 border-secondary">
+                            <div class="card-header bg-secondary text-white d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0"><i class="fas fa-tint"></i> Caso 6: Sistema de Bombeo Minero</h5>
+                                <span class="badge bg-light text-secondary">Semana 15</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="text-secondary">Caso Real: Southern Copper (Toquepala)</h6>
+                                        <p>Bombeo de agua de enfriamiento. Tubería: 1000 m, 8", 12 codos, 5 válvulas. Caudal: 800 GPM. Elevación: 50 m.</p>
+                                        <h6 class="text-secondary">Aplicación de los 8 Pasos:</h6>
+                                        <ol class="small">
+                                            <li><strong>Frontera:</strong> Desde la succión hasta la descarga de la bomba.</li>
+                                            <li><strong>Materia:</strong> Agua (incompresible, ρ constante).</li>
+                                            <li><strong>Energía:</strong> Entra trabajo de bomba (Ẇ_bomba). Sale energía por elevación y fricción.</li>
+                                            <li><strong>Reacción:</strong> NO.</li>
+                                            <li><strong>Acumulación:</strong> 0.</li>
+                                            <li><strong>Modo:</strong> Continuo.</li>
+                                            <li><strong>Ecuación:</strong> Bernoulli generalizada + Darcy-Weisbach (h_f) + K (accesorios).</li>
+                                            <li><strong>Validar:</strong> Potencia de bomba debe incluir eficiencia (η ≈ 75%). Verificar NPSH para evitar cavitación.</li>
+                                        </ol>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6 class="text-secondary">Impacto Industrial:</h6>
+                                        <div class="alert alert-danger small">
+                                            <strong>Seguridad:</strong> Subestimar pérdidas (h_f) causa cavitación. Daño severo al impulsor en semanas. Costo de reparación: US$ 20,000.
+                                        </div>
+                                        <div class="alert alert-warning small">
+                                            <strong>Económico:</strong> Bomba sobre-dimensionada consume 15% más energía de por vida.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Mapa Mental -->
+        <section class="mindmap-section py-5 bg-light">
+            <div class="container">
+                <h2 class="section-title text-center mb-5"><i class="fas fa-sitemap text-orange"></i> Mapa Mental: Los 8 Pasos</h2>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="card shadow">
+                            <div class="card-body p-4">
+                                <div class="mindmap-container">
+                                    <div class="mindmap-node root text-center mb-4">
+                                        <h4 class="bg-orange text-white p-3 rounded"><i class="fas fa-tasks"></i> GUÍA EN 8 PASOS</h4>
+                                    </div>
+                                    <div class="row g-3">
+                                        <div class="col-md-3 col-6">
+                                            <div class="card border-primary h-100 text-center p-2">
+                                                <div class="display-6 text-primary">1</div>
+                                                <small><strong>Frontera</strong><br>Sistema y límites</small>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-6">
+                                            <div class="card border-success h-100 text-center p-2">
+                                                <div class="display-6 text-success">2</div>
+                                                <small><strong>Materia</strong><br>Entradas y Salidas</small>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-6">
+                                            <div class="card border-warning h-100 text-center p-2">
+                                                <div class="display-6 text-warning">3</div>
+                                                <small><strong>Energía</strong><br>Q, W, Ec, Ep</small>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-6">
+                                            <div class="card border-danger h-100 text-center p-2">
+                                                <div class="display-6 text-danger">4</div>
+                                                <small><strong>Reacción</strong><br>¿G o C ≠ 0?</small>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-6">
+                                            <div class="card border-info h-100 text-center p-2">
+                                                <div class="display-6 text-info">5</div>
+                                                <small><strong>Acumulación</strong><br>¿A = 0 o ≠ 0?</small>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-6">
+                                            <div class="card border-secondary h-100 text-center p-2">
+                                                <div class="display-6 text-secondary">6</div>
+                                                <small><strong>Modo</strong><br>Cont/Batch/Semi</small>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-6">
+                                            <div class="card border-dark h-100 text-center p-2">
+                                                <div class="display-6 text-dark">7</div>
+                                                <small><strong>Ecuación</strong><br>Herramienta específica</small>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-6">
+                                            <div class="card border-orange h-100 text-center p-2">
+                                                <div class="display-6 text-orange">8</div>
+                                                <small><strong>Validar</strong><br>Impacto y razonabilidad</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Errores Comunes -->
+        <section class="errors-section py-5">
+            <div class="container">
+                <h2 class="section-title text-center mb-5"><i class="fas fa-exclamation-triangle text-warning"></i> Errores Comunes en la Aplicación</h2>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="card border-danger h-100">
+                            <div class="card-header bg-danger text-white"><h5 class="mb-0"><i class="fas fa-bug"></i> Error 1: Saltarse el Paso 1 (Frontera)</h5></div>
+                            <div class="card-body">
+                                <div class="alert alert-danger"><strong>Problema:</strong> Empezar a plantear ecuaciones sin dibujar el diagrama de flujo con la frontera.</div>
+                                <div class="alert alert-warning"><strong>Consecuencia:</strong> Incluir corrientes internas como si fueran externas, o ignorar interacciones de energía.</div>
+                                <div class="alert alert-success"><strong>Solución:</strong> SIEMPRE dibujar el sistema antes de escribir una sola ecuación.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card border-danger h-100">
+                            <div class="card-header bg-danger text-white"><h5 class="mb-0"><i class="fas fa-bug"></i> Error 2: Confundir el Paso 4 (Reacción) con Cambio de Fase</h5></div>
+                            <div class="card-body">
+                                <div class="alert alert-danger"><strong>Problema:</strong> Poner G≠0 en un evaporador porque "se genera vapor".</div>
+                                <div class="alert alert-warning"><strong>Consecuencia:</strong> Error conceptual grave. En balance de masa TOTAL, G=0 si no hay reacción química.</div>
+                                <div class="alert alert-success"><strong>Solución:</strong> G y C solo aplican por COMPONENTE si hay reacción, o por FASE si se analiza por separado.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card border-danger h-100">
+                            <div class="card-header bg-danger text-white"><h5 class="mb-0"><i class="fas fa-bug"></i> Error 3: Olvidar el Paso 8 (Validación)</h5></div>
+                            <div class="card-body">
+                                <div class="alert alert-danger"><strong>Problema:</strong> Entregar un resultado numérico sin verificar si tiene sentido físico.</div>
+                                <div class="alert alert-warning"><strong>Consecuencia:</strong> Errores de cálculo graves pasan desapercibidos (ej: eficiencias > 100%, temperaturas negativas en Kelvin).</div>
+                                <div class="alert alert-success"><strong>Solution:</strong> Preguntarse: "¿Este número es realista en una planta industrial?"</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card border-danger h-100">
+                            <div class="card-header bg-danger text-white"><h5 class="mb-0"><i class="fas fa-bug"></i> Error 4: Aplicar el Paso 7 sin hacer los anteriores</h5></div>
+                            <div class="card-body">
+                                <div class="alert alert-danger"><strong>Problema:</strong> Usar la fórmula de DTML (Paso 7) sin haber verificado si el sistema es estacionario (Paso 5).</div>
+                                <div class="alert alert-warning"><strong>Consecuencia:</strong> La fórmula de DTML solo aplica en estado estacionario. Si es transitorio, se requiere una EDO.</div>
+                                <div class="alert alert-success"><strong>Solución:</strong> Los pasos son SECUENCIALES. No se puede elegir la ecuación sin antes clasificar el sistema.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ejercicios Paso a Paso -->
+        <section class="exercises-section py-5 bg-light">
+            <div class="container">
+                <h2 class="section-title text-center mb-5"><i class="fas fa-calculator text-orange"></i> Ejercicio Integrador Completo</h2>
+
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card shadow">
+                            <div class="card-header bg-dark text-white"><h5 class="mb-0"><i class="fas fa-wind"></i> Ejercicio: Compresor de Aire Industrial</h5></div>
+                            <div class="card-body">
+                                <p><strong>Enunciado:</strong> Un compresor recibe 2 kg/s de aire a 100 kPa y 25°C. El aire sale a 500 kPa y 200°C. El compresor consume 150 kW de potencia eléctrica. Se estima que pierde 10 kW de calor al ambiente por radiación. Analizar el sistema usando los 8 pasos.</p>
+                                <div class="accordion" id="accEjIntegrador">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#ejInt1"><strong>Pasos 1-3:</strong> Sistema, Materia y Energía</button></h2>
+                                        <div id="ejInt1" class="accordion-collapse collapse show" data-bs-parent="#accEjIntegrador">
+                                            <div class="accordion-body">
+                                                <div class="alert alert-info">
+                                                    <strong>Paso 1 (Frontera):</strong> Superficie que rodea el compresor.<br>
+                                                    <strong>Paso 2 (Materia):</strong> Entrada: Aire (2 kg/s). Salida: Aire (2 kg/s). No hay acumulación de masa.<br>
+                                                    <strong>Paso 3 (Energía):</strong> Entra: Trabajo eléctrico (Ẇ_in = 150 kW). Sale: Calor al ambiente (Q̇_out = 10 kW).
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ejInt2"><strong>Pasos 4-6:</strong> Reacción, Acumulación y Modo</button></h2>
+                                        <div id="ejInt2" class="accordion-collapse collapse" data-bs-parent="#accEjIntegrador">
+                                            <div class="accordion-body">
+                                                <div class="alert alert-info">
+                                                    <strong>Paso 4 (Reacción):</strong> NO hay reacción química ni cambio de fase. G=0, C=0.<br>
+                                                    <strong>Paso 5 (Acumulación):</strong> El compresor opera en régimen permanente. Acumulación de masa y energía = 0.<br>
+                                                    <strong>Paso 6 (Modo):</strong> Continuo y Estacionario.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ejInt3"><strong>Pasos 7-8:</strong> Ecuación y Validación</button></h2>
+                                        <div id="ejInt3" class="accordion-collapse collapse" data-bs-parent="#accEjIntegrador">
+                                            <div class="accordion-body">
+                                                <div class="formula-box">
+                                                    <strong>Paso 7 (Ecuación):</strong> Balance de energía en estado estacionario:<br>
+                                                    \[ \dot{E}_{entrada} = \dot{E}_{salida} \implies \dot{m}h_1 + \dot{W}_{in} = \dot{m}h_2 + \dot{Q}_{out} \]<br>
+                                                    Despejando el cambio de entalpía:<br>
+                                                    \[ \dot{m}(h_2 - h_1) = \dot{W}_{in} - \dot{Q}_{out} = 150 - 10 = 140 \text{ kW} \]
+                                                </div>
+                                                <div class="alert alert-success mt-3">
+                                                    <strong>Paso 8 (Validación):</strong> El aire aumenta su entalpía (se calienta de 25°C a 200°C), lo cual es consistente con un compresor. La potencia neta transferida al fluido es 140 kW (el resto se pierde como calor). ¡Resultado físicamente razonable!
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUIZ INTERACTIVO -->
+        <section id="quiz-section" class="quiz-section py-5">
+            <div class="container">
+                <h2 class="section-title text-center mb-5"><i class="fas fa-question-circle text-orange"></i> Quiz Interactivo: Paso 4</h2>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="card shadow-lg border-0">
+                            <div class="card-header bg-orange text-white text-center">
+                                <h4 class="mb-0"><i class="fas fa-brain"></i> Evalúa tu Conocimiento</h4>
+                                <p class="mb-0 small mt-2">Se presentarán 3 preguntas aleatorias de un banco de 10. ¡Buena suerte!</p>
+                            </div>
+                            <div class="card-body p-4">
+                                <div id="quiz-container">
+                                    <div id="quiz-start" class="text-center">
+                                        <i class="fas fa-clipboard-list fa-4x text-orange mb-3"></i>
+                                        <h5>¿Listo para el desafío final?</h5>
+                                        <p class="text-muted">Responde 3 preguntas al azar sobre la Guía en 8 Pasos.</p>
+                                        <button class="btn btn-primary btn-lg" onclick="startQuiz()"><i class="fas fa-play"></i> Iniciar Quiz</button>
+                                    </div>
+                                    
+                                    <div id="quiz-questions" style="display: none;">
+                                        <div class="progress mb-4" style="height: 10px;">
+                                            <div id="quiz-progress" class="progress-bar bg-orange" role="progressbar" style="width: 0%"></div>
+                                        </div>
+                                        <div id="question-container"></div>
+                                        <div id="feedback-container" class="mt-3"></div>
+                                        <div class="d-flex justify-content-between mt-4">
+                                            <button id="btn-next" class="btn btn-primary" onclick="nextQuestion()" style="display: none;">Siguiente <i class="fas fa-arrow-right"></i></button>
+                                        </div>
+                                    </div>
+
+                                    <div id="quiz-results" style="display: none;" class="text-center">
+                                        <div id="result-icon" class="mb-3"></div>
+                                        <h4 id="result-title"></h4>
+                                        <p id="result-score" class="lead"></p>
+                                        <div id="result-details" class="text-start mt-4"></div>
+                                        <button class="btn btn-warning btn-lg mt-4" onclick="resetQuiz()"><i class="fas fa-redo"></i> Intentar de Nuevo</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navegación Final -->
+        <section class="navigation-section py-5 bg-dark text-white">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                        <a href="paso3.html" class="btn btn-outline-light btn-lg"><i class="fas fa-arrow-left"></i> Paso 3: Régimen Temporal</a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="../index.html" class="btn btn-warning btn-lg">Volver al Inicio <i class="fas fa-home"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <img src="../assets/images/logo.png" alt="Logo" height="50" class="mb-3">
+                    <p>Ingeniería Industrial</p>
+                    <p>Docente: Juan Velasco</p>
+                    <p>Período: 2026-2</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../protocol/guia-identificacion.html">Protocolo</a></li>
+                        <li><a href="paso4.html">Procesos</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Contacto</h5>
+                    <p><i class="fas fa-envelope"></i> juan.velasco@universidad.edu</p>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center"><p>&copy; 2026 Procesos Industriales. Todos los derechos reservados.</p></div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="../assets/js/main.js"></script>
+    
+    <!-- Chart.js for 8 Steps Time Distribution -->
+    <script>
+        const ctxTiempo = document.getElementById('tiempoPasosChart');
+        if (ctxTiempo) {
+            new Chart(ctxTiempo, {
+                type: 'bar',
+                data: {
+                    labels: ['P1: Frontera', 'P2: Materia', 'P3: Energía', 'P4: Reacción', 'P5: Acumulación', 'P6: Modo', 'P7: Ecuación', 'P8: Validar'],
+                    datasets: [{
+                        label: 'Tiempo promedio invertido (minutos)',
+                        data: [5, 3, 3, 4, 2, 2, 8, 5],
+                        backgroundColor: [
+                            'rgba(255, 107, 0, 0.8)',
+                            'rgba(40, 167, 69, 0.8)',
+                            'rgba(255, 193, 7, 0.8)',
+                            'rgba(220, 53, 69, 0.8)',
+                            'rgba(23, 162, 184, 0.8)',
+                            'rgba(108, 117, 125, 0.8)',
+                            'rgba(26, 26, 26, 0.8)',
+                            'rgba(255, 107, 0, 0.8)'
+                        ],
+                        borderColor: [
+                            '#FF6B00', '#28A745', '#FFC107', '#DC3545', '#17A2B8', '#6C757D', '#1A1A1A', '#FF6B00'
+                        ],
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: { display: true, text: 'Minutos' }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                afterLabel: function(context) {
+                                    const errores = ['Alto error', 'Bajo error', 'Bajo error', 'Alto error', 'Medio error', 'Bajo error', 'Alto error', 'Medio error'];
+                                    return 'Nivel de error común: ' + errores[context.dataIndex];
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+
+    <!-- Quiz Logic for Paso 4 -->
+    <script>
+        const quizDataPaso4 = [
+            {
+                question: "¿Cuál es el primer paso de la guía de 8 pasos para identificar procesos?",
+                options: ["Listar las corrientes de materia", "Definir el sistema y trazar la frontera", "Elegir la ecuación de balance", "Verificar si hay reacción química"],
+                correct: 1,
+                explanation: "El Paso 1 es definir el sistema y trazar la frontera. Sin esto, no se puede identificar correctamente qué entra y qué sale."
+            },
+            {
+                question: "Si dentro del sistema ocurre una combustión, ¿en qué paso se identifica esto y qué implica?",
+                options: ["Paso 2, implica acumulación de materia", "Paso 4, implica que hay generación y consumo de especies", "Paso 6, implica que el modo es batch", "Paso 8, implica que el resultado es inválido"],
+                correct: 1,
+                explanation: "En el Paso 4 se verifica si hay reacción química. Si la hay, los términos de Generación y Consumo en el balance de materia por componente son distintos de cero."
+            },
+            {
+                question: "¿Qué se debe listar en el Paso 3 de la guía?",
+                options: ["Todas las corrientes de materia", "Los grados de libertad del sistema", "Todas las corrientes de energía (calor, trabajo, cinética, potencial)", "Las propiedades físicas de los componentes"],
+                correct: 2,
+                explanation: "El Paso 3 consiste en listar TODAS las corrientes de energía que cruzan la frontera: calor (Q), trabajo (W), y energías cinética y potencial si son relevantes."
+            },
+            {
+                question: "¿Por qué es crucial el Paso 8 (Resolver, verificar y contrastar)?",
+                options: ["Para calcular los grados de libertad", "Para asegurar que el resultado sea físicamente razonable y evaluar su impacto industrial", "Para elegir la ecuación de balance correcta", "Para definir la base de cálculo"],
+                correct: 1,
+                explanation: "El Paso 8 es la validación final. Permite detectar errores de cálculo (ej. eficiencia > 100%) y contextualizar el resultado en términos económicos, ambientales o de seguridad."
+            },
+            {
+                question: "Si un tanque se está llenando con agua, ¿qué valor tiene la acumulación en el Paso 5?",
+                options: ["Cero", "Diferente de cero (positiva)", "Diferente de cero (negativa)", "Depende de la temperatura del agua"],
+                correct: 1,
+                explanation: "En el Paso 5, si el sistema cambia con el tiempo (como un tanque llenándose), la acumulación es distinta de cero. En este caso, es positiva porque la masa aumenta."
+            },
+            {
+                question: "¿En qué paso se elige la ecuación específica de la unidad (ej. DTML, Darcy-Weisbach, COP)?",
+                options: ["Paso 2", "Paso 5", "Paso 7", "Paso 8"],
+                correct: 2,
+                explanation: "El Paso 7 es 'Elegir la ecuación de balance aplicable'. Aquí se selecciona la herramienta matemática específica de la unidad (S3, S12, S15, etc.) basada en los pasos anteriores."
+            },
+            {
+                question: "¿La guía de 8 pasos reemplaza las ecuaciones específicas de cada unidad del curso?",
+                options: ["Sí, es la única ecuación que se necesita", "No, les da el marco común para aplicarlas correctamente", "Solo reemplaza las ecuaciones de la Unidad 1", "Sí, pero solo para procesos continuos"],
+                correct: 1,
+                explanation: "La guía NO reemplaza las ecuaciones específicas (como DTML o Darcy). Les da el marco sistemático para identificar cuándo y cómo aplicarlas correctamente."
+            },
+            {
+                question: "Si un equipo opera 24/7 sin que cambien sus propiedades en un punto fijo, ¿qué modo de operación se identifica en el Paso 6?",
+                options: ["Batch (Discontinuo)", "Semicontinuo", "Continuo en estado estacionario", "Transitorio"],
+                correct: 2,
+                explanation: "En el Paso 6, si las propiedades no cambian con el tiempo y el flujo es ininterrumpido, el modo es Continuo en estado estacionario (Acumulación = 0)."
+            },
+            {
+                question: "¿Qué error común se comete al saltarse el Paso 1 (Frontera)?",
+                options: ["Elegir mal la base de cálculo", "Incluir corrientes internas como si fueran externas o ignorar interacciones", "Usar la ecuación incorrecta", "Calcular mal la acumulación"],
+                correct: 1,
+                explanation: "Sin una frontera clara (Paso 1), es fácil confundir corrientes internas del sistema con entradas/salidas, o ignorar interacciones de energía con el entorno."
+            },
+            {
+                question: "En la mnemotecnia 'PROCESOS', ¿qué representa la letra 'C'?",
+                options: ["Calcular la acumulación", "Confirmar si hay reacción o cambio de fase", "Clasificar el modo de operación", "Contrastar el resultado"],
+                correct: 1,
+                explanation: "En la mnemotecnia PROCESOS, la 'C' representa 'Confirmar si hay reacción o cambio de fase' (Paso 4), lo cual determina si hay generación/consumo de especies."
+            }
+        ];
+
+        let currentQuizQuestions = [];
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let userAnswers = [];
+
+        function startQuiz() {
+            const shuffled = [...quizDataPaso4].sort(() => 0.5 - Math.random());
+            currentQuizQuestions = shuffled.slice(0, 3);
+            currentQuestionIndex = 0;
+            score = 0;
+            userAnswers = [];
+            
+            document.getElementById('quiz-start').style.display = 'none';
+            document.getElementById('quiz-results').style.display = 'none';
+            document.getElementById('quiz-questions').style.display = 'block';
+            
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            const q = currentQuizQuestions[currentQuestionIndex];
+            const progress = ((currentQuestionIndex) / currentQuizQuestions.length) * 100;
+            document.getElementById('quiz-progress').style.width = `${progress}%`;
+            document.getElementById('btn-next').style.display = 'none';
+            document.getElementById('feedback-container').innerHTML = '';
+            
+            let html = `<h5 class="mb-3">Pregunta ${currentQuestionIndex + 1} de ${currentQuizQuestions.length}:</h5>`;
+            html += `<p class="lead">${q.question}</p>`;
+            html += `<div class="list-group">`;
+            q.options.forEach((opt, idx) => {
+                html += `<button class="list-group-item list-group-item-action" onclick="selectAnswer(${idx})" id="opt-${idx}">${opt}</button>`;
+            });
+            html += `</div>`;
+            
+            document.getElementById('question-container').innerHTML = html;
+        }
+
+        function selectAnswer(idx) {
+            const q = currentQuizQuestions[currentQuestionIndex];
+            const isCorrect = idx === q.correct;
+            
+            q.options.forEach((_, i) => {
+                document.getElementById(`opt-${i}`).disabled = true;
+                if (i === q.correct) {
+                    document.getElementById(`opt-${i}`).classList.add('list-group-item-success');
+                } else if (i === idx && !isCorrect) {
+                    document.getElementById(`opt-${i}`).classList.add('list-group-item-danger');
+                }
+            });
+
+            if (isCorrect) score++;
+            userAnswers.push({ qIndex: currentQuestionIndex, selected: idx, isCorrect });
+
+            const feedbackClass = isCorrect ? 'alert-success' : 'alert-danger';
+            const feedbackIcon = isCorrect ? 'fa-check-circle' : 'fa-times-circle';
+            document.getElementById('feedback-container').innerHTML = `
+                <div class="alert ${feedbackClass}">
+                    <i class="fas ${feedbackIcon}"></i> <strong>${isCorrect ? '¡Correcto!' : 'Incorrecto.'}</strong> ${q.explanation}
+                </div>
+            `;
+            
+            document.getElementById('btn-next').style.display = 'block';
+            document.getElementById('btn-next').textContent = currentQuestionIndex === currentQuizQuestions.length - 1 ? 'Ver Resultados' : 'Siguiente';
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < currentQuizQuestions.length) {
+                renderQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            document.getElementById('quiz-questions').style.display = 'none';
+            document.getElementById('quiz-results').style.display = 'block';
+            
+            const percentage = (score / currentQuizQuestions.length) * 100;
+            let icon, title, color;
+            
+            if (percentage === 100) { icon = 'fa-trophy'; title = '¡Excelente! Dominas la Guía en 8 Pasos.'; color = 'text-success'; }
+            else if (percentage >= 66) { icon = 'fa-thumbs-up'; title = '¡Buen trabajo! Sigue practicando.'; color = 'text-warning'; }
+            else { icon = 'fa-book-open'; title = 'Necesitas repasar la metodología.'; color = 'text-danger'; }
+            
+            document.getElementById('result-icon').innerHTML = `<i class="fas ${icon} fa-4x ${color}"></i>`;
+            document.getElementById('result-title').className = color;
+            document.getElementById('result-title').textContent = title;
+            document.getElementById('result-score').textContent = `Puntuación: ${score} de ${currentQuizQuestions.length} (${percentage}%)`;
+            
+            let detailsHtml = '<h5>Detalle de respuestas:</h5><ul class="list-group">';
+            userAnswers.forEach((ans, i) => {
+                const q = currentQuizQuestions[ans.qIndex];
+                const statusClass = ans.isCorrect ? 'list-group-item-success' : 'list-group-item-danger';
+                const statusIcon = ans.isCorrect ? 'fa-check' : 'fa-times';
+                detailsHtml += `<li class="list-group-item ${statusClass}"><i class="fas ${statusIcon}"></i> <strong>P${i+1}:</strong> ${q.question.substring(0, 50)}...</li>`;
+            });
+            detailsHtml += '</ul>';
+            document.getElementById('result-details').innerHTML = detailsHtml;
+        }
+
+        function resetQuiz() {
+            document.getElementById('quiz-results').style.display = 'none';
+            document.getElementById('quiz-start').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
