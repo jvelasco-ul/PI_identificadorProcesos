@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sistema de evaluación del curso Procesos Industriales 2026-2">
+    <title>Evaluaciones | Procesos Industriales</title>
+    <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* Estilos específicos para evaluaciones.html */
+        .eval-hero {
+            background: linear-gradient(135deg, #1A1A1A 0%, #FF6B00 100%);
+            color: white;
+            padding: 80px 0;
+        }
+        .timeline-container {
+            position: relative;
+            padding: 20px 0;
+        }
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: linear-gradient(to bottom, #FF6B00, #1A1A1A);
+            transform: translateX(-50%);
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            background: #FF6B00;
+            border: 4px solid white;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 0 4px #FF6B00;
+            z-index: 2;
+        }
+        .timeline-item.left .timeline-content {
+            margin-right: 50%;
+            padding-right: 40px;
+            text-align: right;
+        }
+        .timeline-item.right .timeline-content {
+            margin-left: 50%;
+            padding-left: 40px;
+        }
+        .timeline-content {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-left: 4px solid #FF6B00;
+            transition: all 0.3s ease;
+        }
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(255,107,0,0.2);
+        }
+        .timeline-item.evaluation::before {
+            background: #DC3545;
+            box-shadow: 0 0 0 4px #DC3545;
+            animation: pulse 2s infinite;
+        }
+        .timeline-item.evaluation .timeline-content {
+            border-left-color: #DC3545;
+        }
+        .timeline-item.lab::before {
+            background: #28A745;
+            box-shadow: 0 0 0 4px #28A745;
+        }
+        .timeline-item.lab .timeline-content {
+            border-left-color: #28A745;
+        }
+        .timeline-item.project::before {
+            background: #6C757D;
+            box-shadow: 0 0 0 4px #6C757D;
+        }
+        .timeline-item.project .timeline-content {
+            border-left-color: #6C757D;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 4px #DC3545, 0 0 0 8px rgba(220,53,69,0.3); }
+            50% { box-shadow: 0 0 0 4px #DC3545, 0 0 0 12px rgba(220,53,69,0); }
+            100% { box-shadow: 0 0 0 4px #DC3545, 0 0 0 8px rgba(220,53,69,0.3); }
+        }
+        .eval-card {
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .eval-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        .eval-card .card-header {
+            background: linear-gradient(135deg, #FF6B00 0%, #CC5500 100%);
+            color: white;
+            font-weight: 700;
+        }
+        .weight-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .weight-20 { background: #17A2B8; color: white; }
+        .weight-30 { background: #FF6B00; color: white; }
+        .weight-lab { background: #28A745; color: white; }
+        .weight-project { background: #6C757D; color: white; }
+        .calculator-box {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            padding: 30px;
+            border: 2px solid #FF6B00;
+        }
+        .result-display {
+            font-size: 2.5rem;
+            font-weight: 900;
+            font-family: 'Orbitron', sans-serif;
+        }
+        .result-approved { color: #28A745; }
+        .result-warning { color: #FFC107; }
+        .result-danger { color: #DC3545; }
+        .rubric-table th {
+            background: #1A1A1A;
+            color: white;
+        }
+        .rubric-table td {
+            vertical-align: middle;
+        }
+        .rubric-table tr:hover {
+            background: rgba(255,107,0,0.05);
+        }
+        .simulator-result {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+            border-left: 5px solid #FF6B00;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 5px 0;
+        }
+        .legend-dot {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            margin-right: 10px;
+            display: inline-block;
+        }
+        .policy-box {
+            background: #FFF3CD;
+            border-left: 5px solid #FFC107;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        @media (max-width: 768px) {
+            .timeline-container::before {
+                left: 20px;
+            }
+            .timeline-item::before {
+                left: 20px;
+            }
+            .timeline-item.left .timeline-content,
+            .timeline-item.right .timeline-content {
+                margin-left: 50px;
+                margin-right: 0;
+                padding-left: 20px;
+                padding-right: 20px;
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip to content -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+    <!-- Header -->
+    <header class="main-header">
+        <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Navegación principal">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="assets/images/logo.svg" alt="Logo" height="60" class="logo-header">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Protocolo</a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="protocol/guia-identificacion.html">Guía Completa</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Procesos</a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="procesos/paso0.html">Paso 0: Sistema y Frontera</a></li>
+                                <li><a class="dropdown-item" href="procesos/paso1.html">Paso 1: Matriz Entrada-Salida</a></li>
+                                <li><a class="dropdown-item" href="procesos/paso2.html">Paso 2: Clasificación</a></li>
+                                <li><a class="dropdown-item" href="procesos/paso3.html">Paso 3: Régimen Temporal</a></li>
+                                <li><a class="dropdown-item" href="procesos/paso4.html">Paso 4: Aplicación 8 Pasos</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="recursos.html">Recursos</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="evaluaciones.html">Evaluaciones</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="eval-hero">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <div class="badge bg-warning text-dark mb-3">
+                            <i class="fas fa-clipboard-check"></i> SISTEMA DE EVALUACIÓN
+                        </div>
+                        <h1 class="display-4 mb-3">
+                            <i class="fas fa-chart-line"></i> Evaluaciones del Curso
+                        </h1>
+                        <p class="lead mb-4">
+                            Calendario, rúbricas, calculadora de nota final y simulador de evaluaciones para Procesos Industriales 2026-2
+                        </p>
+                        <div class="d-flex gap-3 flex-wrap">
+                            <a href="#calendario" class="btn btn-light btn-lg"><i class="fas fa-calendar-alt"></i> Calendario</a>
+                            <a href="#calculadora" class="btn btn-outline-light btn-lg"><i class="fas fa-calculator"></i> Calculadora EC</a>
+                            <a href="#simulador" class="btn btn-outline-light btn-lg"><i class="fas fa-question-circle"></i> Simulador</a>
+                            <a href="#rubricas" class="btn btn-outline-light btn-lg"><i class="fas fa-list-check"></i> Rúbricas</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 text-center d-none d-lg-block">
+                        <i class="fas fa-graduation-cap fa-10x" style="opacity: 0.3;"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resumen de Evaluación -->
+        <section class="py-4 bg-light">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-3 col-6 mb-3">
+                        <div class="p-3">
+                            <i class="fas fa-file-alt fa-2x text-info"></i>
+                            <h3 class="mt-2 mb-0">2</h3>
+                            <small class="text-muted">Exámenes Escritos</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6 mb-3">
+                        <div class="p-3">
+                            <i class="fas fa-flask fa-2x text-success"></i>
+                            <h3 class="mt-2 mb-0">5</h3>
+                            <small class="text-muted">Laboratorios</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6 mb-3">
+                        <div class="p-3">
+                            <i class="fas fa-project-diagram fa-2x text-secondary"></i>
+                            <h3 class="mt-2 mb-0">1</h3>
+                            <small class="text-muted">Proyecto Integrador</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6 mb-3">
+                        <div class="p-3">
+                            <i class="fas fa-calendar-week fa-2x text-warning"></i>
+                            <h3 class="mt-2 mb-0">16</h3>
+                            <small class="text-muted">Semanas</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fórmula EC -->
+        <section class="py-5">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="card shadow">
+                            <div class="card-header bg-orange text-white">
+                                <h4 class="mb-0"><i class="fas fa-square-root-alt"></i> Fórmula de Evaluación Continua (EC)</h4>
+                            </div>
+                            <div class="card-body p-4 text-center">
+                                <p class="lead mb-4">La nota final del curso se calcula con la siguiente fórmula:</p>
+                                <div class="formula-box bg-dark text-white p-4 rounded mb-4">
+                                    <p class="fs-3 mb-0">
+                                        \[ EC = \frac{EE1 \times 20 + EE2 \times 30 + PR \times 20 + LB \times 30}{100} \]
+                                    </p>
+                                </div>
+                                <div class="row text-start">
+                                    <div class="col-md-6">
+                                        <ul class="list-unstyled">
+                                            <li class="mb-2"><span class="weight-badge weight-20">EE1 (20%)</span> Examen Escrito 1 - Semana 8</li>
+                                            <li class="mb-2"><span class="weight-badge weight-30">EE2 (30%)</span> Examen Escrito 2 - Semana 11</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ul class="list-unstyled">
+                                            <li class="mb-2"><span class="weight-badge weight-project">PR (20%)</span> Proyecto Integrador - Semana 13</li>
+                                            <li class="mb-2"><span class="weight-badge weight-lab">LB (30%)</span> 5 Laboratorios - Semanas 4, 7, 10, 13, 15</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="alert alert-info mt-4 mb-0">
+                                    <i class="fas fa-info-circle"></i>
+                                    <strong>Nota mínima aprobatoria:</strong> 11 (en escala vigesimal, 0-20). La EC se redondea al entero más cercano.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CALENDARIO VISUAL -->
+        <section id="calendario" class="py-5 bg-light">
+            <div class="container">
+                <h2 class="section-title text-center mb-2">
+                    <i class="fas fa-calendar-alt text-orange"></i> Calendario de Evaluaciones - 16 Semanas
+                </h2>
+                <p class="text-center text-muted mb-5">Timeline visual con todas las evaluaciones del curso</p>
+
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="d-flex flex-wrap justify-content-center gap-3 mb-4">
+                            <div class="legend-item"><span class="legend-dot" style="background: #DC3545;"></span> Examen Escrito</div>
+                            <div class="legend-item"><span class="legend-dot" style="background: #28A745;"></span> Laboratorio</div>
+                            <div class="legend-item"><span class="legend-dot" style="background: #6C757D;"></span> Proyecto</div>
+                            <div class="legend-item"><span class="legend-dot" style="background: #FF6B00;"></span> Semana Teórica</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-container">
+                    <!-- Semana 1 -->
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <span class="badge bg-warning text-dark mb-2">Semana 1</span>
+                            <h5>Introducción y Balances de Materia</h5>
+                            <p class="mb-0 text-muted">Unidad 1 · Sistemas Termodinámicos</p>
+                        </div>
+                    </div>
+
+                    <!-- Semana 2 -->
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <span class="badge bg-warning text-dark mb-2">Semana 2</span>
+                            <h5>1ª y 2ª Ley de la Termodinámica</h5>
+                            <p class="mb-0 text-muted">Unidad 1 · Turbinas, bombas, compresores</p>
+                        </div>
+                    </div>
+
+                    <!-- Semana 3 -->
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <span class="badge bg-warning text-dark mb-2">Semana 3</span>
+                            <h5>Ciclo de Refrigeración</h5>
+                            <p class="mb-0 text-muted">Unidad 1 · COP, refrigerantes, GWP/ODP</p>
+                        </div>
+                    </div>
+
+                    <!-- Semana 4 - LB1 -->
+                    <div class="timeline-item right evaluation">
+                        <div class="timeline-content">
+                            <span class="badge bg-danger mb-2"><i class="fas fa-flask"></i> Semana 4</span>
+                            <h5>Laboratorio LB1: Ciclo de Refrigeración</h5>
+                            <p class="mb-1"><strong>Peso:</strong> Parte del 30% de Laboratorios</p>
+                            <p class="mb-0 text-muted"><i class="fas fa-users"></i> 60% grupal / 40% individual</p>
+                        </div>
+                    </div>
+
+                    <!-- Semana 5 - Proyecto Avance -->
+                    <div class="timeline-item left project">
+                        <div class="timeline-content">
+                            <span class="badge bg-secondary mb-2"><i class="fas fa-project-diagram"></i> Semana 5</span>
+                            <h5>Presentación de Avance del Proyecto</h5>
+                            <p class="mb-1"><strong>Entregable:</strong> Alcances, metodología y cronograma</p>
+                            <p class="mb-0 text-muted">Retroalimentación del docente</p>
+                        </div>
+                    </div>
+
+                    <!-- Semana 6 -->
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <span class="badge bg-info mb-2">Semana 6</span>
+                            <h5>Acondicionamiento de Aire</h5>
+                            <p class="mb-0 text-muted">Unidad 2 · Diagrama psicrométrico</p>
+                        </div>
+                    </div>
+
+                    <!-- Semana 7 - LB2 -->
+                    <div class="timeline-item left evaluation">
+                        <div class="timeline-content">
+                            <span class="badge bg-danger mb-2"><i class="fas fa-flask"></i> Semana 7</span>
+                            <h5>Laboratorio LB2: Acondicionamiento de Aire</h5>
+                            <p class="mb-1"><strong>Peso:</strong> Parte del 30% de Laboratorios</p>
+                            <p class="mb-0 text-muted"><i class="fas fa-users"></i> 60% grupal / 40% individual</p>
+                        </div>
+                    </div>
+
+                    <!-- Semana 8 - EE1 -->
+                    <div class="timeline-item right evaluation">
+                        <div class="timeline-content">
+                            <span class="badge bg-danger mb-2"><i class="fas fa-file-alt"></i> Semana 8</span>
+                            <h5>Examen Escrito 1 (EE1)</h5>
+                            <p class="mb-1"><strong>Peso:</strong> 20% de la EC</p>
+                            <p class="mb-0 text-muted">Unidades 1 y 2 · Semanas 1-7</p>
+                        </div>
+                    </div>
+
+                    <!-- Semana 9 -->
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <span class="badge bg-warning text-dark mb-2">Semana 9</span>
+                            <h5>Combustión: Balance de Materia</h5>
+                            <p class="mb-0 text-muted">Unidad 3 · Aire teórico y exceso</p>
+                        </div>
+                    </div>
+
+                    <!-- Semana 10 - LB3 -->
+                    <div class="timeline-item right evaluation">
+                        <div class="timeline-content">
+                            <span class="badge bg-danger mb-2"><i class="fas fa-flask"></i> Semana 10</span>
+                            <h5>Laboratorio LB3: Secado por Rociado</h5>
+                            <p class="mb-1"><strong>Peso:</strong> Parte del 30% de Laboratorios</p>
+                            <p class="mb-0 text-muted"><i class="fas fa-user"></i> 100% grupal (sin componente individual)</p>
+                        </div>
+                    </div>
+
+                    <!-- Semana 11 - EE2 -->
+                    <div class="timeline-item left evaluation">
+                        <div class="timeline-content">
+                            <span class="badge bg-danger mb-2"><i class="fas fa-file-alt"></i> Semana 11</span>
+                            <h5>Examen Escrito 2 (EE2)</h5>
+                            <p class="mb-1"><strong>Peso:</strong> 30% de la EC</p>
+                            <p class="mb-0 text-muted">Unidades 3 y 5 · Semanas 9-10 y 11</p>
+                        </div>
+                    </div>
+
+                    <!-- Semana 12 -->
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <span class="badge bg-warning text-dark mb-2">Semana 12</span>
+                            <h5>Intercambiadores de Calor</h5>
+                            <p class="mb-0 text-muted">Unidad 5 · Método DTML</p>
+                        </div>
+                    </div>
+
+                    <!-- Semana 13 - LB4 + Proyecto Final -->
+                    <div class="timeline-item left evaluation">
+                        <div class="timeline-content">
+                            <span class="badge bg-danger mb-2"><i class="fas fa-flask"></i> Semana 13</span>
+                            <h5>Laboratorio LB4 + Presentación Final del Proyecto</h5>
+                            <p class="mb-1"><strong>LB4:</strong> Intercambiadores de Calor (parte del 30% LB)</p>
+                            <p class="mb-1"><strong>Proyecto Final:</strong> 20% de la EC</p>
+                            <p class="mb-0 text-muted"><i class="fas fa-users"></i> Presentación grupal con sustentación</p>
+                        </div>
+                    </div>
+
+                    <!-- Semana 14 -->
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <span class="badge bg-info mb-2">Semana 14</span>
+                            <h5>Flujo de Fluidos</h5>
+                            <p class="mb-0 text-muted">Unidad 6 · Continuidad, Bernoulli, Reynolds</p>
+                        </div>
+                    </div>
+
+                    <!-- Semana 15 - LB5 -->
+                    <div class="timeline-item left evaluation">
+                        <div class="timeline-content">
+                            <span class="badge bg-danger mb-2"><i class="fas fa-flask"></i> Semana 15</span>
+                            <h5>Laboratorio LB5: Pérdidas de Carga</h5>
+                            <p class="mb-1"><strong>Peso:</strong> Parte del 30% de Laboratorios</p>
+                            <p class="mb-0 text-muted"><i class="fas fa-users"></i> 60% grupal / 40% individual</p>
+                        </div>
+                    </div>
+
+                    <!-- Semana 16 - Cierre -->
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <span class="badge bg-success mb-2">Semana 16</span>
+                            <h5>Cierre y Retroalimentación</h5>
+                            <p class="mb-1">Revisión de resultados y entrega final de notas</p>
+                            <p class="mb-0 text-muted">Síntesis integradora de las 6 unidades</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CALCULADORA EC -->
+        <section id="calculadora" class="py-5">
+            <div class="container">
+                <h2 class="section-title text-center mb-2">
+                    <i class="fas fa-calculator text-orange"></i> Calculadora de Evaluación Continua
+                </h2>
+                <p class="text-center text-muted mb-5">Ingresa tus notas y calcula tu EC automáticamente</p>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="calculator-box">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="ee1" class="form-label fw-bold">
+                                        <i class="fas fa-file-alt text-info"></i> Examen Escrito 1 (EE1) - 20%
+                                    </label>
+                                    <input type="number" id="ee1" class="form-control form-control-lg" min="0" max="20" step="0.1" value="14" placeholder="0-20">
+                                    <small class="text-muted">Semana 8 · Unidades 1 y 2</small>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="ee2" class="form-label fw-bold">
+                                        <i class="fas fa-file-alt text-info"></i> Examen Escrito 2 (EE2) - 30%
+                                    </label>
+                                    <input type="number" id="ee2" class="form-control form-control-lg" min="0" max="20" step="0.1" value="15" placeholder="0-20">
+                                    <small class="text-muted">Semana 11 · Unidades 3 y 5</small>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="pr" class="form-label fw-bold">
+                                        <i class="fas fa-project-diagram text-secondary"></i> Proyecto (PR) - 20%
+                                    </label>
+                                    <input type="number" id="pr" class="form-control form-control-lg" min="0" max="20" step="0.1" value="16" placeholder="0-20">
+                                    <small class="text-muted">Semana 13 · Presentación Final</small>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="lb" class="form-label fw-bold">
+                                        <i class="fas fa-flask text-success"></i> Laboratorios (LB) - 30%
+                                    </label>
+                                    <input type="number" id="lb" class="form-control form-control-lg" min="0" max="20" step="0.1" value="17" placeholder="0-20">
+                                    <small class="text-muted">Promedio de LB1-LB5</small>
+                                </div>
+                            </div>
+                            <button class="btn btn-warning btn-lg w-100 mb-3" onclick="calcularEC()">
+                                <i class="fas fa-calculator"></i> Calcular Evaluación Continua
+                            </button>
+                            <div id="resultadoEC" class="text-center" style="display: none;">
+                                <div class="simulator-result">
+                                    <p class="text-muted mb-1">Tu Evaluación Continua es:</p>
+                                    <div id="ecValue" class="result-display"></div>
+                                    <p id="ecStatus" class="lead mt-2"></p>
+                                    <div id="ecBreakdown" class="mt-3 text-start"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SIMULADOR -->
+        <section id="simulador" class="py-5 bg-light">
+            <div class="container">
+                <h2 class="section-title text-center mb-2">
+                    <i class="fas fa-question-circle text-orange"></i> Simulador: ¿Qué necesito sacar?
+                </h2>
+                <p class="text-center text-muted mb-5">Descubre qué nota necesitas en una evaluación para alcanzar tu meta</p>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="calculator-box">
+                            <div class="mb-3">
+                                <label for="meta" class="form-label fw-bold">
+                                    <i class="fas fa-bullseye text-danger"></i> Nota meta que deseas obtener:
+                                </label>
+                                <input type="number" id="meta" class="form-control form-control-lg" min="0" max="20" step="0.1" value="14" placeholder="Ej: 14">
+                                <small class="text-muted">Mínimo aprobatorio: 11</small>
+                            </div>
+                            <div class="mb-3">
+                                <label for="evalFaltante" class="form-label fw-bold">
+                                    <i class="fas fa-exclamation-circle text-warning"></i> ¿Qué evaluación te falta rendir?
+                                </label>
+                                <select id="evalFaltante" class="form-select form-select-lg">
+                                    <option value="ee1">Examen Escrito 1 (EE1) - 20%</option>
+                                    <option value="ee2">Examen Escrito 2 (EE2) - 30%</option>
+                                    <option value="pr">Proyecto (PR) - 20%</option>
+                                    <option value="lb">Laboratorios (LB) - 30%</option>
+                                </select>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="sim_ee1" class="form-label">EE1 (0-20):</label>
+                                    <input type="number" id="sim_ee1" class="form-control" min="0" max="20" step="0.1" value="14">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="sim_ee2" class="form-label">EE2 (0-20):</label>
+                                    <input type="number" id="sim_ee2" class="form-control" min="0" max="20" step="0.1" value="15">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="sim_pr" class="form-label">Proyecto (0-20):</label>
+                                    <input type="number" id="sim_pr" class="form-control" min="0" max="20" step="0.1" value="16">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="sim_lb" class="form-label">Laboratorios (0-20):</label>
+                                    <input type="number" id="sim_lb" class="form-control" min="0" max="20" step="0.1" value="17">
+                                </div>
+                            </div>
+                            <button class="btn btn-warning btn-lg w-100 mb-3" onclick="simularNota()">
+                                <i class="fas fa-magic"></i> Simular Nota Necesaria
+                            </button>
+                            <div id="resultadoSimulador" style="display: none;">
+                                <div class="simulator-result">
+                                    <div id="simuladorMensaje"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RÚBRICAS DE LABORATORIOS -->
+        <section id="rubricas" class="py-5">
+            <div class="container">
+                <h2 class="section-title text-center mb-2">
+                    <i class="fas fa-list-check text-orange"></i> Rúbricas de Laboratorios
+                </h2>
+                <p class="text-center text-muted mb-5">Criterios de evaluación para los 5 laboratorios del curso</p>
+
+                <div class="alert alert-info mb-4">
+                    <i class="fas fa-info-circle"></i>
+                    <strong>Composición de la nota de laboratorio:</strong> 60% grupal + 40% individual (excepto LB3, que es 100% grupal). La asistencia es obligatoria con tolerancia de 5 minutos.
+                </div>
+
+                <!-- LB1 -->
+                <div class="card eval-card shadow-sm mb-4">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-snowflake"></i> LB1: Ciclo de Refrigeración (Semana 4)</h5>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-striped rubric-table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 30%;">Criterio</th>
+                                        <th style="width: 15%;">Peso</th>
+                                        <th style="width: 55%;">Descripción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Identificación del sistema</strong></td>
+                                        <td><span class="weight-badge weight-20">20%</span></td>
+                                        <td>Define correctamente la frontera del ciclo, identifica los 4 componentes (compresor, condensador, válvula, evaporador) y las corrientes de entrada/salida.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Lectura del diagrama P-h</strong></td>
+                                        <td><span class="weight-badge weight-30">30%</span></td>
+                                        <td>Obtiene correctamente las entalpías en los 4 estados del ciclo (h1, h2, h3, h4) usando tablas o software (CoolProp/DWSIM).</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Cálculo del COP</strong></td>
+                                        <td><span class="weight-badge weight-30">30%</span></td>
+                                        <td>Calcula el COP ideal y real, considera la eficiencia del compresor y compara con valores de referencia industrial (COP 3-6).</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Análisis de impacto</strong></td>
+                                        <td><span class="weight-badge weight-20">20%</span></td>
+                                        <td>Cuantifica el sobrecosto eléctrico anual por bajo COP y propone mejoras (sub-enfriamiento, refrigerante de bajo GWP).</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LB2 -->
+                <div class="card eval-card shadow-sm mb-4">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-wind"></i> LB2: Acondicionamiento de Aire (Semana 7)</h5>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-striped rubric-table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 30%;">Criterio</th>
+                                        <th style="width: 15%;">Peso</th>
+                                        <th style="width: 55%;">Descripción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Lectura del diagrama psicrométrico</strong></td>
+                                        <td><span class="weight-badge weight-30">30%</span></td>
+                                        <td>Ubica correctamente los puntos de entrada y salida, determina HR, humedad absoluta, bulbo húmedo y punto de rocío.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Balance de materia (agua)</strong></td>
+                                        <td><span class="weight-badge weight-25">25%</span></td>
+                                        <td>Calcula el agua condensada o agregada usando: m_A = m_AS·(H1 - H2). Identifica correctamente el flujo de aire seco.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Balance de energía</strong></td>
+                                        <td><span class="weight-badge weight-25">25%</span></td>
+                                        <td>Calcula el calor sensible y latente usando la entalpía del aire húmedo: h_AH = (1.005 + 1.88·H)·T + 2501·H.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Aplicación industrial</strong></td>
+                                        <td><span class="weight-badge weight-20">20%</span></td>
+                                        <td>Relaciona el resultado con el caso textil (50% HR) y cuantifica el impacto en rotura de hilos y productividad.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LB3 -->
+                <div class="card eval-card shadow-sm mb-4">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-spray-can"></i> LB3: Secado por Rociado (Semana 10)</h5>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="alert alert-warning m-3">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <strong>Nota:</strong> LB3 es 100% grupal. No hay componente individual.
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-striped rubric-table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 30%;">Criterio</th>
+                                        <th style="width: 15%;">Peso</th>
+                                        <th style="width: 55%;">Descripción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Conversión de humedad</strong></td>
+                                        <td><span class="weight-badge weight-25">25%</span></td>
+                                        <td>Convierte correctamente entre base húmeda (Y) y base seca (X): X = Y/(1-Y). Identifica el sólido seco constante.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Balance de agua evaporada</strong></td>
+                                        <td><span class="weight-badge weight-30">30%</span></td>
+                                        <td>Calcula el agua evaporada: m_A = m_SS·(X1 - X2) = m_AS·(H2 - H1). Verifica consistencia de unidades.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Balance de energía del secador</strong></td>
+                                        <td><span class="weight-badge weight-25">25%</span></td>
+                                        <td>Considera calor sensible del sólido, calor latente de evaporación y pérdidas al ambiente. Eficiencia típica 30-50%.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Análisis de eficiencia energética</strong></td>
+                                        <td><span class="weight-badge weight-20">20%</span></td>
+                                        <td>Cuantifica el consumo de gas natural y propone estrategias de mejora (recuperación de calor, secado solar).</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LB4 -->
+                <div class="card eval-card shadow-sm mb-4">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-exchange-alt"></i> LB4: Intercambiadores de Calor (Semana 13)</h5>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-striped rubric-table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 30%;">Criterio</th>
+                                        <th style="width: 15%;">Peso</th>
+                                        <th style="width: 55%;">Descripción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Identificación de configuración</strong></td>
+                                        <td><span class="weight-badge weight-20">20%</span></td>
+                                        <td>Diferencia correctamente entre flujo paralelo y contracorriente. Identifica el tipo de intercambiador (tubo-coraza, placas).</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Cálculo del DTML</strong></td>
+                                        <td><span class="weight-badge weight-30">30%</span></td>
+                                        <td>Aplica correctamente: ΔT_ml = (ΔT1 - ΔT2)/ln(ΔT1/ΔT2). Considera el factor de corrección F si aplica.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Balance de energía</strong></td>
+                                        <td><span class="weight-badge weight-25">25%</span></td>
+                                        <td>Calcula Q = m·Cp·ΔT para ambos fluidos y verifica que Q_cedido ≈ Q_ganado (con pérdidas < 5%).</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Diagnóstico de incrustaciones</strong></td>
+                                        <td><span class="weight-badge weight-25">25%</span></td>
+                                        <td>Analiza el efecto de las incrustaciones en el coeficiente global U y propone plan de mantenimiento (limpieza cada 6 meses).</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LB5 -->
+                <div class="card eval-card shadow-sm mb-4">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-tint"></i> LB5: Pérdidas de Carga (Semana 15)</h5>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-striped rubric-table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 30%;">Criterio</th>
+                                        <th style="width: 15%;">Peso</th>
+                                        <th style="width: 55%;">Descripción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Cálculo del número de Reynolds</strong></td>
+                                        <td><span class="weight-badge weight-20">20%</span></td>
+                                        <td>Determina correctamente Re = ρ·v·D/μ y clasifica el régimen (laminar < 2100, turbulento > 4000).</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Pérdidas primarias (Darcy-Weisbach)</strong></td>
+                                        <td><span class="weight-badge weight-30">30%</span></td>
+                                        <td>Calcula h_f = f·(L/D)·(v²/2g) usando el diagrama de Moody o ecuación de Swamee-Jain. Considera rugosidad del material.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Pérdidas secundarias (accesorios)</strong></td>
+                                        <td><span class="weight-badge weight-25">25%</span></td>
+                                        <td>Incluye pérdidas por codos, válvulas, contracciones y ensanchamientos usando coeficientes K o longitud equivalente.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Potencia de bombeo</strong></td>
+                                        <td><span class="weight-badge weight-25">25%</span></td>
+                                        <td>Calcula P = ρ·g·Q·h_bomba/η. Considera la eficiencia de la bomba (60-85%) y verifica NPSH para evitar cavitación.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROYECTO INTEGRADOR -->
+        <section id="proyecto" class="py-5 bg-light">
+            <div class="container">
+                <h2 class="section-title text-center mb-2">
+                    <i class="fas fa-project-diagram text-orange"></i> Proyecto Integrador (20% de la EC)
+                </h2>
+                <p class="text-center text-muted mb-5">Criterios de evaluación del avance (Semana 5) y presentación final (Semana 13)</p>
+
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="card eval-card shadow-sm h-100">
+                            <div class="card-header bg-secondary text-white">
+                                <h5 class="mb-0"><i class="fas fa-clipboard-list"></i> Avance del Proyecto (Semana 5)</h5>
+                            </div>
+                            <div class="card-body">
+                                <p class="text-muted"><strong>Entregable:</strong> Documento preliminar con alcances, metodología y cronograma</p>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success"></i> <strong>Definición del problema industrial (25%):</strong> Descripción clara del equipo/sistema a analizar con datos reales de una empresa peruana o transnacional.</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success"></i> <strong>Aplicación de los 8 pasos (35%):</strong> Demostración del uso sistemático de la Herramienta de Identificación de Procesos.</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success"></i> <strong>Metodología y cronograma (25%):</strong> Plan de trabajo realista con hitos medibles hasta la Semana 13.</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success"></i> <strong>Bibliografía y recursos (15%):</strong> Uso de al menos 3 fuentes del curso (Felder, Çengel, Mott) y software (CoolProp, DWSIM).</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card eval-card shadow-sm h-100">
+                            <div class="card-header bg-orange text-white">
+                                <h5 class="mb-0"><i class="fas fa-presentation"></i> Presentación Final (Semana 13)</h5>
+                            </div>
+                            <div class="card-body">
+                                <p class="text-muted"><strong>Entregable:</strong> Informe técnico + sustentación grupal (15 min + 5 min preguntas)</p>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success"></i> <strong>Análisis técnico completo (30%):</strong> Balances de materia y energía resueltos correctamente con validación de unidades.</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success"></i> <strong>Impacto industrial cuantificado (25%):</strong> Análisis económico (US$/año), ambiental (CO₂), de productividad y seguridad.</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success"></i> <strong>Propuestas de mejora (20%):</strong> Al menos 2 recomendaciones basadas en sostenibilidad (reducir, reutilizar, reciclar).</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success"></i> <strong>Calidad de la presentación (15%):</strong> Claridad, uso de diagramas (SVG/Chart.js), dominio del tema y respuesta a preguntas.</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success"></i> <strong>Trabajo en equipo (10%):</strong> Distribución equitativa de responsabilidades y coherencia del informe.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alert alert-warning mt-4">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <strong>Requisitos del proyecto:</strong>
+                    <ul class="mb-0 mt-2">
+                        <li>Grupos de 4-5 estudiantes (asignados en Semana 2)</li>
+                        <li>Tema aprobado por el docente en Semana 3</li>
+                        <li>Debe incluir al menos un caso de la industria peruana (Southern Copper, Backus, Alicorp, etc.)</li>
+                        <li>Uso obligatorio de la Herramienta de Identificación de Procesos (8 pasos)</li>
+                        <li>Extensión: 15-20 páginas + anexos con cálculos</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- POLÍTICAS ACADÉMICAS -->
+        <section class="py-5">
+            <div class="container">
+                <h2 class="section-title text-center mb-2">
+                    <i class="fas fa-gavel text-orange"></i> Políticas Académicas
+                </h2>
+                <p class="text-center text-muted mb-5">Normas de asistencia, tolerancia y evaluaciones</p>
+
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="policy-box h-100">
+                            <h5><i class="fas fa-clock text-warning"></i> Asistencia a Laboratorios</h5>
+                            <ul class="mb-0">
+                                <li><strong>Obligatoria:</strong> La asistencia a los 5 laboratorios es requisito para aprobar el curso.</li>
+                                <li><strong>Tolerancia:</strong> 5 minutos máximo. Después se considera falta.</li>
+                                <li><strong>Faltas injustificadas:</strong> 2 faltas = nota 0 en el laboratorio correspondiente.</li>
+                                <li><strong>Faltas justificadas:</strong> Solo con documento médico o laboral, con reposición en la semana siguiente.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="policy-box h-100">
+                            <h5><i class="fas fa-file-alt text-info"></i> Exámenes Escritos</h5>
+                            <ul class="mb-0">
+                                <li><strong>EE1 (Semana 8):</strong> Unidades 1 y 2 (Semanas 1-7). Peso: 20%.</li>
+                                <li><strong>EE2 (Semana 11):</strong> Unidades 3 y 5 (Semanas 9-11). Peso: 30%.</li>
+                                <li><strong>Material permitido:</strong> Calculadora científica, tablas termodinámicas impresas, formulario manuscrito (1 hoja A4).</li>
+                                <li><strong>No se permite:</strong> Celulares, smartwatches, apuntes impresos no autorizados.</li>
+                                <li><strong>Recuperación:</strong> Solo por motivos de fuerza mayor documentados, con examen sustitutorio (nota máxima 11).</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="policy-box h-100">
+                            <h5><i class="fas fa-users text-success"></i> Trabajo en Laboratorios</h5>
+                            <ul class="mb-0">
+                                <li><strong>Composición:</strong> 60% grupal + 40% individual (excepto LB3: 100% grupal).</li>
+                                <li><strong>Grupos:</strong> 4-5 estudiantes, asignados en Semana 2. No se permiten cambios después.</li>
+                                <li><strong>Informe:</strong> Entrega digital (PDF) dentro de las 48 horas posteriores al laboratorio.</li>
+                                <li><strong>Plagio:</strong> Informes idénticos entre grupos = nota 0 para todos los involucrados.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="policy-box h-100">
+                            <h5><i class="fas fa-balance-scale text-danger"></i> Integridad Académica</h5>
+                            <ul class="mb-0">
+                                <li><strong>Cero tolerancia al plagio:</strong> Copia en exámenes = nota 0 y reporte a la oficina de ética.</li>
+                                <li><strong>Uso de IA:</strong> Permitido para cálculos y diagramas, pero el análisis e interpretación deben ser propios.</li>
+                                <li><strong>Citas:</strong> Todo dato externo debe citarse con fuente (APA 7ª edición).</li>
+                                <li><strong>Originalidad:</strong> Se usarán herramientas de detección de similitud (Turnitin) en el proyecto final.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navegación -->
+        <section class="navigation-section py-5 bg-dark text-white">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                        <a href="recursos.html" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-arrow-left"></i> Recursos Educativos
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="index.html" class="btn btn-warning btn-lg">
+                            Volver al Inicio <i class="fas fa-home"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <img src="assets/images/logo.svg" alt="Logo" height="50" class="mb-3">
+                    <p>Ingeniería Industrial</p>
+                    <p>Docente: Juan Velasco</p>
+                    <p>Período: 2026-2</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="protocol/guia-identificacion.html">Protocolo</a></li>
+                        <li><a href="recursos.html">Recursos</a></li>
+                        <li><a href="evaluaciones.html">Evaluaciones</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Contacto</h5>
+                    <p><i class="fas fa-envelope"></i> juan.velasco@universidad.edu</p>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center"><p>&copy; 2026 Procesos Industriales. Todos los derechos reservados.</p></div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
+    
+    <!-- Scripts específicos para evaluaciones.html -->
+    <script>
+        // Calculadora de EC
+        function calcularEC() {
+            const ee1 = parseFloat(document.getElementById('ee1').value);
+            const ee2 = parseFloat(document.getElementById('ee2').value);
+            const pr = parseFloat(document.getElementById('pr').value);
+            const lb = parseFloat(document.getElementById('lb').value);
+            
+            // Validación
+            if ([ee1, ee2, pr, lb].some(n => isNaN(n) || n < 0 || n > 20)) {
+                alert('Por favor ingresa notas válidas entre 0 y 20.');
+                return;
+            }
+            
+            const ec = (ee1 * 20 + ee2 * 30 + pr * 20 + lb * 30) / 100;
+            const ecRedondeada = Math.round(ec * 10) / 10;
+            
+            const resultado = document.getElementById('resultadoEC');
+            const ecValue = document.getElementById('ecValue');
+            const ecStatus = document.getElementById('ecStatus');
+            const ecBreakdown = document.getElementById('ecBreakdown');
+            
+            resultado.style.display = 'block';
+            ecValue.textContent = ecRedondeada.toFixed(1);
+            
+            // Color según nota
+            if (ecRedondeada >= 14) {
+                ecValue.className = 'result-display result-approved';
+                ecStatus.innerHTML = '<i class="fas fa-trophy text-success"></i> ¡Excelente! Estás en el tercio superior.';
+            } else if (ecRedondeada >= 11) {
+                ecValue.className = 'result-display result-warning';
+                ecStatus.innerHTML = '<i class="fas fa-check-circle text-warning"></i> Aprobado, pero puedes mejorar.';
+            } else {
+                ecValue.className = 'result-display result-danger';
+                ecStatus.innerHTML = '<i class="fas fa-exclamation-triangle text-danger"></i> En riesgo. Necesitas reforzar.';
+            }
+            
+            // Desglose
+            ecBreakdown.innerHTML = `
+                <h6 class="fw-bold">Desglose:</h6>
+                <ul class="list-unstyled mb-0">
+                    <li>EE1: ${ee1} × 20% = <strong>${(ee1 * 0.2).toFixed(2)}</strong></li>
+                    <li>EE2: ${ee2} × 30% = <strong>${(ee2 * 0.3).toFixed(2)}</strong></li>
+                    <li>PR: ${pr} × 20% = <strong>${(pr * 0.2).toFixed(2)}</strong></li>
+                    <li>LB: ${lb} × 30% = <strong>${(lb * 0.3).toFixed(2)}</strong></li>
+                    <li class="mt-2 pt-2 border-top"><strong>Total EC: ${ecRedondeada.toFixed(1)}</strong></li>
+                </ul>
+            `;
+            
+            // Scroll al resultado
+            resultado.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // Simulador de nota
+        function simularNota() {
+            const meta = parseFloat(document.getElementById('meta').value);
+            const evalFaltante = document.getElementById('evalFaltante').value;
+            const ee1 = parseFloat(document.getElementById('sim_ee1').value);
+            const ee2 = parseFloat(document.getElementById('sim_ee2').value);
+            const pr = parseFloat(document.getElementById('sim_pr').value);
+            const lb = parseFloat(document.getElementById('sim_lb').value);
+            
+            if ([meta, ee1, ee2, pr, lb].some(n => isNaN(n) || n < 0 || n > 20)) {
+                alert('Por favor ingresa valores válidos entre 0 y 20.');
+                return;
+            }
+            
+            // Calcular nota necesaria
+            let notaNecesaria;
+            const pesos = { ee1: 0.20, ee2: 0.30, pr: 0.20, lb: 0.30 };
+            const valores = { ee1, ee2, pr, lb };
+            
+            const sumaActual = Object.keys(valores).reduce((acc, key) => {
+                if (key !== evalFaltante) {
+                    return acc + valores[key] * pesos[key];
+                }
+                return acc;
+            }, 0);
+            
+            notaNecesaria = (meta - sumaActual) / pesos[evalFaltante];
+            
+            const resultado = document.getElementById('resultadoSimulador');
+            const mensaje = document.getElementById('simuladorMensaje');
+            
+            resultado.style.display = 'block';
+            
+            const nombres = {
+                ee1: 'Examen Escrito 1 (EE1)',
+                ee2: 'Examen Escrito 2 (EE2)',
+                pr: 'Proyecto (PR)',
+                lb: 'Laboratorios (LB)'
+            };
+            
+            if (notaNecesaria > 20) {
+                mensaje.innerHTML = `
+                    <div class="alert alert-danger mb-0">
+                        <i class="fas fa-times-circle fa-2x mb-2"></i>
+                        <h5>Meta inalcanzable</h5>
+                        <p class="mb-0">Necesitarías sacar <strong>${notaNecesaria.toFixed(1)}</strong> en ${nombres[evalFaltante]}, pero el máximo es 20.</p>
+                        <p class="mb-0 mt-2"><strong>Recomendación:</strong> Reduce tu meta o mejora las otras evaluaciones.</p>
+                    </div>
+                `;
+            } else if (notaNecesaria < 0) {
+                mensaje.innerHTML = `
+                    <div class="alert alert-success mb-0">
+                        <i class="fas fa-check-circle fa-2x mb-2"></i>
+                        <h5>¡Ya alcanzaste tu meta!</h5>
+                        <p class="mb-0">Con tus notas actuales ya superas los <strong>${meta}</strong> puntos. Puedes sacar <strong>0</strong> en ${nombres[evalFaltante]} y aún así aprobar.</p>
+                    </div>
+                `;
+            } else if (notaNecesaria <= 11) {
+                mensaje.innerHTML = `
+                    <div class="alert alert-success mb-0">
+                        <i class="fas fa-thumbs-up fa-2x mb-2"></i>
+                        <h5>Meta alcanzable</h5>
+                        <p class="mb-0">Necesitas sacar <strong>${notaNecesaria.toFixed(1)}</strong> en ${nombres[evalFaltante]} para alcanzar <strong>${meta}</strong>.</p>
+                        <p class="mb-0 mt-2"><small>¡Es una nota razonable! Puedes lograrlo.</small></p>
+                    </div>
+                `;
+            } else {
+                mensaje.innerHTML = `
+                    <div class="alert alert-warning mb-0">
+                        <i class="fas fa-exclamation-circle fa-2x mb-2"></i>
+                        <h5>Meta exigente</h5>
+                        <p class="mb-0">Necesitas sacar <strong>${notaNecesaria.toFixed(1)}</strong> en ${nombres[evalFaltante]} para alcanzar <strong>${meta}</strong>.</p>
+                        <p class="mb-0 mt-2"><small>Es posible, pero requerirá dedicación extra. ¡Tú puedes!</small></p>
+                    </div>
+                `;
+            }
+            
+            resultado.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // Inicializar cálculos al cargar
+        window.addEventListener('load', () => {
+            calcularEC();
+        });
+    </script>
+</body>
+</html>
