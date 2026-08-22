@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <rect width="600" height="400" fill="#F5F5F5"/>
+  
+  <!-- Ejes -->
+  <line x1="80" y1="340" x2="560" y2="340" stroke="#1A1A1A" stroke-width="2"/>
+  <line x1="80" y1="340" x2="80" y2="60" stroke="#1A1A1A" stroke-width="2"/>
+  
+  <!-- Etiquetas ejes -->
+  <text x="320" y="380" font-family="Arial" font-size="12" font-weight="bold" fill="#1A1A1A" text-anchor="middle">Temperatura de Bulbo Seco (°C)</text>
+  <text x="30" y="200" font-family="Arial" font-size="11" font-weight="bold" fill="#1A1A1A" text-anchor="middle" transform="rotate(-90 30 200)">Humedad Absoluta (kg H₂O/kg AS)</text>
+  
+  <!-- Curva de saturación (100% HR) -->
+  <path d="M 100 320 Q 200 280 300 200 Q 400 120 500 80" fill="none" stroke="#DC3545" stroke-width="3"/>
+  <text x="510" y="75" font-family="Arial" font-size="10" fill="#DC3545">100% HR</text>
+  
+  <!-- Curva 50% HR -->
+  <path d="M 100 330 Q 200 310 300 260 Q 400 200 500 150" fill="none" stroke="#FF6B00" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="510" y="145" font-family="Arial" font-size="10" fill="#FF6B00">50% HR</text>
+  
+  <!-- Curva 30% HR -->
+  <path d="M 100 335 Q 200 325 300 300 Q 400 260 500 220" fill="none" stroke="#FFD700" stroke-width="2" stroke-dasharray="3,3"/>
+  <text x="510" y="215" font-family="Arial" font-size="10" fill="#B8860B">30% HR</text>
+  
+  <!-- Líneas de bulbo húmedo (diagonales) -->
+  <g stroke="#007BFF" stroke-width="1" stroke-dasharray="2,2">
+    <line x1="150" y1="340" x2="400" y2="100"/>
+    <line x1="250" y1="340" x2="500" y2="100"/>
+    <line x1="350" y1="340" x2="550" y2="150"/>
+  </g>
+  <text x="420" y="95" font-family="Arial" font-size="9" fill="#007BFF">Bulbo húmedo</text>
+  
+  <!-- Punto de operación ejemplo -->
+  <circle cx="300" cy="260" r="6" fill="#28A745" stroke="#1A1A1A" stroke-width="2"/>
+  <text x="310" y="255" font-family="Arial" font-size="10" font-weight="bold" fill="#28A745">Punto de operación</text>
+  <text x="310" y="270" font-family="Arial" font-size="9" fill="#1A1A1A">22°C, 50% HR</text>
+  
+  <!-- Proceso de calentamiento -->
+  <line x1="200" y1="280" x2="300" y2="260" stroke="#DC3545" stroke-width="3"/>
+  <polygon points="300,260 290,265 295,255" fill="#DC3545"/>
+  <text x="230" y="265" font-family="Arial" font-size="10" fill="#DC3545">Calentamiento</text>
+  <text x="230" y="278" font-family="Arial" font-size="9" fill="#1A1A1A">(H constante)</text>
+  
+  <!-- Proceso de humidificación -->
+  <line x1="300" y1="260" x2="350" y2="230" stroke="#007BFF" stroke-width="3"/>
+  <polygon points="350,230 340,235 345,225" fill="#007BFF"/>
+  <text x="340" y="220" font-family="Arial" font-size="10" fill="#007BFF">Humidificación</text>
+  
+  <!-- Escala X -->
+  <g font-family="Arial" font-size="9" fill="#1A1A1A" text-anchor="middle">
+    <text x="100" y="355">0</text>
+    <text x="200" y="355">10</text>
+    <text x="300" y="355">20</text>
+    <text x="400" y="355">30</text>
+    <text x="500" y="355">40</text>
+  </g>
+  
+  <!-- Escala Y -->
+  <g font-family="Arial" font-size="9" fill="#1A1A1A" text-anchor="end">
+    <text x="75" y="325">0.000</text>
+    <text x="75" y="265">0.010</text>
+    <text x="75" y="205">0.020</text>
+    <text x="75" y="145">0.030</text>
+    <text x="75" y="85">0.040</text>
+  </g>
+  
+  <!-- Título -->
+  <text x="300" y="30" font-family="Arial" font-size="13" font-weight="bold" fill="#1A1A1A" text-anchor="middle">DIAGRAMA PSICROMÉTRICO (Aire-Vapor de Agua a 1 atm)</text>
+</svg>
