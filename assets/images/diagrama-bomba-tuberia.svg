@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <rect width="600" height="400" fill="#F5F5F5"/>
+  
+  <!-- Tanque de succión (izquierda) -->
+  <rect x="30" y="200" width="100" height="150" fill="#007BFF" stroke="#1A1A1A" stroke-width="3" rx="5"/>
+  <text x="80" y="280" font-family="Arial" font-size="11" font-weight="bold" fill="#FFFFFF" text-anchor="middle">TANQUE</text>
+  <text x="80" y="295" font-family="Arial" font-size="10" fill="#FFFFFF" text-anchor="middle">Succión</text>
+  <line x1="40" y1="230" x2="120" y2="230" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="3,3"/>
+  <text x="80" y="220" font-family="Arial" font-size="9" fill="#FFFFFF" text-anchor="middle">Nivel</text>
+  
+  <!-- Tubería de succión -->
+  <line x1="130" y1="280" x2="200" y2="280" stroke="#6C757D" stroke-width="12"/>
+  
+  <!-- Bomba (centro) -->
+  <circle cx="240" cy="280" r="50" fill="#FF6B00" stroke="#1A1A1A" stroke-width="3"/>
+  <circle cx="240" cy="280" r="20" fill="#2C2C2C"/>
+  <g stroke="#FFFFFF" stroke-width="2">
+    <line x1="240" y1="260" x2="240" y2="300"/>
+    <line x1="220" y1="280" x2="260" y2="280"/>
+    <line x1="226" y1="266" x2="254" y2="294"/>
+    <line x1="254" y1="266" x2="226" y2="294"/>
+  </g>
+  <text x="240" y="345" font-family="Arial" font-size="12" font-weight="bold" fill="#FF6B00" text-anchor="middle">BOMBA</text>
+  <text x="240" y="360" font-family="Arial" font-size="10" fill="#1A1A1A" text-anchor="middle">Ẇ_bomba</text>
+  
+  <!-- Tubería de descarga (sube) -->
+  <line x1="290" y1="280" x2="380" y2="280" stroke="#6C757D" stroke-width="12"/>
+  <line x1="380" y1="280" x2="380" y2="100" stroke="#6C757D" stroke-width="12"/>
+  <line x1="380" y1="100" x2="500" y2="100" stroke="#6C757D" stroke-width="12"/>
+  
+  <!-- Codo -->
+  <circle cx="380" cy="280" r="15" fill="#6C757D" stroke="#1A1A1A" stroke-width="2"/>
+  <circle cx="380" cy="100" r="15" fill="#6C757D" stroke="#1A1A1A" stroke-width="2"/>
+  
+  <!-- Válvula -->
+  <path d="M 430 90 L 450 110 L 430 110 Z" fill="#DC3545" stroke="#1A1A1A" stroke-width="2"/>
+  <path d="M 450 90 L 430 110 L 450 110 Z" fill="#DC3545" stroke="#1A1A1A" stroke-width="2"/>
+  <line x1="440" y1="90" x2="440" y2="70" stroke="#1A1A1A" stroke-width="2"/>
+  <text x="440" y="65" font-family="Arial" font-size="9" fill="#DC3545" text-anchor="middle">Válvula</text>
+  
+  <!-- Tanque de descarga (derecha, arriba) -->
+  <rect x="500" y="60" width="80" height="100" fill="#007BFF" stroke="#1A1A1A" stroke-width="3" rx="5"/>
+  <text x="540" y="115" font-family="Arial" font-size="10" font-weight="bold" fill="#FFFFFF" text-anchor="middle">TANQUE</text>
+  <text x="540" y="130" font-family="Arial" font-size="9" fill="#FFFFFF" text-anchor="middle">Descarga</text>
+  
+  <!-- Flecha de flujo -->
+  <line x1="150" y1="280" x2="200" y2="280" stroke="#FF6B00" stroke-width="3"/>
+  <polygon points="200,280 190,275 190,285" fill="#FF6B00"/>
+  <line x1="320" y1="280" x2="360" y2="280" stroke="#FF6B00" stroke-width="3"/>
+  <polygon points="360,280 350,275 350,285" fill="#FF6B00"/>
+  <line x1="380" y1="250" x2="380" y2="200" stroke="#FF6B00" stroke-width="3"/>
+  <polygon points="380,200 375,210 385,210" fill="#FF6B00"/>
+  <line x1="410" y1="100" x2="480" y2="100" stroke="#FF6B00" stroke-width="3"/>
+  <polygon points="480,100 470,95 470,105" fill="#FF6B00"/>
+  
+  <!-- Etiquetas de altura -->
+  <line x1="20" y1="280" x2="20" y2="100" stroke="#1A1A1A" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="15" y1="280" x2="25" y2="280" stroke="#1A1A1A" stroke-width="2"/>
+  <line x1="15" y1="100" x2="25" y2="100" stroke="#1A1A1A" stroke-width="2"/>
+  <text x="10" y="195" font-family="Arial" font-size="10" fill="#1A1A1A" text-anchor="middle" transform="rotate(-90 10 195)">Δz = 1.8 m</text>
+  
+  <!-- Título -->
+  <text x="300" y="395" font-family="Arial" font-size="12" font-weight="bold" fill="#1A1A1A" text-anchor="middle">SISTEMA DE BOMBEO - Bernoulli Generalizada: h_bomba = Δz + h_f + h_acc</text>
+</svg>
