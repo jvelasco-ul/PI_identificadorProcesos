@@ -1,0 +1,14 @@
+# Configuración de GitHub Pages para Procesos Industriales
+title: "Procesos Industriales | Domina la Energía, Transforma el Futuro"
+description: "Plataforma educativa elite para Ingeniería Industrial 2026-2"
+baseurl: "" # Deja esto vacío si el repositorio se llama exactamente igual a tu usuario, o pon el nombre del repo si es diferente
+url: "" # La URL base de GitHub Pages (se llena sola)
+
+# Configuración de tema (usamos nuestro propio CSS, así que esto es opcional pero recomendado)
+theme: jekyll-theme-minimal
+
+# Excluir archivos que no deben subirse
+exclude:
+  - README.md
+  - LICENSE
+  - .gitignore
