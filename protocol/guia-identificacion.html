@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Protocolo completo - Herramienta de Identificación de Procesos Industriales">
+    <title>Protocolo de Identificación | Procesos Industriales</title>
+    <link rel="icon" href="../assets/images/logo.png" type="image/png">
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <!-- Skip to content -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+    <!-- Header -->
+    <header class="main-header">
+        <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Navegación principal">
+            <div class="container">
+                <a class="navbar-brand" href="../index.html">
+                    <img src="../assets/images/logo.png" alt="Logo" height="60" class="logo-header">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Protocolo</a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item active" href="guia-identificacion.html">Guía Completa</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Procesos</a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="../procesos/paso0.html">Paso 0: Sistema y Frontera</a></li>
+                                <li><a class="dropdown-item" href="../procesos/paso1.html">Paso 1: Matriz Entrada-Salida</a></li>
+                                <li><a class="dropdown-item" href="../procesos/paso2.html">Paso 2: Clasificación</a></li>
+                                <li><a class="dropdown-item" href="../procesos/paso3.html">Paso 3: Régimen Temporal</a></li>
+                                <li><a class="dropdown-item" href="../procesos/paso4.html">Paso 4: Aplicación 8 Pasos</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="protocol-hero" aria-labelledby="protocol-title">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h1 id="protocol-title" class="display-4 mb-3">
+                            <i class="fas fa-compass text-orange"></i>
+                            Herramienta de Identificación de Procesos
+                        </h1>
+                        <p class="lead text-gray">
+                            Metodología sistemática para analizar cualquier equipo o sistema industrial
+                        </p>
+                        <div class="mnemonic-badge mt-4">
+                            <i class="fas fa-brain"></i>
+                            <strong>MNEMOTECNIA:</strong> SISTEMA = 
+                            <span class="text-orange">S</span>elecciona, 
+                            <span class="text-orange">I</span>dentifica, 
+                            <span class="text-orange">S</span>epara, 
+                            <span class="text-orange">T</span>raza, 
+                            <span class="text-orange">E</span>valúa, 
+                            <span class="text-orange">M</span>ide, 
+                            <span class="text-orange">A</span>plica
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Introducción -->
+        <section class="protocol-section" aria-labelledby="intro-title">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2 id="intro-title" class="section-title">¿Qué es esta herramienta?</h2>
+                        <div class="protocol-card glass-effect p-4 mb-4">
+                            <p class="lead">
+                                Esta es una <strong>herramienta transversal</strong> que se aplica en TODAS las semanas del curso. 
+                                Ante cualquier equipo o sistema —un evaporador, una turbina, un secador, una tubería— 
+                                debes poder responder estas preguntas para plantear el balance correcto.
+                            </p>
+                            <div class="alert alert-info mt-3">
+                                <i class="fas fa-info-circle"></i>
+                                <strong>Importante:</strong> No reemplaza las ecuaciones específicas de cada unidad; 
+                                les da el <strong>marco común</strong> para aplicarlas correctamente.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PASO 0 -->
+        <section class="protocol-step" aria-labelledby="paso0-title">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="step-header bg-gradient text-white p-4 rounded-top">
+                            <h2 id="paso0-title" class="h3 mb-0">
+                                <span class="step-number">0</span>
+                                Definir el Sistema y su Frontera
+                            </h2>
+                        </div>
+                        <div class="step-content glass-effect p-4 rounded-bottom">
+                            <p class="lead">
+                                Antes de identificar entradas y salidas, traza una <strong>línea imaginaria (frontera)</strong> 
+                                alrededor del equipo o conjunto de equipos que vas a analizar.
+                            </p>
+                            
+                            <div class="row mt-4">
+                                <div class="col-md-6 mb-4">
+                                    <div class="question-card p-3">
+                                        <h5><i class="fas fa-question-circle text-orange"></i> Pregunta Guía 1</h5>
+                                        <p><strong>¿Dónde dibujo la línea de frontera?</strong></p>
+                                        <p class="text-muted">¿Un solo equipo o varios en serie?</p>
+                                        <div class="alert alert-warning">
+                                            <i class="fas fa-exclamation-triangle"></i>
+                                            <strong>Error común:</strong> Una frontera mal puesta "esconde" corrientes internas 
+                                            y genera errores de balance.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="question-card p-3">
+                                        <h5><i class="fas fa-question-circle text-orange"></i> Pregunta Guía 2</h5>
+                                        <p><strong>¿El sistema es abierto o cerrado?</strong></p>
+                                        <ul class="list-unstyled">
+                                            <li><i class="fas fa-check text-success"></i> <strong>Abierto:</strong> Entra y sale materia</li>
+                                            <li><i class="fas fa-times text-danger"></i> <strong>Cerrado:</strong> Solo energía cruza la frontera</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="question-card p-3">
+                                        <h5><i class="fas fa-question-circle text-orange"></i> Pregunta Guía 3</h5>
+                                        <p><strong>¿Cuál es la base de cálculo?</strong></p>
+                                        <p class="text-muted">1 hora, 1 kg, 1 lote, etc.</p>
+                                        <p>La unidad sobre la que se expresan todas las corrientes del balance.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="question-card p-3">
+                                        <h5><i class="fas fa-question-circle text-orange"></i> Pregunta Guía 4</h5>
+                                        <p><strong>¿Cuántos grados de libertad tiene?</strong></p>
+                                        <p class="text-muted">Incógnitas − Ecuaciones independientes</p>
+                                        <p>Verifica si el problema está determinado antes de resolverlo.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Ejemplo Visual -->
+                            <div class="example-box mt-4 p-4 bg-light rounded">
+                                <h5><i class="fas fa-lightbulb text-warning"></i> Ejemplo: Turbina de Vapor</h5>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <img src="../assets/images/diagrama-turbina-frontera.png" 
+                                             alt="Diagrama de turbina con frontera definida" 
+                                             class="img-fluid rounded"
+                                             onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22><rect fill=%22%23f5f5f5%22 width=%22400%22 height=%22300%22/><text x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 fill=%22%23999%22>Diagrama: Turbina con frontera</text></svg>'">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ul class="list-unstyled">
+                                            <li><i class="fas fa-arrow-right text-orange"></i> <strong>Frontera:</strong> Línea punteada roja alrededor de la turbina</li>
+                                            <li><i class="fas fa-arrow-right text-orange"></i> <strong>Entradas:</strong> Vapor a alta P y T</li>
+                                            <li><i class="fas fa-arrow-right text-orange"></i> <strong>Salidas:</strong> Vapor expandido + Trabajo en el eje</li>
+                                            <li><i class="fas fa-arrow-right text-orange"></i> <strong>Sistema:</strong> Abierto (flujo continuo)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PASO 1: MATRIZ MAESTRA -->
+        <section class="protocol-step" aria-labelledby="paso1-title">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="step-header bg-gradient text-white p-4 rounded-top">
+                            <h2 id="paso1-title" class="h3 mb-0">
+                                <span class="step-number">1</span>
+                                Matriz Maestra: Entrada – Salida – Generación/Consumo – Acumulación
+                            </h2>
+                        </div>
+                        <div class="step-content glass-effect p-4 rounded-bottom">
+                            <p class="lead text-center mb-4">
+                                <strong>Ecuación General:</strong><br>
+                                <span class="badge bg-orange fs-5">Entrada − Salida + Generación − Consumo = Acumulación</span>
+                            </p>
+                            
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover master-matrix">
+                                    <thead class="table-dark">
+                                        <tr>
+                                            <th></th>
+                                            <th><i class="fas fa-arrow-down text-success"></i> ¿Qué ENTRA?</th>
+                                            <th><i class="fas fa-arrow-up text-danger"></i> ¿Qué SALE?</th>
+                                            <th><i class="fas fa-exchange-alt text-info"></i> Generación/Consumo</th>
+                                            <th><i class="fas fa-clock text-warning"></i> Acumulación</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="fw-bold bg-light">MATERIA</td>
+                                            <td>
+                                                <ul class="list-unstyled mb-0">
+                                                    <li>• Materias primas</li>
+                                                    <li>• Corrientes de alimentación</li>
+                                                    <li>• Aire de combustión</li>
+                                                    <li>• Agua de reposición</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul class="list-unstyled mb-0">
+                                                    <li>• Productos</li>
+                                                    <li>• Subproductos</li>
+                                                    <li>• Residuos</li>
+                                                    <li>• Purgas</li>
+                                                    <li>• Gases de escape</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <em>Sólo si hay:</em>
+                                                <ul class="mb-0">
+                                                    <li>Reacción química</li>
+                                                    <li>Cambio de fase</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul class="mb-0">
+                                                    <li><strong>Estacionario:</strong> 0</li>
+                                                    <li><strong>Batch:</strong> ≠ 0</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fw-bold bg-light">ENERGÍA</td>
+                                            <td>
+                                                <ul class="list-unstyled mb-0">
+                                                    <li>• Calor (Q̇) suministrado</li>
+                                                    <li>• Trabajo (Ẇ) de bombas</li>
+                                                    <li>• Energía cinética/potencial</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul class="list-unstyled mb-0">
+                                                    <li>• Calor (Q̇) cedido</li>
+                                                    <li>• Trabajo (Ẇ) entregado</li>
+                                                    <li>• Energía de salida</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <em>No se "genera" energía (1ª Ley); se transforma</em>
+                                            </td>
+                                            <td>
+                                                <ul class="mb-0">
+                                                    <li><strong>Flujo estacionario:</strong> 0</li>
+                                                    <li><strong>Arranque/Parada:</strong> ≠ 0</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- Fórmula MathJax -->
+                            <div class="formula-box mt-4 p-3 bg-dark text-white rounded">
+                                <h5 class="text-orange">Ecuación General del Curso:</h5>
+                                <p class="text-center fs-4">
+                                    \[
+                                    \text{Entrada} - \text{Salida} + \text{Generación} - \text{Consumo} = \text{Acumulación}
+                                    \]
+                                </p>
+                                <p class="text-center">
+                                    <small>Aplicada por separado a <strong>materia</strong> (total y por componente) y a <strong>energía</strong></small>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PASO 2: CLASIFICACIÓN -->
+        <section class="protocol-step" aria-labelledby="paso2-title">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="step-header bg-gradient text-white p-4 rounded-top">
+                            <h2 id="paso2-title" class="h3 mb-0">
+                                <span class="step-number">2</span>
+                                Clasificación por Modo de Operación
+                            </h2>
+                        </div>
+                        <div class="step-content glass-effect p-4 rounded-bottom">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped">
+                                    <thead class="table-dark">
+                                        <tr>
+                                            <th>Criterio</th>
+                                            <th class="text-success">Continuo</th>
+                                            <th class="text-warning">Discontinuo (Batch)</th>
+                                            <th class="text-info">Semicontinuo</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>¿Cómo entra y sale la materia?</strong></td>
+                                            <td>Entra y sale de forma simultánea e ininterrumpida</td>
+                                            <td>Se carga todo al inicio y se descarga todo al final</td>
+                                            <td>Una corriente es continua y otra es por lotes</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>¿Cambian las propiedades con el tiempo?</strong></td>
+                                            <td>No (en estado estacionario)</td>
+                                            <td>Sí, cambian todo el tiempo dentro del lote</td>
+                                            <td>Parcialmente</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>¿Hay acumulación de materia?</strong></td>
+                                            <td>No (acumulación = 0)</td>
+                                            <td>Sí, entre la carga y la descarga</td>
+                                            <td>Sí, en la fracción discontinua</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Ejemplos del curso</strong></td>
+                                            <td>
+                                                <ul class="mb-0 small">
+                                                    <li>• Destilación de petróleo</li>
+                                                    <li>• Turbina de vapor</li>
+                                                    <li>• Evaporador múltiple efecto</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul class="mb-0 small">
+                                                    <li>• Fermentación</li>
+                                                    <li>• Cristalización de sales</li>
+                                                    <li>• Secador de bandejas</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul class="mb-0 small">
+                                                    <li>• Reactor semicontinuo</li>
+                                                    <li>• Secado por rociado</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Ecuación típica</strong></td>
+                                            <td>Entrada = Salida (± reacción)</td>
+                                            <td>Acumulación = Entrada − Salida</td>
+                                            <td>Balance diferencial integrado</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PASO 3: RÉGIMEN TEMPORAL -->
+        <section class="protocol-step" aria-labelledby="paso3-title">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="step-header bg-gradient text-white p-4 rounded-top">
+                            <h2 id="paso3-title" class="h3 mb-0">
+                                <span class="step-number">3</span>
+                                Régimen Temporal: Estado Estacionario vs. Transitorio
+                            </h2>
+                        </div>
+                        <div class="step-content glass-effect p-4 rounded-bottom">
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="comparison-card bg-success bg-opacity-10 p-4 rounded h-100">
+                                        <h4 class="text-success">
+                                            <i class="fas fa-pause-circle"></i> Estado Estacionario
+                                        </h4>
+                                        <ul>
+                                            <li><strong>Definición:</strong> Las propiedades (T, P, composición) NO cambian con el tiempo en cada punto</li>
+                                            <li><strong>Acumulación:</strong> = 0</li>
+                                            <li><strong>Cuándo se usa:</strong>
+                                                <ul>
+                                                    <li>Turbinas en operación normal</li>
+                                                    <li>Compresores continuos</li>
+                                                    <li>Intercambiadores en régimen permanente</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                        <div class="formula-small mt-3">
+                                            \[ \frac{dm}{dt} = 0 \]
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="comparison-card bg-warning bg-opacity-10 p-4 rounded h-100">
+                                        <h4 class="text-warning">
+                                            <i class="fas fa-play-circle"></i> Estado Transitorio
+                                        </h4>
+                                        <ul>
+                                            <li><strong>Definición:</strong> Las propiedades SÍ cambian con el tiempo</li>
+                                            <li><strong>Acumulación:</strong> ≠ 0 (debe calcularse)</li>
+                                            <li><strong>Cuándo ocurre:</strong>
+                                                <ul>
+                                                    <li>Arranque de una caldera</li>
+                                                    <li>Llenado de un tanque</li>
+                                                    <li>Proceso batch completo</li>
+                                                    <li>Perturbaciones</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                        <div class="formula-small mt-3">
+                                            \[ \frac{dm}{dt} \neq 0 \]
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PASO 4: GUÍA EN 8 PASOS -->
+        <section class="protocol-step" aria-labelledby="paso4-title">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="step-header bg-gradient text-white p-4 rounded-top">
+                            <h2 id="paso4-title" class="h3 mb-0">
+                                <span class="step-number">4</span>
+                                Guía en 8 Pasos — Aplicable a Cualquier Semana
+                            </h2>
+                        </div>
+                        <div class="step-content glass-effect p-4 rounded-bottom">
+                            <p class="lead text-center mb-4">
+                                <strong>Aplica estos 8 pasos sistemáticamente en cada problema del curso</strong>
+                            </p>
+                            
+                            <div class="steps-container">
+                                <!-- Paso 1 -->
+                                <div class="step-item mb-4 p-3 bg-light rounded">
+                                    <div class="row align-items-center">
+                                        <div class="col-md-1">
+                                            <span class="step-badge bg-orange text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">1</span>
+                                        </div>
+                                        <div class="col-md-11">
+                                            <h5><strong>Definir el sistema y trazar la frontera</strong></h5>
+                                            <p class="mb-0 text-muted">Pregunta: <em>¿Qué queda dentro y qué queda fuera de la línea?</em></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Paso 2 -->
+                                <div class="step-item mb-4 p-3 bg-light rounded">
+                                    <div class="row align-items-center">
+                                        <div class="col-md-1">
+                                            <span class="step-badge bg-orange text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">2</span>
+                                        </div>
+                                        <div class="col-md-11">
+                                            <h5><strong>Listar TODAS las corrientes de materia</strong></h5>
+                                            <p class="mb-0 text-muted">Separar entradas de salidas; identificar componentes si hay más de una especie</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Paso 3 -->
+                                <div class="step-item mb-4 p-3 bg-light rounded">
+                                    <div class="row align-items-center">
+                                        <div class="col-md-1">
+                                            <span class="step-badge bg-orange text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">3</span>
+                                        </div>
+                                        <div class="col-md-11">
+                                            <h5><strong>Listar TODAS las corrientes de energía</strong></h5>
+                                            <p class="mb-0 text-muted">¿Entra Q̇? ¿Sale Ẇ? ¿Hay energía cinética/potencial relevante?</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Paso 4 -->
+                                <div class="step-item mb-4 p-3 bg-light rounded">
+                                    <div class="row align-items-center">
+                                        <div class="col-md-1">
+                                            <span class="step-badge bg-orange text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">4</span>
+                                        </div>
+                                        <div class="col-md-11">
+                                            <h5><strong>Verificar si existe reacción química o cambio de fase</strong></h5>
+                                            <p class="mb-0 text-muted">Si sí → hay generación/consumo de una especie o de una fase</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Paso 5 -->
+                                <div class="step-item mb-4 p-3 bg-light rounded">
+                                    <div class="row align-items-center">
+                                        <div class="col-md-1">
+                                            <span class="step-badge bg-orange text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">5</span>
+                                        </div>
+                                        <div class="col-md-11">
+                                            <h5><strong>Determinar si hay acumulación</strong></h5>
+                                            <p class="mb-0 text-muted">¿El sistema opera en un punto fijo o cambia con el tiempo?</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Paso 6 -->
+                                <div class="step-item mb-4 p-3 bg-light rounded">
+                                    <div class="row align-items-center">
+                                        <div class="col-md-1">
+                                            <span class="step-badge bg-orange text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">6</span>
+                                        </div>
+                                        <div class="col-md-11">
+                                            <h5><strong>Clasificar el modo de operación</strong></h5>
+                                            <p class="mb-0 text-muted">Continuo, discontinuo o semicontinuo</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Paso 7 -->
+                                <div class="step-item mb-4 p-3 bg-light rounded">
+                                    <div class="row align-items-center">
+                                        <div class="col-md-1">
+                                            <span class="step-badge bg-orange text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">7</span>
+                                        </div>
+                                        <div class="col-md-11">
+                                            <h5><strong>Elegir la ecuación de balance aplicable</strong></h5>
+                                            <p class="mb-0 text-muted">COP (S3), DTML (S12), Darcy-Weisbach (S15), etc.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Paso 8 -->
+                                <div class="step-item mb-4 p-3 bg-light rounded">
+                                    <div class="row align-items-center">
+                                        <div class="col-md-1">
+                                            <span class="step-badge bg-orange text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">8</span>
+                                        </div>
+                                        <div class="col-md-11">
+                                            <h5><strong>Resolver, verificar y contrastar</strong></h5>
+                                            <p class="mb-0 text-muted">¿El resultado es físicamente razonable? ¿Qué impacto tendría si el equipo estuviera mal dimensionado?</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Call to Action -->
+                            <div class="alert alert-primary mt-4" role="alert">
+                                <h5><i class="fas fa-graduation-cap"></i> Uso Sugerido:</h5>
+                                <p class="mb-0">
+                                    Aplica esta guía <strong>explícitamente (por escrito)</strong> como primer paso de cada problema 
+                                    en cada laboratorio y examen del curso, hasta que el procedimiento se vuelva automático.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Errores Comunes -->
+        <section class="protocol-section" aria-labelledby="errores-title">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2 id="errores-title" class="section-title">
+                            <i class="fas fa-exclamation-triangle text-warning"></i> Errores Comunes
+                        </h2>
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class="error-card p-4 bg-danger bg-opacity-10 rounded border border-danger">
+                                    <h5 class="text-danger">Error 1: Frontera mal definida</h5>
+                                    <p><strong>Problema:</strong> No identificar correctamente qué cruza la frontera</p>
+                                    <p><strong>Consecuencia:</strong> Balance incompleto o con corrientes "fantasma"</p>
+                                    <p><strong>Solución:</strong> Dibujar siempre el diagrama con la frontera punteada</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="error-card p-4 bg-danger bg-opacity-10 rounded border border-danger">
+                                    <h5 class="text-danger">Error 2: Confundir estado estacionario con transitorio</h5>
+                                    <p><strong>Problema:</strong> Asumir acumulación = 0 en un proceso batch</p>
+                                    <p><strong>Consecuencia:</strong> Resultados completamente erróneos</p>
+                                    <p><strong>Solución:</strong> Preguntar siempre: "¿Las propiedades cambian con el tiempo?"</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="error-card p-4 bg-danger bg-opacity-10 rounded border border-danger">
+                                    <h5 class="text-danger">Error 3: Olvidar el trabajo de la bomba</h5>
+                                    <p><strong>Problema:</strong> Considerar que el trabajo de bomba es despreciable</p>
+                                    <p><strong>Consecuencia:</strong> En ciclos Rankine, puede representar 1-3% del trabajo neto</p>
+                                    <p><strong>Solución:</strong> Siempre incluir Ẇ_bomba en el balance energético</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="error-card p-4 bg-danger bg-opacity-10 rounded border border-danger">
+                                    <h5 class="text-danger">Error 4: No verificar grados de libertad</h5>
+                                    <p><strong>Problema:</strong> Empezar a resolver sin saber si el problema tiene solución única</p>
+                                    <p><strong>Consecuencia:</strong> Perder tiempo o llegar a soluciones inconsistentes</p>
+                                    <p><strong>Solución:</strong> Calcular: # incógnitas − # ecuaciones independientes</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Videos Recomendados -->
+        <section class="protocol-section" aria-labelledby="videos-title">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2 id="videos-title" class="section-title">
+                            <i class="fas fa-video text-orange"></i> Videos Educativos Recomendados
+                        </h2>
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class="video-card card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <i class="fab fa-youtube text-danger"></i> 
+                                            Balances de Materia y Energía
+                                        </h5>
+                                        <p class="card-text">Canal: <strong>Ingeniería Industrial</strong></p>
+                                        <p class="text-muted">Explicación completa de la ecuación general de balance con ejemplos industriales.</p>
+                                        <a href="https://www.youtube.com/results?search_query=balance+materia+energia+ingenieria" 
+                                           class="btn btn-outline-danger btn-sm" target="_blank" rel="noopener">
+                                            Ver en YouTube <i class="fas fa-external-link-alt"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="video-card card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <i class="fab fa-youtube text-danger"></i> 
+                                            Sistemas Termodinámicos y Fronteras
+                                        </h5>
+                                        <p class="card-text">Canal: <strong>TermoFácil</strong></p>
+                                        <p class="text-muted">Cómo definir correctamente el sistema y su volumen de control.</p>
+                                        <a href="https://www.youtube.com/results?search_query=sistema+termodinamico+frontera+volumen+control" 
+                                           class="btn btn-outline-danger btn-sm" target="_blank" rel="noopener">
+                                            Ver en YouTube <i class="fas fa-external-link-alt"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <img src="../assets/images/logo.png" alt="Logo" height="50" class="mb-3">
+                    <p>Ingeniería Industrial</p>
+                    <p>Docente: Juan Velasco</p>
+                    <p>Período: 2026-2</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="guia-identificacion.html">Protocolo</a></li>
+                        <li><a href="../procesos/paso0.html">Procesos</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Contacto</h5>
+                    <p><i class="fas fa-envelope"></i> juan.velasco@universidad.edu</p>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p>&copy; 2026 Procesos Industriales. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <!-- Custom JS -->
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
