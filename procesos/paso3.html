@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Paso 3: Régimen Temporal - Estado Estacionario vs. Transitorio en Procesos Industriales">
+    <title>Paso 3: Régimen Temporal | Procesos Industriales</title>
+    <link rel="icon" href="../assets/images/logo.png" type="image/png">
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <!-- Skip to content -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+    <!-- Header -->
+    <header class="main-header">
+        <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Navegación principal">
+            <div class="container">
+                <a class="navbar-brand" href="../index.html">
+                    <img src="../assets/images/logo.png" alt="Logo" height="60" class="logo-header">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Protocolo</a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="../protocol/guia-identificacion.html">Guía Completa</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Procesos</a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="paso0.html">Paso 0: Sistema y Frontera</a></li>
+                                <li><a class="dropdown-item" href="paso1.html">Paso 1: Matriz Entrada-Salida</a></li>
+                                <li><a class="dropdown-item" href="paso2.html">Paso 2: Clasificación</a></li>
+                                <li><a class="dropdown-item active" href="paso3.html">Paso 3: Régimen Temporal</a></li>
+                                <li><a class="dropdown-item" href="paso4.html">Paso 4: Aplicación 8 Pasos</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="process-hero bg-gradient" style="background: linear-gradient(135deg, #1A1A1A 0%, #FF6B00 100%); color: white; padding: 80px 0;">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <div class="badge bg-warning text-dark mb-3">
+                            <i class="fas fa-clock"></i> PASO 3
+                        </div>
+                        <h1 class="display-4 mb-3">
+                            <i class="fas fa-hourglass-half"></i> Régimen Temporal
+                        </h1>
+                        <p class="lead mb-4">
+                            Estado Estacionario vs. Transitorio: ¿Las propiedades cambian con el tiempo? La clave para definir la acumulación.
+                        </p>
+                        <div class="d-flex gap-3">
+                            <a href="#teoria" class="btn btn-light btn-lg"><i class="fas fa-book"></i> Teoría</a>
+                            <a href="#ejemplos" class="btn btn-outline-light btn-lg"><i class="fas fa-industry"></i> Ejemplos</a>
+                            <a href="#quiz-section" class="btn btn-outline-light btn-lg"><i class="fas fa-question-circle"></i> Quiz</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 text-center d-none d-lg-block">
+                        <i class="fas fa-stopwatch fa-10x" style="opacity: 0.3;"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mnemotecnia -->
+        <section class="mnemonic-section py-5 bg-light">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="card border-warning shadow-lg">
+                            <div class="card-body text-center p-5">
+                                <h3 class="mb-4"><i class="fas fa-brain text-warning"></i> MNEMOTECNIA DEL PASO 3</h3>
+                                <div class="row text-start mt-4">
+                                    <div class="col-md-6">
+                                        <div class="card bg-success text-white p-3 mb-3 h-100">
+                                            <h5><i class="fas fa-pause-circle"></i> ESTABLE (Estacionario)</h5>
+                                            <p class="small mb-0">
+                                                <strong>E</strong>quilibrio dinámico<br>
+                                                <strong>S</strong>in cambios en el tiempo<br>
+                                                <strong>T</strong>odo constante en cada punto<br>
+                                                <strong>A</strong>cumulación = 0<br>
+                                                <strong>B</strong>alance simplificado (E = S)<br>
+                                                <strong>L</strong>íneas de flujo continuas<br>
+                                                <strong>E</strong>ficiencia predecible
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card bg-danger text-white p-3 mb-3 h-100">
+                                            <h5><i class="fas fa-play-circle"></i> DINÁMICO (Transitorio)</h5>
+                                            <p class="small mb-0">
+                                                <strong>D</strong>urante el tiempo varía<br>
+                                                <strong>I</strong>ncertidumbre en las propiedades<br>
+                                                <strong>N</strong>o permanente<br>
+                                                <strong>A</strong>cumulación ≠ 0<br>
+                                                <strong>M</strong>odelado diferencial requerido<br>
+                                                <strong>I</strong>nicio, fin o perturbación<br>
+                                                <strong>C</strong>ambios de masa/energía internos<br>
+                                                <strong>O</strong>peración por lotes (Batch)
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teoría -->
+        <section id="teoria" class="theory-section py-5">
+            <div class="container">
+                <h2 class="section-title text-center mb-5"><i class="fas fa-graduation-cap text-orange"></i> Fundamentos Teóricos</h2>
+                
+                <div class="row mb-5">
+                    <div class="col-lg-12">
+                        <div class="card shadow-sm">
+                            <div class="card-body p-4">
+                                <h4 class="text-orange mb-3"><i class="fas fa-question-circle"></i> ¿Por qué es crucial esta clasificación?</h4>
+                                <p class="lead">
+                                    El régimen temporal determina <strong>el valor del término de Acumulación</strong> en la ecuación general de balance. 
+                                    Un error aquí invalida TODO el planteamiento matemático.
+                                </p>
+                                <div class="alert alert-info mt-3">
+                                    <i class="fas fa-lightbulb"></i>
+                                    <strong>Pregunta clave:</strong> Si me paro en un punto fijo dentro del equipo y observo las propiedades (T, P, composición, nivel), ¿cambian con el paso del tiempo?
+                                    <ul class="mb-0 mt-2">
+                                        <li><strong>NO cambian</strong> → Estado Estacionario (Acumulación = 0)</li>
+                                        <li><strong>SÍ cambian</strong> → Estado Transitorio (Acumulación ≠ 0)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gráfico Dinámico Chart.js -->
+                <div class="row mb-5">
+                    <div class="col-lg-12">
+                        <div class="card shadow">
+                            <div class="card-header bg-orange text-white">
+                                <h4 class="mb-0"><i class="fas fa-chart-line"></i> Visualización Dinámica: Propiedad vs. Tiempo</h4>
+                            </div>
+                            <div class="card-body p-4">
+                                <p class="text-center text-muted mb-4">Observa cómo se comporta la Temperatura (T) en un punto fijo del sistema a lo largo del tiempo.</p>
+                                <div style="height: 400px;">
+                                    <canvas id="regimenChart"></canvas>
+                                </div>
+                                <div class="row mt-4 text-center">
+                                    <div class="col-md-6">
+                                        <span class="badge bg-success p-2 fs-6">Línea Verde: Estado Estacionario</span>
+                                        <p class="small mt-2">La propiedad alcanza un valor constante y se mantiene. $\frac{dT}{dt} = 0$</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span class="badge bg-danger p-2 fs-6">Línea Roja: Estado Transitorio</span>
+                                        <p class="small mt-2">La propiedad cambia continuamente con el tiempo. $\frac{dT}{dt} \neq 0$</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabla Comparativa -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card shadow">
+                            <div class="card-header bg-dark text-white">
+                                <h4 class="mb-0"><i class="fas fa-balance-scale"></i> Comparativa: Estacionario vs. Transitorio</h4>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover mb-0">
+                                        <thead class="table-dark">
+                                            <tr>
+                                                <th style="width: 20%;">Criterio</th>
+                                                <th style="width: 40%;" class="bg-success bg-opacity-25"><i class="fas fa-pause-circle"></i> ESTADO ESTACIONARIO</th>
+                                                <th style="width: 40%;" class="bg-danger bg-opacity-25"><i class="fas fa-play-circle"></i> ESTADO TRANSITORIO</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="fw-bold">Definición</td>
+                                                <td>Las propiedades (T, P, composición, masa) <strong>NO cambian</strong> con el tiempo en cada punto del sistema.</td>
+                                                <td>Las propiedades <strong>SÍ cambian</strong> con el tiempo (arranque, parada, perturbación, o proceso batch completo).</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-bold">Acumulación</td>
+                                                <td class="formula-box text-center fs-5">\[ \text{Acumulación} = 0 \]</td>
+                                                <td class="formula-box text-center fs-5">\[ \text{Acumulación} \neq 0 \]</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-bold">Ecuación Diferencial</td>
+                                                <td class="formula-box text-center">\[ \frac{dm}{dt} = 0 \quad ; \quad \frac{dE}{dt} = 0 \]</td>
+                                                <td class="formula-box text-center">\[ \frac{dm}{dt} \neq 0 \quad ; \quad \frac{dE}{dt} \neq 0 \]</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-bold">Ecuación de Balance Simplificada</td>
+                                                <td class="formula-box text-center">\[ \text{Entrada} - \text{Salida} + G - C = 0 \]</td>
+                                                <td class="formula-box text-center">\[ \text{Entrada} - \text{Salida} + G - C = \text{Acumulación} \]</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-bold">Cuándo se usa en el curso</td>
+                                                <td>
+                                                    <ul class="mb-0 small">
+                                                        <li>Turbinas, compresores en operación normal</li>
+                                                        <li>Intercambiadores de calor en régimen permanente</li>
+                                                        <li>Tuberías con flujo continuo constante</li>
+                                                        <li>Evaporadores de múltiple efecto</li>
+                                                    </ul>
+                                                </td>
+                                                <td>
+                                                    <ul class="mb-0 small">
+                                                        <li>Arranque de una caldera o turbina</li>
+                                                        <li>Llenado o vaciado de un tanque</li>
+                                                        <li>Proceso batch completo (fermentación)</li>
+                                                        <li>Cámara frigorífica ajustando su set-point</li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-bold">Complejidad Matemática</td>
+                                                <td><span class="badge bg-success">Baja</span> (Ecuaciones algebraicas)</td>
+                                                <td><span class="badge bg-danger">Alta</span> (Ecuaciones diferenciales ordinarias - EDOs)</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Educativo -->
+        <section class="video-section py-5 bg-light">
+            <div class="container">
+                <h2 class="section-title text-center mb-5"><i class="fab fa-youtube text-danger"></i> Video Educativo Recomendado</h2>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <div class="ratio ratio-16x9 mb-3">
+                                    <iframe src="https://www.youtube.com/embed/5yJ1wXyQ2yA" title="Estado Estacionario y Transitorio - Ingeniería de Procesos" allowfullscreen></iframe>
+                                </div>
+                                <h5 class="card-title"><i class="fas fa-play-circle text-danger"></i> Balances de Materia: Estado Estacionario vs. Transitorio</h5>
+                                <p class="card-text">
+                                    <strong>Canal:</strong> Ingeniería Industrial / TermoFácil<br>
+                                    <strong>Duración:</strong> 12:15 min<br>
+                                    <strong>Contenido:</strong> Explicación visual de cómo identificar si un proceso está en estado estacionario o transitorio, y cómo esto afecta la ecuación de balance de materia y energía.
+                                </p>
+                                <a href="https://www.youtube.com/results?search_query=estado+estacionario+transitorio+balance+materia" class="btn btn-outline-danger" target="_blank" rel="noopener">
+                                    <i class="fab fa-youtube"></i> Ver más videos en YouTube
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ejemplos Industriales -->
+        <section id="ejemplos" class="examples-section py-5">
+            <div class="container">
+                <h2 class="section-title text-center mb-5"><i class="fas fa-industry text-orange"></i> Ejemplos Industriales por Semana</h2>
+                <p class="lead text-center mb-5">Aplicaciones reales en la industria peruana y transnacional</p>
+
+                <!-- Ejemplo 1: Semana 2 (Estacionario) -->
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card shadow-sm border-start border-4 border-success">
+                            <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0"><i class="fas fa-wind"></i> Ejemplo 1: Turbina de Vapor (Estacionario)</h5>
+                                <span class="badge bg-light text-success">Semana 2</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="text-success">Caso Real: Refinería La Pampilla (REPSEL)</h6>
+                                        <p>Turbina de cogeneración operando a carga constante (50 kg/s de vapor a 10 MPa/500°C). Las propiedades en la entrada y salida no cambian con el tiempo.</p>
+                                        <h6 class="text-success">Análisis Temporal:</h6>
+                                        <ul>
+                                            <li><strong>Régimen:</strong> ESTADO ESTACIONARIO</li>
+                                            <li><strong>Evidencia:</strong> Flujo másico constante, T y P constantes en el tiempo.</li>
+                                            <li><strong>Acumulación:</strong> $\frac{dm}{dt} = 0$, $\frac{dE}{dt} = 0$</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6 class="text-success">Impacto Industrial:</h6>
+                                        <div class="alert alert-success small">
+                                            <strong>Económico:</strong> Operar en estado estacionario maximiza la eficiencia. Las fluctuaciones (transitorio) reducen la vida útil de los álabes por fatiga térmica.
+                                        </div>
+                                        <div class="alert alert-warning small">
+                                            <strong>Productividad:</strong> Permite automatización y control PID estable. Variaciones >5% requieren ajustes manuales costosos.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejemplo 2: Semana 4 (Transitorio - NUEVO) -->
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card shadow-sm border-start border-4 border-danger">
+                            <div class="card-header bg-danger text-white d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0"><i class="fas fa-fire"></i> Ejemplo 2: Arranque de Caldera (Transitorio)</h5>
+                                <span class="badge bg-light text-danger">Semana 4 - NUEVO</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="text-danger">Caso Real: Central Térmica Kallpa Generación</h6>
+                                        <p>Durante el arranque de la caldera, la temperatura del agua sube de 25°C a 300°C en 2 horas. La presión aumenta de 1 atm a 100 bar.</p>
+                                        <h6 class="text-danger">Análisis Temporal:</h6>
+                                        <ul>
+                                            <li><strong>Régimen:</strong> ESTADO TRANSITORIO</li>
+                                            <li><strong>Evidencia:</strong> T y P cambian drásticamente con el tiempo.</li>
+                                            <li><strong>Acumulación:</strong> $\frac{dE}{dt} \neq 0$ (La energía interna del sistema aumenta).</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6 class="text-danger">Impacto Industrial:</h6>
+                                        <div class="alert alert-danger small">
+                                            <strong>Seguridad:</strong> El transitorio de arranque es la fase más crítica. Un calentamiento muy rápido (>50°C/h) genera esfuerzos térmicos que pueden agrietar los tubos de la caldera.
+                                        </div>
+                                        <div class="alert alert-warning small">
+                                            <strong>Económico:</strong> El arranque consume combustible sin generar potencia útil. Minimizar el tiempo de transitorio ahorra ~US$ 10,000 por arranque.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejemplo 3: Semana 10 (Transitorio - NUEVO) -->
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card shadow-sm border-start border-4 border-primary">
+                            <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0"><i class="fas fa-wine-bottle"></i> Ejemplo 3: Fermentación de Cerveza (Transitorio)</h5>
+                                <span class="badge bg-light text-primary">Semana 10 - NUEVO</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="text-primary">Caso Real: Cervecería Backus (Arequipa)</h6>
+                                        <p>Tanque fermentador batch. Se carga mosto (glucosa). Durante 7 días, la glucosa disminuye y el etanol aumenta. No entra ni sale nada.</p>
+                                        <h6 class="text-primary">Análisis Temporal:</h6>
+                                        <ul>
+                                            <li><strong>Régimen:</strong> ESTADO TRANSITORIO (Batch)</li>
+                                            <li><strong>Evidencia:</strong> La composición cambia continuamente.</li>
+                                            <li><strong>Acumulación:</strong> $\frac{dm_{glucosa}}{dt} < 0$ (Consumo), $\frac{dm_{etanol}}{dt} > 0$ (Generación).</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6 class="text-primary">Impacto Industrial:</h6>
+                                        <div class="alert alert-primary small">
+                                            <strong>Calidad:</strong> El perfil de temperatura durante el transitorio define el sabor. Si la T° sube >2°C del setpoint, se generan ésteres no deseados (sabor a solvente).
+                                        </div>
+                                        <div class="alert alert-warning small">
+                                            <strong>Productividad:</strong> El tiempo de transitorio (7 días) es el "cuello de botella". Reducirlo 1 día aumenta la capacidad anual en un 14%.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejemplo 4: Semana 14 (Estacionario - NUEVO) -->
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card shadow-sm border-start border-4 border-info">
+                            <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0"><i class="fas fa-wind"></i> Ejemplo 4: Ventilación Minera (Estacionario)</h5>
+                                <span class="badge bg-light text-info">Semana 14 - NUEVO</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="text-info">Caso Real: Mina Las Bambas (MMG Limited)</h6>
+                                        <p>Sistema de ventilación principal. Los ventiladores mueven 500,000 CFM de aire constantemente. La presión y velocidad en los ductos son constantes.</p>
+                                        <h6 class="text-info">Análisis Temporal:</h6>
+                                        <ul>
+                                            <li><strong>Régimen:</strong> ESTADO ESTACIONARIO</li>
+                                            <li><strong>Evidencia:</strong> Flujo volumétrico y presión constantes en el tiempo.</li>
+                                            <li><strong>Acumulación:</strong> $\frac{dm}{dt} = 0$ (El aire que entra es igual al que sale).</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6 class="text-info">Impacto Industrial:</h6>
+                                        <div class="alert alert-info small">
+                                            <strong>Seguridad:</strong> Mantener el estado estacionario es vital para diluir gases tóxicos (NOx de explosivos). Una caída transitoria del 20% en el flujo puede superar los límites permisibles en minutos.
+                                        </div>
+                                        <div class="alert alert-warning small">
+                                            <strong>Económico:</strong> Los ventiladores consumen ~30% de la energía de la mina. Operar en estado estacionario óptimo ahorra ~US$ 2 millones/año.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejemplo 5: Semana 15 (Transitorio - NUEVO) -->
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card shadow-sm border-start border-4 border-secondary">
+                            <div class="card-header bg-secondary text-white d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0"><i class="fas fa-tint"></i> Ejemplo 5: Llenado de Tanque (Transitorio)</h5>
+                                <span class="badge bg-light text-secondary">Semana 15 - NUEVO</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="text-secondary">Caso Real: Planta Embotelladora Coca-Cola FEMSA Perú</h6>
+                                        <p>Tanque de almacenamiento de agua tratada. Entra agua a 10 m³/h, pero la válvula de salida está cerrada. El nivel del tanque sube.</p>
+                                        <h6 class="text-secondary">Análisis Temporal:</h6>
+                                        <ul>
+                                            <li><strong>Régimen:</strong> ESTADO TRANSITORIO</li>
+                                            <li><strong>Evidencia:</strong> La masa (nivel) dentro del tanque aumenta con el tiempo.</li>
+                                            <li><strong>Acumulación:</strong> $\frac{dm}{dt} = \dot{m}_{entrada} - 0 = 10 \text{ m}^3\text{/h}$.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6 class="text-secondary">Impacto Industrial:</h6>
+                                        <div class="alert alert-danger small">
+                                            <strong>Seguridad:</strong> Si el transitorio no se controla (no se abre la salida o no se cierra la entrada), el tanque se desborda. Pérdida de producto y riesgo de inundación eléctrica.
+                                        </div>
+                                        <div class="alert alert-warning small">
+                                            <strong>Automatización:</strong> Requiere controladores de nivel (LC) que actúen sobre la válvula de entrada para volver al estado estacionario deseado.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejemplo 6: Semana 11 (Estacionario - NUEVO) -->
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card shadow-sm border-start border-4 border-warning">
+                            <div class="card-header bg-warning text-dark d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0"><i class="fas fa-exchange-alt"></i> Ejemplo 6: Intercambiador de Calor LNG (Estacionario)</h5>
+                                <span class="badge bg-dark text-warning">Semana 11 - NUEVO</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="text-warning">Caso Real: Planta de LNG Perú (Pampa Melchorita)</h6>
+                                        <p>Intercambiador de calor principal (SWAP). El gas natural entra a 30°C y sale a -160°C (licuado). El refrigerante (propano) circula en contracorriente. Operación 24/7.</p>
+                                        <h6 class="text-warning">Análisis Temporal:</h6>
+                                        <ul>
+                                            <li><strong>Régimen:</strong> ESTADO ESTACIONARIO</li>
+                                            <li><strong>Evidencia:</strong> Temperaturas de entrada/salida y flujos másicos constantes.</li>
+                                            <li><strong>Acumulación:</strong> $\frac{dE}{dt} = 0$. El calor que cede el gas es igual al que absorbe el refrigerante.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6 class="text-warning">Impacto Industrial:</h6>
+                                        <div class="alert alert-warning small">
+                                            <strong>Económico:</strong> La planta exporta ~4.4 millones de toneladas/año. Una desviación transitoria de 2°C en la salida reduce la calidad del LNG y puede rechazar el cargamento (pérdida de ~US$ 5 millones).
+                                        </div>
+                                        <div class="alert alert-info small">
+                                            <strong>Mantenimiento:</strong> Solo se detiene el estado estacionario cada 3-4 años para mantenimiento mayor (turnaround).
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Mapa Mental -->
+        <section class="mindmap-section py-5 bg-light">
+            <div class="container">
+                <h2 class="section-title text-center mb-5"><i class="fas fa-sitemap text-orange"></i> Mapa Mental: Régimen Temporal</h2>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="card shadow">
+                            <div class="card-body p-4">
+                                <div class="mindmap-container">
+                                    <div class="mindmap-node root text-center mb-4">
+                                        <h4 class="bg-orange text-white p-3 rounded"><i class="fas fa-hourglass-half"></i> PASO 3: RÉGIMEN TEMPORAL</h4>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <div class="card border-success h-100">
+                                                <div class="card-header bg-success text-white"><strong>ESTACIONARIO</strong></div>
+                                                <div class="card-body">
+                                                    <ul class="list-unstyled small">
+                                                        <li><i class="fas fa-check text-success"></i> Propiedades constantes en el tiempo</li>
+                                                        <li><i class="fas fa-check text-success"></i> Acumulación = 0</li>
+                                                        <li><i class="fas fa-check text-success"></i> E = S ± R (Algebraico)</li>
+                                                        <li><i class="fas fa-check text-success"></i> Operación normal continua</li>
+                                                        <li><i class="fas fa-times text-danger"></i> No aplica a batch</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <div class="card border-danger h-100">
+                                                <div class="card-header bg-danger text-white"><strong>TRANSITORIO</strong></div>
+                                                <div class="card-body">
+                                                    <ul class="list-unstyled small">
+                                                        <li><i class="fas fa-check text-danger"></i> Propiedades cambian con el tiempo</li>
+                                                        <li><i class="fas fa-check text-danger"></i> Acumulación ≠ 0</li>
+                                                        <li><i class="fas fa-check text-danger"></i> E - S ± R = A (Diferencial)</li>
+                                                        <li><i class="fas fa-check text-danger"></i> Arranque, parada, batch</li>
+                                                        <li><i class="fas fa-times text-success"></i> Requiere EDOs</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Errores Comunes -->
+        <section class="errors-section py-5">
+            <div class="container">
+                <h2 class="section-title text-center mb-5"><i class="fas fa-exclamation-triangle text-warning"></i> Errores Comunes</h2>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="card border-danger h-100">
+                            <div class="card-header bg-danger text-white"><h5 class="mb-0"><i class="fas fa-bug"></i> Error 1: Asumir Estacionario en un Batch</h5></div>
+                            <div class="card-body">
+                                <div class="alert alert-danger"><strong>Problema:</strong> Plantear E = S para un fermentador o reactor por lotes.</div>
+                                <div class="alert alert-warning"><strong>Consecuencia:</strong> Ignorar la acumulación. Los resultados serán completamente erróneos (ej: decir que la glucosa no se consume).</div>
+                                <div class="alert alert-success"><strong>Solución:</strong> Preguntar: "¿La composición cambia con el tiempo?" Si SÍ → Transitorio (A ≠ 0).</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card border-danger h-100">
+                            <div class="card-header bg-danger text-white"><h5 class="mb-0"><i class="fas fa-bug"></i> Error 2: Confundir "Flujo Continuo" con "Estacionario"</h5></div>
+                            <div class="card-body">
+                                <div class="alert alert-danger"><strong>Problema:</strong> Asumir que porque hay flujo de entrada y salida, el sistema está en estado estacionario.</div>
+                                <div class="alert alert-warning"><strong>Consecuencia:</strong> Un tanque que se está llenando tiene flujo continuo de entrada, pero el nivel (masa) cambia → es Transitorio.</div>
+                                <div class="alert alert-success"><strong>Solución:</strong> Verificar si las propiedades EN UN PUNTO FIJO cambian con el tiempo, no solo si hay flujo.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card border-danger h-100">
+                            <div class="card-header bg-danger text-white"><h5 class="mb-0"><i class="fas fa-bug"></i> Error 3: Ignorar el Transitorio de Arranque</h5></div>
+                            <div class="card-body">
+                                <div class="alert alert-danger"><strong>Problema:</strong> Aplicar balances de estado estacionario al momento de encender un equipo.</div>
+                                <div class="alert alert-warning"><strong>Consecuencia:</strong> Subestimar los esfuerzos térmicos y mecánicos. Puede llevar a fallas catastróficas (ej: agrietamiento de calderas).</div>
+                                <div class="alert alert-success"><strong>Solución:</strong> Durante arranque/parada, SIEMPRE usar balances transitorios ($\frac{dE}{dt} \neq 0$).</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card border-danger h-100">
+                            <div class="card-header bg-danger text-white"><h5 class="mb-0"><i class="fas fa-bug"></i> Error 4: Olvidar que la Acumulación puede ser Negativa</h5></div>
+                            <div class="card-body">
+                                <div class="alert alert-danger"><strong>Problema:</strong> Asumir que la acumulación siempre es positiva (aumento de masa/energía).</div>
+                                <div class="alert alert-warning"><strong>Consecuencia:</strong> En un tanque que se está vaciando, o en un reactor donde se consume un reactivo, la acumulación es NEGATIVA.</div>
+                                <div class="alert alert-success"><strong>Solution:</strong> Acumulación = (Valor final) - (Valor inicial). Puede ser < 0.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ejercicios Paso a Paso -->
+        <section class="exercises-section py-5 bg-light">
+            <div class="container">
+                <h2 class="section-title text-center mb-5"><i class="fas fa-calculator text-orange"></i> Ejercicios Resueltos</h2>
+
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card shadow">
+                            <div class="card-header bg-danger text-white"><h5 class="mb-0"><i class="fas fa-tint"></i> Ejercicio 1: Llenado de Tanque (Transitorio)</h5></div>
+                            <div class="card-body">
+                                <p><strong>Enunciado:</strong> Un tanque cilíndrico de 10 m³ se está llenando con agua a un caudal constante de 2 m³/h. No hay salida. ¿Cuánto tiempo tarda en llenarse? Plantear el balance.</p>
+                                <div class="accordion" id="accEj1">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#ej1p1"><strong>Paso 1:</strong> Identificar el régimen temporal</button></h2>
+                                        <div id="ej1p1" class="accordion-collapse collapse show" data-bs-parent="#accEj1">
+                                            <div class="accordion-body">
+                                                <div class="alert alert-info">
+                                                    <strong>Análisis:</strong> El nivel del agua (y por tanto la masa) dentro del tanque AUMENTA con el tiempo. Las propiedades cambian.<br>
+                                                    <strong>Régimen:</strong> TRANSITORIO.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ej1p2"><strong>Paso 2:</strong> Plantear el balance de masa</button></h2>
+                                        <div id="ej1p2" class="accordion-collapse collapse" data-bs-parent="#accEj1">
+                                            <div class="accordion-body">
+                                                <div class="formula-box">
+                                                    Ecuación general: Entrada - Salida = Acumulación<br>
+                                                    Como no hay salida: Entrada = Acumulación<br>
+                                                    $\dot{m}_{entrada} = \frac{dm_{tanque}}{dt}$<br>
+                                                    $2 \text{ m}^3\text{/h} = \frac{dV}{dt}$
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ej1p3"><strong>Paso 3:</strong> Resolver (Integrar)</button></h2>
+                                        <div id="ej1p3" class="accordion-collapse collapse" data-bs-parent="#accEj1">
+                                            <div class="accordion-body">
+                                                <div class="alert alert-success">
+                                                    Integrando desde t=0 (V=0) hasta t=t (V=10):<br>
+                                                    $\int_{0}^{10} dV = \int_{0}^{t} 2 \, dt$<br>
+                                                    $10 - 0 = 2 \cdot (t - 0)$<br>
+                                                    $t = \frac{10}{2} = \mathbf{5 \text{ horas}}$<br><br>
+                                                    <strong>Conclusión:</strong> El tanque tarda 5 horas en llenarse.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-lg-12">
+                        <div class="card shadow">
+                            <div class="card-header bg-success text-white"><h5 class="mb-0"><i class="fas fa-exchange-alt"></i> Ejercicio 2: Intercambiador de Calor (Estacionario)</h5></div>
+                            <div class="card-body">
+                                <p><strong>Enunciado:</strong> Un intercambiador de calor opera continuamente. Entran 5 kg/s de aceite a 100°C y salen a 60°C. Verificar el balance de energía en estado estacionario.</p>
+                                <div class="accordion" id="accEj2">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#ej2p1"><strong>Paso 1:</strong> Identificar el régimen temporal</button></h2>
+                                        <div id="ej2p1" class="accordion-collapse collapse show" data-bs-parent="#accEj2">
+                                            <div class="accordion-body">
+                                                <div class="alert alert-info">
+                                                    <strong>Análisis:</strong> El equipo opera "continuamente" y las temperaturas de entrada/salida son constantes (100°C y 60°C fijas).<br>
+                                                    <strong>Régimen:</strong> ESTADO ESTACIONARIO.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ej2p2"><strong>Paso 2:</strong> Simplificar la ecuación de energía</button></h2>
+                                        <div id="ej2p2" class="accordion-collapse collapse" data-bs-parent="#accEj2">
+                                            <div class="accordion-body">
+                                                <div class="formula-box">
+                                                    Como es estacionario: Acumulación de energía = 0 ($\frac{dE}{dt} = 0$).<br>
+                                                    Balance: $\dot{E}_{entrada} - \dot{E}_{salida} = 0 \implies \dot{E}_{entrada} = \dot{E}_{salida}$<br>
+                                                    $\dot{m} \cdot C_p \cdot T_{entrada} = \dot{m} \cdot C_p \cdot T_{salida} + \dot{Q}_{cedido}$
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ej2p3"><strong>Paso 3:</strong> Calcular el calor transferido</button></h2>
+                                        <div id="ej2p3" class="accordion-collapse collapse" data-bs-parent="#accEj2">
+                                            <div class="accordion-body">
+                                                <div class="alert alert-success">
+                                                    $\dot{Q}_{cedido} = \dot{m} \cdot C_p \cdot (T_{entrada} - T_{salida})$<br>
+                                                    Asumiendo $C_p$ aceite ≈ 2.0 kJ/kg°C:<br>
+                                                    $\dot{Q} = 5 \cdot 2.0 \cdot (100 - 60) = 5 \cdot 2.0 \cdot 40 = \mathbf{400 \text{ kW}}$<br><br>
+                                                    <strong>Conclusión:</strong> El intercambiador transfiere 400 kW de calor al fluido frío en estado estacionario.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUIZ INTERACTIVO -->
+        <section id="quiz-section" class="quiz-section py-5">
+            <div class="container">
+                <h2 class="section-title text-center mb-5"><i class="fas fa-question-circle text-orange"></i> Quiz Interactivo: Paso 3</h2>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="card shadow-lg border-0">
+                            <div class="card-header bg-orange text-white text-center">
+                                <h4 class="mb-0"><i class="fas fa-brain"></i> Evalúa tu Conocimiento</h4>
+                                <p class="mb-0 small mt-2">Se presentarán 3 preguntas aleatorias de un banco de 10. ¡Buena suerte!</p>
+                            </div>
+                            <div class="card-body p-4">
+                                <div id="quiz-container">
+                                    <div id="quiz-start" class="text-center">
+                                        <i class="fas fa-clipboard-list fa-4x text-orange mb-3"></i>
+                                        <h5>¿Listo para el desafío?</h5>
+                                        <p class="text-muted">Responde 3 preguntas al azar sobre Régimen Temporal.</p>
+                                        <button class="btn btn-primary btn-lg" onclick="startQuiz()"><i class="fas fa-play"></i> Iniciar Quiz</button>
+                                    </div>
+                                    
+                                    <div id="quiz-questions" style="display: none;">
+                                        <div class="progress mb-4" style="height: 10px;">
+                                            <div id="quiz-progress" class="progress-bar bg-orange" role="progressbar" style="width: 0%"></div>
+                                        </div>
+                                        <div id="question-container"></div>
+                                        <div id="feedback-container" class="mt-3"></div>
+                                        <div class="d-flex justify-content-between mt-4">
+                                            <button id="btn-next" class="btn btn-primary" onclick="nextQuestion()" style="display: none;">Siguiente <i class="fas fa-arrow-right"></i></button>
+                                        </div>
+                                    </div>
+
+                                    <div id="quiz-results" style="display: none;" class="text-center">
+                                        <div id="result-icon" class="mb-3"></div>
+                                        <h4 id="result-title"></h4>
+                                        <p id="result-score" class="lead"></p>
+                                        <div id="result-details" class="text-start mt-4"></div>
+                                        <button class="btn btn-warning btn-lg mt-4" onclick="resetQuiz()"><i class="fas fa-redo"></i> Intentar de Nuevo</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navegación -->
+        <section class="navigation-section py-5 bg-dark text-white">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                        <a href="paso2.html" class="btn btn-outline-light btn-lg"><i class="fas fa-arrow-left"></i> Paso 2: Clasificación</a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="paso4.html" class="btn btn-warning btn-lg">Paso 4: Aplicación 8 Pasos <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <img src="../assets/images/logo.png" alt="Logo" height="50" class="mb-3">
+                    <p>Ingeniería Industrial</p>
+                    <p>Docente: Juan Velasco</p>
+                    <p>Período: 2026-2</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../protocol/guia-identificacion.html">Protocolo</a></li>
+                        <li><a href="paso3.html">Procesos</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Contacto</h5>
+                    <p><i class="fas fa-envelope"></i> juan.velasco@universidad.edu</p>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center"><p>&copy; 2026 Procesos Industriales. Todos los derechos reservados.</p></div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="../assets/js/main.js"></script>
+    
+    <!-- Chart.js for Regimen Comparison -->
+    <script>
+        const ctxRegimen = document.getElementById('regimenChart');
+        if (ctxRegimen) {
+            new Chart(ctxRegimen, {
+                type: 'line',
+                data: {
+                    labels: ['0 min', '10 min', '20 min', '30 min', '40 min', '50 min', '60 min'],
+                    datasets: [
+                        {
+                            label: 'Estado Estacionario (T constante)',
+                            data: [80, 80, 80, 80, 80, 80, 80],
+                            borderColor: '#28A745',
+                            backgroundColor: 'rgba(40, 167, 69, 0.1)',
+                            borderWidth: 3,
+                            pointRadius: 5,
+                            fill: false,
+                            tension: 0.1
+                        },
+                        {
+                            label: 'Estado Transitorio (T cambia)',
+                            data: [25, 45, 60, 70, 75, 78, 80],
+                            borderColor: '#DC3545',
+                            backgroundColor: 'rgba(220, 53, 69, 0.1)',
+                            borderWidth: 3,
+                            pointRadius: 5,
+                            fill: true,
+                            tension: 0.4
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            title: { display: true, text: 'Temperatura (°C)' },
+                            min: 0,
+                            max: 100
+                        },
+                        x: {
+                            title: { display: true, text: 'Tiempo (minutos)' }
+                        }
+                    },
+                    plugins: {
+                        legend: { position: 'top' },
+                        tooltip: {
+                            callbacks: {
+                                afterLabel: function(context) {
+                                    if (context.datasetIndex === 0) return 'dT/dt = 0';
+                                    if (context.datasetIndex === 1) return 'dT/dt ≠ 0';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+
+    <!-- Quiz Logic for Paso 3 -->
+    <script>
+        const quizDataPaso3 = [
+            {
+                question: "En un proceso en estado estacionario, ¿cuál es el valor de la acumulación de masa y energía?",
+                options: ["Diferente de cero", "Cero", "Positivo", "Negativo"],
+                correct: 1,
+                explanation: "En estado estacionario, las propiedades no cambian con el tiempo, por lo tanto la acumulación es SIEMPRE cero (dm/dt = 0, dE/dt = 0)."
+            },
+            {
+                question: "¿Cuál de los siguientes es un ejemplo clásico de estado transitorio?",
+                options: ["Turbina operando a carga constante", "Intercambiador de calor en régimen permanente", "Llenado de un tanque de almacenamiento", "Tubería con flujo continuo constante"],
+                correct: 2,
+                explanation: "El llenado de un tanque implica que la masa (nivel) dentro del sistema aumenta con el tiempo, por lo tanto es un estado transitorio (Acumulación ≠ 0)."
+            },
+            {
+                question: "Durante el arranque de una caldera, la temperatura y la presión cambian con el tiempo. ¿Qué régimen temporal es?",
+                options: ["Estado Estacionario", "Estado Transitorio", "Equilibrio Termodinámico", "Proceso Cíclico"],
+                correct: 1,
+                explanation: "El arranque es una fase transitoria donde las propiedades (T, P) varían hasta alcanzar el punto de operación estable."
+            },
+            {
+                question: "¿Qué ecuación matemática representa el estado estacionario para la masa?",
+                options: ["dm/dt ≠ 0", "dm/dt = 0", "dm/dt = Entrada", "dm/dt = Salida"],
+                correct: 1,
+                explanation: "La definición matemática de estado estacionario es que la derivada de la propiedad respecto al tiempo es cero (dm/dt = 0)."
+            },
+            {
+                question: "Un proceso batch (por lotes) como la fermentación de cerveza, ¿en qué régimen opera?",
+                options: ["Estado Estacionario", "Estado Transitorio", "Flujo Continuo", "Régimen Permanente"],
+                correct: 1,
+                explanation: "En un batch, la composición cambia continuamente (glucosa disminuye, etanol aumenta). Es un estado transitorio puro."
+            },
+            {
+                question: "Si un tanque tiene un flujo de entrada de 10 kg/h y un flujo de salida de 8 kg/h, ¿cuál es la tasa de acumulación?",
+                options: ["0 kg/h", "18 kg/h", "2 kg/h", "-2 kg/h"],
+                correct: 2,
+                explanation: "Acumulación = Entrada - Salida = 10 - 8 = 2 kg/h. Como es positiva, la masa dentro del tanque aumenta (Transitorio)."
+            },
+            {
+                question: "¿Puede un proceso con flujo continuo (entra y sale materia) estar en estado transitorio?",
+                options: ["No, el flujo continuo siempre es estacionario", "Sí, si las propiedades en un punto fijo cambian con el tiempo", "Solo si es un gas", "Solo si hay reacción química"],
+                correct: 1,
+                explanation: "Sí. Ejemplo: Un tanque que se está llenando tiene flujo de entrada y salida, pero el nivel cambia con el tiempo → es transitorio."
+            },
+            {
+                question: "En un intercambiador de calor operando normalmente 24/7, las temperaturas de entrada y salida son constantes. ¿Qué régimen es?",
+                options: ["Transitorio", "Estacionario", "Batch", "Adiabático"],
+                correct: 1,
+                explanation: "Si las temperaturas (propiedades) en los puntos de entrada y salida no cambian con el tiempo, el sistema está en estado estacionario."
+            },
+            {
+                question: "¿Qué tipo de ecuaciones matemáticas se requieren para modelar un estado transitorio?",
+                options: ["Ecuaciones algebraicas simples", "Ecuaciones diferenciales ordinarias (EDOs)", "Ecuaciones lineales", "Ecuaciones de estado"],
+                correct: 1,
+                explanation: "Al haber acumulación (dm/dt ≠ 0), se requieren ecuaciones diferenciales para modelar cómo cambian las propiedades con el tiempo."
+            },
+            {
+                question: "¿Qué sucede con las propiedades de un sistema en estado estacionario en un punto fijo?",
+                options: ["Cambian cíclicamente", "Permanecen constantes en el tiempo", "Aumentan gradualmente", "Disminuyen gradualmente"],
+                correct: 1,
+                explanation: "La definición fundamental de estado estacionario es que todas las propiedades (T, P, composición, etc.) permanecen constantes en el tiempo en cualquier punto del sistema."
+            }
+        ];
+
+        let currentQuizQuestions = [];
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let userAnswers = [];
+
+        function startQuiz() {
+            const shuffled = [...quizDataPaso3].sort(() => 0.5 - Math.random());
+            currentQuizQuestions = shuffled.slice(0, 3);
+            currentQuestionIndex = 0;
+            score = 0;
+            userAnswers = [];
+            
+            document.getElementById('quiz-start').style.display = 'none';
+            document.getElementById('quiz-results').style.display = 'none';
+            document.getElementById('quiz-questions').style.display = 'block';
+            
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            const q = currentQuizQuestions[currentQuestionIndex];
+            const progress = ((currentQuestionIndex) / currentQuizQuestions.length) * 100;
+            document.getElementById('quiz-progress').style.width = `${progress}%`;
+            document.getElementById('btn-next').style.display = 'none';
+            document.getElementById('feedback-container').innerHTML = '';
+            
+            let html = `<h5 class="mb-3">Pregunta ${currentQuestionIndex + 1} de ${currentQuizQuestions.length}:</h5>`;
+            html += `<p class="lead">${q.question}</p>`;
+            html += `<div class="list-group">`;
+            q.options.forEach((opt, idx) => {
+                html += `<button class="list-group-item list-group-item-action" onclick="selectAnswer(${idx})" id="opt-${idx}">${opt}</button>`;
+            });
+            html += `</div>`;
+            
+            document.getElementById('question-container').innerHTML = html;
+        }
+
+        function selectAnswer(idx) {
+            const q = currentQuizQuestions[currentQuestionIndex];
+            const isCorrect = idx === q.correct;
+            
+            q.options.forEach((_, i) => {
+                document.getElementById(`opt-${i}`).disabled = true;
+                if (i === q.correct) {
+                    document.getElementById(`opt-${i}`).classList.add('list-group-item-success');
+                } else if (i === idx && !isCorrect) {
+                    document.getElementById(`opt-${i}`).classList.add('list-group-item-danger');
+                }
+            });
+
+            if (isCorrect) score++;
+            userAnswers.push({ qIndex: currentQuestionIndex, selected: idx, isCorrect });
+
+            const feedbackClass = isCorrect ? 'alert-success' : 'alert-danger';
+            const feedbackIcon = isCorrect ? 'fa-check-circle' : 'fa-times-circle';
+            document.getElementById('feedback-container').innerHTML = `
+                <div class="alert ${feedbackClass}">
+                    <i class="fas ${feedbackIcon}"></i> <strong>${isCorrect ? '¡Correcto!' : 'Incorrecto.'}</strong> ${q.explanation}
+                </div>
+            `;
+            
+            document.getElementById('btn-next').style.display = 'block';
+            document.getElementById('btn-next').textContent = currentQuestionIndex === currentQuizQuestions.length - 1 ? 'Ver Resultados' : 'Siguiente';
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < currentQuizQuestions.length) {
+                renderQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            document.getElementById('quiz-questions').style.display = 'none';
+            document.getElementById('quiz-results').style.display = 'block';
+            
+            const percentage = (score / currentQuizQuestions.length) * 100;
+            let icon, title, color;
+            
+            if (percentage === 100) { icon = 'fa-trophy'; title = '¡Excelente! Dominas el Régimen Temporal.'; color = 'text-success'; }
+            else if (percentage >= 66) { icon = 'fa-thumbs-up'; title = '¡Buen trabajo! Sigue practicando.'; color = 'text-warning'; }
+            else { icon = 'fa-book-open'; title = 'Necesitas repasar los conceptos.'; color = 'text-danger'; }
+            
+            document.getElementById('result-icon').innerHTML = `<i class="fas ${icon} fa-4x ${color}"></i>`;
+            document.getElementById('result-title').className = color;
+            document.getElementById('result-title').textContent = title;
+            document.getElementById('result-score').textContent = `Puntuación: ${score} de ${currentQuizQuestions.length} (${percentage}%)`;
+            
+            let detailsHtml = '<h5>Detalle de respuestas:</h5><ul class="list-group">';
+            userAnswers.forEach((ans, i) => {
+                const q = currentQuizQuestions[ans.qIndex];
+                const statusClass = ans.isCorrect ? 'list-group-item-success' : 'list-group-item-danger';
+                const statusIcon = ans.isCorrect ? 'fa-check' : 'fa-times';
+                detailsHtml += `<li class="list-group-item ${statusClass}"><i class="fas ${statusIcon}"></i> <strong>P${i+1}:</strong> ${q.question.substring(0, 50)}...</li>`;
+            });
+            detailsHtml += '</ul>';
+            document.getElementById('result-details').innerHTML = detailsHtml;
+        }
+
+        function resetQuiz() {
+            document.getElementById('quiz-results').style.display = 'none';
+            document.getElementById('quiz-start').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
