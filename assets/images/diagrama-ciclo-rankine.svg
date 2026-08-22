@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <rect width="600" height="400" fill="#F5F5F5"/>
+  
+  <!-- Caldera (arriba) -->
+  <rect x="220" y="30" width="160" height="80" fill="#FF6B00" stroke="#1A1A1A" stroke-width="3" rx="5"/>
+  <text x="300" y="75" font-family="Arial" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle">CALDERA</text>
+  <text x="300" y="92" font-family="Arial" font-size="10" fill="#FFFFFF" text-anchor="middle">Q_in</text>
+  
+  <!-- Turbina (derecha) -->
+  <circle cx="480" cy="150" r="50" fill="#C0C0C0" stroke="#1A1A1A" stroke-width="3"/>
+  <circle cx="480" cy="150" r="25" fill="#2C2C2C"/>
+  <g stroke="#FF6B00" stroke-width="2">
+    <line x1="480" y1="125" x2="480" y2="175"/>
+    <line x1="455" y1="150" x2="505" y2="150"/>
+    <line x1="462" y1="132" x2="498" y2="168"/>
+    <line x1="498" y1="132" x2="462" y2="168"/>
+  </g>
+  <text x="480" y="215" font-family="Arial" font-size="12" font-weight="bold" fill="#1A1A1A" text-anchor="middle">TURBINA</text>
+  <text x="480" y="230" font-family="Arial" font-size="10" fill="#FF6B00" text-anchor="middle">Ẇ_out</text>
+  
+  <!-- Condensador (abajo) -->
+  <rect x="220" y="290" width="160" height="80" fill="#007BFF" stroke="#1A1A1A" stroke-width="3" rx="5"/>
+  <text x="300" y="335" font-family="Arial" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle">CONDENSADOR</text>
+  <text x="300" y="352" font-family="Arial" font-size="10" fill="#FFFFFF" text-anchor="middle">Q̇_out</text>
+  
+  <!-- Bomba (izquierda) -->
+  <circle cx="120" cy="150" r="40" fill="#28A745" stroke="#1A1A1A" stroke-width="3"/>
+  <text x="120" y="155" font-family="Arial" font-size="12" font-weight="bold" fill="#FFFFFF" text-anchor="middle">BOMBA</text>
+  <text x="120" y="200" font-family="Arial" font-size="10" fill="#28A745" text-anchor="middle">_in</text>
+  
+  <!-- Flechas de flujo (sentido horario) -->
+  <!-- Caldera → Turbina -->
+  <line x1="380" y1="70" x2="430" y2="130" stroke="#FF6B00" stroke-width="4"/>
+  <polygon points="430,130 420,125 425,135" fill="#FF6B00"/>
+  <text x="420" y="95" font-family="Arial" font-size="9" fill="#1A1A1A">Vapor</text>
+  <text x="420" y="107" font-family="Arial" font-size="9" fill="#1A1A1A">sobrecalentado</text>
+  
+  <!-- Turbina → Condensador -->
+  <line x1="480" y1="200" x2="380" y2="290" stroke="#007BFF" stroke-width="4"/>
+  <polygon points="380,290 390,285 385,295" fill="#007BFF"/>
+  <text x="445" y="260" font-family="Arial" font-size="9" fill="#1A1A1A">Vapor</text>
+  <text x="445" y="272" font-family="Arial" font-size="9" fill="#1A1A1A">expandido</text>
+  
+  <!-- Condensador → Bomba -->
+  <line x1="220" y1="330" x2="160" y2="190" stroke="#28A745" stroke-width="4"/>
+  <polygon points="160,190 165,200 155,195" fill="#28A745"/>
+  <text x="175" y="270" font-family="Arial" font-size="9" fill="#1A1A1A">Líquido</text>
+  <text x="175" y="282" font-family="Arial" font-size="9" fill="#1A1A1A">saturado</text>
+  
+  <!-- Bomba → Caldera -->
+  <line x1="120" y1="110" x2="220" y2="70" stroke="#FF6B00" stroke-width="4"/>
+  <polygon points="220,70 210,75 215,65" fill="#FF6B00"/>
+  <text x="150" y="85" font-family="Arial" font-size="9" fill="#1A1A1A">Líquido</text>
+  <text x="150" y="97" font-family="Arial" font-size="9" fill="#1A1A1A">comprimido</text>
+  
+  <!-- Título -->
+  <text x="300" y="395" font-family="Arial" font-size="13" font-weight="bold" fill="#1A1A1A" text-anchor="middle">CICLO RANKINE IDEAL - η = (W_turbina - W_bomba) / Q_caldera</text>
+</svg>
