@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Plataforma educativa de Procesos Industriales - Ingeniería Industrial">
+    <title>Procesos Industriales | Domina la Energía, Transforma el Futuro</title>
+    <link rel="icon" href="assets/images/logo.png" type="image/png">
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Skip to content (Accesibilidad) -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+    <!-- Header con Logo -->
+    <header class="main-header">
+        <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Navegación principal">
+            <div class="container">
+                <a class="navbar-brand" href="index.html" aria-label="Inicio - Procesos Industriales">
+                    <img src="assets/images/logo.png" alt="Logo Procesos Industriales" height="60" class="logo-header">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                Protocolo
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="protocol/guia-identificacion.html">Guía Completa</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                Procesos
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="procesos/paso0.html">Paso 0: Sistema y Frontera</a></li>
+                                <li><a class="dropdown-item" href="procesos/paso1.html">Paso 1: Matriz Entrada-Salida</a></li>
+                                <li><a class="dropdown-item" href="procesos/paso2.html">Paso 2: Clasificación</a></li>
+                                <li><a class="dropdown-item" href="procesos/paso3.html">Paso 3: Régimen Temporal</a></li>
+                                <li><a class="dropdown-item" href="procesos/paso4.html">Paso 4: Aplicación 8 Pasos</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                Quizzes
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="quizzes/quiz-paso0.html">Quiz Paso 0</a></li>
+                                <li><a class="dropdown-item" href="quizzes/quiz-paso1.html">Quiz Paso 1</a></li>
+                                <li><a class="dropdown-item" href="quizzes/quiz-paso2.html">Quiz Paso 2</a></li>
+                                <li><a class="dropdown-item" href="quizzes/quiz-paso3.html">Quiz Paso 3</a></li>
+                                <li><a class="dropdown-item" href="quizzes/quiz-paso4.html">Quiz Paso 4</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section" aria-labelledby="hero-title">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <h1 id="hero-title" class="hero-title">
+                            <span class="text-gradient">PROCESOS</span><br>
+                            <span class="text-orange">INDUSTRIALES</span>
+                        </h1>
+                        <p class="hero-subtitle">Innovación y Eficiencia</p>
+                        <p class="hero-tagline">
+                            <i class="fas fa-cog fa-spin"></i> 
+                            Domina la Energía, Transforma el Futuro
+                        </p>
+                        <div class="hero-buttons">
+                            <a href="protocol/guia-identificacion.html" class="btn btn-primary btn-lg me-3">
+                                <i class="fas fa-book-open"></i> Ver Protocolo
+                            </a>
+                            <a href="procesos/paso0.html" class="btn btn-outline-light btn-lg">
+                                <i class="fas fa-play"></i> Comenzar
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 text-center">
+                        <img src="assets/images/logo.png" alt="Logo animado" class="img-fluid hero-logo" 
+                             style="max-height: 400px; animation: float 3s ease-in-out infinite;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section" aria-labelledby="stats-title">
+            <div class="container">
+                <h2 id="stats-title" class="section-title text-center">Tu Camino hacia la Excelencia Industrial</h2>
+                <div class="row text-center">
+                    <div class="col-md-3 col-6 mb-4">
+                        <div class="stat-card glass-effect">
+                            <i class="fas fa-layer-group fa-3x text-orange"></i>
+                            <h3 class="stat-number">6</h3>
+                            <p class="stat-label">Unidades</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6 mb-4">
+                        <div class="stat-card glass-effect">
+                            <i class="fas fa-calendar-week fa-3x text-orange"></i>
+                            <h3 class="stat-number">16</h3>
+                            <p class="stat-label">Semanas</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6 mb-4">
+                        <div class="stat-card glass-effect">
+                            <i class="fas fa-tasks fa-3x text-orange"></i>
+                            <h3 class="stat-number">5</h3>
+                            <p class="stat-label">Laboratorios</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6 mb-4">
+                        <div class="stat-card glass-effect">
+                            <i class="fas fa-graduation-cap fa-3x text-orange"></i>
+                            <h3 class="stat-number">100%</h3>
+                            <p class="stat-label">Práctico</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Unidades Section -->
+        <section class="units-section" aria-labelledby="units-title">
+            <div class="container">
+                <h2 id="units-title" class="section-title text-center">Unidades del Curso</h2>
+                <div class="row">
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="unit-card glass-effect">
+                            <div class="unit-header bg-gradient">
+                                <i class="fas fa-thermometer-half fa-3x"></i>
+                                <h3>Unidad 1</h3>
+                            </div>
+                            <div class="unit-body">
+                                <h4>Sistemas Termodinámicos</h4>
+                                <p>Semanas 1-5: Balances de materia, 1ª y 2ª Ley, ciclos de refrigeración y Rankine.</p>
+                                <a href="procesos/paso0.html" class="btn btn-sm btn-outline-primary">Explorar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="unit-card glass-effect">
+                            <div class="unit-header bg-gradient">
+                                <i class="fas fa-wind fa-3x"></i>
+                                <h3>Unidad 2</h3>
+                            </div>
+                            <div class="unit-body">
+                                <h4>Operaciones Unitarias</h4>
+                                <p>Semanas 6-8: Acondicionamiento de aire, secado y evaporación.</p>
+                                <a href="procesos/paso1.html" class="btn btn-sm btn-outline-primary">Explorar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="unit-card glass-effect">
+                            <div class="unit-header bg-gradient">
+                                <i class="fas fa-fire fa-3x"></i>
+                                <h3>Unidad 3</h3>
+                            </div>
+                            <div class="unit-body">
+                                <h4>Combustión</h4>
+                                <p>Semanas 9-10: Balances con reacción química y calores de formación.</p>
+                                <a href="procesos/paso2.html" class="btn btn-sm btn-outline-primary">Explorar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="unit-card glass-effect">
+                            <div class="unit-header bg-gradient">
+                                <i class="fas fa-exchange-alt fa-3x"></i>
+                                <h3>Unidad 5</h3>
+                            </div>
+                            <div class="unit-body">
+                                <h4>Transferencia de Calor</h4>
+                                <p>Semanas 11-13: Conducción, convección e intercambiadores.</p>
+                                <a href="procesos/paso3.html" class="btn btn-sm btn-outline-primary">Explorar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="unit-card glass-effect">
+                            <div class="unit-header bg-gradient">
+                                <i class="fas fa-tint fa-3x"></i>
+                                <h3>Unidad 6</h3>
+                            </div>
+                            <div class="unit-body">
+                                <h4>Mecánica de Fluidos</h4>
+                                <p>Semanas 14-15: Flujo de fluidos, pérdidas de carga y bombeo.</p>
+                                <a href="procesos/paso4.html" class="btn btn-sm btn-outline-primary">Explorar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="unit-card glass-effect">
+                            <div class="unit-header bg-gradient">
+                                <i class="fas fa-project-diagram fa-3x"></i>
+                                <h3>Proyecto</h3>
+                            </div>
+                            <div class="unit-body">
+                                <h4>Integrador</h4>
+                                <p>Semana 13-16: Aplicación práctica de todos los conceptos.</p>
+                                <a href="protocol/guia-identificacion.html" class="btn btn-sm btn-outline-primary">Ver más</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section" aria-labelledby="features-title">
+            <div class="container">
+                <h2 id="features-title" class="section-title text-center">¿Por qué elegir esta plataforma?</h2>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="feature-box text-center">
+                            <div class="feature-icon">
+                                <i class="fas fa-brain fa-3x text-orange"></i>
+                            </div>
+                            <h4>Aprendizaje Activo</h4>
+                            <p>Mnemotecnias, mapas mentales interactivos y ejercicios paso a paso.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="feature-box text-center">
+                            <div class="feature-icon">
+                                <i class="fas fa-industry fa-3x text-orange"></i>
+                            </div>
+                            <h4>Casos Reales</h4>
+                            <p>Ejemplos de Southern Copper, Alicorp, Backus y otras industrias líderes.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="feature-box text-center">
+                            <div class="feature-icon">
+                                <i class="fas fa-chart-line fa-3x text-orange"></i>
+                            </div>
+                            <h4>Impacto Cuantificado</h4>
+                            <p>Conoce el impacto económico, ambiental y de productividad de cada proceso.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <img src="assets/images/logo.png" alt="Logo" height="50" class="mb-3">
+                    <p>Ingeniería Industrial - Facultad de Ingeniería</p>
+                    <p>Docente: Juan Velasco</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="protocol/guia-identificacion.html">Protocolo</a></li>
+                        <li><a href="procesos/paso0.html">Procesos</a></li>
+                        <li><a href="quizzes/quiz-paso0.html">Quizzes</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Contacto</h5>
+                    <p><i class="fas fa-envelope"></i> juan.velasco@universidad.edu</p>
+                    <p><i class="fas fa-clock"></i> Período: 2026-2</p>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p>&copy; 2026 Procesos Industriales. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
