@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Quiz Interactivo Paso 4: Aplicación de la Guía de 8 Pasos para Identificación de Procesos">
+    <title>Quiz Paso 4: Aplicación 8 Pasos | Procesos Industriales</title>
+    <link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .quiz-container { max-width: 800px; margin: 50px auto; padding: 30px; background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .question-card { display: none; }
+        .question-card.active { display: block; }
+        .option-btn { width: 100%; text-align: left; margin-bottom: 10px; padding: 15px; border: 2px solid #e0e0e0; border-radius: 8px; background: white; transition: all 0.3s; }
+        .option-btn:hover { border-color: #FF6B00; background: #FFF5F0; }
+        .option-btn.correct { background: #d4edda; border-color: #28A745; color: #155724; }
+        .option-btn.incorrect { background: #f8d7da; border-color: #DC3545; color: #721c24; }
+        .feedback-box { display: none; padding: 20px; border-radius: 8px; margin-top: 20px; }
+        .feedback-box.correct { background: #d4edda; border: 2px solid #28A745; }
+        .feedback-box.incorrect { background: #f8d7da; border: 2px solid #DC3545; }
+        .progress-bar-custom { height: 10px; border-radius: 5px; background: #e0e0e0; margin-bottom: 20px; }
+        .progress-fill { height: 100%; border-radius: 5px; background: linear-gradient(90deg, #FF6B00, #FF8C00); transition: width 0.3s; }
+        .result-section { display: none; text-align: center; }
+        .score-circle { width: 150px; height: 150px; border-radius: 50%; background: linear-gradient(135deg, #FF6B00, #FF8C00); color: white; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; font-weight: bold; margin: 0 auto 30px; }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand" href="../index.html"><img src="../assets/images/logo.svg" alt="Logo" height="60" class="logo-header"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Protocolo</a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="../protocol/guia-identificacion.html">Guía Completa</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Procesos</a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="../procesos/paso0.html">Paso 0: Sistema y Frontera</a></li>
+                                <li><a class="dropdown-item" href="../procesos/paso1.html">Paso 1: Matriz Entrada-Salida</a></li>
+                                <li><a class="dropdown-item" href="../procesos/paso2.html">Paso 2: Clasificación</a></li>
+                                <li><a class="dropdown-item" href="../procesos/paso3.html">Paso 3: Régimen Temporal</a></li>
+                                <li><a class="dropdown-item" href="../procesos/paso4.html">Paso 4: Aplicación 8 Pasos</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section class="process-hero bg-gradient" style="background: linear-gradient(135deg, #1A1A1A 0%, #FF6B00 100%); color: white; padding: 60px 0;">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <div class="badge bg-warning text-dark mb-3"><i class="fas fa-question-circle"></i> QUIZ INTERACTIVO</div>
+                        <h1 class="display-5 mb-3"><i class="fas fa-list-ol"></i> Quiz Paso 4: Aplicación 8 Pasos</h1>
+                        <p class="lead mb-4">Evalúa tu comprensión sobre la guía sistemática de 8 pasos para identificación de procesos</p>
+                    </div>
+                    <div class="col-lg-4 text-center d-none d-lg-block"><i class="fas fa-tasks fa-8x" style="opacity: 0.3;"></i></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-5">
+            <div class="container">
+                <div class="quiz-container">
+                    <div id="quiz-start" class="text-center py-5">
+                        <i class="fas fa-brain fa-5x text-orange mb-4"></i>
+                        <h2 class="mb-3">¿Listo para el desafío?</h2>
+                        <p class="lead text-muted mb-4">Este quiz consta de <strong>10 preguntas</strong> sobre el Paso 4: Aplicación de la Guía de 8 Pasos.</p>
+                        <div class="alert alert-info"><i class="fas fa-info-circle"></i> Al finalizar recibirás retroalimentación inmediata y tu puntuación final.</div>
+                        <button class="btn btn-primary btn-lg px-5" onclick="startQuiz()"><i class="fas fa-play"></i> Comenzar Quiz</button>
+                    </div>
+
+                    <div id="quiz-questions" style="display: none;">
+                        <div class="progress-bar-custom"><div id="progress-fill" class="progress-fill" style="width: 0%"></div></div>
+                        <div class="d-flex justify-content-between mb-3">
+                            <span class="badge bg-primary">Pregunta <span id="current-q">1</span> de <span id="total-q">10</span></span>
+                            <span class="badge bg-success">Puntos: <span id="score-display">0</span></span>
+                        </div>
+                        <div id="question-container" class="question-card active">
+                            <h4 id="question-text" class="mb-4"></h4>
+                            <div id="options-container"></div>
+                            <div id="feedback" class="feedback-box">
+                                <h5 id="feedback-title"></h5>
+                                <p id="feedback-explanation"></p>
+                                <button id="next-btn" class="btn btn-primary" onclick="nextQuestion()">Siguiente <i class="fas fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="quiz-results" class="result-section py-5">
+                        <div class="score-circle"><span id="final-score">0%</span></div>
+                        <h2 id="result-title" class="mb-3"></h2>
+                        <p id="result-message" class="lead text-muted mb-4"></p>
+                        <div class="row justify-content-center">
+                            <div class="col-md-6">
+                                <div class="card shadow-sm">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Resumen</h5>
+                                        <p class="card-text">Respuestas correctas: <strong id="correct-count">0</strong> de <strong id="total-count">10</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <button class="btn btn-warning btn-lg me-3" onclick="restartQuiz()"><i class="fas fa-redo"></i> Intentar de Nuevo</button>
+                            <a href="../procesos/paso4.html" class="btn btn-outline-primary btn-lg"><i class="fas fa-arrow-left"></i> Volver al Paso 4</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <img src="../assets/images/logo.svg" alt="Logo" height="50" class="mb-3">
+                    <p>Ingeniería Industrial</p>
+                    <p>Docente: Juan Velasco</p>
+                    <p>Período: 2026-2</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../protocol/guia-identificacion.html">Protocolo</a></li>
+                        <li><a href="../procesos/paso4.html">Procesos</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Contacto</h5>
+                    <p><i class="fas fa-envelope"></i> juan.velasco@universidad.edu</p>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center"><p>&copy; 2026 Procesos Industriales. Todos los derechos reservados.</p></div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const quizData = [
+            { question: "¿Cuál es el primer paso de la guía de 8 pasos para identificar procesos?", options: ["Listar las corrientes de materia", "Definir el sistema y trazar la frontera", "Elegir la ecuación de balance", "Verificar si hay reacción química"], correct: 1, explanation: "El Paso 1 es definir el sistema y trazar la frontera. Sin esto, no se puede identificar correctamente qué entra y qué sale." },
+            { question: "Si dentro del sistema ocurre una combustión, ¿en qué paso se identifica esto y qué implica?", options: ["Paso 2, implica acumulación de materia", "Paso 4, implica que hay generación y consumo de especies", "Paso 6, implica que el modo es batch", "Paso 8, implica que el resultado es inválido"], correct: 1, explanation: "En el Paso 4 se verifica si hay reacción química. Si la hay, los términos de Generación y Consumo en el balance de materia por componente son distintos de cero." },
+            { question: "¿Qué se debe listar en el Paso 3 de la guía?", options: ["Todas las corrientes de materia", "Los grados de libertad del sistema", "Todas las corrientes de energía (calor, trabajo, cinética, potencial)", "Las propiedades físicas de los componentes"], correct: 2, explanation: "El Paso 3 consiste en listar TODAS las corrientes de energía que cruzan la frontera: calor (Q), trabajo (W), y energías cinética y potencial si son relevantes." },
+            { question: "¿Por qué es crucial el Paso 8 (Resolver, verificar y contrastar)?", options: ["Para calcular los grados de libertad", "Para asegurar que el resultado sea físicamente razonable y evaluar su impacto industrial", "Para elegir la ecuación de balance correcta", "Para definir la base de cálculo"], correct: 1, explanation: "El Paso 8 es la validación final. Permite detectar errores de cálculo (ej. eficiencia > 100%) y contextualizar el resultado en términos económicos, ambientales o de seguridad." },
+            { question: "Si un tanque se está llenando con agua, ¿qué valor tiene la acumulación en el Paso 5?", options: ["Cero", "Diferente de cero (positiva)", "Diferente de cero (negativa)", "Depende de la temperatura del agua"], correct: 1, explanation: "En el Paso 5, si el sistema cambia con el tiempo (como un tanque llenándose), la acumulación es distinta de cero. En este caso, es positiva porque la masa aumenta." },
+            { question: "¿En qué paso se elige la ecuación específica de la unidad (ej. DTML, Darcy-Weisbach, COP)?", options: ["Paso 2", "Paso 5", "Paso 7", "Paso 8"], correct: 2, explanation: "El Paso 7 es 'Elegir la ecuación de balance aplicable'. Aquí se selecciona la herramienta matemática específica de la unidad (S3, S12, S15, etc.) basada en los pasos anteriores." },
+            { question: "¿La guía de 8 pasos reemplaza las ecuaciones específicas de cada unidad del curso?", options: ["Sí, es la única ecuación que se necesita", "No, les da el marco común para aplicarlas correctamente", "Solo reemplaza las ecuaciones de la Unidad 1", "Sí, pero solo para procesos continuos"], correct: 1, explanation: "La guía NO reemplaza las ecuaciones específicas (como DTML o Darcy). Les da el marco sistemático para identificar cuándo y cómo aplicarlas correctamente." },
+            { question: "Si un equipo opera 24/7 sin que cambien sus propiedades en un punto fijo, ¿qué modo de operación se identifica en el Paso 6?", options: ["Batch (Discontinuo)", "Semicontinuo", "Continuo en estado estacionario", "Transitorio"], correct: 2, explanation: "En el Paso 6, si las propiedades no cambian con el tiempo y el flujo es ininterrumpido, el modo es Continuo en estado estacionario (Acumulación = 0)." },
+            { question: "¿Qué error común se comete al saltarse el Paso 1 (Frontera)?", options: ["Elegir mal la base de cálculo", "Incluir corrientes internas como si fueran externas o ignorar interacciones", "Usar la ecuación incorrecta", "Calcular mal la acumulación"], correct: 1, explanation: "Sin una frontera clara (Paso 1), es fácil confundir corrientes internas del sistema con entradas/salidas, o ignorar interacciones de energía con el entorno." },
+            { question: "En la mnemotecnia 'PROCESOS', ¿qué representa la letra 'C'?", options: ["Calcular la acumulación", "Confirmar si hay reacción o cambio de fase", "Clasificar el modo de operación", "Contrastar el resultado"], correct: 1, explanation: "En la mnemotecnia PROCESOS, la 'C' representa 'Confirmar si hay reacción o cambio de fase' (Paso 4), lo cual determina si hay generación/consumo de especies." }
+        ];
+
+        let currentQuestion = 0, score = 0, answered = false;
+
+        function startQuiz() {
+            document.getElementById('quiz-start').style.display = 'none';
+            document.getElementById('quiz-questions').style.display = 'block';
+            currentQuestion = 0; score = 0; showQuestion();
+        }
+
+        function showQuestion() {
+            answered = false;
+            const q = quizData[currentQuestion];
+            document.getElementById('current-q').textContent = currentQuestion + 1;
+            document.getElementById('total-q').textContent = quizData.length;
+            document.getElementById('score-display').textContent = score;
+            document.getElementById('question-text').textContent = q.question;
+            document.getElementById('progress-fill').style.width = ((currentQuestion) / quizData.length * 100) + '%';
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+            q.options.forEach((option, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn btn';
+                btn.textContent = option;
+                btn.onclick = () => selectAnswer(index, btn);
+                optionsContainer.appendChild(btn);
+            });
+            document.getElementById('feedback').style.display = 'none';
+        }
+
+        function selectAnswer(selectedIndex, btn) {
+            if (answered) return;
+            answered = true;
+            const q = quizData[currentQuestion];
+            const options = document.querySelectorAll('.option-btn');
+            options.forEach((opt, idx) => {
+                opt.disabled = true;
+                if (idx === q.correct) opt.classList.add('correct');
+                else if (idx === selectedIndex && selectedIndex !== q.correct) opt.classList.add('incorrect');
+            });
+            const feedback = document.getElementById('feedback');
+            const feedbackTitle = document.getElementById('feedback-title');
+            const feedbackExplanation = document.getElementById('feedback-explanation');
+            if (selectedIndex === q.correct) {
+                score++;
+                feedback.className = 'feedback-box correct';
+                feedbackTitle.textContent = '¡Correcto!';
+            } else {
+                feedback.className = 'feedback-box incorrect';
+                feedbackTitle.textContent = 'Incorrecto';
+            }
+            feedbackExplanation.textContent = q.explanation;
+            feedback.style.display = 'block';
+            document.getElementById('score-display').textContent = score;
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            if (currentQuestion >= quizData.length) showResults();
+            else showQuestion();
+        }
+
+        function showResults() {
+            document.getElementById('quiz-questions').style.display = 'none';
+            document.getElementById('quiz-results').style.display = 'block';
+            const percentage = Math.round((score / quizData.length) * 100);
+            document.getElementById('final-score').textContent = percentage + '%';
+            document.getElementById('correct-count').textContent = score;
+            document.getElementById('total-count').textContent = quizData.length;
+            const resultTitle = document.getElementById('result-title');
+            const resultMessage = document.getElementById('result-message');
+            if (percentage >= 90) { resultTitle.textContent = '¡Excelente!'; resultMessage.textContent = 'Dominas completamente la Guía de 8 Pasos.'; }
+            else if (percentage >= 70) { resultTitle.textContent = '¡Muy bien!'; resultMessage.textContent = 'Tienes una buena comprensión, pero repasa algunos conceptos.'; }
+            else if (percentage >= 50) { resultTitle.textContent = 'Bien'; resultMessage.textContent = 'Has aprobado, pero te recomendamos revisar el material del Paso 4.'; }
+            else { resultTitle.textContent = 'Necesitas mejorar'; resultMessage.textContent = 'Te sugerimos estudiar nuevamente el Paso 4 antes de continuar.'; }
+        }
+
+        function restartQuiz() {
+            document.getElementById('quiz-results').style.display = 'none';
+            document.getElementById('quiz-start').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
