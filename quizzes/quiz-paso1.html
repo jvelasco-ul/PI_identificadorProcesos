@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Quiz Interactivo Paso 1: Matriz Maestra de Balance - Herramienta de Identificación de Procesos">
+    <title>Quiz Paso 1: Matriz Maestra | Procesos Industriales</title>
+    <link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    
+    <style>
+        .quiz-container { max-width: 800px; margin: 50px auto; padding: 30px; background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .question-card { display: none; }
+        .question-card.active { display: block; }
+        .option-btn { width: 100%; text-align: left; margin-bottom: 10px; padding: 15px; border: 2px solid #e0e0e0; border-radius: 8px; background: white; transition: all 0.3s; }
+        .option-btn:hover { border-color: #FF6B00; background: #FFF5F0; }
+        .option-btn.correct { background: #d4edda; border-color: #28A745; color: #155724; }
+        .option-btn.incorrect { background: #f8d7da; border-color: #DC3545; color: #721c24; }
+        .feedback-box { display: none; padding: 20px; border-radius: 8px; margin-top: 20px; }
+        .feedback-box.correct { background: #d4edda; border: 2px solid #28A745; }
+        .feedback-box.incorrect { background: #f8d7da; border: 2px solid #DC3545; }
+        .progress-bar-custom { height: 10px; border-radius: 5px; background: #e0e0e0; margin-bottom: 20px; }
+        .progress-fill { height: 100%; border-radius: 5px; background: linear-gradient(90deg, #FF6B00, #FF8C00); transition: width 0.3s; }
+        .result-section { display: none; text-align: center; }
+        .score-circle { width: 150px; height: 150px; border-radius: 50%; background: linear-gradient(135deg, #FF6B00, #FF8C00); color: white; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; font-weight: bold; margin: 0 auto 30px; }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand" href="../index.html">
+                    <img src="../assets/images/logo.svg" alt="Logo" height="60" class="logo-header">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Protocolo</a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="../protocol/guia-identificacion.html">Guía Completa</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Procesos</a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="../procesos/paso0.html">Paso 0: Sistema y Frontera</a></li>
+                                <li><a class="dropdown-item" href="../procesos/paso1.html">Paso 1: Matriz Entrada-Salida</a></li>
+                                <li><a class="dropdown-item" href="../procesos/paso2.html">Paso 2: Clasificación</a></li>
+                                <li><a class="dropdown-item" href="../procesos/paso3.html">Paso 3: Régimen Temporal</a></li>
+                                <li><a class="dropdown-item" href="../procesos/paso4.html">Paso 4: Aplicación 8 Pasos</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section class="process-hero bg-gradient" style="background: linear-gradient(135deg, #1A1A1A 0%, #FF6B00 100%); color: white; padding: 60px 0;">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <div class="badge bg-warning text-dark mb-3"><i class="fas fa-question-circle"></i> QUIZ INTERACTIVO</div>
+                        <h1 class="display-5 mb-3"><i class="fas fa-balance-scale"></i> Quiz Paso 1: Matriz Maestra de Balance</h1>
+                        <p class="lead mb-4">Evalúa tu comprensión sobre la ecuación de balance: Entrada - Salida + Generación - Consumo = Acumulación</p>
+                    </div>
+                    <div class="col-lg-4 text-center d-none d-lg-block">
+                        <i class="fas fa-clipboard-check fa-8x" style="opacity: 0.3;"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-5">
+            <div class="container">
+                <div class="quiz-container">
+                    <div id="quiz-start" class="text-center py-5">
+                        <i class="fas fa-brain fa-5x text-orange mb-4"></i>
+                        <h2 class="mb-3">¿Listo para el desafío?</h2>
+                        <p class="lead text-muted mb-4">Este quiz consta de <strong>10 preguntas</strong> sobre el Paso 1: Matriz Maestra de Balance.</p>
+                        <div class="alert alert-info"><i class="fas fa-info-circle"></i> Al finalizar recibirás retroalimentación inmediata y tu puntuación final.</div>
+                        <button class="btn btn-primary btn-lg px-5" onclick="startQuiz()"><i class="fas fa-play"></i> Comenzar Quiz</button>
+                    </div>
+
+                    <div id="quiz-questions" style="display: none;">
+                        <div class="progress-bar-custom"><div id="progress-fill" class="progress-fill" style="width: 0%"></div></div>
+                        <div class="d-flex justify-content-between mb-3">
+                            <span class="badge bg-primary">Pregunta <span id="current-q">1</span> de <span id="total-q">10</span></span>
+                            <span class="badge bg-success">Puntos: <span id="score-display">0</span></span>
+                        </div>
+                        <div id="question-container" class="question-card active">
+                            <h4 id="question-text" class="mb-4"></h4>
+                            <div id="options-container"></div>
+                            <div id="feedback" class="feedback-box">
+                                <h5 id="feedback-title"></h5>
+                                <p id="feedback-explanation"></p>
+                                <button id="next-btn" class="btn btn-primary" onclick="nextQuestion()">Siguiente <i class="fas fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="quiz-results" class="result-section py-5">
+                        <div class="score-circle"><span id="final-score">0%</span></div>
+                        <h2 id="result-title" class="mb-3"></h2>
+                        <p id="result-message" class="lead text-muted mb-4"></p>
+                        <div class="row justify-content-center">
+                            <div class="col-md-6">
+                                <div class="card shadow-sm">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Resumen</h5>
+                                        <p class="card-text">Respuestas correctas: <strong id="correct-count">0</strong> de <strong id="total-count">10</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <button class="btn btn-warning btn-lg me-3" onclick="restartQuiz()"><i class="fas fa-redo"></i> Intentar de Nuevo</button>
+                            <a href="../procesos/paso1.html" class="btn btn-outline-primary btn-lg"><i class="fas fa-arrow-left"></i> Volver al Paso 1</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <img src="../assets/images/logo.svg" alt="Logo" height="50" class="mb-3">
+                    <p>Ingeniería Industrial</p>
+                    <p>Docente: Juan Velasco</p>
+                    <p>Período: 2026-2</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../protocol/guia-identificacion.html">Protocolo</a></li>
+                        <li><a href="../procesos/paso1.html">Procesos</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Contacto</h5>
+                    <p><i class="fas fa-envelope"></i> juan.velasco@universidad.edu</p>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center"><p>&copy; 2026 Procesos Industriales. Todos los derechos reservados.</p></div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const quizData = [
+            { question: "¿Cuál es la ecuación general de balance aplicada en balances de materia y energía?", options: ["Entrada + Salida = Generación + Consumo", "Entrada - Salida + Generación - Consumo = Acumulación", "Entrada + Generación = Salida + Consumo", "Entrada - Salida = Acumulación"], correct: 1, explanation: "La ecuación universal es: E - S + G - C = A. Es la base para todos los balances de materia y energía." },
+            { question: "En un secador continuo operando en estado estacionario, ¿cuál es el valor de la acumulación (A)?", options: ["Diferente de cero y positiva", "Cero", "Diferente de cero y negativa", "Depende de la humedad"], correct: 1, explanation: "En estado estacionario, las propiedades no cambian con el tiempo, por lo tanto la acumulación es siempre cero (A=0)." },
+            { question: "En la combustión de metano (CH₄ + 2O₂ → CO₂ + 2H₂O), el CO₂ en los gases de salida representa:", options: ["Solo Salida", "Salida y Generación", "Solo Generación", "Consumo"], correct: 1, explanation: "El CO₂ sale del sistema (Salida) y además se produce dentro del reactor por la reacción química (Generación)." },
+            { question: "En un tanque que se está llenando con agua (sin salida), la acumulación es:", options: ["Cero", "Negativa", "Diferente de cero (positiva)", "Igual a la salida"], correct: 2, explanation: "Al estar llenándose, la masa dentro del sistema aumenta con el tiempo, por lo tanto la acumulación es distinta de cero y positiva." },
+            { question: "Para un sistema cerrado (sin flujo de masa), el balance de materia indica que:", options: ["Entrada = Salida", "Generación = Consumo", "No hay corrientes de entrada ni salida de materia", "La acumulación es siempre cero"], correct: 2, explanation: "En un sistema cerrado, la frontera no permite el paso de masa, por lo que las corrientes de entrada y salida de materia son cero." },
+            { question: "En una turbina ideal operando en estado estacionario, la generación de energía es:", options: ["Igual al trabajo de salida", "Cero (la energía solo se transforma)", "Positiva", "Depende de la eficiencia"], correct: 1, explanation: "Por la 1ª Ley de la Termodinámica, la energía no se genera ni se consume, solo se transforma. G=0 y C=0 para energía." },
+            { question: "Si en un mezclador entran 100 kg/h y salen 80 kg/h en estado estacionario (sin reacción), esto implica que:", options: ["El balance es correcto", "Hay una pérdida no contabilizada (error)", "La acumulación es 20 kg/h", "Se generaron 20 kg/h"], correct: 1, explanation: "En estado estacionario sin reacción, E debe ser igual a S. Si E ≠ S, hay un error en la medición o una corriente no identificada." },
+            { question: "El término 'Generación' en un balance de materia por componente es distinto de cero SOLO si:", options: ["Hay cambio de temperatura", "Hay reacción química o bioquímica", "El sistema es abierto", "Hay flujo de masa"], correct: 1, explanation: "En balances de materia, la generación/consumo de una especie específica solo ocurre si hay una reacción química que la produzca o consuma." },
+            { question: "En un evaporador, el vapor de agua que sale proviene de:", options: ["Una reacción química", "Un cambio de fase físico (evaporación)", "Generación química de agua", "Consumo de vapor"], correct: 1, explanation: "En operaciones unitarias como la evaporación, no hay reacción química. El vapor se genera por cambio de fase físico." },
+            { question: "La base de cálculo en un balance de materia y energía debe ser:", options: ["Diferente para cada corriente", "Consistente y unificada para todas las corrientes", "Siempre 1 hora", "Siempre 1 kg"], correct: 1, explanation: "Todas las corrientes deben expresarse en la misma base (ej. kg/h, kmol/h) para que la ecuación de balance sea dimensionalmente correcta." }
+        ];
+
+        let currentQuestion = 0, score = 0, answered = false;
+
+        function startQuiz() {
+            document.getElementById('quiz-start').style.display = 'none';
+            document.getElementById('quiz-questions').style.display = 'block';
+            currentQuestion = 0; score = 0; showQuestion();
+        }
+
+        function showQuestion() {
+            answered = false;
+            const q = quizData[currentQuestion];
+            document.getElementById('current-q').textContent = currentQuestion + 1;
+            document.getElementById('total-q').textContent = quizData.length;
+            document.getElementById('score-display').textContent = score;
+            document.getElementById('question-text').textContent = q.question;
+            document.getElementById('progress-fill').style.width = ((currentQuestion) / quizData.length * 100) + '%';
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+            q.options.forEach((option, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn btn';
+                btn.textContent = option;
+                btn.onclick = () => selectAnswer(index, btn);
+                optionsContainer.appendChild(btn);
+            });
+            document.getElementById('feedback').style.display = 'none';
+        }
+
+        function selectAnswer(selectedIndex, btn) {
+            if (answered) return;
+            answered = true;
+            const q = quizData[currentQuestion];
+            const options = document.querySelectorAll('.option-btn');
+            options.forEach((opt, idx) => {
+                opt.disabled = true;
+                if (idx === q.correct) opt.classList.add('correct');
+                else if (idx === selectedIndex && selectedIndex !== q.correct) opt.classList.add('incorrect');
+            });
+            const feedback = document.getElementById('feedback');
+            const feedbackTitle = document.getElementById('feedback-title');
+            const feedbackExplanation = document.getElementById('feedback-explanation');
+            if (selectedIndex === q.correct) {
+                score++;
+                feedback.className = 'feedback-box correct';
+                feedbackTitle.textContent = '¡Correcto!';
+            } else {
+                feedback.className = 'feedback-box incorrect';
+                feedbackTitle.textContent = 'Incorrecto';
+            }
+            feedbackExplanation.textContent = q.explanation;
+            feedback.style.display = 'block';
+            document.getElementById('score-display').textContent = score;
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            if (currentQuestion >= quizData.length) showResults();
+            else showQuestion();
+        }
+
+        function showResults() {
+            document.getElementById('quiz-questions').style.display = 'none';
+            document.getElementById('quiz-results').style.display = 'block';
+            const percentage = Math.round((score / quizData.length) * 100);
+            document.getElementById('final-score').textContent = percentage + '%';
+            document.getElementById('correct-count').textContent = score;
+            document.getElementById('total-count').textContent = quizData.length;
+            const resultTitle = document.getElementById('result-title');
+            const resultMessage = document.getElementById('result-message');
+            if (percentage >= 90) { resultTitle.textContent = '¡Excelente!'; resultMessage.textContent = 'Dominas completamente la Matriz Maestra de Balance.'; }
+            else if (percentage >= 70) { resultTitle.textContent = '¡Muy bien!'; resultMessage.textContent = 'Tienes una buena comprensión, pero repasa algunos conceptos.'; }
+            else if (percentage >= 50) { resultTitle.textContent = 'Bien'; resultMessage.textContent = 'Has aprobado, pero te recomendamos revisar el material del Paso 1.'; }
+            else { resultTitle.textContent = 'Necesitas mejorar'; resultMessage.textContent = 'Te sugerimos estudiar nuevamente el Paso 1 antes de continuar.'; }
+        }
+
+        function restartQuiz() {
+            document.getElementById('quiz-results').style.display = 'none';
+            document.getElementById('quiz-start').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
