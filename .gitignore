@@ -1,12 +1,1 @@
-# Archivos de sistema operativo
-.DS_Store
-Thumbs.db
-desktop.ini
-
-# Carpetas de editores de código (VS Code)
-.vscode/
-.idea/
-
-# Archivos temporales
-*.tmp
-*.log
+Nothing should be ignored based on the provided file changes. The only modified file is 'procesos/paso4.html', which is a source code file and should not be added to .gitignore.
