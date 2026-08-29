@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Quiz Interactivo Paso 3: Régimen Temporal - Estado Estacionario vs. Transitorio">
+    <title>Quiz Paso 3: Régimen Temporal | Procesos Industriales</title>
+    <link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .quiz-container { max-width: 800px; margin: 50px auto; padding: 30px; background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .question-card { display: none; }
+        .question-card.active { display: block; }
+        .option-btn { width: 100%; text-align: left; margin-bottom: 10px; padding: 15px; border: 2px solid #e0e0e0; border-radius: 8px; background: white; transition: all 0.3s; }
+        .option-btn:hover { border-color: #FF6B00; background: #FFF5F0; }
+        .option-btn.correct { background: #d4edda; border-color: #28A745; color: #155724; }
+        .option-btn.incorrect { background: #f8d7da; border-color: #DC3545; color: #721c24; }
+        .feedback-box { display: none; padding: 20px; border-radius: 8px; margin-top: 20px; }
+        .feedback-box.correct { background: #d4edda; border: 2px solid #28A745; }
+        .feedback-box.incorrect { background: #f8d7da; border: 2px solid #DC3545; }
+        .progress-bar-custom { height: 10px; border-radius: 5px; background: #e0e0e0; margin-bottom: 20px; }
+        .progress-fill { height: 100%; border-radius: 5px; background: linear-gradient(90deg, #FF6B00, #FF8C00); transition: width 0.3s; }
+        .result-section { display: none; text-align: center; }
+        .score-circle { width: 150px; height: 150px; border-radius: 50%; background: linear-gradient(135deg, #FF6B00, #FF8C00); color: white; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; font-weight: bold; margin: 0 auto 30px; }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand" href="../index.html"><img src="../assets/images/logo.svg" alt="Logo" height="60" class="logo-header"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Protocolo</a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="../protocol/guia-identificacion.html">Guía Completa</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Procesos</a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="../procesos/paso0.html">Paso 0: Sistema y Frontera</a></li>
+                                <li><a class="dropdown-item" href="../procesos/paso1.html">Paso 1: Matriz Entrada-Salida</a></li>
+                                <li><a class="dropdown-item" href="../procesos/paso2.html">Paso 2: Clasificación</a></li>
+                                <li><a class="dropdown-item" href="../procesos/paso3.html">Paso 3: Régimen Temporal</a></li>
+                                <li><a class="dropdown-item" href="../procesos/paso4.html">Paso 4: Aplicación 8 Pasos</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section class="process-hero bg-gradient" style="background: linear-gradient(135deg, #1A1A1A 0%, #FF6B00 100%); color: white; padding: 60px 0;">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <div class="badge bg-warning text-dark mb-3"><i class="fas fa-question-circle"></i> QUIZ INTERACTIVO</div>
+                        <h1 class="display-5 mb-3"><i class="fas fa-hourglass-half"></i> Quiz Paso 3: Régimen Temporal</h1>
+                        <p class="lead mb-4">Evalúa tu comprensión sobre Estado Estacionario vs. Transitorio en procesos industriales</p>
+                    </div>
+                    <div class="col-lg-4 text-center d-none d-lg-block"><i class="fas fa-clock fa-8x" style="opacity: 0.3;"></i></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-5">
+            <div class="container">
+                <div class="quiz-container">
+                    <div id="quiz-start" class="text-center py-5">
+                        <i class="fas fa-brain fa-5x text-orange mb-4"></i>
+                        <h2 class="mb-3">¿Listo para el desafío?</h2>
+                        <p class="lead text-muted mb-4">Este quiz consta de <strong>10 preguntas</strong> sobre el Paso 3: Régimen Temporal.</p>
+                        <div class="alert alert-info"><i class="fas fa-info-circle"></i> Al finalizar recibirás retroalimentación inmediata y tu puntuación final.</div>
+                        <button class="btn btn-primary btn-lg px-5" onclick="startQuiz()"><i class="fas fa-play"></i> Comenzar Quiz</button>
+                    </div>
+
+                    <div id="quiz-questions" style="display: none;">
+                        <div class="progress-bar-custom"><div id="progress-fill" class="progress-fill" style="width: 0%"></div></div>
+                        <div class="d-flex justify-content-between mb-3">
+                            <span class="badge bg-primary">Pregunta <span id="current-q">1</span> de <span id="total-q">10</span></span>
+                            <span class="badge bg-success">Puntos: <span id="score-display">0</span></span>
+                        </div>
+                        <div id="question-container" class="question-card active">
+                            <h4 id="question-text" class="mb-4"></h4>
+                            <div id="options-container"></div>
+                            <div id="feedback" class="feedback-box">
+                                <h5 id="feedback-title"></h5>
+                                <p id="feedback-explanation"></p>
+                                <button id="next-btn" class="btn btn-primary" onclick="nextQuestion()">Siguiente <i class="fas fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="quiz-results" class="result-section py-5">
+                        <div class="score-circle"><span id="final-score">0%</span></div>
+                        <h2 id="result-title" class="mb-3"></h2>
+                        <p id="result-message" class="lead text-muted mb-4"></p>
+                        <div class="row justify-content-center">
+                            <div class="col-md-6">
+                                <div class="card shadow-sm">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Resumen</h5>
+                                        <p class="card-text">Respuestas correctas: <strong id="correct-count">0</strong> de <strong id="total-count">10</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <button class="btn btn-warning btn-lg me-3" onclick="restartQuiz()"><i class="fas fa-redo"></i> Intentar de Nuevo</button>
+                            <a href="../procesos/paso3.html" class="btn btn-outline-primary btn-lg"><i class="fas fa-arrow-left"></i> Volver al Paso 3</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <img src="../assets/images/logo.svg" alt="Logo" height="50" class="mb-3">
+                    <p>Ingeniería Industrial</p>
+                    <p>Docente: Juan Velasco</p>
+                    <p>Período: 2026-2</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../protocol/guia-identificacion.html">Protocolo</a></li>
+                        <li><a href="../procesos/paso3.html">Procesos</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Contacto</h5>
+                    <p><i class="fas fa-envelope"></i> juan.velasco@universidad.edu</p>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center"><p>&copy; 2026 Procesos Industriales. Todos los derechos reservados.</p></div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const quizData = [
+            { question: "En un proceso en estado estacionario, ¿cuál es el valor de la acumulación de masa y energía?", options: ["Diferente de cero", "Cero", "Positivo", "Negativo"], correct: 1, explanation: "En estado estacionario, las propiedades no cambian con el tiempo, por lo tanto la acumulación es SIEMPRE cero (dm/dt = 0, dE/dt = 0)." },
+            { question: "¿Cuál de los siguientes es un ejemplo clásico de estado transitorio?", options: ["Turbina operando a carga constante", "Intercambiador de calor en régimen permanente", "Llenado de un tanque de almacenamiento", "Tubería con flujo continuo constante"], correct: 2, explanation: "El llenado de un tanque implica que la masa (nivel) dentro del sistema aumenta con el tiempo, por lo tanto es un estado transitorio (Acumulación ≠ 0)." },
+            { question: "Durante el arranque de una caldera, la temperatura y la presión cambian con el tiempo. ¿Qué régimen temporal es?", options: ["Estado Estacionario", "Estado Transitorio", "Equilibrio Termodinámico", "Proceso Cíclico"], correct: 1, explanation: "El arranque es una fase transitoria donde las propiedades (T, P) varían hasta alcanzar el punto de operación estable." },
+            { question: "¿Qué ecuación matemática representa el estado estacionario para la masa?", options: ["dm/dt ≠ 0", "dm/dt = 0", "dm/dt = Entrada", "dm/dt = Salida"], correct: 1, explanation: "La definición matemática de estado estacionario es que la derivada de la propiedad respecto al tiempo es cero (dm/dt = 0)." },
+            { question: "Un proceso batch (por lotes) como la fermentación de cerveza, ¿en qué régimen opera?", options: ["Estado Estacionario", "Estado Transitorio", "Flujo Continuo", "Régimen Permanente"], correct: 1, explanation: "En un batch, la composición cambia continuamente (glucosa disminuye, etanol aumenta). Es un estado transitorio puro." },
+            { question: "Si un tanque tiene un flujo de entrada de 10 kg/h y un flujo de salida de 8 kg/h, ¿cuál es la tasa de acumulación?", options: ["0 kg/h", "18 kg/h", "2 kg/h", "-2 kg/h"], correct: 2, explanation: "Acumulación = Entrada - Salida = 10 - 8 = 2 kg/h. Como es positiva, la masa dentro del tanque aumenta (Transitorio)." },
+            { question: "¿Puede un proceso con flujo continuo (entra y sale materia) estar en estado transitorio?", options: ["No, el flujo continuo siempre es estacionario", "Sí, si las propiedades en un punto fijo cambian con el tiempo", "Solo si es un gas", "Solo si hay reacción química"], correct: 1, explanation: "Sí. Ejemplo: Un tanque que se está llenando tiene flujo de entrada y salida, pero el nivel cambia con el tiempo → es transitorio." },
+            { question: "En un intercambiador de calor operando normalmente 24/7, las temperaturas de entrada y salida son constantes. ¿Qué régimen es?", options: ["Transitorio", "Estacionario", "Batch", "Adiabático"], correct: 1, explanation: "Si las temperaturas (propiedades) en los puntos de entrada y salida no cambian con el tiempo, el sistema está en estado estacionario." },
+            { question: "¿Qué tipo de ecuaciones matemáticas se requieren para modelar un estado transitorio?", options: ["Ecuaciones algebraicas simples", "Ecuaciones diferenciales ordinarias (EDOs)", "Ecuaciones lineales", "Ecuaciones de estado"], correct: 1, explanation: "Al haber acumulación (dm/dt ≠ 0), se requieren ecuaciones diferenciales para modelar cómo cambian las propiedades con el tiempo." },
+            { question: "¿Qué sucede con las propiedades de un sistema en estado estacionario en un punto fijo?", options: ["Cambian cíclicamente", "Permanecen constantes en el tiempo", "Aumentan gradualmente", "Disminuyen gradualmente"], correct: 1, explanation: "La definición fundamental de estado estacionario es que todas las propiedades (T, P, composición, etc.) permanecen constantes en el tiempo en cualquier punto del sistema." }
+        ];
+
+        let currentQuestion = 0, score = 0, answered = false;
+
+        function startQuiz() {
+            document.getElementById('quiz-start').style.display = 'none';
+            document.getElementById('quiz-questions').style.display = 'block';
+            currentQuestion = 0; score = 0; showQuestion();
+        }
+
+        function showQuestion() {
+            answered = false;
+            const q = quizData[currentQuestion];
+            document.getElementById('current-q').textContent = currentQuestion + 1;
+            document.getElementById('total-q').textContent = quizData.length;
+            document.getElementById('score-display').textContent = score;
+            document.getElementById('question-text').textContent = q.question;
+            document.getElementById('progress-fill').style.width = ((currentQuestion) / quizData.length * 100) + '%';
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+            q.options.forEach((option, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn btn';
+                btn.textContent = option;
+                btn.onclick = () => selectAnswer(index, btn);
+                optionsContainer.appendChild(btn);
+            });
+            document.getElementById('feedback').style.display = 'none';
+        }
+
+        function selectAnswer(selectedIndex, btn) {
+            if (answered) return;
+            answered = true;
+            const q = quizData[currentQuestion];
+            const options = document.querySelectorAll('.option-btn');
+            options.forEach((opt, idx) => {
+                opt.disabled = true;
+                if (idx === q.correct) opt.classList.add('correct');
+                else if (idx === selectedIndex && selectedIndex !== q.correct) opt.classList.add('incorrect');
+            });
+            const feedback = document.getElementById('feedback');
+            const feedbackTitle = document.getElementById('feedback-title');
+            const feedbackExplanation = document.getElementById('feedback-explanation');
+            if (selectedIndex === q.correct) {
+                score++;
+                feedback.className = 'feedback-box correct';
+                feedbackTitle.textContent = '¡Correcto!';
+            } else {
+                feedback.className = 'feedback-box incorrect';
+                feedbackTitle.textContent = 'Incorrecto';
+            }
+            feedbackExplanation.textContent = q.explanation;
+            feedback.style.display = 'block';
+            document.getElementById('score-display').textContent = score;
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            if (currentQuestion >= quizData.length) showResults();
+            else showQuestion();
+        }
+
+        function showResults() {
+            document.getElementById('quiz-questions').style.display = 'none';
+            document.getElementById('quiz-results').style.display = 'block';
+            const percentage = Math.round((score / quizData.length) * 100);
+            document.getElementById('final-score').textContent = percentage + '%';
+            document.getElementById('correct-count').textContent = score;
+            document.getElementById('total-count').textContent = quizData.length;
+            const resultTitle = document.getElementById('result-title');
+            const resultMessage = document.getElementById('result-message');
+            if (percentage >= 90) { resultTitle.textContent = '¡Excelente!'; resultMessage.textContent = 'Dominas completamente el Régimen Temporal.'; }
+            else if (percentage >= 70) { resultTitle.textContent = '¡Muy bien!'; resultMessage.textContent = 'Tienes una buena comprensión, pero repasa algunos conceptos.'; }
+            else if (percentage >= 50) { resultTitle.textContent = 'Bien'; resultMessage.textContent = 'Has aprobado, pero te recomendamos revisar el material del Paso 3.'; }
+            else { resultTitle.textContent = 'Necesitas mejorar'; resultMessage.textContent = 'Te sugerimos estudiar nuevamente el Paso 3 antes de continuar.'; }
+        }
+
+        function restartQuiz() {
+            document.getElementById('quiz-results').style.display = 'none';
+            document.getElementById('quiz-start').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
